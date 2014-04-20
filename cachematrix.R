@@ -1,8 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
 
 makeCacheMatrix <- function(x = matrix()) {
-    # initialize the stored inverseerse value to NULL
+    # initialize the stored inverse value to NULL
     inverse <- NULL
 
     # to set the value of the matrix
@@ -12,9 +10,9 @@ makeCacheMatrix <- function(x = matrix()) {
     }
     # to get the value of the matrix
     get <- function() x
-    # to set the inverseerse
+    # to set the inverse
     setinverse <- function(inverse_) inverse <<- inverse_
-    # to get the inverseerse
+    # to get the inverse
     getinverse <- function() inverse
 
     # return a list of all the above functions
@@ -24,16 +22,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The following function calculates the inverseerse of the special 
-## "matrix" created with the above function. However, it first 
-## checks to see if the inverseerse has already been calculated. 
-## If so, it gets the inverseerse from the cache and skips the 
-## computation. Otherwise, it calculates the inverseerse of the 
-## matrix and sets the value of the inverseerse in the cache via 
-## the setinverse function.
+
 
 cacheSolve <- function(x, ...) {
-    # check if the inverseerse is already cached
+    # check if the inverse is already cached
     inverse <- x$getinverse()
     if(!is.null(inverse)) {
         message("getting cached data")
@@ -41,9 +33,9 @@ cacheSolve <- function(x, ...) {
     }
     # not cached, so we get the matrix into data
     data <- x$get()
-    # and compute the inverseerse
+    # and compute the inverse
     inverse <- solve(data, ...)
-    # then cache the inverseerse
+    # then cache the inverse
     x$setinverse(inverse)
     # and return it as well
     inverse
