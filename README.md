@@ -89,7 +89,7 @@ invertible.
 In order to complete this assignment, you must do the following:
 
 1.  Fork the project at [https://github.com/rdpeng/ProgrammingAssignment2](https://github.com/rdpeng/ProgrammingAssignment2)
-2.  Clone the GitHub repository containing the stub R files at: https://github.com/<github-username>/ProgrammingAssignment2
+2.  Clone the GitHub repository containing the stub R files at your account. eg: For a candidate with username orthodoc, this would be: [https://github.com/orthodoc/ProgrammingAssignment2](https://github.com/orthodoc/ProgrammingAssignment2)
 3.  Edit the R file contained in the git repository and place your
     solution in that file (please do not rename the file).
 4.  Commit your completed R file into YOUR git repository and push your
