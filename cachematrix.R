@@ -10,7 +10,6 @@
 ## 3.set the value of the inverse
 ## 4.get the value of the inverse
 
-
 makeCacheMatrix <- function(x = matrix()) {
 ## Throw an error if the input is not numeric
     if(!is.numeric(x)) stop("not a numeric matrix")     
