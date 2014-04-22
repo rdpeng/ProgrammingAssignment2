@@ -1,15 +1,36 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## Creates an object, with setters and getters, in the form of a list. Because of closure (and the use of the <<-),
+## it gives access to the variables from the parent environment.
+##It is meant to store a matrix and/or its inverse in memory; to be used by cachesolve(). 
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(A = matrix()) {
+                   Ainv <- NULL
+                   SetMatrix <- function(B){
+                     A <<- B
+                     Ainv <<- NULL
+                   }
+                   GetMatrix <- function() A
+                   SetInverse <- function(inverse) Ainv <<- inverse 
+                   GetInverse <- function() Ainv
+                list(SetMatrix = SetMatrix, GetMatrix = GetMatrix,SetInverse = SetInverse,GetInverse = GetInverse)   
 }
 
 
-## Write a short comment describing this function
+## Takes an object of the form given by makeCacheMatrix(), takes the inverse from memory if it exists, 
+## otherwise, it calculates it with inverse(), e.i. it assumes the matrix is invertible.
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(A, ...) {
+        Ainv <- A$GetInverse()
+        if (!is.null(Ainv)){
+          message("getting cache inverse")
+          return(Ainv)
+        }
+        
+        AMatrix <- A$GetMatrix()
+        Ainv <- solve(AMatrix,...)
+        A$SetInverse(Ainv)
+        Ainv
 }
+
