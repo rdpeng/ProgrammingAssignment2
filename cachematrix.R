@@ -5,6 +5,7 @@
 
 makeCacheMatrix <- function(x = matrix()) {
 
+## this will convert the X vector into matrix form, which will have to pass the X <- c( 1,2,3,4), nrows=2,ncol=2)
 }
 
 
@@ -12,4 +13,5 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        solve(x) # solve function will give the inverse of matrix.
 }
