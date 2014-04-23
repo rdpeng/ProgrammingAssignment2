@@ -5,6 +5,7 @@
 
 makeCacheMatrix <- function(x = matrix()) {
 
+## this will conver the X vector into matrix form, which will have to pass the X <- c( 1,2,3,4), nrows=2,ncol=2)
 }
 
 
