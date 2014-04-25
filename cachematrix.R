@@ -8,7 +8,6 @@ makeCacheMatrix <- function(x = matrix()) {
    inverse <- NULL
 
    getCachedInverse <- function() inverse
-   getMatrix <- function() matrix
    calculateInverseAndStore <-function() {
      inverse <<- solve(matrix)
      inverse
