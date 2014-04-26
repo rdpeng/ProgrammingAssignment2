@@ -12,10 +12,10 @@
 ##      The function calculate the inverse of the 'x' and store it in the cache
 ##      if it is the first time, in other case it gets the inverse from the cache 
 ##
-## Ejemple of usage:
+## Example of usage:
 ## create a new object of type "makeCaheMatrix", in the end a list of 4 elements
 ##      m <- makeCacheMatrix()
-## asign the value of the matrix that we want to cache its inverse
+## assign the value of the matrix that we want to cache its inverse
 ##      m$set(matrix(1:4,2,2))
 ## call the function cacheSolve to calculate  
 ## the inverse and send it to the cache if it is the first time or
