@@ -1,0 +1,25 @@
+## Assingment2- ESCUELA SUPERIOR POLITÉCNICA DEL EJÉRCITO
+## Student: Mayra Heredia
+## NRC: 3206
+
+## This program calculates the inverse of a matrix and stores it at x$setinv
+##in cache function
+
+cacheSolve<- function(x){
+  ## Return the inverse matrix of x
+  invm <- x$getinv()
+  ## If inverse exists
+  if (!is.null(invm)){
+    print ("Getting cached inverse matrix ")
+    return (invm)
+  }
+  ## Recall x matrix
+  recall <- x$get()
+  ## Calculate inverse
+  invm <- solve (recall)
+  ##
+  x$setinv(invm)
+  ## Release Inverse of matrix
+  invm
+  
+}
