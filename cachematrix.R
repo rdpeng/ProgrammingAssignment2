@@ -22,7 +22,7 @@ cacheSolve <- function(inpMatrix, ...) {
  
   inverseMatrix <- inpMatrix$getInverse()
   if(!is.null(inverseMatrix)) {
-    message("getting cached data")
+    message("A cached inverse matrix is available:")
     return(inverseMatrix)
   }
   tempInpMatrix <- inpMatrix$getStoredMatrix()
