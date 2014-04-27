@@ -1,0 +1,32 @@
+## Assingment2- ESCUELA SUPERIOR POLITÉCNICA DEL EJÉRCITO
+## Student: Mayra Heredia
+## NRC: 3206
+
+## makecacheMatrix is programmed to store four functions: set matrix, get matrix
+## set inverse of matrix and get inverse of matrix. It doesnt make any calculation.
+
+makeCacheMatrix<-function(x=matrix()){
+  
+  ##Inicialize with Blank matrix
+  invm<-NULL
+  
+  ## create subfunction to set matrix
+  set<-function(mati){
+    x<<-mati
+    invm<-NULL 
+  }
+  ## create subfunction to get matrix
+  get <- function() {
+    x
+  }
+  ## create subfunction to set inverse matrix  
+  setinv <- function(mati) {
+    invm <<- mati
+  }
+  ## create subfunction to get inverse matrix
+  getinv <- function() {
+    invm
+  }
+  ## make a list of subfunction
+  list(set = set, get = get, setinv = setinv, getinv = getinv)
+}
