@@ -1,15 +1,25 @@
 ## The program creates two functions to allow us to calculate and set 
 ## the value of the inverse of a matrix in the cache and get it from there 
 ## if the inverse has already been calculated (and the matrix has not changed)
-## The functions are:
-##      MakeCacheMatrix -- a function of 'x', where 'x' is a matrix.
-##      The function creates a new object, a list of 4 functions, 
+## 
+## How we can work as caching values?
+## Having variables at two levels allows us to maintain state across function invocations. 
+## This is possible because while the function environment is refreshed every time,
+## its parent environment stays constant. 
+## The key to managing variables at different levels is the double arrow assignment operator (<<-). 
+## Unlike the usual single arrow assignment (<-) that always assigns in the current environment, 
+## the double arrow operator will keep looking up the chain of parent environments until it finds a matching name
+##
+## In our code the functions developed are:
+##      makeCacheMatrix -- a function of 'x', where 'x' is a matrix.
+##      The function creates a new object, a list of 4 enclousure functions, 
 ##      to store in the cache the value of x and its inverse
-##      and get the value of the 'x' and its inverse from the cache
-##  
+##      and get the value of the 'x' and its inverse from the cache.
+##      Note that their enclosing environment is the environment created when makeCacheMatrix is run
+##
 ##      cacheSolve -- a function of 'x' where 'x' is an object returned 
 #       by makeCacheMatrix function
-##      The function calculate the inverse of the 'x' and store it in the cache
+##      The function calculates the inverse of the 'x' and store it in the cache
 ##      if it is the first time, in other case it gets the inverse from the cache 
 ##
 ## Example of usage:
@@ -25,8 +35,8 @@
 
 
 
-## 'MakeCacheMatrix' function as a function of 'x', where 'x' is a matrix
-## MakeCacheMatrix returns a list of 4 functions 
+## 'makeCacheMatrix' function as a function of 'x', where 'x' is a matrix
+## makeCacheMatrix returns a list of 4 functions 
 ## This 4 functions are: 
 ##      set -- to assign the value of the matrix to an object in an environment 
 ##      that is different from the current environment (to cache it)
@@ -55,8 +65,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If the inverse has already been calculated (and the matrix has not changed), 
 ## then the cachesolve should retrieve the inverse from the cache
 ## Note: 
-##		If 'x' is not a invertible matrix, R will return this error: "Error in solve.default(x) : Lapack routine dgesv: system is exactly singular: U[,] = 0".
-##		If 'x' is not a square matrix, R will return thir error: "Error in solve.default(x) : 'a' (r x c) must be square".
+##		If 'x' is not a invertible matrix, R will return this error: 
+##      "Error in solve.default(x) : Lapack routine dgesv: system is exactly singular: U[,] = 0".
+##		If 'x' is not a square matrix, R will return thir error: 
+##      "Error in solve.default(x) : 'a' (r x c) must be square".
 
 cacheSolve <- function(x, ...) {
     s <- x$getinv()
