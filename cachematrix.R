@@ -1,5 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This is a function able to cache the inverse of a matrix
+## in order to not repeating the calculation
+
+ ching the inverse of a matrix rather than compute it repeatedly 
 
 ## Write a short comment describing this function
 
