@@ -55,7 +55,7 @@ makeCacheMatrix <- function(y = numeric()) {
         #This is a square non-singular matrix - i.e. has an inverse
         #Note - need to apply rounding to account for rounding errors in
         #IEEE floating point implementation 
-        yInv <<- round(solve(y),3)
+        yInv <<- solve(y)
         inverted <<- TRUE
       }
   }
