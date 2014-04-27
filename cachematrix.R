@@ -2,7 +2,7 @@
 ## the value of the inverse of a matrix in the cache and get it from there 
 ## if the inverse has already been calculated (and the matrix has not changed)
 ## 
-## How we can work as caching values?
+## How can we work as caching values?
 ## Having variables at two levels allows us to maintain state across function invocations. 
 ## This is possible because while the function environment is refreshed every time,
 ## its parent environment stays constant. 
