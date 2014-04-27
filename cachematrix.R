@@ -8,8 +8,11 @@
 ## This function creates a special "matrix" object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()) {
 
+    ## Initialize s that is the Inverse of x
     s <- NULL
     set <- function(y) {
+        ## the <<- operator which can be used to assign a value to an object in an environment 
+        ## that is different from the current environment
         x <<- y
         s <<- NULL
     }
@@ -24,8 +27,11 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 cacheSolve <- function(x, ...) {
+    
+    ## x is a special matrix
     s <- x$getsolve()
-    ## Check if s is NULL
+    
+    ##  it first checks to see if the inverse has already been calculated
     if(!is.null(s)) {
         message("getting cached data")
         return(s)
