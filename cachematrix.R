@@ -9,6 +9,8 @@
 ## The key to managing variables at different levels is the double arrow assignment operator (<<-). 
 ## Unlike the usual single arrow assignment (<-) that always assigns in the current environment, 
 ## the double arrow operator will keep looking up the chain of parent environments until it finds a matching name
+## Together, a static parent environment and <<- make it possible to maintain state across function calls
+##
 ##
 ## In our code the functions developed are:
 ##      makeCacheMatrix -- a function of 'x', where 'x' is a matrix.
@@ -39,8 +41,8 @@
 ## makeCacheMatrix returns a list of 4 functions 
 ## This 4 functions are: 
 ##      set -- to assign the value of the matrix to an object in an environment 
-##      that is different from the current environment (to cache it)
-##      get -- to get the value of the matrix from the cache
+##      that is different from the current environment (to store in the cache)
+##      get -- to get the value of the matrix
 ##      setinv -- to assign the value of the matrix's inverse to an object in 
 ##      an environment that is different from the current environment (to cache it)
 ##      getinv -- to catch the value of the matrix's inverse
