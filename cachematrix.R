@@ -9,15 +9,15 @@
 ##   4)get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-##  ***start the inverse matrix***
+##***start the inverse matrix***
        inv <- NULL
-##  ***set and get functions***
+##***set and get functions***
        set <- function(y){
               x <<- y
               inv <<- NULL
        }
        get <- function() x
-##  ***inverse functions***
+##***inverse functions***
        setInverse <- function(inverse) inv <<- inverse
        getInverse <- function() inv
        list(set = set,
