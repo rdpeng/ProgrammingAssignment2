@@ -1,15 +1,29 @@
-## Put comments here that give an overall description of what your
-## functions do
+## A pair of functions that cache the inverse of a matrix, for the sake of saving time of 
+## re-calcuating the result on subsequent calls.
 
-## Write a short comment describing this function
-
+## Creates a special wrapper around given matrix, 
+## which offers a quick (cached) computation of matrix inverse
 makeCacheMatrix <- function(x = matrix()) {
+   matrix <- x
+   inverse <- NULL
 
+   getCachedInverse <- function() inverse
+   calculateInverseAndStore <-function() {
+     inverse <<- solve(matrix)
+     inverse
+   }
+   list(getCachedInverse = getCachedInverse, calculateInverseAndStore = calculateInverseAndStore)
 }
 
 
-## Write a short comment describing this function
+## Returns inverse of a wrapped matrix created with makeCacheMatrix.
+## Ensures the matrix inverse is calculated only once and cached for subsequent calls.
+cacheSolve <- function(cacheMatrix, ...) {
+  candidate <- cacheMatrix$getCachedInverse()
+  if (!is.null(candidate)) {
+    message("from cache")
+    return (candidate)
+  }
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  cacheMatrix$calculateInverseAndStore()
 }
