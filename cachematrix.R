@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
        }
        get <- function() x
 ##  ***inverse functions***
-       setInverse <- function(inverse) inv <<- inverse 
+       setInverse <- function(inverse) inv <<- inverse
        getInverse <- function() inv
        list(set = set,
             get = get,
@@ -27,8 +27,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-##  The function, "cacheSolve" calculates the inverse 
-##  matrix created by above function. Check if inverse 
+##  The function, "cacheSolve" calculates the inverse
+##  matrix created by above function. Check if inverse
 ##  has been calculated, if that's true, gets the inverse
 ##  from the cache and skips the calculations. Else,
 ##  calculates the inverse of the data and sets the value
