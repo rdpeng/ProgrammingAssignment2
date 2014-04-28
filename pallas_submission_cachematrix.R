@@ -8,7 +8,7 @@
 ##set the value of the inverse
 ##get the value of the inverse
 
-makeMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
         set <- function(y) {
                 x <<- y
@@ -27,7 +27,7 @@ makeMatrix <- function(x = matrix()) {
 ## yes - gets the mean from the cache and skips the computation. 
 ## no - it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.
 
-cacheinverse <- function(x, ...) {
+cacheSolve <- function(x, ...) {
         m <- x$getinverse()
         if(!is.null(m)) {
                 message("getting cached data")
