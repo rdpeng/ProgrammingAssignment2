@@ -1,4 +1,3 @@
-
 #  This is an example how to caching the inverse of a matrix. Below are two
 #  functions that are used to create a special object that stores a matrix
 #  and cache's its inverse.
