@@ -3,7 +3,7 @@
 #  functions that are used to create a special object that stores a matrix
 #  and cache's its inverse.
 
-##  The first function - "makeCacheMatrix" creates a list, which contain
+##  The first function - "makeCacheMatrix" creates a list, which contains
 ##  four functions. These functions do things below:
 ##   1. function "setMatrix" - set a new matrix
 ##   2. function "setInverse" - set inverse of a matrix
