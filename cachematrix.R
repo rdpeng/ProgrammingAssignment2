@@ -32,4 +32,5 @@ i<- x$getinverse ()
   i<- Solve(data, ...)
   x$setinverse(i)
   i
+  
 }
