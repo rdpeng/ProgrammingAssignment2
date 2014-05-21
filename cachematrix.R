@@ -43,10 +43,10 @@ if(FALSE){
   the if-statement checks if something already exists in the list for the given cached matrix argument
   and returns the solution
   otherwise:
-    - it gets the matrix via `get` to prepare it for caching and assigns the variable data to it.
-    - gets the inverse of the said matrix
-    - inserts it in the list capturing the setinv function within makeCacheMatrix and returns
-      the solution it just calculated
+    a) it gets the matrix via `get` to prepare it for caching and assigns the variable data to it;
+    b) gets the inverse of the said matrix;
+    c) inserts it in the list capturing the `setinv` function within makeCacheMatrix and returns
+      the solution it just calculated.
 }
 
 cacheSolve <- function(x, ...) {
