@@ -3,8 +3,7 @@
 ## 
 ##	Sample use of 'makeCacheMatrix' and 'cacheSolve':
 ##         > data_mtx <- matrix(c(10, 20, 30, 40), nrow=2, ncol=2)      # sample input numeric matrix
-##         > make_this_mtx <- makeCacheMatrix        # instantiate instance of special "matrix" object
-##         > mtx01 <- make_this_mtx(data_mtx)        # create special "matrix" 'mtx01' with 'data_mtx' as input  
+##         > mtx01 <- makeCacheMatrix(data_mtx)      # create special "matrix" 'mtx01' with 'data_mtx' as input  
 ##         > inverse_of_mtx01 <- cacheSolve(mtx01)   # calc inverse of VALUE (i.e., 'data_mtx') in object 'mtx01', 
 ##                                                   #   and get from cache if already there
 ## 
@@ -60,7 +59,7 @@ makeCacheMatrix <- function(x = matrix()) {    # 'x' is data input numeric matri
 ##                    Write a short comment describing this function
 ##
 ##  cacheSolve returns the inverse of the input invertible matrix found in the input 
-##		special "matrix" object (here named x) instantiated by function makeCacheMatrix.  cacheSolve  
+##		special "matrix" object (here named 'x') instantiated by function makeCacheMatrix.  cacheSolve  
 ##		either returns the cached inverse, or returns a freshly calculated inverse, which gets cached.
 ##		This function accesses the functions in the input object by indexing them by name 
 ##		using the '$' oprerator.  
