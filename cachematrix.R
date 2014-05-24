@@ -3,49 +3,37 @@
 ## a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = matrix()) {
     i <- NULL
+    # create functions: set, get, setinverse, getinverse
     set <- function(y) {
         x <<- y
         i <<- NULL
     }
-    get <- function() x
-    setinverse <- function(solve) i <<- solve
-    getinverse <- function() i
+    get <- function() x # on get, print x
+    setinverse <- function(solve) i <<- solve # on setinverse, set i for ref
+    getinverse <- function() i # print i
+    # put functions into list object
     list(set = set, get = get,
          setinverse = setinverse,
          getinverse = getinverse)
-#     m <- NULL
-#     set <- function(y) {
-#         x <<- y
-#         m <<- NULL
-#     }
-#     get <- function() x
-#     setmean <- function(mean) m <<- mean
-#     getmean <- function() m
-#     list(set = set, get = get,
-#          setmean = setmean,
-#          getmean = getmean)
 }
 
 ## This function calculates the inverse of 
 ## the special "matrix" created with the above function.
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+    # try to get the inverse of x
     i <- x$getinverse()
+    # if it exists, return it and exit function
     if(!is.null(i)) {
         message("getting cached data")
         return(i)
     }
+    # otherwise, take data from x and use solve function to calculate inverse
     data <- x$get()
     i <- solve(data, ...)
+    # call setinverse to cache inverse for future reference
     x$setinverse(i)
+    # return inverse
     i
-#     m <- x$getmean()
-#     if(!is.null(m)) {
-#         message("getting cached data")
-#         return(m)
-#     }
-#     data <- x$get()
-#     m <- mean(data, ...)
-#     x$setmean(m)
-#     m
 }
+x <- matrix(1:16,4,4)
