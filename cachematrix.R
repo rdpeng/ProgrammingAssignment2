@@ -5,7 +5,7 @@ if(FALSE){
   and keeps its inverse in a function-held list to be searched for later use by 
   the other function cacheSolve - which again takes the cached matrx as an argument
   which finally returns the required and stored existing inverse ;
-  otherwise it caluclates it and inserts it in the cached list.
+  otherwise it calculates it and inserts it in the cached list.
   It is assumed that the matrix declared is always invertible.
 }
 
