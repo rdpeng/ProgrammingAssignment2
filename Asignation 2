@@ -1,0 +1,39 @@
+##This code was created by Ceudiel Alexis Valero Portilla, Industrial Engineering student at National University of Colombia, e-mail:cavaleropor@unal.edu.co
+##This script allow create a special type of matrix with function makeCacheMatrix()
+##Aditionally permit calcule its inverse through cacheSolve function if necesary
+
+
+makeCacheMatrix <- function(x = matrix()) {                ##Creation of the special matrix
+inv <- NULL                                                ##Inicialization of the inverse matrix
+set <- function(y) {                                       ##This function has the matrix values
+                                                           ##if matrix changed, then its inverse is initialized again 
+
+inv <<- NULL
+}
+
+
+get <- function() x                                        ##Return the matrix
+setinv <- function(inverse) inv <<- inverse                ##set  matrix inverse
+getinv <- function() inv                                   ##Return the inverse of the matrix
+list(set = set,get = get,                                  ##List of functions
+setinv = setinv,
+getinv = getinv)
+}
+
+
+cacheSolve <- function(x) {                                ##function that calcule and return the inverse of special matrix 'x'
+inv <- x$getinv()                                          ##First get the matrix
+if(!is.null(inv)) {                                        ## if inverse has already calculated then return it
+
+message("getting cached data")
+                return(inv)
+
+}
+        data <- x$get() 
+
+inv <- solve(data)                                         ##Calculate the inverse matrix
+x$setinv(inv)                                              ##set the inverse of object x
+inv	                                                   ##return the inverse
+
+
+}
