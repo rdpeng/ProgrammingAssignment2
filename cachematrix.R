@@ -16,7 +16,7 @@ makeCacheMatrix <- function(inpMatrix=matrix()) {
 }
 
 
-## Checks whether the inverse of the input matrix is available in the cache. If yes, then it returns the inverse stored in the cache, else calculates inverse, stores it in the cache and returns the inverse.
+## Checks whether the inverse of the input matrix is available in the cache.. If yes, then it returns the inverse stored in the cache, else calculates inverse, stores it in the cache and returns the inverse.
 
 cacheSolve <- function(inpMatrix, ...) {
  
