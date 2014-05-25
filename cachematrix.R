@@ -1,7 +1,6 @@
-
-##This part of the code caches the inverse matrix 
-
 makeCacheMatrix <- function(x = matrix()) {
+  ##This part of the code caches the inverse matrix   
+  
   
   m <- NULL
   set <- function(y) {
@@ -24,6 +23,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Write a short comment describing this function
 >>>>>>> 1eee67d11ccff0184ad7ef470128795d39811b48
 
+=======
+## Put comments here that give an overall description of what your
+## functions do
+
+## Write a short comment describing this function
+
+>>>>>>> 1eee67d11ccff0184ad7ef470128795d39811b48
 =======
 ## Put comments here that give an overall description of what your
 ## functions do
