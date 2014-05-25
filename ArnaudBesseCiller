@@ -1,0 +1,49 @@
+## two functions that will calculate inverse and stock it in "cache" to improve the 
+## speed of the script
+
+
+## initialize matrix, inverse to NULL and calculate inverse before caching it
+
+makeCacheMatrix <- function(x = matrix()) {  # take a single argument
+  inverse <- NULL   # create the inverse matrix, empty
+  # if an object is called without a method
+  set <- function(y) {
+    x <<- y   # assigne the value y to x in this environment
+    inverse <<- NULL
+  }
+  get <- function() x   # get the function 
+  setinverse <- function(solve)  inverse <<- inverse # use solve the calculate the inverse # create inverse in this environment 
+  getinverse <- function()  inverse
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
+}
+
+
+## computes, caches, and returns the matrix inverse of the input 'x'
+
+cacheSolve <- function(x, ...) {
+  ## Return a matrix that is the inverse of 'x'
+  inverse <- x$getinverse() # get the inverse implemented in the first function
+  if(!is.null(inverse)) {   # check is the inverse is not empty (calculated) 
+    message("getting cached data")
+    return(inverse)     # return the inverse matrix
+  }
+  data <- x$get()  
+  inverse <- solve(data, ...)  # calculate the inverse and cache it
+  x$setinverse(inverse)   
+  inverse    # return the inverse matrix
+}
+
+
+
+amatrix = makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2))
+amatrix$get()         # Returns original matrix
+cacheSolve(amatrix)   # Computes, caches, and returns    matrix inverse
+amatrix$getinverse()  # Returns matrix inverse 
+cacheSolve(amatrix)   # Returns cached matrix inverse using previously computed matrix inverse
+
+amatrix$set(matrix(c(0,5,99,66), nrow=2, ncol=2)) # Modify existing matrix
+cacheSolve(amatrix)   # Computes, caches, and returns new matrix inverse
+amatrix$get()         # Returns matrix
+amatrix$getinverse()  # Returns matrix inverse
