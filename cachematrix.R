@@ -1,15 +1,32 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Functions makeCacheMatrix and cacheSolve work together to find the inverse of an input matrix 
+## by either retrieveing tte inverse from the cache, if avaialble, or calculating the inverse and then caching it.
 
-## Write a short comment describing this function
+## Creates a list of functions that can be used to get/set the input matrix and get/set the inverse of the input matrix.
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(inpMatrix=matrix()) {
+  inverseMatrix <- NULL
+  setStoredMatrix <- function(tempInpMatrix) {
+    storedMatrix <<- tempInpMatrix
+    inverseMatrix <<- NULL
+  }
+  getStoredMatrix <- function() storedMatrix
+  setInverse <- function(inpInverse) inverseMatrix <<- inpInverse
+  getInverse <- function() inverseMatrix
+  list(setStoredMatrix = setStoredMatrix, getStoredMatrix= getStoredMatrix, setInverse= setInverse, getInverse = getInverse) 
 }
 
 
-## Write a short comment describing this function
+## Checks whether the inverse of the input matrix is available in the cache.. If yes, then it returns the inverse stored in the cache, else calculates inverse, stores it in the cache and returns the inverse.
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(inpMatrix, ...) {
+ 
+  inverseMatrix <- inpMatrix$getInverse()
+  if(!is.null(inverseMatrix)) {
+    message("A cached inverse matrix is available:")
+    return(inverseMatrix)
+  }
+  tempInpMatrix <- inpMatrix$getStoredMatrix()
+  inpInverse <- solve(tempInpMatrix)
+  inpMatrix$setInverse(inpInverse)
+  inpInverse
 }
