@@ -12,7 +12,7 @@ v <<- NULL
 get <- function ( )x
 solve <- function (x)  v <<- inverse
 getinverse <- function ( ) v
-list (set = set. get =get
+list (set = set,  get =get
 setinverse = setinverse
 getinverse = getinverse
 }
