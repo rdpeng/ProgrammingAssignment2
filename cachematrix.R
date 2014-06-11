@@ -10,9 +10,8 @@ x <<- y
 v <<- NULL
 
 get <- function ( )x
-solve <- function (x)
-v <<- inverse
-get inverse <- function ( ) v
+solve <- function (x)  v <<- inverse
+getinverse <- function ( ) v
 list (set = set. get =get
 setinverse = setinverse
 getinverse = getinverse
@@ -32,6 +31,7 @@ return (v)
 
 data <- x$get ( )
 v <- solve(x)
+x$setinverse (v)
 v
         ## Return a matrix that is the inverse of 'x'
 }
