@@ -1,5 +1,6 @@
 ## Vincent Davis | davis.vince@gmail.com
-## This R script will implement a method to save users a computationally ## intensive function: calculating the inverse of a matrix.  This will be
+## This R script will implement a method to save users a computationally
+## intensive function: calculating the inverse of a matrix.  This will be
 ## achieved by looking for a cached version of the results prior to actually
 ## computing the inverse calculations.  The functions to do this are based
 ## on a template provided and can be adapted to use the same caching
