@@ -33,8 +33,6 @@ makeCacheMatrix <- function(x) {
              )
 }
 
-
-
 ## ----------------------------------------------------------------------
 ## cacheSolve - A function to fetch an Inverted Matrix. It performs a 
 ##              check to determine if the cache exist, if not the 
@@ -56,9 +54,8 @@ cacheSolve <- function(x, ...) {
 }
 
 
-
 ## ----------------------------------------------------------------------
-## Unit Test Code for: makeCacheMartix
+## Unit Test Code for: makeCacheMatrix
 ## ----------------------------------------------------------------------
         mcm <- makeCacheMatrix() #initialize function
         mcm$set(m) ## Set Original Matrix
