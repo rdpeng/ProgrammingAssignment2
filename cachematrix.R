@@ -1,42 +1,84 @@
-## Put comments here that give an overall description of what your
-## functions do
+## ----------------------------------------------------------------------
+## Set up sample Matrix suitable for inverting and testing functions
+##      Matrix Scale
+        nValue = 4
+##      Create a Matrix
+        m <- matrix(rnorm(nValue*nValue), nValue, nValue)
+## ----------------------------------------------------------------------
 
-## Write a short comment describing this function
+## -----------------------------------------------------------------------
+## makeCacheMatrix - A function to cache an "Inverted Matrix"
+## -----------------------------------------------------------------------
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(x) {
+        ## initialize value
+        Inverted.Matrix <- NULL
+        ## define set function 
+        set <- function(y) {
+                x <<- y
+                Inverted.Matrix <<- NULL
+        }
+        ## define get function - returns source matrix
+        get <- function() x
+        ## define set inverted Matrix function - caches 
+        ## inverted matrix result from solve function
+        setImatrix <- function(x) Inverted.Matrix <<- solve(x)
+        ## define get Inverted matrix fuction - retures cached inverted matrix
+        getImatrix <- function() Inverted.Matrix
+        
+        list(set = set, 
+             get = get,
+             setImatrix = setImatrix,
+             getImatrix = getImatrix
+             )
 }
 
 
-## Write a short comment describing this function
 
+## ----------------------------------------------------------------------
+## cacheSolve - A function to fetch an Inverted Matrix. It performs a 
+##              check to determine if the cache exist, if not the 
+##              function will invert the matrix and store it in the 
+##              the cache for later recall
+## ----------------------------------------------------------------------
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        m <- x$getImatrix()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        } 
+        
+        data <- x$get()
+        m <- solve(data, ...)
+        x$setImatrix(m)
+        m
+  
 }
 
-makeVector <- function(x = numeric()) {
-  m <- NULL
-  set <- function(y) {
-    x <<- y
-    m <<- NULL
-  }
-  get <- function() x
-  setmean <- function(mean) m <<- mean
-  getmean <- function() m
-  list(set = set, get = get,
-       setmean = setmean,
-       getmean = getmean)
-}
 
-cachemean <- function(x, ...) {
-  m <- x$getmean()
-  if(!is.null(m)) {
-    message("getting cached data")
-    return(m)
-  }
-  data <- x$get()
-  m <- mean(data, ...)
-  x$setmean(m)
-  m
-}
+
+## ----------------------------------------------------------------------
+## Unit Test Code for: makeCacheMartix
+## ----------------------------------------------------------------------
+        mcm <- makeCacheMatrix() #initialize function
+        mcm$set(m) ## Set Original Matrix
+        mcm$setImatrix(m) ## Set Source Matrix as an Inverted Matrix into Cache State
+## Get OriginalSource Matrix
+        OriginalMatrix <- mcm$get()
+        OriginalMatrix
+
+## Get Inverted Matrix from Cache State
+        CachedInvertedMatrix <- mcm$getImatrix()
+        CachedInvertedMatrix
+
+
+## Unit Test Scripts
+## Get cached matrix from cacheSolve fuction 
+        cacheSolve(mcm)
+
+
+
+## Get original matrix invformation
+        mcm$get()
+        mcm$getImatrix()
 
