@@ -5,7 +5,7 @@
 ##      Create a Matrix
         m <- matrix(rnorm(nValue*nValue), nValue, nValue)
 ## ----------------------------------------------------------------------
-## Code Check
+## Code Check - II
 ## -----------------------------------------------------------------------
 ## makeCacheMatrix - A function to cache an "Inverted Matrix"
 ## -----------------------------------------------------------------------
