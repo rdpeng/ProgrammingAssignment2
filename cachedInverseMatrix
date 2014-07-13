@@ -1,0 +1,62 @@
+## A pair of functions that calculates the inverse of matrix and returns cached value if already calculated
+##the inverse of a matrix
+
+
+## Creates a  matrix object that can cache its inverse
+makeCacheMatrix <- function( mat = matrix() ) {
+
+	## Initialize the inverse property
+    inv <- NULL
+
+    ## Method to set the matrix
+    set <- function( matrix ) {
+            mat <<- matrix
+            inv <<- NULL
+    }
+
+    ## get matrix method
+    get <- function() {
+    	mat
+    }
+
+    ## set inverse method
+    setInverse <- function(inverse) {
+        inv <<- inverse
+    }
+
+    ## get inverse matrix method
+    getInverse <- function() {
+        inv
+    }
+
+    ## Return a list of the methods
+    list(set = set, get = get,
+         setInverse = setInverse,
+         getInverse = getInverse)
+}
+
+
+## return the cached value of the inverse of the matrix if already calculated else calcuate and return new value
+calculatedCache <- function(x, ...) {
+
+    ## Return an inverse matrix of x
+    m <- x$getInverse()
+
+    ## Just return the inverse if its already calculated
+    if( !is.null(m) ) {
+            message("getting calculated cache data")
+            return(m)
+    }
+
+    ## Get the matrix from our object
+    data <- x$get()
+
+    ## Calculate the inverse using matrix multiplication
+    m <- solve(data) %*% data
+
+    ## Set the inverse to the object
+    x$setInverse(m)
+
+    ## Return the matrix
+    m
+}
