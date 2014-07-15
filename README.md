@@ -103,3 +103,21 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+### How to test your functions
+
+To illustrate the usage of your functions, please check the example code afterwards.
+Open a R shell and copy-paste your desired statements:
+
+    mymatrix = makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2))
+    mymatrix$get()         
+    cacheSolve(mymatrix)   
+    mymatrix$getinverse()  
+    cacheSolve(mymatrix)   
+
+    mymatrix$set(matrix(c(1,2,3,18,4,0,5,90,46), nrow=3, ncol=3))
+    cacheSolve(mymatrix)   
+    mymatrix$get()         
+    mymatrix$getinverse()  
+    cacheSolve(mymatrix)   
+    
