@@ -17,23 +17,13 @@
 setwd("~/GitHub/DataScienceSpecialization/ProgrammingAssignment2")
 makeCacheMatrix <- function(mx = matrix()) {
     m <- NULL
-    
-    # set function() | stores passed square matrix
     set <- function(y) {
         mx <<- y
         m <<- NULL
     }
-    
-    # get function() | retrieves stored square matrix
     get <- function() mx
-    
-    # setinv function() | cacheSolve() calls to cache the inverse
     setinv <- function(mxinv) m <<- mxinv
-    
-    # getinv function() | retrieves cached inverse matrix
     getinv <- function() m
-    
-    # create list of the above functions
     list(set = set, get = get,
          setinv = setinv,
          getinv = getinv)
@@ -47,18 +37,14 @@ makeCacheMatrix <- function(mx = matrix()) {
 # the cache via the setmean function.
 
 cacheSolve <- function(mx, ...) {
+    ## Return a matrix that is the inverse of 'x'
     m <- mx$getinv()
-    # Check to see if the inverse was cached
     if(!is.null(m)) {
         message("getting cached inverse matrix")
         return(m)
     }
-    # Get the matrix to be solved for the inverse
     data <- mx$get()
-    # (assumes the matrix passed is invertible)
     m <- solve(data, ...)
-    # Cache the inverse matrix
     mx$setinv(m)
-    # Returns a matrix that is the inverse of 'mx'
     m
 }
