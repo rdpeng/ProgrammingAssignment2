@@ -1,0 +1,11 @@
+makeCacheMatrix<- function(X = matrix()) {
+  inv <- NULL
+  Matrix <- function(Y) {
+    X <<- Y
+    inv <<- NULL
+  }
+  Mat <- function() X
+  Inversa <- function(solve) inv <<- solve
+  Inver <- function() inv
+  list(Mtatrix = Matrix, Mat = Mat, Inversa = Inversa, Inver = Inver)
+}
