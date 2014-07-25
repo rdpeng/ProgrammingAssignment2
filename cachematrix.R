@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-cacheSolve <- function(x = matrix(), ...) {
+cachemean <- function(x = matrix(), ...) {
         m <- x$getmatrixinv()
         if(!is.null(m)) {
                 message("getting cached data")
