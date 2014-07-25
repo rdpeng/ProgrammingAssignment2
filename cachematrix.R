@@ -2,7 +2,7 @@
 ##
 ## 1. First function named makeCacheMatrix is returning a list of a defined cached functions 
 ## 2. Second function named casheSolve function is returning the invers of a function. This calculation took place only at first run.
-## Every next run if function doenn't change (is the same) just gives cached result without timeconsuming calculation.
+## Every next run if function doesn't change (is the same) just gives cached result without timeconsuming calculation.
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
