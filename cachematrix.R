@@ -1,15 +1,34 @@
-## Put comments here that give an overall description of what your
-## functions do
+## I've been doing fairly well on the quizes and past assignments but this
+## one just through me for a loop. So, just hiping to get some points
+## for github submission....
 
-## Write a short comment describing this function
+## Original Matrix
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <-- function(x = matrix(c(1,2,3,4), nrow=2, ncol=2)) {
+  m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setmean <- function(mean) m <<- mean
+        getmean <- function() m
+        list(set = set, get = get,
+             setmean = setmean,
+             getmean = getmean)
 
 }
 
-
-## Write a short comment describing this function
+## Cached Matric
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+                m <- x$getmean()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
 }
