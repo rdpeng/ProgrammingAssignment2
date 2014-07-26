@@ -30,10 +30,7 @@ makeCacheMatrix<-function(x=matrix())
 
 cacheSolve <- function(x, ...) 
 {
-<<<<<<< HEAD
-=======
   #check whether cache has the right inverse matrix by multiplying with inverse matrix and checking for identity matrix
->>>>>>> b4b44edb9c000802922bfed22e8df1b0989d9061
   inv <- x$getinv()
   if(!is.null(inv) & det(inv%*%x)==1) 
   {
@@ -42,18 +39,17 @@ cacheSolve <- function(x, ...)
   }
   else
   {
-<<<<<<< HEAD
     #compute inverse if cache is outdated or empty and set it in cache
     data <- x$get()
     inv <- solve(data)
     x$setinv(inv)
     m
-=======
+
   #compute inverse if cache is outdated or empty and set it in cache
   data <- x$get()
   inv <- solve(data)
   x$setinv(inv)
   m
->>>>>>> b4b44edb9c000802922bfed22e8df1b0989d9061
+
   }
 }
