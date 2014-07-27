@@ -6,12 +6,16 @@
 
 makeCacheMatrix <- function(x = matrix()) { 
   m <- NULL ## set the initial value of m to NULL
+  ## 1. Set the Matrix
   set <- function(y) { ## saving the matrix to be used in the other environment for it to be cached later
     x <<- y ## assign the matrix to x. Matrix was defined in an external environment
     m <<- NULL ## m has to be null so it doesn't take previously stored values. This resets its values
   }
+  ## 2. Get the Matrix
   get <- function() x ## Get the matrix through get function being created here.
+  ## 3. Set the inverse of Matrix
   setInverse <- function(solve) m <<- solve ##set the Inverse of the matrix through the solve function
+  ##4. Get the inverse of the Matrix
   getmatrix <- function() m ## get the inverse of the matrix through getmatrix
   list(set = set, get = get,
        setInverse = setInverse,
