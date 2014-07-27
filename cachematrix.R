@@ -1,5 +1,5 @@
 ## Ignacio Gonzalez Castañeda
-## 2014
+## July 2014
 ## For the R Programming Course, Peer Assessments
 ## by Roger D. Peng, Brian Caffo, PhD, Jeff Leek
 
