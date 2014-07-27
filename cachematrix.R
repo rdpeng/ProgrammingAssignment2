@@ -28,7 +28,7 @@ cacheSolve <- function(x, ...) {
   m <- x$getmatrix() ## saves the matrix in m for future reference aka caches it
  ## check if m has a previously stored value of not. 
   if(!is.null(m)) {
-    message("getting cached data")
+    message("getting cached matrix")
     return(m)
   }
  ## save the matrix in data 
