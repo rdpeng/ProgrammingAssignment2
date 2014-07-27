@@ -1,18 +1,19 @@
 ##  There are two functions that have been defined below to cache computations of 
 ## a inverse of a matrix. The first function makeCacheMatrix function
 ## sets and stores the value of inverse for a matrix. The second function 
-## searches for the inverse, if computed already, else computes the inverse
+## searches for the inverse, if computed already, else computes the inverse of the matrix
 
 
 
-## This functions stores the value of the matrix and its inverse
+## This functions stores the value of the matrix and its inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()){
   # initializing the inverse variable 'inv' to NULL
   inv <- NULL
   set <- function(y){
-    # this function is used to store the value of matrix in a different environment  
+    ## this function is used to store the value of matrix in a different environment
     x <<- y
+    ## This initiates the inverse and sets it to NULL
     inv <<- NULL
   }
   
@@ -20,11 +21,11 @@ makeCacheMatrix <- function(x = matrix()){
   # this function is used to obtain the value of the matrix
   
   setinv <- function(solve) inv <<- solve
-  # the setinverse function uses the inbuilt function 'solve' to determine 
+  # the setinv function uses the inbuilt function 'solve' to determine 
   #the inverse of the matrix x
   
   getinv <- function() inv
-  # the getinverse function is used to obtain the value of the inverse function
+  # the getinv function is used to obtain the value of the inverse function
   #of the matrix
   
   list(set = set, get = get, setinv = setinv, getinv = getinv)
