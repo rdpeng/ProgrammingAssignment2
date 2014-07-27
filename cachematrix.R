@@ -1,9 +1,16 @@
 ##  There are two functions that have been defined below to cache computations of 
 ## a inverse of a matrix. The first function makeCacheMatrix function
 ## sets and stores the value of inverse for a matrix. The second function 
+<<<<<<< HEAD
 ## searches for the inverse, if computed already, else computes the inverse of 
 ## the matrix
 
+=======
+## searches for the inverse, if computed already, else computes the inverse of the matrix
+
+
+
+>>>>>>> d397463c987d8d951b43969dd0ed7fb4c3fa51c9
 ## This functions stores the value of the matrix and its inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()){
