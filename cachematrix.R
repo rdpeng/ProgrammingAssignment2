@@ -1,13 +1,13 @@
-## Here two functions makeCacheMatrix() and cacheSolve() functions are implemented.
-## makeCachematrix() takes a matrix as a argument and return a list of functions.
-## cacheSolve() takes a matrix object and calculate its inverse and if already 
+## Here two functions 'makeCacheMatrix()' and 'cacheSolve()' functions are implemented.
+## 'makeCachematrix()' takes a matrix as a argument and return a list of functions.
+## 'cacheSolve()' takes a matrix object and calculate its inverse and if already 
 ## existed in cache then simply return that.
-## Here solve() functions is used to calculate inverse, which takes square matrix
+## Here 'solve()' functions is used to calculate inverse, which takes square matrix
 ## and if it is invertible then return inverse. So, square invertible matrix is 
 ## given as a input matrix.
 
-## makeCachematrix() takes a matrix as a argument and return a list of functions 
-## named set(), get(), setinverse() and getinverse().
+## 'makeCachematrix()' takes a matrix as a argument and return a list of functions 
+## named 'set()', 'get()', 'setinverse()' and 'getinverse()'.
 
 makeCacheMatrix <- function(x = matrix()) {
     
@@ -44,7 +44,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve() takes a matrix object and calculate its inverse and if already 
+## 'cacheSolve()' takes a matrix object and calculate its inverse and if already 
 ## existed in cache then simply return that. solve() is used to calculate matrix
 ## inverse and return the inverse matrix.
 
