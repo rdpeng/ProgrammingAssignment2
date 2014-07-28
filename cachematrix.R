@@ -1,3 +1,12 @@
+## Test codes:
+## hilbert <- function(n) { i <- 1:n; 1 / outer(i - 1, i, "+") }
+## A<-hilbert(4)
+## A
+## x<-makeCacheMatrix(A)
+## x
+## y<-cacheSolve(x)
+## y
+
 ## This function creates a special "matrix" object that can cache its inverse
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
