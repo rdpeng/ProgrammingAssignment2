@@ -1,0 +1,22 @@
+## Put comments here that give an overall description of what your
+## functions do
+
+## Write a short comment describing this function
+
+## free variable
+x<-matrix (c(1,1,4,0,3,1,4,4,0),3,3)            ## Can  change the value as  required.
+
+makeCacheMatrix <- function(x = matrix()) { 
+
+  if(det(x)!= 0)                     ## Inverse Matrices are possible if only Determinant of matrix is not equel to 0 
+      {
+    catchsolve<- solve(x)         # catching the  inverse matrix
+    print(catchsolve)                # printing it  
+  }
+  else { P<-"No inverse of this matrix as determinant =0"
+        print(P)
+   }
+  }
+    
+####
+# pass the value of matrix in function makeCacheMatrix()
