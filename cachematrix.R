@@ -21,5 +21,14 @@ m <- NULL
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
+ m <- x$getmean()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
         ## Return a matrix that is the inverse of 'x'
 }
