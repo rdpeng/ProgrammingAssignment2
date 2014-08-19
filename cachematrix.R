@@ -10,19 +10,23 @@
 #'
 NULL
 
-#' Create a vector class that contains caching for matrix inverses
+#' This function creates a special "matrix" object that can cache its inverse.
 #'
 #' @param x A matrix that will have its inverse calculated
+#' @return An instance with setters and getters for matrix inverse property
 makeCacheMatrix <- function(x = matrix()) {
 
 }
 
 
-#' Pull a file down from the interwebs if it hasn't been already
+#' This function computes the inverse of the special
+#' "matrix" returned by `makeCacheMatrix`. If the inverse has
+#' already been calculated (and the matrix has not changed), then
+#' `cacheSolve` should retrieve the inverse from the cache.
 #'
-#' @param url Path to the source data
-#' @param destfil Relative or absolute system path to where the data
-#'                is to be saved
+#' @param x An instance of the makeCacheMatrix
+#' @param ... Optional additional parameters for `solve(x, ...)`
+#' @return The inverse of `x` either from calculated or cached
 cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
+
 }
