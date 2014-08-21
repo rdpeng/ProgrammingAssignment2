@@ -51,10 +51,10 @@ cacheSolve <- function(x, ...){
   }
   
   #Retrieving matrix data
-  data <- x()$get
+  data <- x()$get()
   
   #Calculating inverse of the matrix
-  im <- solve(y, ...)
+  im <- solve(data, ...)
   
   #Caching the calculated inverse of the matrix
   x()$setinverse(im)
