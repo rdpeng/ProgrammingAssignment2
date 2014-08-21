@@ -59,7 +59,7 @@ cacheSolve <- function(x, ...){
   #Caching the calculated inverse of the matrix
   x()$setinverse(im)
   
-  #Prints the inverse of the matrix
+  #Prints inverse of the matrix
   im  
 }
 
