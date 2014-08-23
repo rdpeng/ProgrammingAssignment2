@@ -32,21 +32,21 @@
 
 makeCacheMatrix <- function(x = matrix()) {
 
-	mtx <<- NULL									## NULL matrix cache
-	mtxInverted <<- NULL							## NULL inverted cache
+	mtx <<- NULL                                    ## NULL matrix cache
+	mtxInverted <<- NULL                            ## NULL inverted cache
 
-	set <- function(x) {							## load matrix to cache function
+	set <- function(x) {                            ## load matrix to cache function
 			mtx <<- x
 			mtxInverted <<- NULL
 			}
 
-	get <- function() mtx							## get matrix from cache function
+	get <- function() mtx                           ## get matrix from cache function
 
 	setInverse <- function(inverse) mtxInverted <<- inverse	## load inverse matrix to cache function
 
-	getInverse <- function() mtxInverted			## get inverse matrix from cache function
+	getInverse <- function() mtxInverted            ## get inverse matrix from cache function
 	
-	mFuncs<<-list (set = set, get = get, 			## load the function into a vector
+	mFuncs<<-list (set = set, get = get,            ## load the function into a vector
 			setInverse = setInverse, 
 			getInverse = getInverse)
 
@@ -61,28 +61,28 @@ makeCacheMatrix <- function(x = matrix()) {
 ##
 #############################################################################################
 
-cacheSolve <- function() {					        ## Return a matrix that is the inverse of what matrix passed
+cacheSolve <- function() {                          ## Return a matrix that is the inverse of what matrix passed
 
-	 	m <- mFuncs[['getInverse']]()				## get the inverse matrix from cache
+	 	m <- mFuncs[['getInverse']]()               ## get the inverse matrix from cache
 
-      	if(!is.null(m)) {							## if data already in cached inverse matrix return it
-                message("getting cached data")		## (inverse matrix is only null if the non-inverted matrix is loaded)
-                return(m)							## (or if it hasn't been loaded at all)
+      	if(!is.null(m)) {                           ## if data already in cached inverse matrix return it
+                message("getting cached data")      ## (inverse matrix is only null if the non-inverted matrix is loaded)
+                return(m)                           ## (or if it hasn't been loaded at all)
         }
 
-		data <- mFuncs[['get']]()					## Get matrix data previously cached
+		data <- mFuncs[['get']]()                   ## Get matrix data previously cached
 
-        if(is.null(data)) {							## if Matrix not cached then display error 
+        if(is.null(data)) {                         ## if Matrix not cached then display error 
                 message("ERROR: No cached matrix data found to invert. Use cacheMatrix function to load matrix to cache prior to using this function.")
 				message("Returning NULL")
                 return(data)
         }
 
-        m <- solve(data)							## compute inverse of matrix
+        m <- solve(data)                            ## compute inverse of matrix
 
-        mFuncs[['setInverse']](m)					## load the invese matrix into the inverse matrix cache
+        mFuncs[['setInverse']](m)                   ## load the invese matrix into the inverse matrix cache
 
-        m											## display the inverse matrix										
+        m                                           ## display the inverse matrix										
 
 }
 
@@ -95,12 +95,12 @@ cacheSolve <- function() {					        ## Return a matrix that is the inverse of
 ##
 #############################################################################################
 
-nullSolve <- function() {							## NULL the cached inverse matrix
+nullSolve <- function() {                           ## NULL the cached inverse matrix
 	
-	    mFuncs[['setInverse']](NULL)				## set cache inverse matrix to NULL
-		m <- mFuncs[['getInverse']]()				## get the inverse matrix from cache
+	    mFuncs[['setInverse']](NULL)                ## set cache inverse matrix to NULL
+		m <- mFuncs[['getInverse']]()               ## get the inverse matrix from cache
 
-        m											## display what was returned from cache
+        m                                           ## display what was returned from cache
 
 }
 
@@ -117,23 +117,23 @@ nullSolve <- function() {							## NULL the cached inverse matrix
 
 cacheMatrix <- function(z=NULL) {
 
-	 	m <- mFuncs[['get']]()						## get the cache matrixb
+	 	m <- mFuncs[['get']]()                      ## get the cache matrixb
 
-		if(is.null(z)) {							## if noting passed 
-			if(!is.null(m)) {						## if data already in matrix, return it
+		if(is.null(z)) {                            ## if noting passed 
+			if(!is.null(m)) {                       ## if data already in matrix, return it
 				message("getting cached data.")
 				return(m)
         		}
-			else {									## if NULL returned display a message
+			else {                                  ## if NULL returned display a message
 				message("Warning: Cache matrix is NULL.")
 				return (m)
 				}
 			}
 
-		mFuncs[['set']](z)							## load matrix to cache matrix 
-		m <- mFuncs[['get']]()						## retrieve what was just cached
+		mFuncs[['set']](z)                          ## load matrix to cache matrix 
+		m <- mFuncs[['get']]()                      ## retrieve what was just cached
 
-        m											## display what was returned from cache
+        m                                           ## display what was returned from cache
 
 }
 
@@ -147,13 +147,13 @@ cacheMatrix <- function(z=NULL) {
 ##
 #############################################################################################
 
-nullMatrix <- function() {							## NULL the cached matrix
+nullMatrix <- function() {                          ## NULL the cached matrix
 
-        mFuncs[['set']](NULL)						## set cache matrix to null
+        mFuncs[['set']](NULL)                       ## set cache matrix to null
 
-		m <- mFuncs[['get']]()						## retrieve what was just cached
+		m <- mFuncs[['get']]()                      ## retrieve what was just cached
 
-        m											## display what was returned from cache
+        m                                           ## display what was returned from cache
 			
 }
 
