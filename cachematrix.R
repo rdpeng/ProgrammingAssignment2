@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## The MakeCacheMatrix function contains a list of fuctions to set and get the matrix and the mean.
+## The MakeCacheMatrix function contains a special matrix object that can cache the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -27,7 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If not it calculates it
 
 cacheSolve <- function(x, ...) {
-                                
+  ## Return a matrix that is the inverse of 'x'                                
   m <- x$getinverse()           
   if(!is.null(m)) {             
     
