@@ -8,7 +8,11 @@
 #
 # If this file is run, it will create a cached matrix and then run
 # `cacheSolve` on it three times. This will show the inverse and
-# display a message when the cached inverse is used.
+# display a message when the cached inverse is used. This can be done with:
+#
+# ```bash
+# R --vanilla --slave < cacheMatrix.R
+# ```
 #
 
 ## Cached Matrix Builder
