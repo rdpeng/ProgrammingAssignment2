@@ -1,9 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
+## 
 ## Coursera RPG07 course - jaimolto@gmail.com - Peer Assessments/Programming Assignment 2: Lexical Scoping
 
-## Write a short comment describing this function
-##Given a matrix "x", fucntion will create a metastructure of the matrix, as a list, with three elements, each of them a function
+## 
+## Given a matrix "x", function will create a metastructure of the matrix, as a list, with three elements, each of them a function
 ## 
 ## function get - Function to retrieve the original Matrix
 ## function setinv - Function to set up the inverse matrix in a global variable "cachedinv"
@@ -24,7 +23,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-## Write a short comment describing this function
+## CacheSolve function: Given a metamatrix "x" created with previous function "makeCacheMatrix", 
+## function will return de inverse of original matrix
+## by looking first in the cached inverse (inverse calculation were already done, thus fast proccessing) 
+## or by calculating the inverse with "solve", if it is the first time calculation
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
