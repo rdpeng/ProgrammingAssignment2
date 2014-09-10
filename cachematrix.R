@@ -1,7 +1,8 @@
 ## Coursera R Language course: Programming Assignment 2
 ## functions to compute, cache, fetch the inverse of a matrix
 
-## makeCacheMatrix does the checking if a value already exists. If so, returns the answer. If not, computes it
+## makeCacheMatrix creates an object with functions to set, get, setinverse and getinverse.
+## The object is used by cacheSolve
 
 makeCacheMatrix <- function(x = matrix()) {
 	   if(!squarematrix(x)){
@@ -22,29 +23,29 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Computes the inverse of a matrix x. Used by makeCacheMatrix
+## Computes the inverse of a matrix x. Uses object created by makeCacheMatrix
 
 cacheSolve <- function(x) {
         ## Return a matrix that is the inverse of 'x'
         m<- x$getinverse()
-        if (!is.null(m)) {
+        if (!is.null(m)) {  ## already exists so return cached answer
         	message("getting cached data")
         	return(m)
         }
-        data <-x$get()
-        m<-solve(data)
-        x$setinverse(m)
+        data <-x$get()  
+        m<-solve(data)  ## call builtin function to solve data
+        x$setinverse(m) ## save the answer for possible use later
         m
 }
 
-##checks if argument is a square numeric matrix
+## helper function that checks if argument is a square numeric matrix
 
 squarematrix <- function(x) { 
 	    if (!is.numeric(x)) return(FALSE)
 	    
 	    if (!is.matrix(x))   return(FALSE)
 	    
-	    d<-dim(x)
+	    d<-dim(x)     ## check if square matrix
 	    if (length(d)!=2) return(FALSE)
 	    	
 	    if(d[1]!=d[2])  return(FALSE)
