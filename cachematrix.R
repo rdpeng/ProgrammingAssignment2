@@ -5,79 +5,98 @@
 ## The object is used by cacheSolve
 
 makeCacheMatrix <- function(x = matrix()) {
-	   if(!squarematrix(x)){
-	   	  message("argument not square numeric matrix")
-	   	  return(NULL)
-	   }
-		m<-NULL
-		set <-function(y){
-			x<<-y
-			m<<-NULL
-		}
-		get <-function()x
-		setinverse<-function(inv) m<<-inv
-		getinverse<-function() m
-		list(set = set, get=get, 
-			 setinverse=setinverse,
-			 getinverse=getinverse)
+ 
+m<-NULL
+set <-function(y){
+x<<-y
+m<<-NULL
+}
+get <-function()x
+setinverse<-function(inv) m<<-inv
+getinverse<-function() m
+list(set = set, get=get, 
+setinverse=setinverse,
+getinverse=getinverse)
 }
 
 
-## Computes the inverse of a matrix x. Uses object created by makeCacheMatrix
+## Computes the inverse of a matrix x. Uses object created by makeCacheMatrix. Funciton calls
+## squarematrix to check if original data was good
 
 cacheSolve <- function(x) {
-        ## Return a matrix that is the inverse of 'x'
-        m<- x$getinverse()
-        if (!is.null(m)) {  ## already exists so return cached answer
-        	message("getting cached data")
-        	return(m)
-        }
-        data <-x$get()  
-        m<-solve(data)  ## call builtin function to solve data
-        x$setinverse(m) ## save the answer for possible use later
-        m
+        ## Return a matrix that is the inverse of 'x'
+        m<- x$getinverse()
+        if (!is.null(m)) {  ## already exists so return cached answer
+        message("getting cached data")
+        return(m)
+        }
+        data <-x$get()  
+         if(!squarematrix(data)){
+  
+ message("original argument not square numeric matrix ")
+  
+ return(NULL)
+  }
+        m<-solve(data)  ## call builtin function to solve data
+        x$setinverse(m) ## save the answer for possible use later
+        m
 }
 
-## helper function that checks if argument is a square numeric matrix
+## helper function that checks if argument is a square numeric 2-dimensional matrix
 
-squarematrix <- function(x) { 
-	    if (!is.numeric(x)) return(FALSE)
-	    
-	    if (!is.matrix(x))   return(FALSE)
-	    
-	    d<-dim(x)     ## check if square matrix
-	    if (length(d)!=2) return(FALSE)
-	    	
-	    if(d[1]!=d[2])  return(FALSE)
-	    
-	    return(TRUE)
-	    		
+squarematrix <- function(x) { 
+   if (!is.numeric(x)) {
+message("input not numeric")
+return(FALSE)
+}
+
+   
+   if (!is.matrix(x)) {
+message("input not a matrix")  
+return(FALSE)
+   
+}
+   d<-dim(x)     ## check if square matrix
+   if (length(d)!=2) {
+message("input not 2-dimensional matrix")
+return(FALSE)
+   
+}
+   if(d[1]!=d[2]) {
+message("input not square matrix") 
+return(FALSE)
+   
+}
+   return(TRUE)
+   
 }
 
 ## models for doing the mean
 
 makeVector <- function(x = numeric()) {
-        m <- NULL
-        set <- function(y) {
-                x <<- y
-                m <<- NULL
-        }
-        get <- function() x
-        setmean <- function(mean) m <<- mean
-        getmean <- function() m
-        list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setmean <- function(mean) m <<- mean
+        getmean <- function() m
+        list(set = set, get = get,
+             setmean = setmean,
+             getmean = getmean)
 }
 
 cachemean <- function(x, ...) {
-        m <- x$getmean()
-        if(!is.null(m)) {
-                message("getting cached data")
-                return(m)
-        }
-        data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
-        m
+        m <- x$getmean()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
 }
+
+
