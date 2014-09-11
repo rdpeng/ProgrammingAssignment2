@@ -1,0 +1,174 @@
+v <- c(2,4,5)
+v
+w <-c(10,20,40)
+v+w
+demo()
+help()
+dir()
+getwd()
+heisenberg <- read.csv(file="simple.csv",head=TRUE,sep=",")
+heisenberg
+heisenberg <- read.csv(file="simple,csv",head=TRUE,sep=",")
+he2 <- read.csv(file="simple2.csv",head=TRUE,sep=",")
+he2
+he2$trial
+he2$mass
+he2$velocity
+names(he2)
+names(heisenberg)
+tree <-read.csv(file="trees91.csv",header=TRUE,sep=",")
+tree
+tree <- read.csv(file="trees91.csv",head=TRUE,sep=",")
+tree
+attributes(tree)
+names(tree)
+tree$C
+cdata <-tree$c
+ndata <-tree$n
+ndata
+cdata <-tree$C
+cdata
+ndata <-tree$N
+ndata
+ctimesn <-cdata * ndata
+ctimesn
+help
+x <- rnorm(10,sd=5,mean=20)
+x
+y <-2.5*x-1.0 + rnorm(10,sd=9,mean=0)
+y
+cor(x,y)
+plot(x,y,xlab="Independentish",ylab="Dependent",main="Random stuff")
+x1 <- runif(8,15,25)
+x1
+y1 <- 2.5*x1-1.0+runif(8,-6,6)
+y1
+points(x1,y1,col=2)
+help(pch)
+points(x1,y1,col=2,pch=23)
+cube <- function (x,n) {x^3}
+cube(3)
+x<-1:10
+x
+if (x>5) {x<-0}
+getwd()
+getwd()
+source("quiz2.R")
+f
+z<-10
+f(3)
+g(3)
+x <- 5#
+y <- if(x < 3) {#
+        NA#
+} else {#
+        10#
+}
+y
+?solve
+getwd()
+identitymatrix<-matrix(c(1,0,0,0,1,0,0,0,1),3)
+identitymatrix
+times3matrix<3*identitymatrix
+times3matrix<-3*identitymatrix
+times3matrix
+x <-solve(times3matrix)
+x
+x*times3matrix
+source("cacheSolve.R")
+dir()
+source("ProgrammingAssignment2/cacheSolve.R")
+getwd()
+source("cacheSolve.R")
+dir()
+source("cachematrix.R")
+myvect<-c(1:10)
+makeVector(myvect)
+makeVector$get()
+makeVector$set(myvect)
+?makeVector
+??makeVector
+special<-makeVector(myvect)
+special#get()
+special
+special$getmean()
+special$set(mean(myvect))
+special$get()
+cachemean(myvect)
+cachemean(special)
+times3special<-makeCacheMatrix(times3matrix)
+times3special
+cacheSolve(times3special)
+cacheSolve(times3special)
+divideby3matrix <-cacheSolve(times3special)
+divby3spec<-makeCacheMatrix(divideby3matrix)
+ans<-cacheSolve(divby3spec)
+ans
+ans<-cacheSolve(divby3spec)
+ans
+rm(ans)
+ans
+ans<-cacheSolve(divby3spec)
+ans
+dim(ans)
+d<-dim(ans)
+sp<-makeCacheMatric(3)
+sp<-makeCacheMatrix(3)
+sp
+source("cacheMatrix.R")
+sp<-makeCacheMatrix(3)
+class(identitymatrix)
+length(3)
+source("cacheSolve.R")
+source("cachematrix.R")
+sp<-makeCacheMatrix(3)
+a<3
+a<-3
+is.matrix(a)
+is.matrix(identifymatrix)
+ls()
+is.matrix(times3matrix)
+source("cachematrix.R")
+sp<-makeCacheMatrix(a)
+sp<makeCacheMatrix(times3matrix)
+sp
+source("cachematrix.R")
+sp<makeCacheMatrix(times3matrix)
+times3matrix
+sp<-makeCacheMatrix(times3matrix)
+makeCacheMatrix
+source("cachematrix.R")
+?paste
+?message
+times4matrix <-4*identitymatrix
+times4matrix
+sp4<-makeCacheMatrix(times4matrix)
+sp4
+a14<-cacheSolve(sp4)
+a14
+source("cachematrix.R")
+is.numeric(a)
+is.numeric(times4matrix)
+is.number("a")
+is.numeric("a")
+source("cachematrix.R")
+source("cachematrix.R")
+squarematrix(times4matrix)
+squarematrix(a)
+squarematrix("a")
+rectm<-matrix(c(1:20,nrow=4))
+rectm
+rectm<-matrix(c(1:20,4,5))
+rectm
+?matrix
+rectm<-matrix(c(1:20),nrow=4,ncol=5)
+rectm
+squarematrix(rectm)
+source("cachematrix.R")
+sp<-makeCacheMatrix("a")
+sp<-makeCacheMatrix(1)
+sp<-makeCacheMatrix(rectm)
+sp<-makeCacheMatrix(times3matrix)
+sp$getinverse()
+sp
+cacheSolve(sp)
