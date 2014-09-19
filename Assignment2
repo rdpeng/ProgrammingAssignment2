@@ -1,0 +1,38 @@
+> makematrix <- function(x = matrix()) {
++     inv <- NULL
++     set <- function(y) {
++         x <<- y
++         inv <<- NULL
++     }
++     get <- function() x
++     setinverse <- function(inverse) inv <<- inverse
++     getinverse <- function() inv
++     list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
++ }
+> cachesolve <- function(x, ...) {
++     inv <- x$getinverse()
++     if(!is.null(inv)) {
++         message("getting cached data.")
++         return(inv)
++     }
++     data <- x$get()
++     inv <- solve(data)
++     x$setinverse(inv)
++     inv
++ }
+>  x = rbind(c(2, -1/8), c(-1/8, 2))
+> m = makematrix(x)
+> m$get()
+       [,1]   [,2]
+[1,]  2.000 -0.125
+[2,] -0.125  2.000
+> cachesolve(m)
+           [,1]       [,2]
+[1,] 0.50196078 0.03137255
+[2,] 0.03137255 0.50196078
+> cachesolve(m)
+getting cached data.
+           [,1]       [,2]
+[1,] 0.50196078 0.03137255
+[2,] 0.03137255 0.50196078
+> 
