@@ -1,5 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
 
 ##This function is built so that, once the inverse of a matrix is calculated, that value is stored to
 ##minimise on calculation time on future calls.
