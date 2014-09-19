@@ -1,7 +1,9 @@
-makeMatrix <- function(x = numeric()) { # defines the funktion "makematrix" with the numeric argument x 
+## creates the vector x as a list of functions
+
+makeCacheMatrix  <- function(x = numeric()) { # defines the funktion "makeCacheMatrix " with the numeric argument x 
         m <- NULL # initializes the variable m
-        set <- function(y) {  # defines the funktion "set" with the argument y. Set is a subfunktion of "makematrix"
-                x <<- y # associates the argument y of the function "set" with the argument x of the funktion "makematrix" in the parent environment
+        set <- function(y) {  # defines the funktion "set" with the argument y. Set is a subfunktion of "makeCacheMatrix "
+                x <<- y # associates the argument y of the function "set" with the argument x of the funktion "makeCacheMatrix " in the parent environment
                 m <<- NULL # initializes the variable m in the parent environment
         }
         get <- function() x # defines the function "get" without arguments. x is returned as matrix
@@ -12,7 +14,10 @@ makeMatrix <- function(x = numeric()) { # defines the funktion "makematrix" with
              getinverse = getinverse)# generates the special vector x, i.e. a list of functions
 }
 
-cacheinverse <- function(x, ...) { # defines the function "cacheinverse" with the argument x and ...  as placeholder for additional arguments
+
+## calculates inverse of matrix if it is not stored in cache
+
+cacheSolve <- function(x, ...) { # defines the function "cacheSolve" with the argument x and ...  as placeholder for additional arguments
         m <- x$getinverse() # the function "getinverse", being a part of the vector x, is written into the object m
         if(!is.null(m)) { # if m (the cache for the inverse matrix) is not empty, m and the message are returned
                 message("getting cached data")
