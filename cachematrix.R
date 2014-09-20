@@ -66,7 +66,7 @@ cacheSolve <- function(x, ...) {
 	## matrix multiplication to remove errors from machine number calculations.
 	if (!anyNA(X1) && dim(X1)[1] == xdim && 
 		identical(round(X1 %*% data, 4), diag(xdim))) {
-		message("Returning the cached inverse matrix:")
+		message("Returning the cached inverse matrix.")
 		return(X1)
 	}
 
