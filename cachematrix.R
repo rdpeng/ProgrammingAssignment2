@@ -7,41 +7,41 @@
 ## 3. set: resets the data matrix to its input/argument matrix
 ## 4. getinv: returns the inverse matrix if cached, otherwise a NA matrix
 ## 5. setinv: caches/sets inverse matrix as the matrix given by its argument
-makeCacheMatrix <- function(X = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
 
-	## 'checkdim' function checks if X is a square matrix. if not 
+	## 'checkdim' function checks if x is a square matrix. if not 
 	## it trims extra rows or columns and returns a square matrix
 	checkdim <- function() {
-		dims<-dim(X)	# get dimensions of the input matrix
+		dims<-dim(x)	# get dimensions of the input matrix
 		if (dims[1] != dims[2]) {
 			message("Warning: the given matrix is not square,")
 			xdim <- min(dims[1], dims[2])	# get the smallest dimension 
 			message("turning to a square ", xdim, "x", xdim, " matrix...")
-			X <<- X[1:xdim, 1:xdim]
+			x <<- x[1:xdim, 1:xdim]
 		} else { 
 			xdim <- dims[1] 
 		}
 		xdim	# returns the dimension of the square matrix
 	}
 
-	## create an empty square matrix where to store the inverse of X
+	## create an empty square matrix where to store the inverse of x
 	xdim <- checkdim()
 	invX <- matrix(nrow=xdim, ncol=xdim) 
 
-	## 'get' function returns the current data (matrix X)
-	get <- function() X
+	## 'get' function returns the current data (matrix x)
+	get <- function() x
 
-	## 'set' function resets (values of) the matrix X
+	## 'set' function resets (values of) the matrix x
 	set <- function (Y) {
-		X <<- Y
+		x <<- Y
 		xdim <- checkdim()
 		invX <- matrix(nrow=xdim, ncol=xdim)
 	}
 
-	## 'getinv' function returns the inverse matrix of X (if computed)
+	## 'getinv' function returns the inverse matrix of x (if computed)
 	getinv <- function() invX
 
-	## 'setinv' function stores the computed inverse of X to invX
+	## 'setinv' function stores the computed inverse of x to invX
 	setinv <- function(X1) invX <<- X1
 
 	list(checkdim = checkdim, get = get, set = set,
@@ -53,20 +53,20 @@ makeCacheMatrix <- function(X = matrix()) {
 ## its argument (the list created by the function above). It first checks if
 ## inverse is already cashed and returns that value, otherwise computes 
 ## the inverse and sends it for caching.
-cacheSolve <- function(X, ...) {
-	X1 <- X$getinv()	# get the current (cached or empty) inverse matrix
-	xdim <- X$checkdim()	# get dimension of squared X matrix
-	## trim X to squared matrix and assign to data
-	data <-X$get()[1:xdim, 1:xdim]
+cacheSolve <- function(x, ...) {
+	X1 <- x$getinv()	# get the current (cached or empty) inverse matrix
+	xdim <- x$checkdim()	# get dimension of squared x matrix
+	## trim x to squared matrix and assign to data
+	data <-x$get()[1:xdim, 1:xdim]
 
 	## Return chached matrix X1 if it is not empty (not any NA value in X1) 
 	## and data matrix has not changed after the computation of the inverse X1.
 	## 2nd condition is true if X1 * data = identity matrix, diag(xdim).
-	## First check that X1 dimension is the same with (X) xdim, then round up 
+	## First check that X1 dimension is the same with (x) xdim, then round up 
 	## matrix multiplication to remove errors from machine number calculations.
 	if (!anyNA(X1) && dim(X1)[1] == xdim && 
 		identical(round(X1 %*% data, 4), diag(xdim))) {
-		message("returning the cached inverse matrix:")
+		message("Returning the cached inverse matrix:")
 		return(X1)
 	}
 
@@ -74,10 +74,9 @@ cacheSolve <- function(X, ...) {
 	## be computed, find inverse matrix with solve and put it in cache.
 	if (det(data) != 0) {
 		X1 <- solve(data, ...)
-		X$cacheinv(X1)
+		x$cacheinv(X1)
 		return(X1)
 	} else {	# matrix determinant is 0 
 		message("Matrix determinant is 0, cannot compute the inverse.")
-		return
 	}
 }
