@@ -1,15 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix<-function(range,nrow)##enter range of values and no of rows
+{
+mat<-matrix(range,nrow,byrow=TRUE)
+matrix<-mat
+print("matrix")
+print(matrix)##printing original matrix
+inversematrix<-solve(matrix)
+#return(matrix)
+print("Inverse of Matrix")
+return(inversematrix)##printing inverse of matrix
 }
+makeCacheMatrix(1:4,2)
 
-
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
