@@ -37,9 +37,9 @@ cacheSolve<-function(x,...){
         return(i)
         }
         
-        #
+        #calculate the inverse of matrix x, save it to the cache and return its value
         data<-x$get()
-  i<-solve(data,...)
-  x$setinverse(i)  ## Return a matrix that is the inverse of 'x'
-  i
+        i<-solve(data,...)
+        x$setinverse(i)  ## Return a matrix that is the inverse of 'x'
+        i
 }
