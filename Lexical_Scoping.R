@@ -1,4 +1,7 @@
 
+
+# Lexical Scoping - Programming Assignment 2
+
  makeCacheMatrix <- function(mat = matrix()) 
   {
   
