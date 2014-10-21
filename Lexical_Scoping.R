@@ -46,7 +46,7 @@ cacheSolve <- function(mat, ...)
   #checks and returns the cached data if it's not NULL value
   if(!is.null(inv_matrix)) 
     {
-      message("getting cached data")
+      message("Getting cached data ....")
       return(inv_matrix)
     }
   
