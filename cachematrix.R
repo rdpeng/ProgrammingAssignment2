@@ -1,34 +1,33 @@
-## I've been doing fairly well on the quizes and past assignments but this
-## one just through me for a loop. So, just hiping to get some points
-## for github submission....
-
+##This function creates a special "matrix" object that can cache its inverse.
 ## Original Matrix
 
-makeCacheMatrix <-- function(x = matrix(c(1,2,3,4), nrow=2, ncol=2)) {
-  m <- NULL
-        set <- function(y) {
-                x <<- y
-                m <<- NULL
-        }
-        get <- function() x
-        setmean <- function(mean) m <<- mean
-        getmean <- function() m
-        list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
-
+makeCacheMatrix <- function(x = matrix()) {
+  m<-NULL
+  set<-function(y){
+  x<<-y
+  m<<-NULL
+}
+get<-function() x
+setmatrix<-function(solve) m<<- solve
+getmatrix<-function() m
+list(set=set, get=get,
+   setmatrix=setmatrix,
+   getmatrix=getmatrix)
 }
 
+##This function computes the inverse of the special "matrix" returned by  makeCacheMatrix  above. 
+##If the inverse has already been calculated (and the matrix has not changed), 
+##then cacheSolve  should retrieve the inverse from the cache.
 ## Cached Matric
 
-cacheSolve <- function(x, ...) {
-                m <- x$getmean()
-        if(!is.null(m)) {
-                message("getting cached data")
-                return(m)
-        }
-        data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
-        m
+cacheSolve <- function(x=matrix(), ...) {
+    m<-x$getmatrix()
+    if(!is.null(m)){
+      message("getting cached data")
+      return(m)
+    }
+    matrix <- x$get() 
+    m<-solve(matrix, ...)
+    x$setmatrix(m)
+    m
 }
