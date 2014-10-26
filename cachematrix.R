@@ -33,5 +33,5 @@ cacheSolve <- function(x=matrix(), ...) {
      m <- solve(matrix, ...)
      x$setmatrix(m)
      m
-     ## finds inverse of matrix if it is not found to already be cached
+     ## finds inverse of matrix if it is not found to already be cached (e.g., not already solved)
 }
