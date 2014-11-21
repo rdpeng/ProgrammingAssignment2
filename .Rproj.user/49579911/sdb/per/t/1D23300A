@@ -1,0 +1,16 @@
+{
+    "contents" : "##The storematrix function below contains \n##four functions that perform the following:\n##1. Sets the value of a matrix\n##2. Gets the value of a matrix\n##3. Sets the inverse of a matrix\n##4. Gets the inverse of a matrix\n\nstorematrix <- function(x = matrix()) {\n  i <- NULL\n  set <- function(y) {\n    x <<- y\n    i <<- NULL\n  }\n  get <- function() x\n  setinverse <- function(inverse) i <<- inverse\n  getinverse <- function() i\n  list(set = set, get = get,\n       setinverse = setinverse,\n       getinverse = getinverse)\n}\n\n\n\n##The cachematrix function below contains\n##one function which does the following:\n##1. Returns the cached inverse of a matrix.\n##Additionally it computes, stores, and displays\n##the inverse of matrices not previously computed.\n\ncachematrix <- function(x, ...) {\n  i <- x$getinverse()\n  if(!is.null(i)) {\n    message(\"getting cached data\")\n    return(i)\n  }\n  data <- x$get()\n  i <- solve(data, ...)\n  x$setinverse(i)\n  i\n}\n\n\n\n\n##An example of these functions in use would be as follows:\n##startmatrix<-matrix(1:4,2,2)\n##stored<-storematrix(startmatrix)\n##cachematrix(stored)",
+    "created" : 1416493965223.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1238017761",
+    "id" : "1D23300A",
+    "lastKnownWriteTime" : 1416526483,
+    "path" : "C:/Users/Dons HP/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
