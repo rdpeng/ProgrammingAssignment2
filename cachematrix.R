@@ -2,17 +2,17 @@
 ## Below pair of functions that cache the inverse of a matrix
 ## Take advantage of the scoping rules of R and how they can be used to preserve state inside of an R object
 
-## This function creates a special "matrix" object that can cache its inverse
+## This function creates a special "matrix" object that can cache its inverse. Please note setting a new value resets cache
 
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL
+        cache <- NULL
         set <- function(y) {
                 x <<- y
-                m <<- NULL
+                cache <<- NULL
         }
         get <- function() x
-        setInverse <- function(inverse) m <<- inverse
-        getInverse <- function() m
+        setInverse <- function(inverse) cache <<- inverse
+        getInverse <- function() cache
         list(set = set, get = get,
              setInverse = setInverse,
              getInverse = getInverse)
@@ -25,13 +25,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-        m <- x$getInverse()
-        if(!is.null(m)) {
+        inverse <- x$getInverse()
+        if(!is.null(inverse)) {
                 message("getting cached data")
-                return(m)
+                return(inverse)
         }
         data <- x$get()
-        m <- solve(data, ...)
-        x$setInverse(m)
-        m
+        inverse <- solve(data, ...)
+        x$setInverse(inverse)
+        inverse
 }
