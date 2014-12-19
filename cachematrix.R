@@ -12,7 +12,18 @@
 # 4. get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        
+        set <- function(y){
+                x <<- y
+                s <<- NULL
+        }
+        get <- function x
+        setsolve <<- function(solve) s <<- solve
+        getsolve <- function() s
+        list(set = set,
+             get = get,
+             setsolve = setsolve,
+             getsolve = getsolve)
 }
 
 
