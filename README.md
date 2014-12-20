@@ -1,6 +1,6 @@
 
 
-In this program, I have created two functions, makeCacheMatrix(xm = matrix()) and cacheSolve(xm). The function makeCacheMatrix has four local functions setM(xm), getM(), setInvM(invM), and getInvM(). The functions setM and getM are for setting and getting input matrix xm. Functions setInvM and getInvM are for setting and getting the calcucated inverse matrix. The variable invM is free variable in makeCacheMatrix, with assignment operator <<-, it is resolved from the calling function of cacheSolve().
+In this program, I have created two functions, makeCacheMatrix(xm = matrix()) and cacheSolve(xm). The function makeCacheMatrix has four local functions setM(xm), getM(), setInvM(invM), and getInvM(). The functions setM and getM are for setting and getting input matrix xm. Functions setInvM and getInvM are for setting and getting the calcucated inverse matrix. The variable invM is free variable in makeCacheMatrix, with super assignment operator <<-, it is resolved from the calling function of cacheSolve().
 
 I have tested this code with the following calls:
 
