@@ -39,8 +39,8 @@ cacheSolve <- function(x, ...) {
         else{                   # executed if there is no cached inverted matrix
                 message("No cached data...Calculating...")
                 data <- x$get()     # store in data object the matrix
-                m <- solve(data)    # caclculate the inverse matrix 
-                x$setInv(m)         # set the value of the inverse value 
+                m <- solve(data)    # calculate the inverse matrix 
+                x$setInv(m)         # set the value of the inverse matrix
                 return(m)
                 
                
