@@ -26,7 +26,6 @@ makeCacheMatrix <- function(x = matrix())
 ## `cacheSolve` function computes the inverse of the special "matrix" returned by `makeCacheMatrix` above. 
 #If the inverse has already been calculated (and the matrix has not changed), then`cacheSolve` should retrieve the inverse from the cache.
 
-## At the moment giving: Error in x$getinv : $ operator is invalid for atomic vectors
 cacheSolve <- function(x, ...) 
 { 
     i<- x$getinv()# if the inverse has already calculated this gets it.
