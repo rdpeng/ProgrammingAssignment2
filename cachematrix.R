@@ -15,11 +15,11 @@
 ##     3. getInv: For getting the value of the inversed matrix.
 
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL                       
-        get <- function() x
-        setInv <- function(inv) m <<- inv     
-        getInv <- function() m
-        list(get=get, setInv=setInv, getInv=getInv) 
+        m <- NULL             # initialize the object for the matrix          
+        get <- function() x                   #
+        setInv <- function(inv) m <<- inv     # definition of the functions
+        getInv <- function() m                #
+        list(get=get, setInv=setInv, getInv=getInv) # list of functions (output of the function)
 }
 
 ## cacheSolve
@@ -30,17 +30,17 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 cacheSolve <- function(x, ...) {
-        m <- x$getInv()
-        if(!is.null(m)) {
+        m <- x$getInv()         # get the cached inverted matrix of x and assign it to m object
+        if(!is.null(m)) {       # executed if there is a cached inverted matrix 
                 message("Getting cached data...")
                 return(m)
                 
         }
-        else{
+        else{                   # executed if there is no cached inverted matrix
                 message("No cached data...Calculating...")
-                data <- x$get()
-                m <- solve(data)
-                x$setInv(m)
+                data <- x$get()     # store in data object the matrix
+                m <- solve(data)    # caclculate the inverse matrix 
+                x$setInv(m)         # set the value of the inverse value 
                 return(m)
                 
                
