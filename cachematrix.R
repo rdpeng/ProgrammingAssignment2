@@ -6,11 +6,11 @@
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL # initialize m
         set <- function(y) {
-                x <<- y       # set x to y's value in ______ environment
-                m <<- NULL    # set m to NULL, solution to inverse equation x %*% m = 0, in ______ environment
+                x <<- y       # set x to y's value in makeCacheMatrix's environment
+                m <<- NULL    # set m, solution to inverse equation x %*% m = 0, to NULL in makeCacheMatrix's environment
         }        
         get <- function() x
-        setinverse <- function(inverse) m <<- inverse       # set setmean in get's envir and m to inverse in ____ envir
+        setinverse <- function(inverse) m <<- inverse       # set setmean in get's envir and m to inverse in Global envir
         getinverse <- function() m                    # set getinverse to cached value if exists
         list(set = set, get = get
                 setinverse = setinverse,
@@ -27,8 +27,8 @@ cacheSolve <- function(x, ...) {
                 message("getting cached data")        # advising that inverse already calc'd and retrieving from cache
                 return(m)        # returning cached inverse
         }
-        data <- x$get()        # if inverse not in cache, getting data to solve inverse
-        m <- solve(data, ...)        # calculating inverse
+        data <- x$get()        # if inverse not in cache (Global environment), then get data to solve inverse
+        m <- solve(data, ...)        # setting cacheSolve's m to calculated inverse 
         x$setinverse(m)        # putting inverse in cache
         m                      # returning inverse
 }        
