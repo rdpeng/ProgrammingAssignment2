@@ -1,7 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Calculates inversed matrix, store value in cache value
 
-## In fact, it encapsulates input matrix and it's inversed matrix
+## In fact, makeCacheMatrix encapsulates input matrix and it's inversed matrix
 ## Inversed matrix cached. If input matrix reseted, cache is cleared.
 
 makeCacheMatrix <- function(matr = matrix()) {
@@ -20,7 +19,6 @@ makeCacheMatrix <- function(matr = matrix()) {
 
 
 ## Try to get cached inversed matrix; if fails - recalculates it and caches it back.
-
 cacheSolve <- function(matr, ...) {
         ## Return a matrix that is the inverse of 'matr'
   inversed <- matr$getinverse()
