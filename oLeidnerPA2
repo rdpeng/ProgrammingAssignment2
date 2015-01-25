@@ -1,0 +1,33 @@
+## The assignment is to write a pair of functions that cache the inverse of a matrix.
+## makeCacheMatrix - is creating a special "matrix" object that can cache its 
+##inverse.
+## cacheSolve – is a function that computes the inverse of the special "matrix" 
+##returned by makeCacheMatrix above. If the inverse has already been calculated 
+##(and the matrix has not changed), then cacheSolve should retrieve the inverse 
+##from the cache.
+##Computing the inverse of a square matrix can be done with the solve() function, 
+##if X is a square invertible matrix, then solve(X) returns its inverse.
+
+makeCacheMatrix <- function(x=matrix()) {   ##creating initial variable x
+m <- NULL        ## storing the matrix in cache
+get <- function() x     ## obtaining initial matrix
+setImatrix <- function(Imatrix) m <<- Imatrix ## assigning the inverse matrix to m
+getImatrix <- function() m   ## obtaining the cached inverse matrix
+## return a list of functions as an object
+list(get=get, setImatrix=setImatrix, getImatrix=getImatrix) 
+}
+cacheSolve <- function(x) { ## initializing the inversing of matrix x
+m <- x$getImatrix() ## assigning the inverse of matrix
+if(!is.null(m)){ ## checking if the inverse matrix has been found
+message("Cached data has been found. Getting the result.")
+return(m) ## returns the result and quits
+}
+else { ## if the inverse has not been found
+message("No cached data has been found. Calculating the inverse matrix...")
+data <- x$get() ## obtaining matrix from object x
+m <- solve(data) ## finding the inverse matrix
+x$setImatrix(m) ## assigning resulting inverse matrix to object x
+message("Done.")
+return(m) ## returns the result and quits
+}
+}
