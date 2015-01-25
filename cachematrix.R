@@ -5,14 +5,17 @@
 ## makeCacheMatrix creates custom matrix type capable of running four functions
 ## set stores the matrix in cache, get recalls the matrix
 ## setInverse and getInverse do the same but for the inverse of the original matrix
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = numeric()) {
  
  m <- NULL
 set <- function(y){
 x <<- y  
  m <<- NULL 
 }
-get <- function() x
+get <- function() {
+ x
+}
+
 setInverse <- function(solve) m<<- solve
 getInverse <- function() m #get inverse matrix
 list(set = set, get = get,
