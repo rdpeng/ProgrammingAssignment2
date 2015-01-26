@@ -24,7 +24,7 @@ cacheSolve <- function(x=matrix, ...) {
   }
   data <- x$get() #gets matrix from x and puts it in data
   m <- solve(data) #run solve on data
-  x$setmatrix(m)
+  x$setmatrix(m) #update m
   m #returns m
     #got a lot of guidance here: https://class.coursera.org/rprog-010/forum/thread?thread_id=1096
     #https://asitarrives.wordpress.com/2014/10/18/understanding-lexical-scoping-in-r-great-guidance-for-community-ta-in-coursera/
