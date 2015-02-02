@@ -5,7 +5,7 @@ makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
     # Inverse Matrix num of cols and rows should be the same
-    if (ncol(M) == nrow(M)) {
+    if (ncol(m) == nrow(m)) {
       #Square Matrix
       x <<- y
       m <<- NULL  
