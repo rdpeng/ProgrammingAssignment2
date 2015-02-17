@@ -1,0 +1,13 @@
+makeVector <- function(x = matrix()) {
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setInv <- function(solve) m <<- solve
+        getInv <- function() m
+        list(set = set, get = get,
+             setSolve = setSolve,
+             getSolve = getSolve)
+}
