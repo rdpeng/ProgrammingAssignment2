@@ -2,10 +2,8 @@
 ##and cache's its INVERSE.
 
 
-## The below function takes in a square matrix as an input.
-## calculates the inverse of the  matrix using the solve function
-## and assign the the inverse to the object m
-## The function creates a speacial vector, which is a list of functions to
+## The below function takes in a square matrix as an input.calculates the inverse of the  matrix using the solve function
+## and assign the the inverse to the object m. The function creates a speacial vector, which is a list of functions to
 ## Sets/get the matrix And set and get the inverse of the matrix
 
 
