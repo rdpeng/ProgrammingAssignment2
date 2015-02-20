@@ -27,7 +27,7 @@ makeCacheMatrix <- function(x = matrix())
 
 ## The second part of tis assignment is a function to see if the inverse for the given matrix has already been calculated
 ## if it is then it gets the value from cache using getinv
-## if not then calculates inverse  and sets the value in cache using the setinv function.
+## if not then calculates inverse and sets the value in cache using the setinv function.
 
 cacheSolve <- function(x, ...) 
   {
