@@ -22,6 +22,7 @@ list(set = set, get = get,
 
 cacheSolve <- function(cacheMatrix, ...) {
   invertedMatrix <- cacheMatrix$getInverse()
+##No change? Get the Cache!  
   if(!is.null(invertedMatrix)) {
     message("Let me get that cached matrix for you")
     return(invertedMatrix)
