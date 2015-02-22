@@ -1,7 +1,7 @@
 ## This function creates a special "matrix" object that can cache its inverse.
 
 
-#The first function, we create a special matrix, to
+#The first function, we create a very special matrix, to
 #set the value of the matrix
 #get the value of the matri
 #set the value of the inverse square
