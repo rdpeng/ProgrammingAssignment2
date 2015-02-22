@@ -1,9 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
-
 ## This function creates a special "matrix" object that can cache its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
+
     m2 <- NULL
     set <- function(y) {
         x <<- y
