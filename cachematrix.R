@@ -84,7 +84,7 @@ cacheSolve <- function(x=makeCacheMatrix(), ...) {
             x_inv <-solve(x_mat)
             x$set_inverse(x_inv)
       }else{
-            message("Returning cache inverse")
+            message("Returning inverse from cache")
       }
       ## Return a matrix that is the inverse of 'x'
       return(x_inv)
