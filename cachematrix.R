@@ -1,6 +1,6 @@
 ## These 2 functions cooperate to get the invert of a matrix but without
 ## computing the result more than once. They do so by storing the result in the
-## cache when computed.
+## cache when calculated.
 ## 
 
 ## This function create an object holding the variable and the value of the
@@ -35,7 +35,7 @@ cacheSolve <- function(x, ...) {
     data <- x$get() #else get the matrix to invert
     i <- solve(data, ...) #solve it
     x$setinvert(i) #cache the result
-    i #return the result at last
+    i # and return the result at last
 }
 
 #Sorry for any typo, English is not my native language
