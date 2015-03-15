@@ -5,8 +5,8 @@
 ##
 ## 2) cacheSolve(x,...):
 ##    returns the inverse of a matrix stored in the environment of the special
-##    list x create by calling makeCacheMatrix, and stores it in the environment
-##    of x for future retrival if x has not changed.
+##    list x create by calling makeCacheMatrix, and stores the inverse in
+##    the environment of x for future retrieval if x has not changed.
 
 
 
