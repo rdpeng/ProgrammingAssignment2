@@ -74,13 +74,16 @@ cacheSolve <- function(x=makeCacheMatrix(), ...) {
       # Check that the inverse has not been cached
       x_inv <- x$get_inverse()
       if ( is.null(x_inv) ){
-            # Get the matrix stored in the special matrix environment
+            # Get the matrix stored in the environment of x
             x_mat <- x$get()
-            # Cache marix inverse if values are defined
+
+            # Cache matrix inverse if values are defined otherwise stop and
+            # display a message notifying the user of the missing values issue
             if ( any(is.na(x_mat)) ){
                   stop("Please set all values of x. There were missing values!")
             }
-            # Compute inverse
+
+            # Compute inverse and store it in the environment of x
             x_inv <-solve(x_mat)
             x$set_inverse(x_inv)
       }else{
