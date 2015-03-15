@@ -1,6 +1,6 @@
 ## Instruction:
 ##
-## Given the provided sample "vector" functions provided by instructor,
+## Given the sample "vector" functions provided by instructor,
 ## This assignment is to create a special matrix object and can cache its inverse,
 ## applying "Lexical Scoping" in R environment.
 
@@ -8,18 +8,18 @@
 ## Creates a special "matrix" object that can cache its inverse
 ##--------------------------------------------------------------------------
 makeCacheMatrix <- function(x = matrix()) {
-                                                            # set its parent environment to be the empty environment (NULL). 
+                                                            # Set its parent environment to be the empty environment (NULL). 
   inverseMatrix <- NULL                                     # This ensures you don't accidentally inherit objects from somewhere else
                                                             # Every environment has a parent; The parent is used to implement lexical scoping;
 
                                               
   set <- function(y) {                                      # <- always creates a binding in the current environment
     x <<- y                                                 # <<- rebinds an existing name in a parent of the current environment.
-    inverseMatrix <<- NULL                                  # environment set to parent (inverseM == NULL) for makeCacheMatrix, 
-                                                            # so the mean can be calculated and stored in "m"
+    inverseMatrix <<- NULL                                  # environment set to parent (inverseMatrix == NULL) for makeCacheMatrix, 
+                                                            # so the solve (inverse) can be calculated and stored in "inverseMatrix"
   }
   
-  get <- function() x                                       # create 'get' function from makeCacheMatrix and assign matrix "x"
+  get <- function() x                                       # Creates 'get' function from makeCacheMatrix and assign matrix "x"
   
   setInverse <- function(solve) inverseMatrix <<- solve     # Takes the value of "solve" and sets it to the inverseMatrix defined environment
   
@@ -27,8 +27,8 @@ makeCacheMatrix <- function(x = matrix()) {
   
   list(set = set, get = get,
        setInverse = setInverse,
-       getInverse = getInverse)                             # list of 4 named elements - set, get, setInverse, getInverse
-                                                            # each element is a function defined in environment from function(y) for makeCacheMatrix
+       getInverse = getInverse)                             # List of 4 named elements - set, get, setInverse, getInverse
+                                                            # Each element is a function defined in environment from function(y) for makeCacheMatrix
 
 }
 
