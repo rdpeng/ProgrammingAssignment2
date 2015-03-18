@@ -1,4 +1,5 @@
-## Functions makeCacheMatrix and cacheSolve are used to cache the inverse of a matrix which has not changed so far without calling the actual program
+## Functions makeCacheMatrix and cacheSolve are used to cache the inverse of a matrix which has not changed so far 
+## without calling the actual program
 
 ## makeCacheMatrix create special vectors to set and get the inverse of matrix
 
@@ -19,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## cacheSolve functions caches the inverse of a matrix and
-## 
+## returns back the inverse matrix without calling the actual function, when the same matrix inverse is required for user.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
