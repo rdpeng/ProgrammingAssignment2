@@ -34,6 +34,6 @@ cacheSolve <- function(x=matrix(), ...) {
         m
 }
 
-test <- matrix(runif(9,1,100),3,3)
-testCached <- makeCacheMatrix(test)
-testInv <- cacheSolve(testCached)
+Test <- matrix(runif(9,1,100),3,3)
+TestCached <- makeCacheMatrix(test)
+TestInv <- cacheSolve(testCached)
