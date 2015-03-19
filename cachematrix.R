@@ -48,7 +48,7 @@ cacheSolve <- function(x, ...) {
     matrix <- x$getm()
     #inverse is calculated
     inverse <- solve(matrix, ...)
-    #inverse is cahed
+    #inverse is cached
     x$setim(inverse)
     inverse
 }
