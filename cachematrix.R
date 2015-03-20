@@ -1,4 +1,5 @@
 ## course ID: rprog-012
+##
 ## Notes from the instructor:
 ## Computing the inverse of a square matrix can be done 
 ## with the solve function in R. For example, if X is a 
@@ -12,22 +13,22 @@
 ##__________________________________________________________________________
 ##
 makeCacheMatrix <- function(x = matrix()) {
-                                                            # Initialize the parent environment to be empty (NULL). 
-  inverseMatrix <- NULL                                     
+                                                             
+  inverseMatrix <- NULL                                     # Initialize the parent environment to be empty (NULL)
 ##                                                         
 ##
 ##                                              
   set <- function(y) {                                      # <- assign to the current environment
     x <<- y                                                 # <<- rebind to the parent of the current environment.
-    inverseMatrix <<- NULL                                  # environment set to parent (inverseMatrix == NULL) for "makeCacheMatrix" 
+    inverseMatrix <<- NULL                                  # Set environment to parent (inverseMatrix == NULL) for "makeCacheMatrix" 
                                                             
   }
   
-  get <- function() x                                       # Create a function called 'get' from makeCacheMatrix and assign it matrix 'x'
+  get <- function() x                                       # Create a function called 'get' from makeCacheMatrix, assign it matrix x
   
   setInverse <- function(solve) inverseMatrix <<- solve     # Take the value of "solve" and set it to the environment of inversematrix
   
-  getInverse <- function() inverserMatrix                   # Returns the value for 'inverseMatrix' from its environment
+  getInverse <- function() inverserMatrix                   # Return the value for 'inverseMatrix' from its environment
   
   list(set = set, get = get,
        setInverse = setInverse,
@@ -48,9 +49,11 @@ cacheSolve <- function(x, ...) {
     message("getting cached data")                          # display the corresponding message
     return(inverserMatrix)                                  # return the inverse of the matrix
   }
-  data <- x$get()                                           # Assigns "x" matrix to data if "x" has not been evaluated before (inverseMatrix == NULL) 
-  inverseMatrix <- solve(data, ...)                         # Calulate the inverse of the matrix using "solve" function in the current environment
+  data <- x$get()                                           # Assign "x" matrix to data if "x" has 
+                                                            # not been evaluated before (inverseMatrix == NULL) 
+  inverseMatrix <- solve(data, ...)                         # Calulate the inverse of the matrix using "solve" function 
+                                                            # in the current environment
   x$setInverse(inverseMatrix)                               # Assign the inverse to the "x" environment via setInverse
-  inverseMatrix                                             # Displays the inverse
+  inverseMatrix                                             # Display the inverse
 
 }
