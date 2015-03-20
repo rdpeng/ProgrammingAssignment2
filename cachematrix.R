@@ -1,92 +1,56 @@
 ## course ID: rprog-012
-##
-## Given the sample "vector" functions provided by instructor,
+## Notes from the instructor:
+## Computing the inverse of a square matrix can be done 
+## with the solve function in R. For example, if X is a 
+## square invertible matrix, then solve(X) returns its inverse.
+## assume that the matrix supplied is always invertible.
 ## Create a special matrix object and can cache its inverse,
 ## applying "Lexical Scoping" in R environment.
 
-##--------------------------------------------------------------------------
-## Creates a special "matrix" object that can cache its inverse
-##--------------------------------------------------------------------------
+##__________________________________________________________________________
+## mackeCacheMatrix Creates a "matrix" object that can cache its inverse
+##__________________________________________________________________________
+##
 makeCacheMatrix <- function(x = matrix()) {
-                                                            # Set its parent environment to be the empty environment (NULL). 
-  inverseMatrix <- NULL                                     # This ensures you don't accidentally inherit objects from somewhere else
-                                                            # Every environment has a parent; The parent is used to implement lexical scoping;
-
-                                              
-  set <- function(y) {                                      # <- always creates a binding in the current environment
-    x <<- y                                                 # <<- rebinds an existing name in a parent of the current environment.
-    inverseMatrix <<- NULL                                  # environment set to parent (inverseMatrix == NULL) for makeCacheMatrix, 
-                                                            # so the solve (inverse) can be calculated and stored in "inverseMatrix"
+                                                            # Initialize the parent environment to be empty (NULL). 
+  inverseMatrix <- NULL                                     
+##                                                         
+##
+##                                              
+  set <- function(y) {                                      # <- assign to the current environment
+    x <<- y                                                 # <<- rebind to the parent of the current environment.
+    inverseMatrix <<- NULL                                  # environment set to parent (inverseMatrix == NULL) for "makeCacheMatrix" 
+                                                            
   }
   
-  get <- function() x                                       # Creates 'get' function from makeCacheMatrix and assign matrix "x"
+  get <- function() x                                       # Create a function called 'get' from makeCacheMatrix and assign it matrix 'x'
   
-  setInverse <- function(solve) inverseMatrix <<- solve     # Takes the value of "solve" and sets it to the inverseMatrix defined environment
+  setInverse <- function(solve) inverseMatrix <<- solve     # Take the value of "solve" and set it to the environment of inversematrix
   
-  getInverse <- function() inverserMatrix                   # Returns the value of "inverseMatrix" from the inverseMatrix environment
+  getInverse <- function() inverserMatrix                   # Returns the value for 'inverseMatrix' from its environment
   
   list(set = set, get = get,
        setInverse = setInverse,
-       getInverse = getInverse)                             # List of 4 named elements - set, get, setInverse, getInverse
-                                                            # Each element is a function defined in environment from function(y) for makeCacheMatrix
+       getInverse = getInverse)                             # Retrive/push the inverse from/to cache
+                                                            
 
 }
-##
-##
-## Return a matrix that is the inverse of 'x'
+##_________________________________________________________
+## cacheSolve: This function computes the inverse of the 
+## matrix returned by makeCacheMatrix above if the inverse 
+## has already been calculated. If not, it computes it.
+##_________________________________________________________
 ##
 cacheSolve <- function(x, ...) {
 
-  inverseMatrix <- x$getInverse()                           # Gets the inverseMatrix values from the defined inverseMatrix environment
-  if(!is.null(inverseMatrix)) {                             # Returns inverse of the matrix and its   
-    message("getting cached data")                          # corresponding message since it has
-    return(inverserMatrix)                                  # already calculated (value "cache") in the environment
+  inverseMatrix <- x$getInverse()                           # Get the inverseMatrix from the inverseMatrix environment
+  if(!is.null(inverseMatrix)) {                             # Return inverse of the matrix   
+    message("getting cached data")                          # display the corresponding message
+    return(inverserMatrix)                                  # return the inverse of the matrix
   }
   data <- x$get()                                           # Assigns "x" matrix to data if "x" has not been evaluated before (inverseMatrix == NULL) 
-  inverseMatrix <- solve(data, ...)                         # Calulates the inverse of the matrix using "solve" function for the data variable in the current environment
-  x$setInverse(inverseMatrix)                               # Assigns the calculated inverse to the "x" environment via setInverse
-  inverseMatrix                                             # Displays the calculated inverse matrix
+  inverseMatrix <- solve(data, ...)                         # Calulate the inverse of the matrix using "solve" function in the current environment
+  x$setInverse(inverseMatrix)                               # Assign the inverse to the "x" environment via setInverse
+  inverseMatrix                                             # Displays the inverse
 
 }
-
-
-##==========================================================================
-## Predefined "vector" sample functions below this line are provided by 
-## class instructor
-##==========================================================================
-##
-##--------------------------------------------------------------------------
-## Creates a special "vector" with a list containing a function to
-## get/set the value of the vector and mean
-##--------------------------------------------------------------------------
-makeVector <- function(x = numeric()) {
-  m <- NULL
-  set <- function(y) {
-    x <<- y
-    m <<- NULL
-  }
-  get <- function() x
-  setmean <- function(mean) m <<- mean
-  getmean <- function() m
-  list(set = set, get = get,
-       setmean = setmean,
-       getmean = getmean)
-}
-
-##--------------------------------------------------------------------------
-## Calculates the mean of the special "vector" created with the makeVector 
-## function. It checks to see if the mean has already been calculated. 
-## If so, it gets the mean from the cache and skips the computation. 
-## Otherwise, it calculates the mean of the data and sets the value of the 
-## mean in the cache via the setmean function.
-##--------------------------------------------------------------------------
-cachemean <- function(x, ...) {
-  m <- x$getmean()
-  if(!is.null(m)) {
-    message("getting cached data")
-    return(m)
-  }
-  data <- x$get()
-  m <- mean(data, ...)
-  x$setmean(m)
-  m
