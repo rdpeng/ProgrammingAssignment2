@@ -1,4 +1,3 @@
-## Put comments here that give an overall description of what your functions do
 ## These two functions firstly CREATE A MATRIX by computing the inverse of the matrix x, and secondly, RETURN THE INVERSE MATRIX 
 
 ## Write a short comment describing this function
@@ -18,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
         getmatrix<-function() m
         list(set=set, get=get,
              setmatrix=setmatrix,
-             getmatrix=getmatrix)
+             getmatrix=getmatrix) 
 }
 
 
