@@ -30,7 +30,6 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-
 ## The function cacheSolve can calculate the inverse 
 ## of the special "matrix" created with the above function.
 ## However, if the inverse has been calculated then, 
