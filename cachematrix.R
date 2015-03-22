@@ -1,7 +1,13 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+## makeCacheMatrix(x) function is using for store the inverse matrix;
+## cacheSolve function is using for computing the inserve matrix . if the inverse matrix was exsited in the store matrix it will skip. compute.
+##
 
 ## Write a short comment describing this function
+## makeCacheMatrix(x) do the following things:
+## 1: set the matrix ; 2: get the matrix ; 3: set the inverse matrix for the matrix x ; 4: fet the inverse matrix.
+
 
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
@@ -18,6 +24,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+## cacheSolve function is using for computing the inserve matrix . 
+## if the inverse matrix was exsited in the store matrix, it will skip the computing..
+
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
