@@ -3,7 +3,11 @@
 ## function cacheSolve will return the cached inverse matrix.
 
 ## makeCacheMatrix function takes a matrix x as input, calculates its inverse function solve
-## and cache the resulting inverse metrix in s. creates a list to store all the values of the parent environment.
+## and cache the resulting inverse metrix in s. creates a list containing function to 
+##set the value of the matrix
+##get the value of the matrix
+##set the value of the inverse matrix
+##get the value of the inverse matrix
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -20,8 +24,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve function checks if the the Matrix is cached, if it is is cache, it returns matrix from the cache else 
-## it calculates the inverse and returns the inverse matrix
+## The following cacheSolve function calculates the inverse of the matrix created by above function and returns the inverse matrix 
+## In the process. it first checks to see if the inverse has already been calculated. If so, it gets the inverse matrix 
+## from the cache and skips the computation. Otherwise, it calculates the inverse matrix and sets the value of the inverse matrix
+## in the cache via the setsolve function.
 
 cacheSolve <- function(x, ...) {
          
