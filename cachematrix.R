@@ -1,40 +1,48 @@
 
-# makeCacheMatrix is a function that returns a list of functions,
-# It has the  puspose of storing a matrix and a cached value of the inverse of the matrix.
 
 
-makeCacheMatrix <- function(x = matrix()) {
-	i < - NULL
-	set <- function(y) {
-		x <<- y
-		i << - NULL
-	}
-	get <- function () x
-	set_inverse <- function (inv) i <<- inv
-	get_inverse <- function () i
-	
-	
-	#return a list of the elements name of the list 
-	list (
-		set = set, get = get, set_inverse = set_inverse,get_inverse = get_inverse
-	
-	)
-
+makeVector <- function(data_vector = numeric()) {
+        
+        stored_mean <- NULL       #Initialize with mean to NULL.
+        
+        set <- function(y) {   # The numeric arg pased into makeVector
+                data_vector <<- y
+                stored_mean <<- NULL
+        }
+        
+        get <- function() {  # Create a function get in the makeVector
+            return (data_vector)
+        }
+        
+        setmean <- function(sent_replacement_mean){
+            stored_mean <<- sent_replacement_mean
+        }
+        
+        getmean <- function() {
+            return(stored_mean)
+        }
+        
+        
+        list(set = set, get = get,  #list out the values of the functions in the makeVectors
+             setmean = setmean,
+             getmean = getmean)
 }
 
 
-## This function calculate the inverse of a matrix that was created with the MakeCacheMatrix function
-
-cacheSolve <- function(x, ...) {
-	i <- x $get_inverse()
-	if (!is.null(i)){
-		message("getting cached data")
-		return (i)
-	}
-	
-	m <- x$get()
-	i <- solve(m, ...)
-	x$set_inverse(i)
-	i    #return the inverse
+cachemean <- function(madeVector, ...) {
         
+        #goes to the "madeVector" and assings the "local_mean" value from that environment to this one
+        local_mean <- madeVector$getmean() 
+        
+        if(!is.null(local_mean)) { 
+                message("getting cached data")
+                return(local_mean)
+        }
+        else {
+            local_data <- madeVector$get()
+            local_mean <- mean(local_data, ...)
+        
+            madeVector$setmean(local_mean)
+            return(local_mean) 
+        }
 }
