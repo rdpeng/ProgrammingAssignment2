@@ -1,5 +1,5 @@
 ## Put comments here that give an overall description of what your
-## functions do
+## functions do.
 ## This will prepare a matrix to be cached for avoiding repeating
 ## calculations for inverting matrix 
 ## it receives as input a square matrix and uses it to get inverse
