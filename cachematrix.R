@@ -5,12 +5,12 @@
 makeCacheMatrix <- function(x = matrix()) {
   inverse <- NULL
   set <- function(x) {
-    x <<- x;  #  Save cached matrix in this superassignemnt variable (x <<-)
-    inverse <<- NULL;  #  Check that inverse is still "NULL"
+    x <<- x;  ##  Save matrix (cache it) in this superassignemnt variable (x <<-)
+    inverse <<- NULL;  ##  Check that inverse is still "NULL", store as such
   }
-  get <- function() return(x);
-  setinv <- function(inv) inverse <<- inv;
-  getinv <- function() return(inverse);
+  get <- function() return(x);  ##  get stores matrix x
+  setinv <- function(inv) inverse <<- inv;  ##  inv stored in 'setinv'
+  getinv <- function() return(inverse);   ##  getinv returns inverse
 }
 
 ##  This function computes the inverse of the special matrix returned 
@@ -19,13 +19,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ##  inverse of the matrix from the cache.
 
 cacheSolve <- function(x, ...) {
-  inverse <- solve(x) #  name inverse "inverse" of matrix x, solve for inverse
-  if(!is.null(inverse)) { #  If matrix is NOT NULL, get inverse
-    message("Getting cached data...")  #  Print message
+  inverse <- solve(x) ##  Name inverse "inverse" of matrix x, solve for inverse
+  if(!is.null(inverse)) { ##  If matrix is NOT NULL, get inverse
+    message("Getting cached data...")  ##  Print message
     return(inverse)
   }
-  data <- x$get()   #  get() gets value of x (x$get())
-  invserse <- solve(data, ...)  #  get inverse of x
-  x$setinv(inverse)  #  Name inverse of matrix "x"
-  return(inverse)    #  keep inverse
+  data <- x$get()   ##  Get() gets value of x (x$get())
+  invserse <- solve(data, ...)  ##  get inverse of x
+  x$setinv(inverse)  ##  Name inverse of matrix "x"
+  return(inverse)    ##  Keep inverse
 }
