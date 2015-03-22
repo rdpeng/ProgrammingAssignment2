@@ -1,5 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
+## A function to cache matrix inverse calculation which is a time consuming computation
 
 ## This function creates a special matrix which is a list containing required functions
 
