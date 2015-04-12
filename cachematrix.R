@@ -1,15 +1,36 @@
-## Put comments here that give an overall description of what your
-## functions do
+## code for makeCacheMatrix function
+makeCacheMatrix <- function(x = matrix())
+{
+	## set function, save the inverse to global variable
+	set <- function(y)
+	{
+		x <<- solve(y)
+	}
 
-## Write a short comment describing this function
-
-makeCacheMatrix <- function(x = matrix()) {
-
+	## get function, returns the global variable 
+	get <- function()
+	{
+		x 
+	}
 }
 
+## code for cacheSolve
+cacheSolve <- function(x)
+{
+	## retrieve the existing inverse variable
+	m <- x$get()
 
-## Write a short comment describing this function
+	## check if already computed the inverseand is same
+	if(!is.null(m) && m == solve(x))
+	{
+	message("getting cached data")
+	return(m)
+	}
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+	## didn't computre the inverse yet or not same
+	## set the globale variable to our newly inverse matrix and write out the asnwer	
+	m <- solve(x$get())
+	x$set(m)
+	return(m)
+
 }
