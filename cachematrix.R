@@ -13,13 +13,13 @@ makeCacheMatrix <- function(my_mat = matrix()) {
   
   ## This is the set function, use this to assign a matrix
   ## Set "inv" to NULL as my_mat has changed
-  set <- function(y) {
+  setmatrix <- function(y) {
     my_mat <<- y
     inv <<- NULL
   }
   
   ## The access function is named 'get'
-  get <- function() my_mat
+  getmatrix <- function() my_mat
   
   ## Assign the inverse of the matrix
   setinverse <- function(inv_mat) inv <<- inv_mat
@@ -27,7 +27,7 @@ makeCacheMatrix <- function(my_mat = matrix()) {
   ## Access function to retrieve the inverse of the matrix
   getinverse <- function() inv
   
-  list (set = set, get = get, setinverse = setinverse, getinverse = getinverse)
+  list (setmatrix = setmatrix, getmatrix = getmatrix, setinverse = setinverse, getinverse = getinverse)
   
 }
 
@@ -48,7 +48,7 @@ cacheSolve <- function(x, ...) {
   
   ## inverse is not yet calculated, need to do it now. 
   ## First get the matrix to 'data'
-  data <- x$get()
+  data <- x$getmatrix()
   inv <- solve(data, ...)   ## use solve to get the inverse of the matrix
   
   ## USe the setinverse function to assign a value to the inv
