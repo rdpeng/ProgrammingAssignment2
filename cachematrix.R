@@ -1,14 +1,19 @@
 ## The overall objective of the two functions below is to reduce computation 
 ## times in situations where there may be cause to calculate the inverse of a 
-## matrix more than once. Using makeCacheMatrix(), the object `inv` is cached 
-## within a matrix.On it's first run, cacheSolve() calculates the inverse of 
+## matrix more than once. The functions are written to take advantage of lexical
+## scoping in R, by caching a target object within the envionment of the 
+## matrix to be anaylsed. 
+## Using makeCacheMatrix(), the object `inv` is cached within the matrix 
+## environment.On it's first run, cacheSolve() calculates the inverse of 
 ## this matrix and assigns it to `inv`. Subsequent to the first run of 
 ## cacheSolve, this function will then call the pre-existing value for inv 
-## (cached in the matrix envionment) rather than calculated it again. This saves 
-## considerable time as calculating the inverse of a matrix is assumed to be 
-## heavy, computationally.
+## (cached in the matrix envionment) rather than calculate it again. This saves 
+## considerable time as calculating the inverse of a matrix is heavy, 
+## computationally.
 
 
+
+## Function 1
 ## makeCacheMatrix() is used to create a matrix with a value named `inv` cached 
 ## within the matrix environment, where inv is set to null initially. It is 
 ## written to allow the second cacheSolve() function to interact with it, 
@@ -30,7 +35,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Assign a matrix with a cached object, named `inv`
 
 
-
+## Function 2
 ## -cacheSolve() examines the resulting matrix from `makeCacheMatrix` to see 
 ## whether the cached value `inv` is something other than NULL. If TRUE (which 
 ## would indicate that the matrix has already been subjected to the cacheSolve()
