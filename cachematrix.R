@@ -1,6 +1,6 @@
 
 ##The 2 functions can help cache the inverse of a matrix, and eventually 
-##not calculating the inverse if it is allready calculated.
+##not calculate the inverse if it is allready calculated.
 
 
 ##The first function creates a special matrix, which practically contains
