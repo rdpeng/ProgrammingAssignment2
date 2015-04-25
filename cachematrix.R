@@ -1,7 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The 'cacheMatrix.R' script contains a pair of functions that
+## can cache the inverse of a matrix by using the '<<-' operator. 
+## The inverse has been calculated using the 'solve' function in R. 
+## This script is based on the assumption that the matrix supplied 
+## is always invertible.
 
-## Write a short comment describing this function
+## The first function, 'makeCacheMatrix' creates a special "matrix", 
+## which is list containing functions to set the set the value of 
+## matrix, get the value of matrix, set the value of the inverse 
+## and get the value of the inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
 	s <- NULL
@@ -17,7 +23,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## The following function computes the inverse of the special "matrix"
+## returned by 'makeCacheMatrix' function above. However, it first checks 
+## to see if the inverse has already been calculated. If yes, it gets the inverse
+## from the cache and skips the computation. Else, it computes the inverse
+## of the matrix and set the value of inverse in the cache via the 'setInverse'
+## function.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
