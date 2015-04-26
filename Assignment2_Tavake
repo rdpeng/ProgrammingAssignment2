@@ -1,0 +1,45 @@
+makeCacheMatrix <- function(x = matrix()) {
+# inv will store the cached inverse matrix
+  inv <- NULL
+# Setter for the matrix
+  set <- function(y) {
+    x <<- y
+    inv <<- NULL
+  }
+# Getter for the matrix
+  get <- function() x
+# Setter for the inverse
+  setinverse <- function(inverse) inv <<- inverse
+# Getter for the inverse
+  getinverse <- function() inv
+# Return the matrix with our newly defined functions
+  list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
+}
+
+cacheSolve <- function(x, ...) {
+  inv <- x$getinverse()
+# If the inverse is already calculated, return it
+  if(!is.null(inv)) {
+    message("getting cached data")
+    return(inv)
+  }
+# The inverse is not yet calculated, so we calculate it
+  data <- x$get()
+  inv <- solve(data)
+# Cache the inverse
+  x$setinverse(inv)
+# Return it
+  inv
+}
+
+#try it out
+x = rbind(c(1, -8), c(-8, 1))
+m = makeCacheMatrix(x)
+
+m$get()
+cacheSolve(m)
+
+#I tried to solve this HW problem but to my lack of knowledge in this realm as well as my inability to fully understand
+# the Homework, I did use online sources to figure out how to do this. Trying on my own was a struggle and when I did find
+# answers online, I tried to understand what they were doing and why and then applied it's uses to get and understanding of
+# what is going on.
