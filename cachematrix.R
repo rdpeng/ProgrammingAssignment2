@@ -23,18 +23,18 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   m <- x$getsolved()
-  if(!is.null(m)) {
+  if(!is.null(m)) {  ##If the matrix is stored in m, it will returned the cached data with the message
     message("getting cached data")
     return(m)
   }
-  data <- x$get()
+  data <- x$get()   ##If it is not stored it will solve for the inverse of the m atrix
   m <- solve(data, ...)
   x$setsolved(m)
   m
 }
 
 x <- makeCacheMatrix()
-samplematrix <- matrix(rnorm(9,mean=0,sd=1), 3, 3)
+samplematrix <- matrix(rnorm(9,mean=0,sd=1), 3, 3)  #creates a matrix to test
 x$set(samplematrix)
 x$get()
 
