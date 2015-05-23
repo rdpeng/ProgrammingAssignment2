@@ -1,15 +1,34 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Usage:	funcList = makeCacheMatrix( x )
+## 	cacheSolve( funcList )
 
-## Write a short comment describing this function
+## Constructor: returns a list of 4 functions: set, get, setSove, getSolve
 
 makeCacheMatrix <- function(x = matrix()) {
-
+	s <- NULL
+	set <- function(y) {			# set method
+		x <<- y
+		s <<- NULL			# s is NOT local
+	}
+	get <- function() x			# get method
+	setSolve <- function(solve)  s <<- solve	# setSove method, returns solve
+	getSolve <- function() s		# getSolve method
+	list( set = set, get = get,		# returns the list of 4 functions
+	setSolve = setSolve,
+	getSolve = getSolve )
 }
 
 
-## Write a short comment describing this function
+## Return a matrix that is the inverse of 'x'.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        s <- x$getSolve()			# get inverse matrix from the cache
+	if( !is.null(s) ) {
+		message( "getting data from cache" )
+		return( s )			# cache data returned
+	}
+	message( "new calculation" )
+	data = x$get()			# data = matrix
+	s <- solve(data,...)
+	x$setSolve(s)			# calculate & put to cache
+	s				# return inverse matrix
 }
