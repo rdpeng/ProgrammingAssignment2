@@ -1,1 +1,17 @@
-
+makeVector <- function(x = numeric()) {
+        m <- NULL
+        set <- function(y) {
+                x <<- y ## where does Y come from?
+                m <<- NULL
+        }
+        get <- function() {
+                x 
+        }               
+        setmean <- function(mean) {
+                m <<- mean 
+        }
+        getmean <- function() {
+                m
+        }
+        list(set = set, get = get, setmean = setmean, getmean = getmean) # Return vector type list of functions
+}
