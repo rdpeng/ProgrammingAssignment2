@@ -1,19 +1,25 @@
 ## This creates a function that holds other functions, as well a matrix and its
 ##inverse. During function call, or with the use of the set() function, the inv
 ##is set to NULL to avoid mismatch between matrix and inverse. The other, public 
-##functions defined in makeCacheMatrix as retuened as a list (this is why 
+##functions defined in makeCacheMatrix are returned as a list (this is why 
 ##cacheSolve has a ... after x in the function arguments.)
 
 makeCacheMatrix <- function(x = matrix()) {
-    inv<-NULL ##NULLS inv during instantization. 
+    inv<-NULL ##nulls inv during instantization. 
     set<-function(y) {
-        x<<- y ##Change the value of x in makeCacheMatrix to y. 
+        x<<- y ##Change the value of x in makeCacheMatrix() environment
+        ##to y. If the assignment had been ('<-'), then it would have only
+        ##modified the local x. The x in makeCacheMatrix environment would 
+        ##have remained unmodified. 
+        
         inv<<- NULL ##If the matrix created by the function call is modified,
         ##this wipes out the preexisting inverse to avoid mismatch. 
     }
     get<-function() x ##simple function that returns the matrix. 
+    
     setinv<- function(inverse) inv<<-inverse ##modifes the inv varibale 
     ##in makeCacheMatrix
+    
     getinv<-function() inv 
     
     ##returns a list of functions.
@@ -29,18 +35,21 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) { ##Function uses subsetting. Arugment-type needs
     ##to include getter and setter methods. I.E., you cannot pass atomic data-types
-    ##to this function. 
+    ##to this function.
     
     inv <- x$getinv() 
     if(!is.null(inv)) { ##If an inverse already exists, the function prints it out
-        ##reutning to the calling environment without invoking solve().
+        ##and returns to the calling environment without invoking solve().
         message("getting cached data")
         return(inv)
     }
     m<- x$get() ##If Inverse is not yet cached, m is assigned a copy (by value)
-    ##of the matrix in the 'Special matrix'.
-    inv<- solve(m)
-    x$setinv(inv) ##The function assigns the inv variable in the special matrix
+    ##of the matrix set in the 'Special matrix'.
+    
+    inv<- solve(m) ##Inverses matrix.
+    
+    x$setinv(inv) ##The function assigns to the inv variable in the special matrix
     ##the value of the computed inverse.
-    inv
+    
+    inv #returns inverse. 
 }
