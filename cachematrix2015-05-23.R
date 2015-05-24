@@ -19,23 +19,24 @@
 ## and
 ##          getMatrix,  used to retrieve the matrix from its cache, nad 
 ##          getInverse, used to retrieve the inverse from its cache  
-makeCacheMatrix <- function(x = matrix()) {
-    m <- NULL
-    setMatrix <- function(y) {
-        x <<- y
-        m <<- NULL
+makeCacheMatrix <- function(parm_matX = matrix()) {
+    g_Matrix <- parm_matX       ## local value
+##    g_Inverse <- NULL
+    setMatrix <- function(p_matrixY = matrix()) {
+        g_Matrix <<- p_matrixY  ## y stored in Global Environ
+        g_Inverse <<- NULL      ## g_Inverse is stored in Global Environ
     }
     getMatrix <- function() {
-        x
+        g_Matrix           ## returns g_Matrix, the object from Global Environ
     }
-    setInverse <- function(parm) {
-        m <<- parm
+    setInverse <- function(param_matX = matrix()) {
+        g_Inverse <<- param_matX    ## param_matX, this function's parameter, is a matrix
     }
     getInverse <- function() {
-        m
+        g_Inverse               ## returns g_Inverse, the inverse matrix, from Global Environ
     }
-    list(setMatrix = setMatrix, 
-         getMatrix = getMatrix,
+    list(setMatrix  = setMatrix, 
+         getMatrix  = getMatrix,
          setInverse = setInverse,
          getInverse = getInverse)
 }
@@ -49,14 +50,12 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) { 
     ## Returns a matrix that is the inverse of 'x' 
     m <- x$getInverse()
-    if(is.null(m)) {
-        message("setting cached data")
-        data <- x$getMatrix()
-        m <- solve(data, ...)
-        x$setInverse(m)
-    } else 
-    {
+    if(!is.null(m)) {
         message("getting cached data")
+        return(m)
     }
-    return(m)
+    data <- x$getMatrix()
+    m <- solve(data, ...)
+    x$setInverse(m)
+    m
 }
