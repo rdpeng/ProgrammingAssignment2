@@ -1,5 +1,13 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+#How to use these functions effectively:
+#Step 1: define makeCacheMatrix and cacheSolve in the user workspace
+#Step 2: call makeCacheMatrix (and assign it to a symbol) with an argument that is the matrix you want to invert (make sure its non-singular)
+#Step 3: call cacheSolve with the symbol
+
+#EXAMPLE:   myData <- makeCacheMatrix(matrix(runif(100,1,10),10,10))
+#           cacheSolve(myData)
+
 
 ## Write a short comment describing this function
 #makeCacheMatrix takes a matrix as an argument and returns a list of 3 functions (described below)
