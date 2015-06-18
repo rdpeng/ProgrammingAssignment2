@@ -41,7 +41,9 @@ cacheSolve <- function(x = matrix(), ...) {
         return(m)
 }
 
+
 ## Example code
 make <- makeCacheMatrix()
-make$set(matrix(c(1,1,2,1),2,2)) # calculates the inverse (hasn't been cached)
-make$set(matrix(c(1,1,2,1),2,2)) # retrieves inverse from cache
+make$set(matrix(c(1,1,2,1),2,2)) 
+cacheSolve(make) # calculates the inverse (hasn't been cached)
+cacheSolve(make) # retrieves inverse from cache
