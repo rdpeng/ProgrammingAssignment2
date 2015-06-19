@@ -1,6 +1,6 @@
-## following functions are used to cashe the inverse of a matrix 
-
-## set the value of the matix
+## The first function, makeCacheMatrix creates a special "matrix", 
+## which is really a list containing a function to
+## set the value of the matrix
 ## get the value of the matirx
 ## set the value of inverse of the matrix
 ## get the value of inverse of the matrix
