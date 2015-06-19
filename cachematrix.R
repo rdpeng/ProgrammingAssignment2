@@ -43,7 +43,7 @@ cacheSolve <- function(x, ...) {
   }
 
 ## UNIT Testing
-##Test Function invoking Cache Matrix and return the cached value on the Second Call
+## Test Function invoking Cache Matrix and return the cached value on the Second Call
 testf <- function(matVal) {
   temp = makeCacheMatrix(matVal)
   print("FIRST CALL - CALC VALUE")
