@@ -2,8 +2,7 @@
 ## If the matrix has been inverted, it calls on the cached version instead
 ## of consuming time to compute the inversion again
 
-## This function creates a matrix object.
-
+## The following function - makeCacheMatrix - creates a matrix object.
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -18,11 +17,9 @@ makeCacheMatrix <- function(x = matrix()) {
        getmatrix = getmatrix)
 }
 
-## This function computes the inverse of the matrix 
+## The next function - cacheSolve - computes the inverse of the matrix 
 ## created by the makeCacheMatrix function. If the inverse has already 
-## been calculated (and the matrix has not changed) then this function 
-## will call on the matrix from the cache
-
+## been calculated then this function will call on the matrix from the cache
 cacheSolve <- function(x, ...) {
   m <- x$getmatrix()
   if(!is.null(m)) {
@@ -30,8 +27,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   
-  ## Return a matrix that is the inverse of 'x'
-  
+  ## The following returns the matrix that is the inverse of 'x'
   data <- x$get()
   m <- solve(data, ...)
   x$setmatrix(m)
