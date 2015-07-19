@@ -1,2 +1,5 @@
-This repository contains the R file solution of the second programming assignment.
+##R Programming.
+#Assignment 2
+
+This repository contains the R file solution.
 
