@@ -8,14 +8,21 @@
 ## makeCacheMatrix() - create a cache for a matrix 
 
 makeCacheMatrix <- function(x = matrix()) {
-     theMatrix <- NULL
+     ## initialize theInverse to NULL
+     theInverse <- NULL
+     ## assign contents of input to cached matrix and NULL the inverse
      set <- function(y) {
           x <<- y
-          theMatrix <<- NULL
+          theInverse <<- NULL
      }
+     
+     ## setup get, setsolve, and getsolve functions to access cache
      get <- function() x
-     setsolve <- function(solve) theMatrix <<- solve
-     getsolve <- function() theMatrix 
+     setsolve <- function(solve) theInverse <<- solve
+     getsolve <- function() theInverse
+     
+     ## create list with methods for get / set of both original matrix
+     ## and its inverse 
      list(set = set, get = get,
           setsolve = setsolve,
           getsolve = getsolve)
@@ -38,6 +45,16 @@ cacheSolve <- function(x, ...) {
      
      ## invert the matrix, set the cache, and return
      data <- x$get()
+     
+     ## check to see whether matrix is invertible, meaning that
+     ## the determinant must be non-zero
+     if (det(data) == 0) {
+          ## can't invert this matrix, so set the cache to NULL
+          ## and return
+          message("Determinant is zero, setting cache to NULL")
+          x$setsolve(NULL)
+          return(NULL)
+     } 
      theMatrix <- solve(data)
      x$setsolve(theMatrix)
      theMatrix
