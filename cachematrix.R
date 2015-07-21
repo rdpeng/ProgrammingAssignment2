@@ -1,15 +1,31 @@
-## Put comments here that give an overall description of what your
-## functions do
+##How to do the inverse of a matrix in R  
 
-## Write a short comment describing this function
+#create a matrix  object
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function (m=matrix()){
+   y <- NULL
+   set <- function (x)   {
+   m <<- x
+    y <<- NULL
+   }
+   get <- function () m
+   setinverse <- function (solve) y <<- solve
+   getinv <- function ()  y
+   list(set=set, get=get,
+   setinverse=setinverse,
+   getinverse=getinverse)
+}  
 
-}
 
+#return the inverse matrix  of m
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function (m,...){
+   y <- m$getinv()
+   if(!is.null(y)){
+   message ("getting cached data")
+   return (y)
+   }
+   data <- m$get()
+   m$setinv(y)
+   y
 }
