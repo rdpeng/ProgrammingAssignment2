@@ -17,7 +17,7 @@
 ## 4. retrives the inverse with 'getinversefromcache' function
 
 makeCacheMatrix <- function(x = matrix()) {
-  invmatrix <<- NULL
+  invmatrix <- NULL
   
   set <- function (xx) {
     x <<- xx
