@@ -40,27 +40,26 @@ makeCacheMatrix <- function(x = matrix()) {
 ## 1. checks if the Inverse for the given input is already available
 ##    in Cache with 'makeCacheMatrix$getinversefromcache'
 ## 2. if so, returns the Inverse from Cache
-## 3. else, it gets the input data by calling 'makeCacheMatrix$get
-##    function'
+## 3. else, it gets the input data by calling 'makeCacheMatrix$get'
 ## 4. calculates the Inverse by calling 'solve' function
 ## 5. puts the Inverse calculated from Step #4 by calling 
 ##    'makeCacheMatrix$putinverseintocache'
 
 cacheSolve <- function(x,...) {
-  ##check if already present in cache
+  ## check if already present in cache
   invmatrixfromcache <- x$getinversefromcache()
   
   if (!is.null(invmatrixfromcache)) {
     print('fetching from cache')
     return(invmatrixfromcache)
   }
-  ##get the input data
+  ## get the input data
   inputmatrix <- x$get()
   
-  ##call the solve function to get the inverse
+  ## call the solve function to get the inverse
   newinvmatrix <- solve(inputmatrix,...)
   
-  ##put the inverse into cache
+  ## put the inverse into cache
   x$putinverseintocache(newinvmatrix)
   print(c('not available in cache.. put into cache by calling solve'))
   return(newinvmatrix)
@@ -74,38 +73,38 @@ cacheSolve <- function(x,...) {
 ## A simple exception handling scenario is added as a final
 ## test case for demonstration purpose.
 testInverse <- function(x) {
-  ##intializing the makeCacheMatrix function
+  ## call  makeCacheMatrix function
   testMat <- makeCacheMatrix(x)
   
-  ##calling cacheSolve first time to demonstrate printing inverse
-  ##by calling the solve function and to save into Cache
+  ## call cacheSolve first time to demonstrate printing inverse
+  ## by calling the solve function and to save into Cache
   print('call with new data')
   cacheSolve(testMat)
   
-  ##invoking again with same data to show that the same inverse
-  ##matrix is fetched from cache
+  ## invoke again with same data, to show that, the same inverse
+  ## matrix is fetched from cache
   print('call with same data')
   cachedData <- cacheSolve(testMat)
   print(cachedData)
   
-  ##intializing the makeCacheMatrix function
+  ## call makeCacheMatrix function
   testMat <- makeCacheMatrix(matrix(c(1,2,3,4),2,2))
   
-  ##calling cacheSolve first time to demonstrate printing inverse
-  ##by calling the solve function and to save into Cache
+  ## call cacheSolve first time to demonstrate printing inverse
+  ## with the builtin 'solve' function and save into Cache
   print('call with another set of data')
   cacheSolve(testMat)
   
-  ##invoking again with same data to show that the same inverse
-  ##matrix is fetched from cache
+  ## invoke again with same data, to show that, the same inverse
+  ## matrix is fetched from cache
   print('call with same data')
   cachedData <- cacheSolve(testMat)
   print(cachedData)
   
-  ##test a failure case
+  ## test a failure case
   testMat <- makeCacheMatrix(matrix(c(1,1,1,1),2,2))
   
-  ##catch the exception and print the exception message
+  ## catch the exception and print the exception message
   tryCatch(cacheSolve(testMat),error = function(e) {
     print(c('error finding inverse',e))
   })
