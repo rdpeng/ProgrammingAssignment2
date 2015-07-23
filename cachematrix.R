@@ -2,9 +2,8 @@
 ## The functions are used to create a special object that stores a 
 ## matrix and caches it's inverse.
 
-
 ## Function makeCacheMatrix is a function that allows to set or store a
-## matrix " x" and it's inverse.
+## matrix 'x' and it's inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -22,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-## Function cacheSolve is a function that returns the stored inverse matrix of "x".
+## Function cacheSolve is a function that returns the stored inverse matrix of 'x'.
 ## If there is nothing stored, it calculates the inverse of the given matrix.
 
 cacheSolve <- function(x, ...) {
