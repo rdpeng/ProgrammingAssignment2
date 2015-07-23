@@ -1,17 +1,14 @@
-## cachematrix.R - Programming Assignment 2
-## Caching the inverse of matrix
-
-## Write a short comment describing this function
+# pa2.R - Programming Assignment 2
+# Caching the inverse of matrix
 # makeCacheMatrix(): criates cached matrix (cria  matriz em cache)
-#########################################################################################
-###     EXEMPLO DE EXECUÇÃO:                                                            #
-### 1)  >a <- makeCacheMatrix()  ## load functions in variable 'a'                      #
-### 2)  >mat <- matrix(1:4,2,2)  ## put matrix in variable 'mat'                        #
-### 3)  >a$setm(mat)       ## load matrix "mat" in cache, test if is square (ncol=nrows)#
-### 4)  >a$seti()          ## compute inverse, if it has not been calculated            #
-### 5)  >a$geti()          ## get inverse cache (if already has calculated)             #
-### 6)  >cacheSolve(mat,a) ## return inverse matrix                                     #
-#########################################################################################
+# cacheSolve() :   obtains (obtem a matriz inversa do cache ou inverte-a)
+###     EXEMPLO DE EXECUÇÂO:
+### 1)  >a <- makeCacheMatrix()  =>carrega as funções em a
+### 2)  >mat <- matrix(1:4,2,2)
+### 3)  >a$setm(mat) =>carrega a matriz no cache, testa se é quadrada
+### 4)  >a$seti() => calcula a inversa se não tiver sido calculada
+### 5)  >a$geti() => obtém a inversa do cache (já está calculada)
+### 6)  >cacheSolve(a)
 makeCacheMatrix <- function(x=matrix()) {
                 m <<- NULL
                 setm <- function(x=matrix()) {
@@ -26,7 +23,8 @@ makeCacheMatrix <- function(x=matrix()) {
                 seti <- function(x=matrix()) {                    # calcula a inversa da matriz no arg x  
                         if(nrow(x)==ncol(x) & !is.null(x)){       # testa se quadrada e não nula
                                 if(is.null(m)) {                  # se a inversa não estiver na cache
-                                    message("inverse calculate!")
+                                    message("inverse calc!")
+                                    ### m  <<- NULL
                                     xm <<- x                      # guarda a matriz no cache
                                     m  <<- solve(x)               # e calcula a inversa
                                     return(m)
@@ -42,18 +40,15 @@ makeCacheMatrix <- function(x=matrix()) {
                 list(setm=setm, getm=getm,
                      seti=seti, geti=geti)
 }
-
-###############
-# cacheSolve(): get inverse matrix in cache or calculate inverse
-#            #
-cacheSolve <- function(y = matrix(), z) { # return matrix that is inverse of 'y' with cache in 'z'
-                    m <- z$geti()
-                    if(!is.null(m)) {
-                        message("inverse read in cache!")
-                        return(m)                                     # exibe a inversa em cache
-                    } else {
-                        message("call for calculate inverse!")
-                        z$seti(xm)                                    # calcular a inversa
-                        return(m)
-                    }
+cacheSolve <- function(y) {
+                m <- y$geti()
+                if(!is.null(m)) {
+                    message("inversa read in cache!")
+                    return(m)                                     # exibe a inversa em cache
+                } else {
+                    message("chamada para calcular inversa!")
+                    y$seti(xm)                                    # calcular a inversa
+                    return(m)
+                    
+                }
 }
