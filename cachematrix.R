@@ -4,9 +4,8 @@
 # * setMatrix      set the value of a matrix
 # * getMatrix      get the value of a matrix
 # * cacheInverse   get the cahced value (inverse of the matrix)
-# * getInverse     get the cahced value (inverse of the matrix)
-#
-# Notes:
+# * getInverse     get the cahced value (inverse of the matrix
+# It should be noted:
 # not sure how the "x = numeric()" part works in the argument list of the 
 # function, but it seems to be creating a variable "x" that is not reachable 
 # from the global environment, but is available in the environment of the 
@@ -44,7 +43,7 @@ makeCacheMatrix <- function(x = numeric()) {
 }
 
 
-# The following function calculates the inverse of a "special" matrix created with 
+# This function calculates the inverse of a matrix created with 
 # makeCacheMatrix
 cacheSolve <- function(y, ...) {
   # get the cached value
