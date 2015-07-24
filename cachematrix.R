@@ -43,8 +43,8 @@ makeCacheMatrix <- function(x=matrix()) {
                             message("Is not square matrix or null!")
                         }
                 }
-                geti <- function() {m}
-                list(setm=setm, getm=getm,
+                geti <- function() {m}                            # retorna a matriz inversa
+                list(setm=setm, getm=getm,                        # carrega a lista de funções
                      seti=seti, geti=geti)
 }
 
