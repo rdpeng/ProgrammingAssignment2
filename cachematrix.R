@@ -20,31 +20,32 @@ cachematrix.R - Programming Assignment 2
 makeCacheMatrix <- function(x=matrix()) {
                 m <<- NULL
                 setm <- function(x=matrix()) {
-                    if((nrow(x)==ncol(x)) & (!is.null(x)) ){ # testa se quadrada e não nula
-                            m  <<- NULL                      # m  = cache da inversa
-                            xm <<- x                         # xm = cache da matriz
+                    if((nrow(x)==ncol(x)) & (!is.null(x)) ){ # test is matrix is square and not null
+                            m  <<- NULL                      # m  = inverse matrix cache
+                            xm <<- x                         # xm = matrix cache
                     } else {
                             message("Is not square matrix or null!")
                     }
                 }
-                getm <- function() {xm}                           # retorna a matriz em cache
-                seti <- function(x=matrix()) {                    # calcula a inversa da matriz no arg x  
-                        if(nrow(x)==ncol(x) & !is.null(x)){       # testa se quadrada e não nula
-                                if(is.null(m)) {                  # se a inversa não estiver na cache
+                getm <- function() {xm}                           # returns matrix cache
+                seti <- function(x=matrix()) {                    # computes the inverse of matrix 'x'  
+                        if(nrow(x)==ncol(x) & !is.null(x)){       # test if matrix is square and not null
+                                if(is.null(m)) {                  # if the inverse is not cached
                                     message("inverse calculate!")
-                                    xm <<- x                      # guarda a matriz no cache
-                                    m  <<- solve(x)               # e calcula a inversa
+                                    xm <<- x                      # stores the matrix in cache 'xm'
+                                    m  <<- solve(x)               # and calculates the inverse
                                     return(m)
-                                } else {                          # a inversa já foi calculada
+                                } else {                          # inverse has already been calculated
                                     message("in cache!")
-                                    return(m)                     # retorna a inversa em cache
+                                    return(m)                     # returns the inverse cached
                                 }
                         } else {
                             message("Is not square matrix or null!")
                         }
                 }
-                geti <- function() {m}                            # retorna a matriz inversa
-                list(setm=setm, getm=getm,                        # carrega a lista de funções
+                geti <- function() {m}                            # returns the the inverse
+                
+				list(setm=setm, getm=getm,                        # loads the list of functions
                      seti=seti, geti=geti)
 }
 
@@ -57,10 +58,10 @@ cacheSolve <- function(y = matrix(),z) { # return matrix that is inverse of 'y' 
                     if(identical(xm,y)) { 
                        if(!is.null(m)) {
                             message("inverse read in cache!")
-                            return(m)                                     # exibe a inversa em cache
+                            return(m)                                     # displays the inverse cached
                         } else {
                             message("call for calculate inverse!")
-                            z$seti(xm)                                    # calcular a inversa
+                            z$seti(xm)                                    # to calculate the inverse
                             return(m)
                         }
                     } else { 
