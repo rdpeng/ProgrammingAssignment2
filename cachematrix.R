@@ -1,6 +1,6 @@
 cachematrix.R - Programming Assignment 2
 ## Caching the inverse of matrix
-
+## WARNING: My English is weak... My language native is portuguese.
 #########################################################################################
 ###     SAMPLE RUN:                                                                     #
 ### 1)  >source("cachematrix.R")   ## load the program R                                #                                                    #
