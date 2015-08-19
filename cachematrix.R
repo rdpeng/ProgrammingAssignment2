@@ -7,27 +7,51 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   mInv<-matrix() ##initialize a local, empty inverse
+  mOrig <- x
   
-  ##if inverse already exists, return a null matrix
-  
-  setInv<- function(z) {
-    mInv<<- solve(z)
+  setInv<- function(x2) { # calculate the inverse of the original matrix
+    mInv<<- solve(x2) # cache the inverse
   }
-  getInv<-function() mInV
+  getInv<-function() mInv   # return the inverse
+
+    setmOrig <- function(x3)  { # cache the original matrix
+    mOrig <<- x3
+  }
+	
+  getmOrig <- function() mOrig  # return the original matrix
   
-	solve <- function(y) 	{ ## create inverse
- 		mInv <<- solve(y) ## place inverse in cache
-	  					}
-	return(mInv) 	##Return inverse, regardless of value stored.
-				##This value will be NULL when run for the first time.
+  # list functions to be constructed
+  list(getInv = getInv, setInv = setInv,
+       getmOrig = getmOrig, setmOrig = setmOrig)
+  
 }
 
 ##*************** END OF FUNCTION
 
-## Return a matrix that is the inverse of 'x'
 
-cacheSolve <- function(x, ...) {
- ##check for presence of inverse
+cacheSolve <- function(MCM, ...) {  # makeCachematrix will be passed to this function
+  ## Return a matrix that is the inverse of the original matrix passed to it
+
+  orig <- MCM$getmOrig  # store local copy of original matrix
+  
+  # check for original matrix change
+  orig <- MCM$getmOrig()  # store local copy of original matrix
+  
+  if(orig == MCM$mOrig) { # if a match is found
+    # check for cached inverse
+    inv <- MCM$getmInv()
+    if(!is.null(inv)) { # if a value is stored
+      message("Returning cached inverse...")
+      inv   # print the inverse
+    }
+  } else  { # calculate inverse
+    #first, cache original matrix
+    MCM$setmOrig(orig)
+    message("Calculating inverse...")
+    MCM$setmInv(orig)   # pass local copy of original matrix for calculation
+    MCM$getmInv()   # print inverse
+  }
+  ##check for presence of inverse
 		m <- makeCacheMatrix(x)
         	if(is.null(m)) { 
 			## if matrix not cached
@@ -40,3 +64,4 @@ cacheSolve <- function(x, ...) {
         		}
 
 }
+
