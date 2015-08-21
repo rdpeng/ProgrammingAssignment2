@@ -1,4 +1,4 @@
-## Programming in R Course, Programming Assignment 2
+## Programming in R Coursera Course, Programming Assignment 2
 ## Edited by: Antal Nusselder
 ## Last edit date: 21-8-2015
 ## Containing two functions that cache the inverse of a matrix in order to save on computational power
