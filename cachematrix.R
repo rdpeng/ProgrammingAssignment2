@@ -42,10 +42,10 @@ cacheSolve <- function(x, ...) {
       return(inverse)
    }
    else{
-   mat_data <- x$get()
-   inverse <- solve(mat_data, ...)
-   x$set_inv(inverse)
-   return(inverse)
+	   mat_data <- x$get()
+	   inverse <- solve(mat_data, ...)
+	   x$set_inv(inverse)
+	   return(inverse)
    }
         ## Return a matrix that is the inverse of 'x'
 }
