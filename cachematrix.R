@@ -1,5 +1,5 @@
 ## These two functions together restores the reverse of the matrix that have been 
-## computed and rretrive that data if needed again without do the same calculation again.
+## computed and retrive that data if needed without do the same calculation again.
 ## Calculate the reverse of the maxtrix if previous data is not available.
 
 ## This function is a list of functions, including get(), set(),setreverse() and getreverse()
