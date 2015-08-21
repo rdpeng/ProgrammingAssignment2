@@ -1,15 +1,33 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These two functions together restores the reverse of the matrix that have been 
+## computed and retrive that data if needed without do the same calculation again.
+## Calculate the reverse of the maxtrix if previous data is not available.
 
-## Write a short comment describing this function
+## This function is a list of functions, including get(), set(),setreverse() and getreverse()
 
 makeCacheMatrix <- function(x = matrix()) {
+        r <- matrix()
+        set <- function(y) {
+                x <<- y
+                r <<- matrix()}
+        get <- function() x
+        setreverse <- function(reverse) r <<- reverse
+        getreverse <- function() r
+        list(set = set, get = get,setreverse = setreverse,getreverse = getreverse)
 
 }
 
 
-## Write a short comment describing this function
+## This function is used to retireve the data that has been stored in makeCacheMatrix()
+## If such data is not available, it will calculate the reverse of the given matrix directly.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        r <- x$getreverse()
+        if(!identical(r,matrix())) {
+                message("getting cached data")
+                return(r)
+        }
+        data <- x$get()
+        r <- solve(data,...)
+        x$setreverse(r)
+        r
 }
