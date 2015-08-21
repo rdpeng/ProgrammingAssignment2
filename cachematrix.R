@@ -4,6 +4,7 @@
 ## and if the matrix hasn't changed in the meantime - the inverse will be drawn
 ## from the cache instead of being calculated again.
 
+
 ## makeCacheMatrix defines 4 functions:
 ## 1. set - accepts a matrix as an argument and puts it in variable x.
 ## 2. get - returns the variable x on demand.
