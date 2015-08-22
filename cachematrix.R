@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+Rub the lotion on the body!!!!!!!!!!!!!!!!!!
 
 makeCacheMatrix <- function(x = matrix()) {
 
