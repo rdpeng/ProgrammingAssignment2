@@ -1,5 +1,4 @@
 ## https://github.com/chockyspice/ProgrammingAssignment2.git
-## 1st commit SHA-1 hash identifier: 9b4fb30af1f22f6ee7760097d46947e96f4117e2
 ## R-Programming-Assignment2: Lexical Scoping--caching the inverse of a matrix
 
 ## The first function, makeVector creates a special "vector", which is really a list
