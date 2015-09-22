@@ -38,12 +38,12 @@ cacheSolve <- function(x, ...) {
 
 	m <- x$getinverse()
 	if(is.null(m)) {
-		print ( "new guy" )
+		# print ( "new guy" )
 		work_matrix <- x$getvector()
 		temp_inv = solve(work_matrix)
 		m <- x$setinverse(temp_inv)
       } else {
-		print ( "cache" )
+		# print ( "cache" )
       }
 	m
 }
