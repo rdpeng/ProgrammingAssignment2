@@ -8,7 +8,7 @@
 ##                       matrix.
 
 
-makeCacheMatrix <- function (x = maxix() ) {
+makeCacheMatrix <- function (x = matrix() ) {
 #
 #             functions 
 #                    setvector     initialize condition
