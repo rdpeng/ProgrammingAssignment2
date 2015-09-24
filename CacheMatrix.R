@@ -1,5 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Put comments here that give an overall description of what your functions do -
+## ( Did not push to the repo - re sub )
 
 ## The 2 functions below are used to create a square matrix to store the mean and to retrieve the inverse of the mean if it has already been cached, with a call to solve(). 
  
