@@ -18,7 +18,7 @@
 # # 4. Calculate inverse matrix any time after this, the 
 # #   "getting cached data" will appear, because it is
 # #   already in memory as a part of the environment variable
-# cacheSolve(zCachedMat)
+# cacheSolve(zCachedMat) 
 
 
 #-------------------------------------------------------
