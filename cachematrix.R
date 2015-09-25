@@ -40,7 +40,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If the inverse has already been calculated and the matrix has not been changed,
 ## then it should retrieve the inverse from the cache.
 ## If it is the first time that this function is called, then it will compute
-## the inverse using "solve" and sets the computed value in cache.
+## the inverse using "solve" and sets the computed value in cache
 ## By setting the value in cache when getInverse of previous function is called 
 ## it will provide the cached value.
 
