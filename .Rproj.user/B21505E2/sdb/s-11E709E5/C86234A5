@@ -1,0 +1,17 @@
+{
+    "contents" : "#The first function, makeCacheMatrix creates a special \"matrix\", \n#which is really a list containing a function to\n#set the value of the matrix\n#get the value of the matrix\n#set the value of the inverse\n#get the value of the inverse\n\n#All this uses the  <<- operator, to store the value in an object \n#outside the normal environment. Uses solve() to get the \n#inverse. Ta-Da!\n\nmakeCacheMatrix <- function(x = matrix()) {\n  m <- NULL\n  set <- function(y) {\n    x <<- y\n    m <<- NULL\n  }\n  get <- function() x\n  setinverse <- function(solve) m <<- solve\n  getinverse <- function() m\n  list(set = set, get = get,\n       setinverse = setinverse,\n       getinverse = getinverse)\n}\n\n# The following function calculates the inverse of the special \"matrix\" \n# created with the above function. However, it first checks to see \n# if the inverse has already been calculated. If so, it gets the inverse \n# from the cache and skips the computation. Otherwise, it calculates \n# the inverse of the matrix and sets the value of the inverse in the cache \n# via the setinverse function. \n\n# Assumes that the matrix supplied is always invertible.\n\ncacheSolve <- function(x, ...) {\n  m <- x$getinverse()\n  if(!is.null(m)) {\n    message(\"getting cached data\")\n    return(m)\n  }\n  data <- x$get()\n  m <- solve(data, ...)\n  x$setinverse(m)\n  m\n}",
+    "created" : 1442614840402.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2485657439",
+    "id" : "C86234A5",
+    "lastKnownWriteTime" : 1443143002,
+    "path" : "~/Coursera/R/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : true,
+    "type" : "r_source"
+}

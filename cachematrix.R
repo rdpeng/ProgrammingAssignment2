@@ -7,7 +7,7 @@
 
 #All this uses the  <<- operator, to store the value in an object 
 #outside the normal environment. Uses solve() to get the 
-#inverse.
+#inverse. Ta-Da!
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
