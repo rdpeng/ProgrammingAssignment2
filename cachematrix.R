@@ -13,7 +13,6 @@ makeCacheMatrix <- function(x = matrix()) {
         
         matrix <<- matrix()
         return (x)
-        #matrix <<- solve(x)
         
 }
 
