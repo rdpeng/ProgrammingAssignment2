@@ -1,4 +1,8 @@
-## The function below cache potentially time-consuming computations
+# This Function creates a special object that stores a matrix
+# 1. set the value of the matrix
+# 2. get the value of the matrix
+# 3. set the value of inverse of the matrix
+# 4. get the value of inverse of the matrix
 
 ## This function creates a special "matrix" object that can cache its inverse
 
@@ -32,3 +36,24 @@ cacheSolve <- function(x, ...) {
         x$setsolve(invs)
         invs
 }
+
+## Working Example and results
+## > source(cachematrix.R)
+## > x <- rbind(c(2, 3.5), c(3.5, 2))
+## > k <- makeCacheMatrix(x)
+## > k$get()
+##      [,1] [,2]
+## [1,]  2.0  3.5
+## [2,]  3.5  2.0
+## > cacheSolve(k)
+##            [,1]       [,2]
+## [1,] -0.2424242  0.4242424
+## [2,]  0.4242424 -0.2424242
+## > ## After creating the cache, the second run shows
+## > cacheSolve(k)
+## getting cached data
+##            [,1]       [,2]
+## [1,] -0.2424242  0.4242424
+## [2,]  0.4242424 -0.2424242
+## >
+## >
