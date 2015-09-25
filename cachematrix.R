@@ -42,23 +42,23 @@ inv <- x$getinverse()
         ## Return a matrix that is the inverse of 'x'
 }
 ## Sample run:
-## > x = rbind(c(1, -1/4), c(-1/4, 1))
+## > x = rbind(c(5, 10), c(5, 10))
 ## > m = makeCacheMatrix(x)
 ## > m$get()
-##       [,1]  [,2]
-## [1,]  1.00 -0.25
-## [2,] -0.25  1.00
+##     [,1] [,2]
+##[1,]    5   10
+##[2,]   10    5
 
 ## No cache in the first run
 ## > cacheSolve(m)
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
+##            [,1]        [,2]
+##[1,] -0.06666667  0.13333333
+##[2,]  0.13333333 -0.06666667
 
 ## Retrieving from the cache in the second run
 ## > cacheSolve(m)
 ## getting cached data.
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
+##             [,1]        [,2]
+##[1,] -0.06666667  0.13333333
+##[2,]  0.13333333 -0.06666667
 ## > 
