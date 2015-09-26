@@ -34,3 +34,5 @@ cacheSolve <- function(x, ...) {
     x$setsolve(s)                              ## Using setter "setsolve" - save result in a Cache
     s                                          ## Printing result to screen
 }
+
+## data <- matrix(c(1,-2,0,3,4,2,-1,3,1),3,3,byrow = TRUE)
