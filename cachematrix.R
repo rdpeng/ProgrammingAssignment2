@@ -4,7 +4,6 @@
 ## to caching the inverse of a matrix rather than compute it repeatedly 
 
 ## "following two functions" are used to cache the inverse of a matrix.
-
 ## "makeCacheMatrix": This function creates a special "matrix" object that can cache its inverse.
 
 ## "cacheSolve": This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
