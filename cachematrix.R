@@ -59,15 +59,15 @@ makeCacheMatrix <- function(x = matrix()) {
 # calculated (and cached)
 cacheSolve <- function(x, ...) {
     # retrieve the inverse from the cache if available
-    inv <- x$getinverse()
-    if (!is.null(inv)) {
+    inv <- x$getinverse() # retrieve the contents of the cache
+    if (!is.null(inv)) {  # was the cache full?
         message("getting cached data")
-        return(inv)
+        return(inv) # return the cached inverse
     }
     
     # if the inverse is not chached, calculate the inverse
-    data <- x$get()
-    inv <- solve(data, ...)
-    x$setinverse(inv)
-    inv
+    data <- x$get() # first, get the matrix
+    inv <- solve(data, ...) # then solve for the inverse
+    x$setinverse(inv) # save the inverse into the cache
+    inv # return the inverse to the caller of the function
 }
