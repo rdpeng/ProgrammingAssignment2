@@ -12,21 +12,26 @@
 #-       matrix in the global environment and retrieve them.
 #- Input: An numeric square matrix
 #- Returns: A list of functions
+
 makeCacheMatrix <- function(x = matrix()) {
     #- Local variable im
     im <- NULL
 
-    #- Function to set the matrix x and a default NULL value as a
+    #- Function which sets the matrix x and a default NULL value as a
     #- placeholder for the inverse matrix in the global env
-    #- (using the '<<-' operator)
+    #- (uses the '<<-' operator)
     set <- function(y) {
             x <<- y
             im <<- NULL
     }
     #- Function to return the matrix
+
     get <- function() x
+
     #- Function to set the inverse matrix in the global environment
+
     setimat <- function(imat) im <<- imat
+
     #- Function to return the inverse matrix
     getimat <- function() im
 
