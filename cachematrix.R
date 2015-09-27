@@ -1,3 +1,8 @@
+##Dan Spindler
+## Assignment 2
+## Sept. 26 2015
+
+
 ## Put comments here that give an overall description of what your
 ## functions do
 
