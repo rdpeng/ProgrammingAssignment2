@@ -1,5 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Unfortunately, didn't make it to deliver the functions on time :)
+## 
 
 ## Write a short comment describing this function
 
