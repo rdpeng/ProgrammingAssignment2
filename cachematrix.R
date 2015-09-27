@@ -4,50 +4,41 @@
 ## functions do
 
 ## Write a short comment describing this function
-#1. makeCacheMatrix <- create special matrix object that caches the inverse
+#1. makeCacheMatrix: special matrix object that caches the inverse
 makeCacheMatrix <- function(x = matrix()) {
-makeVector <- function(x = numeric()) {
 #i. set the value of the vector
 #ii. get the value of the vector
 #iii. set the value of the mean
 #iv. get the value of the mean
-    m <- NULL
-    set <- function(y) {
+    inverse <- NULL
+    setsvalue <- function(y) {
         x <<- y
-        m <<- NULL
+        inverse <<- NULL
     }
-    get <- function() x
-    setmean <- function(mean) m <<- mean
-    getmean <- function() m
+    getvalue <- function() x
+    setmean <- function(mean) inverse <<- mean
+    getmean <- function() inverse
     list(set = set, get = get,
          setmean = setmean,
          getmean = getmean)
 }
 
-cachemean <- function(x, ...) {
+## Write a short comment describing this function
+#2. cacheSolve: computes the inverse of the special matrix returned by makeCacheMatrix
+cacheSolve <- function(x, ...) {
 #i. calculate the mean of vector created with makeVector function
 #ii. check if mean already calculated
 #iii. if already calculated, take mean from cache and skips computation
 #iv. else calculate mean of data
 #v. and sets value of mean in cache via setmean function
-    m <- x$getmean()
-    if(!is.null(m)) {
+    inverse <- x$getmean()
+    if(!is.null(inverse)) {
         message("getting cached data")
-        return(m)
+        return(inverse)
     }
-    data <- x$get()
-    m <- mean(data, ...)
-    x$setmean(m)
-    m
-}
+    data_update <- x$get()
+    inverse <- mean(data_update, ...)
+    x$setmean(inverse)
+    inverse
 }
 
-## Write a short comment describing this function
-#2. cacheSolve: computes the inverse of the special matrix returned by makeCacheMatrix
-
-#if inverse calculated (no change in matrix), then cachesolve should retrieve the inverse of thde cache
-#inverse of a square matrix **solve function
-#if X is a square invertible matrix, then solve(x) returns its inverse
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
