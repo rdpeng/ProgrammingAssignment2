@@ -1,9 +1,11 @@
 ## Put comments here that give an overall description of what you functions dor
+# Referenced "http://rstudio-pubs-static.s3.amazonaws.com/56438_c8c1b3a349d84e02996f91b394779b06.html"
+# for coding and debugging ideas.
 
-
-# The function "makeCacheMatrix" creates the inverted matrix save area which is
-# updated by using the superassignment operator "<<-".
-
+# ----------------------------------------------------------------------------------- #
+#   The function "makeCacheMatrix" creates the inverted matrix save area which is     #
+#   updated by using the superassignment operator "<<-".                              #
+# ----------------------------------------------------------------------------------- #
 makeCacheMatrix <- function(x = matrix()) {
 
         matrix_cache <- NULL            # setMatrix() inversion result storage area
@@ -31,8 +33,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-# The function "cacheSolve" retrieves the inverted matrix (if present). If the return
-# value is NULL, the matrix will be inverted (vi solve()) and stored in the cache.
+# ----------------------------------------------------------------------------------- #
+# The function "cacheSolve" retrieves the inverted matrix (if present). If the return #
+# value is NULL, the matrix will be inverted (via solve()) and stored in the cache.   #
+# ----------------------------------------------------------------------------------- #
 
 cacheSolve <- function(x, ...) {
 
