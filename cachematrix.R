@@ -1,7 +1,10 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-# Functions modularize the operation flow of the program - providing 
-# an easy to understand and easy to edit program.
+# Both the functions when used together will store the inverse of a matrix and output it without recalculating it everytime. 
+# the cache here is the local environment of the object created by the function makeCacheMatrix.. so changes in the matrix -( made by
+# using set function) and its inverse are stored in this local environment. The second function access the inverse from this 
+# environment and then outputs it. This can be done for any large operation, not only inverses of matrices.
+
 
 ## Write a short comment describing this function
 # Creates an object to store a matrix and its inverse in its local environment - hence can be used like a cache
