@@ -1,6 +1,7 @@
 ## Put comments here that give an overall description of what you functions dor
 # Referenced "http://rstudio-pubs-static.s3.amazonaws.com/56438_c8c1b3a349d84e02996f91b394779b06.html"
 # for coding and debugging ideas.
+# Also referenced "The Art of R Programming" by Norman Matloff (Chapter 9)
 
 # ----------------------------------------------------------------------------------- #
 #   The function "makeCacheMatrix" creates the inverted matrix save area which is     #
