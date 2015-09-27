@@ -5,7 +5,7 @@
 
 ## This function creates a matrix and determine the inverse, 2x2 matrix is the
 ## default
-makeCacheMatrix <- function(x = matrix(data = 1:4, nrow = 2, ncol = 2)) {   ## matrix function 
+makeCacheMatrix <- function(x = matrix(x, nrow = 2, ncol = 2)) {   ## matrix function to cache the matrix inverse
     xa <<- x[1,1]  ## set values from a to d and save elements to enviroment 
     xb <<- x[1,2]
     xc <<- x[2,1]
