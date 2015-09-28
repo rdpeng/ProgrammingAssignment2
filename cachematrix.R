@@ -25,7 +25,7 @@
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function (y) {
-        #x <<- y # This is probably redundant?
+        X <<- y # This is probably redundant?
         inv <<- NULL
     }
     get <- function ()
