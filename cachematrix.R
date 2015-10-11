@@ -1,11 +1,18 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Caching the Inverse of a Matrix
+## Two functions to create: a) special matrix. b) its invers in capable of  
+## caching the invers and retrive it when need it.
+## 
+## These functions was created for Programming Assignment 2:
+
+##
 
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
 
 }
+
+
 
 
 ## Write a short comment describing this function
