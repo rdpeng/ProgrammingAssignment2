@@ -24,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
     cache <<- solve
   }
   
-  # get the cached value
+  # get the cached value 
   getInverse <- function() {
     cache
   }
