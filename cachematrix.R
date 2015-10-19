@@ -1,3 +1,6 @@
+## Put comments here that give an overall description of what your
+## functions do
+
 ## This function creates a special matrix object that can cache its own inverse
 ## It is a square invertible matrix
 
@@ -5,6 +8,7 @@
 ## This function will create a matrix that will cache its own inverse
 
 makeCacheMatrix <- function(x = matrix()) {
+
 
   ## Step 1 - Set Matrix
   ## Step 2 - Get Matrix
