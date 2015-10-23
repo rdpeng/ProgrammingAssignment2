@@ -30,7 +30,15 @@ makeCacheMatrix <- function(x = matrix()) {
 #  2) If inverse is not present in the cache, then calculated the inverse, stores
 #     it in the cache and returns the value
 
-cacheSolve <- function(funs, ...) {
+cacheSolve <- function(z, ...) {
     
-        
+    inv <- z$getinv()
+    if (!is.null(inv) & z$get()==x) {
+        message("Inverse for the matrix already exists. Getting inverse from cache")
+        return(inv)
+    }
+    data <- z$get(x)
+    inv <- solve(data)
+    z$setmean(inv)
+    inv
 }
