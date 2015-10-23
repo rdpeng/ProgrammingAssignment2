@@ -3,6 +3,8 @@
 
 ## Write a short comment describing this function
 
+##This is an initial test to see if the desktop client works properly
+
 makeCacheMatrix <- function(x = matrix()) {
 
 }
