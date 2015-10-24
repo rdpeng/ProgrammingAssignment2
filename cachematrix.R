@@ -1,15 +1,22 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## makeCacheMatrix creates a matrix based on user input, solves for the inverse of the matrix,
+## and caches the inverse matrix into the new matrix, cacheMatrix.  No data is returned. 
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  cacheMatrix<<-solve(x)  ## Solves inverse of matrix and caches values to new matrix
 }
 
 
-## Write a short comment describing this function
+##cacheSolve performs the same task as makeCacheMatrix then checks to determine if the
+##resulting inverse matrix is the same as the previously cached matrix.  If so, it prints 
+##the new result.  If not, it prints the cached result.
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(x, ...) {  ## Return a matrix that is the inverse of 'x'
+  xsolved<-solve(x)  ##solves for inverse of x
+  if((xsolved[1,1]==cacheMatrix[1,1]) & (xsolved[1,2]==cacheMatrix[1,2]) 
+     & (xsolved[2,1]==cacheMatrix[2,1]) & (xsolved[2,2]==cacheMatrix[2,2])){ 
+    ##checks that cacheSolve result is the same as makeCacheMatrix result
+    print(xsolved)    ##if so, prints cacheSolve result
+  } else { 
+    print(cacheMatrix) ##if not, prints cacheMatrix result 
+  }
 }
