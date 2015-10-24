@@ -1,47 +1,31 @@
-## Put comments here that give an overall description of what your functions do -
-## ( Did not push to the repo - re sub )
-
-## The 2 functions below are used to create a square matrix to store the mean and to retrieve the inverse of the mean if it has already been cached, with a call to solve(). 
+###  Assignment2 - Write 2 functions that cache the inverse of a matrix.
+###   1. makeCacheMatrix()
+###   2. cacheSolve()
  
-
-## Write a short comment describing this function 
-
-## This function creates a special "matrix" object that can cache its mean.
+source("cachematrix.R")
  
-makeCacheMatrix <- function(x = matrix()) {
- m <- NULL
- set <- function(y) {
-             x <<- y
-             m <<- NULL
- }
-
-  get <- function() x
-  setmean <- function(mean) m <<- mean
-  getmean <- function() m
-  matrix(set = set, get = get,
-                setmean = setmean,
-                 getmean = getmean)
-
-}
+ ### 1. This function creates a special "matrix" object that can cache its inverse. 
+   makeCacheMatrix <- fuction(amatrix...)
+  {
+   	  amatrix = makeCacheMatrix(matrix(c(1,2,3,4), nrow =2 , ncol = 2))
+	  amatrix$get()                    ## return original matrix
+ 	 amatrix$getinverse()      ## return matrix inverse
+    }
 
 
-## Write a short comment describing this function 
-
-## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
-## If the mean has already been calculated, and the matrix has not changed, then the cacheSolve
-## will retrieve the inverve from the cache.
- 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-
-            m <- x$getmean()
+### 2. This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
+### If the inverse has already been calculated then cacheSolve retrieves the inverse from cache.  
+  
+cacheSolve <- function(amatrix ...) {
+         
+            m <-  cachemean(amatrix)
             if(!is.null(m)) {
                       message (" getting cached data" )
                       return(m)
              }
-            data <- x$get()
+            data <- amatrix$get()
             m <- solve(data, ...)
-            x$setmean()
+            amatrix$setmean()
             m
       }
    
