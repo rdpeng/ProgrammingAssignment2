@@ -1,4 +1,4 @@
-# Similar to the mean of a vector example, the caching of the matrix follows similar goals:
+# Similar to the mean of a vector example, the makeCacheMatrix follows similar goals:
 # 1. Set the value of the matrix
 # 2. Get the value of the matrix
 # 3. Set the value of the inverse
@@ -21,20 +21,22 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-# Similar to the vector example, except replacing mean with inverse
-# Check if inverse is already calculated
-# If so, get the inverse from the cache and skip computation
-# If not, calculate inverse of data and sets the value of the inverse in the cache via setinverse function
+# Similar to the second part of the vector example, again replacing mean with inverse/solve
+# The following function calculates the inverse of the special "matrix" created above, however it
+# 1. Checks if the inverse is already calculated
+# 2. If so, get the inverse from the cache and skip computation
+# 3. If not, calculate the inverse of data and sets the value of the inverse in the cache via setinverse function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  inv <- x$getinverse() # Checks for already calculated inverse
+  inv <- x$getinverse() 
   if(!is.null(inv)) {
-    message("getting cached data") #If it's calculated already, get it from cache
+    message("getting cached data") 
     return(inv)
   }
   data <- x$get()
-  inv <- solve(data, ...) # If not, calculate the inverse
-  x$setinverse(inv) # Via setinverse function
+  inv <- solve(data, ...) 
+  x$setinverse(inv)
   inv
 }
+
+# The blog post linked to in the forum was quite informative too.
