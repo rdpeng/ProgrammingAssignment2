@@ -4,7 +4,7 @@
 ## Solution prepared by Marcin Borucki.
 ## Self developed solution based on a provided example of vector cache means.
 
-## SOlving for matrix invert and caching the result in the special matrix object.
+## Solving for matrix invert and caching the result in the special matrix object.
 ## The goal is to save computation time for potentially invertig the same matrix multiple times.
 
 
