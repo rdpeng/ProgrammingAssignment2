@@ -4,7 +4,7 @@
 ## setInverse: calculate the inverse of the matrix and cache it
 ## getInverse: read the cached inverse of the matrix
 
-## Write a short comment describing this function
+## This function includes 4 tool functions to create a cache matrix
 
 makeCacheMatrix <- function(x = matrix()) {
     i <- NULL
