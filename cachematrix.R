@@ -7,6 +7,7 @@
 ##       4. B$set ==> initialize the inverse, exchanges values
 ## Works in conjunction with fn cacheSolve
 
+
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {                             # initialize inverse 
@@ -20,6 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
        setInverse = setInverse,
        getInverse = getInverse)
 }
+
 
 
 ## Works in conjunction with makeCacheMatrix
