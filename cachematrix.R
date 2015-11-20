@@ -1,8 +1,10 @@
-##The two functions makeCacheMatrix and cacheSolve are used to calculate
-##and cache the inverse of a metrix, to avoid recalculating the inverse
-##if it has already been calculated.
+#The two functions makeCacheMatrix and cacheSolve are used to calculate
+#and cache the inverse of a matrix, to avoid recalculating the inverse
+#if it has already been calculated.
 
-## Write a short comment describing this function
+#makeCacheMatrix is a list of functions that will be used to 
+#store a matrix x and cache the inverse of the matrix x. It returns 
+#a cached list allowing the matrix and its inverse to be called again.
 
 makeCacheMatrix <- function(x = matrix()) {
         I <- NULL
@@ -18,11 +20,10 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
-
-##cacheSolve calculates the inverse of a matrix x, or retrives the inverse
+#cacheSolve calculates the inverse of a matrix x, or retrives the inverse of x from the cache if it has already been solved for.
 
 cacheSolve <- function(cache, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        # Return a matrix that is the inverse of 'x'
         I <- cache$getinverse()
         if(!is.null(I)) {
                 message("getting cached data")
