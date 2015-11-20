@@ -40,6 +40,10 @@ cacheSolve <- function(x,...) {
 	#otherwise it gives an error
 	
 	#verify if x is of type list?
+	if(!is.list(x)){
+		stop("the argument to cacheSolve must be a list")
+	}
+	
 	#look if x has a cached inverse
 	myinverse <- x$getinverse()
 	
