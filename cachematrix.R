@@ -95,6 +95,4 @@ testCache <- function(){
 	message("verify the inverse")
 	x3 %*% i3
 	
-	
-	
 }
