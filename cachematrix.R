@@ -22,7 +22,6 @@ makeCacheMatrix <- function(x = matrix()) {
     getinv <- function() inv
     getevn <- function() environment()
     test <<- list(set = set, get = get, setinv = setinv, getinv = getinv, getevn <- getevn)
-#    list(set = set, get = get, setinv = setinv, getinv = getinv, getevn = getevn)
 }
 
 
