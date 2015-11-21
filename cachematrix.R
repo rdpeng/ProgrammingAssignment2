@@ -1,8 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The following program has two functions: 
+## makeCacheMatrix: Takes a matrix as input and stores its inverse in cache
+## cacheSolve: Takes a matrix as input and checks to see if it's inverse is
+##            available in cache otherwise computes the inverse and stores it in
+##            cache (using first function). Returns the inverse of the matrix
 
-## Write a short comment describing this function
 
+## Function makeCacheMatrix
 makeCacheMatrix <- function(x = matrix()) {
   mat <- NULL
   set <- function(y) {
