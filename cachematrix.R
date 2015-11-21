@@ -5,7 +5,12 @@
 ##            cache (using first function). Returns the inverse of the matrix
 
 
-## Function makeCacheMatrix
+## Function makeCacheMatrix: Input it a matrix. Has 4 variables:
+##  1. get: returns the input matrix
+##  2. set: sets the value of the matrix in cache
+##  3. getinv: returns the inverse of the matrix
+##  4. setinv: sets the inverse of the matrix in cache
+##  Returns a list of a combination of the 4 variables (set,get,setinv,getinv)
 makeCacheMatrix <- function(x = matrix()) {
   mat <- NULL
   set <- function(y) {
