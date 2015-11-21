@@ -27,8 +27,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## Function cacheSolve: Input is a matrix
+##  Check if it's inverse is available in cache (by calling makeCacheMatrix),
+##  if available, return the inverse. Else compute the inverse and return it
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   m <- x$getinv()
