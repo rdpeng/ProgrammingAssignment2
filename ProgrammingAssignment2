@@ -1,0 +1,37 @@
+## The makeCacheMatrix creates a special matrix obect that can cache its inverse
+## This is a requirement for Programming Assignment 2
+
+## 1st of two functions
+
+makeCacheMatrix <- function(x = matrix()) {
+      i <- NULL
+      set <- function(y) {
+            x <<- y
+            i <<- NULL
+      }
+      get <- function() x
+      setinverse <- function(inv) i <<- inv
+      getinverse <- function() i
+      list(
+            set = set,
+            get = get,
+            setinverse = setinverse,
+            getinverse = getinverse
+      )
+}
+
+
+## The cacheSolve function computes the inverse of the matrix returned by the makeCacheMatrix function
+## if the matrix has not changed then the CacheMatrix function returns the inverse from the cache
+
+cacheSolve <- function(x, ...) {
+      i <- x$getinverse()
+      if(!is.null(i)) {
+            message("getting cached data")
+            return(i)
+      }
+      m <- x$get()
+      i <- solve(m, ...)
+      x$setinverse(i)
+      i
+}
