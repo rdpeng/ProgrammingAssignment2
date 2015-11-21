@@ -32,11 +32,3 @@ cacheSolve <- function(x, ...) {
   x$setinv(inv)
   inv
 }
-
-c=c(1, -1/4,-1/4, 1)
-c
-
-d<-matrix(data=c(1, -1/4,-1/4, 1), nrow=2, ncol=2)
-
-makeCacheMatrix(d)
-cacheSolve(d)
