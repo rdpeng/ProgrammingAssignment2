@@ -20,4 +20,3 @@ cacheSolve <- function(x, ...) {
     inv <<- mat1 / c(xa*xd-xb*xc)  ## div matrix by the determinant:  a*d-b*c
     print(inv)  ## prints the inverse matrix & saves the result in the environment
   }        
-
