@@ -32,7 +32,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## mySpecialMatrix <- makeCacheMatrix(matrix(data = c(4, 7, 2, 6), nrow = 2, ncol = 2, byrow = TRUE))
 ## cacheSolve(mySpecialMatrix)
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
   inverse <- x$getInverse()
   if(!is.null(inverse)) {
     message("getting cached data")
