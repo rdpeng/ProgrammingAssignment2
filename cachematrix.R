@@ -1,7 +1,11 @@
 ## Functions calculates the inverse of matrix n x n and once calculated
 ## keeps in cache
 
-
+#makeCacheMatrix function creates the list containing 4 funtions, that:
+#1. set the matrix
+#2. get the matrix
+#3. set the inversed matrix
+#4. get the inversed matrix
 makeCacheMatrix <- function(x = matrix()) {
     s <- NULL
     set <- function(y) {
@@ -16,7 +20,8 @@ makeCacheMatrix <- function(x = matrix()) {
          getsolve = getsolve)
 }
 
-
+#cacheSolve function checks if there is inversed matrix already solved and if not
+#calculates it and saves it in the cache via setsolve function
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
     s <- x$getsolve()
