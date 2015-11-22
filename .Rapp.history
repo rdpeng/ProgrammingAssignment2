@@ -1,0 +1,65 @@
+getwd()
+ls
+ls()
+poker_vector <- c(140, -50, 20, -120, 240)
+names(poker_vector) <- c("Monday", "Tuesday", "Wendnesday", "Thursday", "Friday")
+poker_vector
+getwd()
+help()
+# Poker winnings from Monday to Friday#
+poker_vector <- c(140, -50, 20, -120, 240)#
+#
+# Roulette winnings from Monday to Friday#
+roulette_vector <- c(-24, -50, 100, -350, 10)#
+#
+# Create the variable 'days_vector'#
+days_vector <- c("Monday", "Tuesday", "Wendnesday", "Thursday", "Friday")#
+#Assign the names of the day to 'roulette_vector' and 'poker_vector'#
+names(poker_vector) <-  days_vector #
+names(roulette_vector) <- days_vector
+roulette_vector
+days_vector
+# Poker winnings from Monday to Friday#
+poker_vector <- c(140, -50, 20, -120, 240)#
+#
+# Roulette winnings from Monday to Friday#
+roulette_vector <- c(-24, -50, 100, -350, 10)#
+#
+# Give names to both 'poker_vector' and 'roulette_vector'#
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")#
+names(roulette_vector) <- days_vector#
+names(poker_vector) <- days_vector#
+#
+# Define a new variable based on a selection#
+poker_wednesday <- poker_vector[3]
+poker_wendnesday
+poker_wednesday
+poker_monday <- poker_vector$Monday
+poker_vector$Monday
+help("mean")
+# Poker winnings from Monday to Friday#
+poker_vector <- c(140, -50, 20, -120, 240)#
+#
+# Roulette winnings from Monday to Friday#
+roulette_vector <- c(-24, -50, 100, -350, 10)#
+#
+# Give names to both 'poker_vector' and 'roulette_vector'#
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")#
+names(roulette_vector) <- days_vector#
+names(poker_vector) <- days_vector#
+#
+average_midweek_gain <- poker_vector["Tuesday", "Wednesday", "Thursday"]#
+mean(average_midweek_gain)
+help(set)
+??set
+help(set)
+g
+help(get)
+help(getmean)
+help(setmean)
+a <- makeVector(c(1, 2, 3, 4))
+save.image()
+git init()
+gitinit()
+getwd()
+git init
