@@ -1,5 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## In combination makecachematrix and cachesolve will create an inverse of a 
+## square, invertible matrix provided. The inverted matrix will be stored in 
+## an alterante environment to protect it from loacl changes and to reduce the
+##  omputing cycles needed to to recreate it.
 
 ## The function makecachematrix will accept a square, invertable matrix. 
 ## It will first store the matrix in an alternative environment to protect
