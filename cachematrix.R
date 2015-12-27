@@ -9,16 +9,22 @@
 ## the second function “cacheSolve“ computes the inverse of the special
 ## “matrix” returned by makeCacheMatrix. If the inverse has been calculated (and the matrix has
 ## not changed) then the cacheSolveMatrix should retrieve the inverse from the cache
-## Write a short comment describing this function
+## Write a short comment describing this function 
+
 ## This function creates a special object which is a list that contains a function to
 ## set the value of the matrix
 ## get the value of the matrix
 ## set the inverse of the matrix
 ## get the value of the inverse
-## NOTE: The matrix to be used should have an inverser 
-## Its determinant must no be zero
+## NOTE: The matrix to be used should have inverse 
+## Its determinant must no be zero, if the determinant
+## is zero, the function will not generate the matrix
+## and the message "Matrix determinant is zero, Matrix does not have inverse"
+## will be printed.
 makeCacheMatrix <- function(x = matrix()) {
-  m<-NULL
+  if (det(x) == 0) {print("Matrix determinant is zero, Matrix does not have inverse")}
+  else {
+   m<-NULL
   set<-function(y){
     x<<-y
     m<<-NULL
@@ -29,7 +35,8 @@ makeCacheMatrix <- function(x = matrix()) {
   list(set=set, get=get,
        setmatrix=setmatrix,
        getmatrix=getmatrix)
-}
+  }
+}  
 ## Write a short comment describing this function
 ## This function calculates the inverse of the special "matrix"
 ## created with the previous function.
