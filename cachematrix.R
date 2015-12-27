@@ -1,17 +1,12 @@
 ## Coursera R-programming - assignment 2 
-## the follwing program creates a matrix, inverts it and display the time differences between cahed and run live
+## the follwing program creates a matrix, inverts it and can be used to displaythe time differences between cached and run live
 
 ## This function creates a special "matrix" object that can cache its inverse
-
-cacheSolve <- function(x, ...) {
-        ## This will return a matrix that is the inverse of 'x'
- }
-
 
 makeCacheMatrix <- function(x = matrix()) 
 
 {
-        ## x: an invertible matrix
+        ## x: a matrix THAT HIPOTHETICALY CAN BE INVERTED
         ## result: a vector list containing functions to
         ##              1. set the matrix
         ##              2. get the matrix
@@ -35,4 +30,28 @@ makeCacheMatrix <- function(x = matrix())
              get=get, 
              setinv=setinv, 
              getinv=getinv)
+}
+
+
+cacheSolve <- function(x, ...) {
+        ## @x: output of makeCacheMatrix()
+        ## return: inverse of the original matrix input to makeCacheMatrix()
+        
+        inv = x$getinv()
+        
+        # if the inverse has already been calculated
+        if (!is.null(inv)){
+                # get it from the cache and skips the computation. 
+                message("getting cached data")
+                return(inv)
+        }
+        
+        # otherwise, calculates the inverse 
+        mat.data = x$get()
+        inv = solve(mat.data, ...)
+        
+        # sets the value of the inverse in the cache via the setinv function.
+        x$setinv(inv)
+        
+        return(inv)
 }
