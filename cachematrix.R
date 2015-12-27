@@ -1,5 +1,6 @@
 ## Coursera R-programming - assignment 2 
-## the follwing program creates a matrix, inverts it and can be used to displaythe time differences between cached and run live
+## the follwing program creates a matrix, inverts it and eventually can be used 
+## to display the time differences between cached and run live
 
 ## This function creates a special "matrix" object that can cache its inverse
 
