@@ -1,0 +1,43 @@
+#Creating a speicial "Matrix" that can cache its inverse.
+makeCacheMatrix <- function(x = matrix())
+{
+      cacheInv <- NULL #initialize the cache container.
+      
+      set <- function(mAtrix)
+      {#build a matrix in "another" envioronment
+            m <<- mAtrix
+            cacheInv <<- NULL
+      }
+      getm <- function() m #getting value of the matrix
+      Invm <- function(invmAtrix) cacheInv <<- invmAtrix #store the inversed matrix in cache
+      getInvm <- function() cacheInv #getting the inverted matrix from cache
+      
+      #return the stuff into "another" environment
+      list(set = set, getm = getm, Invm = Invm, getInvm = getInvm)
+}
+
+
+#Checking if the inverted matrix has been exist in the enviornment we are looking at,
+#if not, create one and store it there.
+cacheSolve <- function(x, ...)
+{
+      cacheInv <- x$getInvm #checking if there is a usable inverted matrix from the previous function
+      #if there is, apply it, if not create one
+      if(!is.null(cacheInv))
+      {
+            message("getting cached data") #pop up a message.
+            return(cacheInv)
+      }
+      
+      #go get a cup a coffee while its computing a new inverted matrix since it does not exist in the cache.
+      NewMatrix$getm()
+      cacheInv <- solve(NewMatrix, ...)
+      
+      x$Invm(cacheInv)  #put that inverted matrix in cache
+      return(cacheInv)
+}
+
+
+
+
+
