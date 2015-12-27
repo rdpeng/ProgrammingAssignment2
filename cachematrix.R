@@ -1,7 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This function will cache the inverse of a matrix
 
-## Write a short comment describing this function
+## Create a special matrix which is really a list containing a function to
+##set the value of the matrix
+##get the value of the matrix
+##set the value of the inversed matrix
+##get the value of the inversed matrix
+
 
 makeCacheMatrix <- function(x = matrix()) {
 
