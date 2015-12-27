@@ -1,8 +1,8 @@
 ## Coursera R-programming - assignment 2 
 ## the follwing program creates a matrix, inverts it and eventually can be used 
-## to display the time differences between cached and run live
+## to evaluate the advantages of scoping programing
 
-## This function creates a special "matrix" object that can cache its inverse
+## This function creates an  object (matrix()) that can cache its inverse
 
 makeCacheMatrix <- function(x = matrix()) 
 
@@ -33,7 +33,7 @@ makeCacheMatrix <- function(x = matrix())
              getinv=getinv)
 }
 
-
+## the following function uses the previous fucntion and caches the inverse if it has been already calculated
 cacheSolve <- function(x, ...) {
         ## @x: output of makeCacheMatrix()
         ## return: inverse of the original matrix input to makeCacheMatrix()
@@ -56,3 +56,4 @@ cacheSolve <- function(x, ...) {
         
         return(inv)
 }
+##end of functions -- cooment line inseerted just to submit again
