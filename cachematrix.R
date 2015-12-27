@@ -33,13 +33,13 @@ cacheSolve <- function(x, ...) {
         ## x will be the output of makematrix
   
   inv<-x$getinv()
-  
+  ##if the inverse is not  null get the inverse from the cache
     if(!is.null(inv)){
        #inv is already cached
       message("cached data")
       return(inv)
     }
-  
+  ##if the inverse i snull get the inverse using solve method
     mat.data<-x$get()
     inv=solve(mat.data,...)
     x$setinv(inv)
