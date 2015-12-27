@@ -1,0 +1,41 @@
+#programming assignment 2
+
+# create a a variable to store the cachematrix function
+
+a<-makeCacheMatrix()
+
+# store a matrix
+
+a$set(matrix(1:4, 2,2)
+
+#Define the cachematrix function
+#initialize a null matrix
+makeCacheMatrix <- function(x=matrix()) {
+	m<-NULL						#initialize a null matrix
+	set <- function(y) {				#set y equal to the input
+		x <<- y					#make x to y in the cache space
+		m <<-	NULL					#m is set to null in the cache space
+	}
+	get <- function() x				#get that returns x
+	setmatrix <- function(solve) m<<-solve	#setsolve creates a solve matrix to m
+	getmatrix <- function() m			#getsolve returns m
+	list(set=set, get=get, 				#creates list of the functions in
+		setmatrix=setmatrix,
+		getmatrix=getmatrix)
+}
+ 
+#this code checks to see if the matrix has been inverted
+#if inverted already it pulls it from the cache
+#otherwise it calculates the inverse and saves it
+
+cacheSolve <- function(x=matrix(),...){				
+	m <- x$getmatrix()				#m becomees the subset getmatrix from make fxn
+	if(!is.null(m)) {					#if it is not null then it will got to cache to get m
+		message("getting cached data")
+		return (m)
+	}
+	matrix <- x$get()					#if m is NULL then it fills data with get subset
+	m <- solve(matrix,...)				#then m is filled with the solve of x
+	x$setmatrix(m)					#then it puts this into cache space for solve
+	m							#returns m as the solve of x
+}
