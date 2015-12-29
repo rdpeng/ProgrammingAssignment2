@@ -29,37 +29,44 @@ really a list containing a function to
 
 <!-- -->
 
-    makeVector <- function(x = numeric()) {
-            m <- NULL
-            set <- function(y) {
-                    x <<- y
-                    m <<- NULL
+    makeVector <- function( aVector = numeric()) {
+	    #object variables
+	    theVector <- aVector
+            cachedMean <- NULL
+	    #object functions
+            setVector <- function(newVector) {
+                    theVector <<- newVector
+                    cachedMean <<- NULL
             }
-            get <- function() x
-            setmean <- function(mean) m <<- mean
-            getmean <- function() m
-            list(set = set, get = get,
+            getVector <- function() theVector
+            setmean <- function(mean) cachedMean <<- mean
+            getmean <- function() cachedMean
+
+	    # return new vector Obj-ect
+	    # (the assignment is unnecessary -- it just makes it
+	    # more obvious what the list is for)
+            newObj <- list(set = setVector, get = getVector,
                  setmean = setmean,
                  getmean = getmean)
     }
 
 The following function calculates the mean of the special "vector"
-created with the above function. However, it first checks to see if the
-mean has already been calculated. If so, it `get`s the mean from the
-cache and skips the computation. Otherwise, it calculates the mean of
-the data and sets the value of the mean in the cache via the `setmean`
-function.
+object (Obj) created with the above function. However, it first checks
+to see if the mean has already been calculated. If so, it `get`s the
+mean from the cache and skips the computation. Otherwise, it calculates
+the mean of the data and sets the value of the mean in the cache via the
+`setmean` function.
 
-    cachemean <- function(x, ...) {
-            m <- x$getmean()
-            if(!is.null(m)) {
+    cachemean <- function(Obj, ...) {
+            myMean <- Obj$getmean()
+            if(!is.null(myMean)) {
                     message("getting cached data")
-                    return(m)
+                    return(myMean)
             }
-            data <- x$get()
-            m <- mean(data, ...)
-            x$setmean(m)
-            m
+            data <- Obj$get()
+            myMean <- mean(data, ...)
+            Obj$setmean(myMean)
+            myMean
     }
 
 ### Assignment: Caching the Inverse of a Matrix
