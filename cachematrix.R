@@ -3,10 +3,10 @@
 
 ## Write a short comment describing this function
 
-makeCacheMatrix <- function(x = matrix(nrow = sqrt(length(x)))) {
+makeCacheMatrix <- function(x = matrix()) {
   cm <- NULL
   create <- function(y) {
-    x <<- y
+    x <<- matrix(y, nrow = sqrt(length(y)))
     cm <<- NULL
   }
   retrieve <- function() x
