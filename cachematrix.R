@@ -6,11 +6,11 @@
 makeCacheMatrix <- function(x = matrix()) {
   cm <- NULL
   create <- function(y) {
-    x <<- matrix(y, nrow = sqrt(length(y)))
+    x <<- matrix(y, nrow = sqrt(length(x)))
     cm <<- NULL
   }
   retrieve <- function() x
-  solv <- function(solve) cm <<- solve
+  solv <- function(inverse) cm <<- inverse
   cache <- function() cm
   list(create = create, retrieve = retrieve, solv = solv, cache = cache)
 }
@@ -26,7 +26,7 @@ cacheSolve <- function(x, ...) {
     return(cm)
   }
   work <- x$retrieve()
-  cd <- solve(work)
-  x$sol(cm)
+  cm <- solve(work)
+  x$solv(cm)
   cm
 }
