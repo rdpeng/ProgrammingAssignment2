@@ -1,15 +1,30 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This R file contains 2 functions. One with 4 functions to set and retrieve matrix. Other method to cache and return cached matrix which will inturn call the get and set functions.
 
-## Write a short comment describing this function
-
+## Following function sets the inversed matrix and provides functions for set, get setinverse and getinverse
 makeCacheMatrix <- function(x = matrix()) {
-
+    invmat <- NULL
+    set <- function(y) {
+        x <<- y
+        invmat <<- NULL
+    }
+    get <- function() x
+    setinverse <- function(x) invmat <<- x
+    getinverse <- function() invmat
+    list(set = set, get = get,
+         setinverse = setinverse,
+         getinverse = getinverse)
 }
 
 
-## Write a short comment describing this function
-
+# This function inverts the matrix using solve function and uses functions within the makeCacheMatrix. Returns cached matrix if available
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    invmat <- x$getinverse()
+    if(!is.null(invmat)) {
+        message("getting cached data")
+        return(invmat)
+    }
+    data <- x$get()
+    invmat <- solve(data, ...)
+    x$setinverse(invmat)
+    invmat
 }
