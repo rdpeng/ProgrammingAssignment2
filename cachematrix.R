@@ -1,15 +1,32 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Programming Assignment 2 - Lexical Scoping
 
-## Write a short comment describing this function
+## making the vector
 
 makeCacheMatrix <- function(x = matrix()) {
-
+	cinv <- NULL
+	set <- function(y) {
+		x <<- y
+            cinv <<- NULL
+      }
+      get <- function() x
+      setInv <- function(inv) cinv <<- inv
+      getInv <- function() cinv
+      list(set = set, get = get,
+           setInv = setInv,
+           getInv = getInv)
 }
 
 
-## Write a short comment describing this function
+## getting the inverse
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+	cinv <- x$getInv()
+      if(!is.null(cinv)) {
+      	message("getting cached data")
+            return(cinv)
+      }
+      data <- x$get()
+      cinv <- solve(data, ...)
+      x$setInv(cinv)
+      cinv
 }
