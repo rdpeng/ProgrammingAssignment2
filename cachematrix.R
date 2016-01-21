@@ -1,7 +1,13 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## this function 'makeCacheMatrix' generates a set of 4 functions
+## that perform following functions
+## "set" --> takes a matrix input, on which inverse 
+##can computed in future
+## "get" --> looks up, if matrix has already been assigned in that object
+## "setinv" --> receives and stores the 'inverse'
+## "getinv" -> outputs the stored 'inverse'
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -19,9 +25,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-##
-cacheSolve <- function(x) {
+## This function expects to recieve the output list from an
+## object of the function 'makeCacheMatrix'
+## if inverse has already been computed before it will retrive that
+## else it will compute it using the solve()function.
+cacheSolve <- function(x,...) {
         ## Return a matrix that is the inverse of 'x'
   inv <- x$getinv()
   if(!is.null(inv)) {
