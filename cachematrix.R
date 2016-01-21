@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
+## This file makes the Matrix in inverse the matrix in the cache and leave it in cache. 
 ## functions do
 
-## Write a short comment describing this function
+## This Function the save the inverse Matrix in Memory (cache).
 
 makeCacheMatrix <- function(x = matrix()) {
         
@@ -21,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function calculate the inverse of the Matrix and store in Cache.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -37,10 +37,3 @@ cacheSolve <- function(x, ...) {
         x$setMatrix(m)
         m
 }
-
-testMatrix <- function (y){
-        
-        temp = makeCacheMatrix(y)
-        cacheSolve(temp)
-}
-
