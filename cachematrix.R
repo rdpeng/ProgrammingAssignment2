@@ -52,7 +52,7 @@ cacheSolve <- function(x, ...) {
   # getting the cached matrix.
   cachedInv <- x$getinverse()
   
-  # returns the inverse matrix if the cache contains it.
+  # returns the inverse matrix if it exists in the cache.
   if(!is.null(cachedInv)) {
     message("getting cached data.")
     return(cachedInv)
