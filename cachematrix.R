@@ -12,6 +12,11 @@ makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column 
         cat("This is the base matrix using a set.seed of",my_Seed, ", a", number_Row,
               "by", number_Column, "Matrix", "\n", "\n")
         print(base_Matrix)
+
+        cat("\n","This is the Inverse of the above Matrix", "\n")
+        inverse_base_Matrix <- solve(base_Matrix)
+
+        print(inverse_base_Matrix)
 }
 
 
