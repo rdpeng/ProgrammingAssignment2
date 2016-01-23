@@ -18,6 +18,7 @@ makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column 
 
   # create the matrix from above user input. If no user input then default is used.
         base_Matrix <- array(runif(n), dim = c(number_Row, number_Column))
+        n_base_Matrix <- number_Row * number_Column
 
   # Shows information of the produced Matrix (base_ Matrix).
         cat("This is a", number_Row,"by", number_Column, "matrix of n=" ,n,
@@ -36,6 +37,8 @@ makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column 
         current_base_Matrix <<- base_Matrix
         current_inverse_base_matrix <<- inverse_base_Matrix
         current_my_Seed <<- my_Seed
+        current_n_base_Matrix <<- n_base_Matrix
+
 }
 # - End of function -
 ###############################################################################
@@ -66,8 +69,10 @@ cacheSolve <- function(my_Seed = 10) {
 
                 cache_rowNumber <<- rowNumber
                 cache_colNumber <<- colNumber
+               # n_base_Matrix <- cache_rowNumber * cache_colNumber
 
-                cat("This is the same", rowNumber ,"by", colNumber, " Matrix using a set.seed of",my_Seed, "\n", "\n")
+                cat("This is the same", rowNumber ,"by", colNumber, " Matrix using a set.seed of",my_Seed, "\n")
+                cat("Matrix info= ",cache_rowNumber, "by", cache_colNumber, "n =",current_n_base_Matrix, "\n", "\n")
 
                 return(current_inverse_base_matrix)
 
@@ -77,11 +82,12 @@ cacheSolve <- function(my_Seed = 10) {
         # - then this new set.seed will be use to calculate the inverse....
         set.seed(my_Seed)
 
-        base_Matrix <- array(runif(16), dim = c(cache_rowNumber, cache_colNumber) )
+        base_Matrix <- array(runif(current_n_base_Matrix), dim = c(cache_rowNumber, cache_colNumber) )
 
         new_Inverse_Matrix <- solve(base_Matrix)
 
-        cat("\n","This is the new Inverse of the above Matrix","using set.seed =",  my_Seed,"\n","\n")
+        cat("\n","This is the new Inverse of the above Matrix","using set.seed =",  my_Seed,"\n")
+        cat("Matrix info= ", cache_rowNumber, "by", cache_colNumber, "n =",current_n_base_Matrix, "\n", "\n")
 
         print(new_Inverse_Matrix)
 
