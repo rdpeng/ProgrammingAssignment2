@@ -1,6 +1,6 @@
-## This programming assingment involves two functions.
+## This programming assignment involves two functions.
 ##  1) makeCacheMatrix
-##  2) CacheSolve
+##  2) cacheSolve
 ##  A practice assignment by: Felix Barangan, MS, RN, MT(ASCP)
 ##  Certified OBIEE 11g Implementation Specialist
 ###############################################################################
@@ -17,38 +17,35 @@
 # - Start of Function -
 makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column = 5 ) {
 
+   # This code will prevent user from entring NON square matrix
         if (number_Row != number_Column) {
-                cat("Please enter a square matrix")
+                cat("Please enter a square matrix.(e.g. 4 x 4, 5 x 5 etc")
                 return
         }
 
         else {
 
-
-set.seed(my_Seed)
-
-
-
+        set.seed(my_Seed)
 
   # create the matrix from above user input. If no user input then default is used.
         base_Matrix <- array(runif(n), dim = c(number_Row, number_Column))
 
-  # This n_base_Matrix -  will be used on the next function CacheSolve
+  # This n_base_Matrix -  will be used on the next function cacheSolve
         n_base_Matrix <- number_Row * number_Column
 
-  # Shows information of the produced Matrix (base_ Matrix).
+  # Shows informations of the produced Matrix (base_ Matrix).
         cat("This is a", number_Row,"by", number_Column, "matrix of n=" ,n,
             "using a set.seed of",my_Seed, "\n", "\n")
 
         print(base_Matrix)
 
   # Shows INVERSE of the square Matrix
-        cat("\n","This is the Inverse of the above Matrix", "\n")
+        cat("\n","This is the inverse of the above Matrix", "\n")
         inverse_base_Matrix <<- solve(base_Matrix)
         print(inverse_base_Matrix)
 
 # Save all necessary results to memory as cache to be use by the succeeding function
-#    -- The CacheSolve-----
+#    -- The cacheSolve-----
 #
         current_base_Matrix <<- base_Matrix
         current_inverse_base_matrix <<- inverse_base_Matrix
@@ -56,7 +53,7 @@ set.seed(my_Seed)
         current_n_base_Matrix <<- n_base_Matrix
         }
 }
-# - End of function -
+# - End of function - makeCacheMatrix
 ###############################################################################
 
 ###############################################################################
@@ -65,7 +62,7 @@ set.seed(my_Seed)
 
 # - Star of Function 2
 
-   # Default set.seed = 10 similar to the function makeCacheMatrix
+   # Default set.seed = 10 similar to the function makeCacheMatrix. Thisi is
    #  - to prevent program from crashing. Otherwise if there is no default,
    #  - program run into error.
 cacheSolve <- function(my_Seed = 10) {
@@ -111,6 +108,6 @@ cacheSolve <- function(my_Seed = 10) {
 
 }
 
-##  -End of function  cacheSolve
+##  -End of function :  cacheSolve
 ###############################################################################
 ###############################################################################
