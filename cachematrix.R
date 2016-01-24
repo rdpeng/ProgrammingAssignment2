@@ -18,6 +18,8 @@ makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column 
 
   # create the matrix from above user input. If no user input then default is used.
         base_Matrix <- array(runif(n), dim = c(number_Row, number_Column))
+
+  # This n_base_Matrix -  will be used on the next function CacheSolve
         n_base_Matrix <- number_Row * number_Column
 
   # Shows information of the produced Matrix (base_ Matrix).
@@ -50,14 +52,14 @@ makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column 
 # - Star of Function 2
 
    # Default set.seed = 10 similar to the function makeCacheMatrix
-   #  - to prevent program from crashin. Otherwise if there is no default,
+   #  - to prevent program from crashing. Otherwise if there is no default,
    #  - program run into error.
 cacheSolve <- function(my_Seed = 10) {
 
         if (my_Seed == current_my_Seed) {
            # if set.seed is equal to the previous set.seed used
            #   - in makeCacheMatrix, then just show the previous inverse
-           #   - result of the Matrix. Also the following colums saved all
+           #   - result of the Matrix. Also the following columns saved all
            #   - necessary result to memory
            #
            #   This blocked of code below tries to extract what the previous
@@ -69,10 +71,9 @@ cacheSolve <- function(my_Seed = 10) {
 
                 cache_rowNumber <<- rowNumber
                 cache_colNumber <<- colNumber
-               # n_base_Matrix <- cache_rowNumber * cache_colNumber
 
                 cat("This is the same", rowNumber ,"by", colNumber, " Matrix using a set.seed of",my_Seed, "\n")
-                cat("Matrix info= ",cache_rowNumber, "by", cache_colNumber, "n =",current_n_base_Matrix, "\n", "\n")
+                cat("Matrix info : ",cache_rowNumber, "by", cache_colNumber, "n =",current_n_base_Matrix, "\n", "\n")
 
                 return(current_inverse_base_matrix)
 
@@ -82,10 +83,13 @@ cacheSolve <- function(my_Seed = 10) {
         # - then this new set.seed will be use to calculate the inverse....
         set.seed(my_Seed)
 
+  #   Those saved variable from memory (see previous makeCacheMatrix function), are used to
+  #     - mimic the same Matrix.
         base_Matrix <- array(runif(current_n_base_Matrix), dim = c(cache_rowNumber, cache_colNumber) )
 
         new_Inverse_Matrix <- solve(base_Matrix)
 
+  # Code to show in the console which serve as a definition of the matrix
         cat("\n","This is the new Inverse of the above Matrix","using set.seed =",  my_Seed,"\n")
         cat("Matrix info= ", cache_rowNumber, "by", cache_colNumber, "n =",current_n_base_Matrix, "\n", "\n")
 
@@ -94,3 +98,6 @@ cacheSolve <- function(my_Seed = 10) {
 
 
 }
+
+##  -End of function  cacheSolve
+#############################################################################
