@@ -1,5 +1,5 @@
 ## Week 3
-#  Programming Assigment
+#  Programming Assignment
 
 # This function creates a special "matrix" object that can cache its inverse.
 # Argument x must be a matrix
