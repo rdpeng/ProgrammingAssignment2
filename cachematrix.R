@@ -1,15 +1,33 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This is the second programming assignment (Lexical Scoping) 
+## Cach and inverse functions
 
-## Write a short comment describing this function
-
+## Matrix object constructor
 makeCacheMatrix <- function(x = matrix()) {
-
+  m <- NULL
+  set <- function(y) {
+      ## check if new value is the same then previous one
+      if (is.null(m) || !identical(y,m)) { 
+        m <<- y
+        mi <<- NULL
+      }
+  }
+  get <- function() m
+  setinvert <- function(inverted) mi <<- inverted
+  getinvert <- function() mi
+  list(set = set, get = get,
+       setinvert = setinvert,
+       getinvert = getinvert)
 }
 
-
-## Write a short comment describing this function
-
+## Invertion with cache
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  m <- x$getinvert()
+  if(!is.null(m)) {
+    message("getting cached data")
+    return(m)
+  }
+  data <- x$get()
+  mi <- solve(data, ...)
+  x$setinvert(mi)
+  mi
 }
