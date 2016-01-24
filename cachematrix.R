@@ -18,6 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
     InverseMatrix<<-NULL
   }
   getMatrix <-function() x
+  setInverseMatrix <-function(invM) InverseMatrix<<-invM
   getInverseMatrix <-function() InverseMatrix
   list(setMatrix=setMatrix,
        getMatrix=getMatrix,
