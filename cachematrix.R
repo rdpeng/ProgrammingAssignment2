@@ -1,6 +1,7 @@
 ## This programming assingment involves two functions.
 ##  1) makeCacheMatrix
 ##  2) CacheSolve
+##  A practice assignment by: Felix Barangan, MS, RN, MT(ASCP)
 ###############################################################################
 #################### Function 1)  "MakeCacheMatrix  ###########################
 ###############################################################################
@@ -14,7 +15,19 @@
 
 # - Start of Function -
 makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column = 5 ) {
-        set.seed(my_Seed)
+
+        if (number_Row != number_Column) {
+                cat("Please enter a square matrix")
+                return
+        }
+
+        else {
+
+
+set.seed(my_Seed)
+
+
+
 
   # create the matrix from above user input. If no user input then default is used.
         base_Matrix <- array(runif(n), dim = c(number_Row, number_Column))
@@ -40,7 +53,7 @@ makeCacheMatrix <- function(my_Seed = 10, n = 25, number_Row = 5, number_Column 
         current_inverse_base_matrix <<- inverse_base_Matrix
         current_my_Seed <<- my_Seed
         current_n_base_Matrix <<- n_base_Matrix
-
+        }
 }
 # - End of function -
 ###############################################################################
@@ -94,8 +107,6 @@ cacheSolve <- function(my_Seed = 10) {
         cat("Matrix info= ", cache_rowNumber, "by", cache_colNumber, "n =",current_n_base_Matrix, "\n", "\n")
 
         print(new_Inverse_Matrix)
-
-
 
 }
 
