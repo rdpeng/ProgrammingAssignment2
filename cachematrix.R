@@ -1,15 +1,41 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These two functions will inverse the inputted matrix using 
+## a unique matrix which will be produced.
 
-## Write a short comment describing this function
+## This functiion will create the unique matrix which allows
+## the inputted matrix to be inversed
 
 makeCacheMatrix <- function(x = matrix()) {
-
+	
+	inv <- NULL
+        set <- function(y) {
+                x <<- y
+                inv <<- NULL
+        }
+        get <- function() x
+        setinvmatrix <- function(inverse) inv <<- inverse
+        getinvmatrix <- function() inv
+        list(set = set, get = get,
+             setinvmatrix = setinvmatrix,
+             getinvmatrix = getinvmatrix)
 }
 
 
-## Write a short comment describing this function
+## This function will inverse the inputted matrix
+## using the unique matrix which was produced in the earlier function
+## it also checks whether the matrix has been inversed or not
+## if yes then computation is skipped
+## if not it then computes the inverse
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+	
+	inv <- x$getinvmatrix()
+        if(!is.null(inv)) {
+                message("getting cached data")
+                return(inv)
+        }
+        data <- x$get()
+        inv <- solve(data, ...)
+        x$setinvmatrix(inv)
+        inv
+
 }
