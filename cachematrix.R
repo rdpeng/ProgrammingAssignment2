@@ -2,9 +2,8 @@
 ## functions do
 
 ## Write a short comment describing this function
-# I just changed little things using makeVector() and cachemean()function
-# The only thing I needed to change was the name of functions and variables
-# so, I put solve() function to get caculation of inverse matrix 
+# This function creates a list contains matrix,
+# set the matrix, set inverse matrix and get inverse matrix
 makeCacheMatrix <- function(x = matrix()) {
          m <- NULL
          set <- function(y) {
@@ -21,7 +20,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-
+# This function returns inverse of matrix,
+# First it checks inverse already exists, and if it already computed,
+# function returns the value. if not it computes inverse matrix using solve function
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
          m <- x$getc()
