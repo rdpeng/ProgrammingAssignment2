@@ -2,9 +2,10 @@
 ## functions do
 
 ## Write a short comment describing this function
+## This is a function that can get a matrix and print out a list that contain set,get,set solve and get solve
 
 makeCacheMatrix <- function(x = matrix()) {
- s <- NULL
+ s <- NULL	
   set <- function(y) {
     x <<- y
     s <<- NULL
@@ -14,12 +15,12 @@ makeCacheMatrix <- function(x = matrix()) {
   getsolve <- function() s
   list(set = set, get = get,
        setsolve = setsolve,
-       getsolve = getsolve)
+       getsolve = getsolve)##finally get a matrix
 }
 
 
 ## Write a short comment describing this function
-
+##this is a function that contain a slove function which can return the  inverse of the matrix
 cacheSolve <- function(x, ...) {
 	 s <- x$getsolve()
   if(!is.null(s)) {
