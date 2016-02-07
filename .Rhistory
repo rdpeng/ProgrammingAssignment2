@@ -1,0 +1,2 @@
+git branch
+git status
