@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The function creates a cache matrix that stores the inverse of the matrix and then recalls it when needed
+## to save the time by not finding the inverse again.
 
-## Write a short comment describing this function
+## 
 ##    setmatrix will set the matrix to variable x
 ##    getmatrix will get the matrix value stored 
 ##    setinverse will cache the value of inverse 
