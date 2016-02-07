@@ -1,5 +1,5 @@
 ## makeCacheMatrix creates and returns a list of functions
-## used by cacheSolve to get or set the inverted matrix in cache
+## used by cacheSolve function to get or set the inverted matrix in cache
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -20,15 +20,16 @@ makeCacheMatrix <- function(x = matrix()) {
         # get the inverted matrix from cache
         getInverse <- function() cache
         
-        # return the created functions to the working environment
-        list(set = set, get = get,
+        # here it will return the created functions to the working environment
+      
+          list(set = set, get = get,
              setMatrix = setMatrix,
              getInverse = getInverse)
 
 }
 
 
-## cacheSolve calcluates the inverse of the matrix created in makeCacheMatrix
+## cacheSolve function calcluates the inverse of the matrix created in makeCacheMatrix
 ## If the inverted matrix does not exist in cache,
 ## it it created in the working environment and it's inverted value
 ## is stored in cache
