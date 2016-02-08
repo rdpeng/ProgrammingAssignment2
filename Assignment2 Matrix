@@ -29,7 +29,7 @@ cacheSolve <- function(x, ...) {
 }
 
 
-#Testing the function
+ #Testing the function
 
 
 > p <-makeCacheMatrix(matrix(c(5,2 , 2, 5), c(2, 2)))
