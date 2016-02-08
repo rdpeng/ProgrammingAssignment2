@@ -1,0 +1,68 @@
+ ##The function makeCacheMatrix generate a  "matrix object" which can cache its inverse.
+ ##the list basically contain several function which would be used later 
+makeCacheMatrix <- function(x = matrix()) {
+        inv <- NULL
+        set <- function(y) {
+                x <<- y
+                inv <<- NULL
+        }
+        get <- function() x
+        setInverse <- function(inverse) inv <<- inverse
+        getInverse <- function() inv
+        list(set = set,
+             get = get,
+             setInverse = setInverse,
+             getInverse = getInverse)
+}
+## This following fuction take the "matrix object" built by makeCacheMatrix.
+## this function will simply return it, if the "matrix object" has cached inversion.
+## this fuction  will actually compute on condition that the "matrix object" hasn't cached inversion. 
+
+
+cacheSolve <- function(x, ...) {
+      
+        inv <- x$getInverse()
+        if (!is.null(inv)) {
+                message("getting cached data")
+                return(inv)
+        }
+        kkk <- x$get()
+        inv <- solve(kkk, ...)
+        x$setInverse(inv)
+        inv
+}
+
+
+ #Testing the function
+
+
+> p <-makeCacheMatrix(matrix(c(5,2 , 2, 5), c(2, 2)))
+> p
+$set
+function (y) 
+{
+    x <<- y
+    inv <<- NULL
+}
+<environment: 0x00000000052afb10>
+
+$get
+function () 
+x
+<environment: 0x00000000052afb10>
+
+$setInverse
+function (inverse) 
+inv <<- inverse
+<environment: 0x00000000052afb10>
+
+$getInverse
+function () 
+inv
+<environment: 0x00000000052afb10>
+
+> cacheSolve(p)
+           [,1]       [,2]
+[1,]  0.2380952 -0.0952381
+[2,] -0.0952381  0.2380952
+
