@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## MakeCacheMatrix contains all functions to set and get the data and to cache and return the results
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL                                   # setting starting values
@@ -18,7 +18,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve first checks, if cached results exist and returns them. 
+## If cached results exist, it gets the data, calculates results, caches them and returns them.
 
 cacheSolve <- function(x, ...) {
   m <- x$getsolve()                             # get cached results
