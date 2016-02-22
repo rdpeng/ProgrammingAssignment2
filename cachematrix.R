@@ -63,3 +63,4 @@ cacheSolve <- function(x, ...) {
 ## "inversa", calculates the inverse matrix and x$setinversa(inversa) stores it
 ##in the object inversa in makeCacheMatrix
 
+  
