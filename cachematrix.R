@@ -11,7 +11,7 @@ inv <- NULL
         }
         get <- function() x
         setinv <- function(inverse) inv <<- inverse
-        getinv <- function() m
+        getinv <- function() inv
         list(set = set, get = get,
              setinv = setinv,
              getinv = getinv)
@@ -30,5 +30,5 @@ cacheSolve <- function(x, ...) {
         data <- x$get()
         inv <- solve(data, ...)
         x$setinv(inv)
-        m
+        inv
 }
