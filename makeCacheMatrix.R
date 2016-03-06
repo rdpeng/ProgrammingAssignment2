@@ -1,3 +1,5 @@
+-The first function, `makeVector` creates a special "vector", which is
+-really a list containing a function to
 makeCacheMatrix <- function(x = numeric()) {
   cache <- NULL
   
