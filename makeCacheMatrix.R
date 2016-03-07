@@ -1,5 +1,7 @@
--The first function, `makeVector` creates a special "vector", which is
--really a list containing a function to
+#In this example we introduce the <<- operator which can be used to assign a value to an object in an environment that is different from the current environment.
+#Write the following functions:
+#makeCacheMatrix
+#This function creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = numeric()) {
   cache <- NULL
   
@@ -18,6 +20,9 @@ makeCacheMatrix <- function(x = numeric()) {
   }
   list(setMatrix = setMatrix, getMatrix = getMatrix, cacheInverse = cacheInverse, getInverse = getInverse)
 }
+#This function computes the inverse of the special "matrix" returned by makeCacheMatrix
+#above. If the inverse has already been calculated (and the matrix has not changed),
+#then the cachesolve should retrieve the inverse from the cache.
 cacheSolve <- function(y, ...) {
   inverse <- y$getInverse()
   if(!is.null(inverse)) {
