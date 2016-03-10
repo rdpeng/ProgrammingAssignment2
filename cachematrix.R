@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## in this fun create special matrix to sore the inverse in it
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -18,7 +18,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## check if the matrix inverse 
+##exist or not if exit ith show with a message getting cached matrix
+## if not caculate it
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
