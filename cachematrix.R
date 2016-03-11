@@ -19,12 +19,6 @@ makeCacheMatrix <- function(x = matrix()) {
        setmatrix=setmatrix,
        getmatrix=getmatrix)
 }
-##Exemple 1
-
-my_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
-my_matrix$get()
-my_matrix$getm()
-
 
 ## This function computes the inverse of the special "matrix" created by 
 ## makeCacheMatrix above. If the inverse has already been calculated (and the 
@@ -41,28 +35,10 @@ cacheSolve <- function(x=matrix(), ...) {
   x$setmatrix(m)
   m
 }
-
-cacheSolve(my_matrix)
-my_matrix$getm()
-
-##Exemple 2
-
-my_matrix$set(matrix(c(2, 2, 1, 4), 2, 2))
-my_matrix$get()
-my_matrix$getm()
-
-cacheSolve(my_matrix)
-my_matrix$getm()
-
-##Exemple 3
-
-my_matrix <- makeCacheMatrix(matrix(c(1,2,3,4), 2, 2))
-
-
 ################################################
 ##Test results
 
-## makeCacheMatrix <- function(x = matrix()) {
+>makeCacheMatrix <- function(x = matrix()) {
 +   m<-NULL
 +   set<-function(y){
   +     x<<-y
