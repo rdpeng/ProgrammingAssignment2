@@ -1,7 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+# function to create a special matrix object that can cache its inverse
+# defines setters & getters for the matrix and its inverse
+# Inverse computation is out of scope of this function
+#
+# No special checks are done if matrix is SQUARE or not - enhancement can be done
+#
+# Args:
+#   x: Matrix object to be cached
+#
+# Returns:
+#   list of setter and getter functions
 
 makeCacheMatrix <- function(x = matrix()) {
     #initialize the inv to null value
