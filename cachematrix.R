@@ -11,9 +11,7 @@
 #   list of setter and getter functions
 
 makeCacheMatrix <- function(x = matrix()) {
-<<<<<<< HEAD
 
-=======
     #initialize the inv to null value
     inv <- NULL
     #set the matrix object
@@ -32,7 +30,6 @@ makeCacheMatrix <- function(x = matrix()) {
         get = get,
         setinverse = setinverse,
         getinverse = getinverse)
->>>>>>> origin/master
 }
 
 # function to compute the inverse of the special "matrix" returned by 
@@ -48,9 +45,7 @@ makeCacheMatrix <- function(x = matrix()) {
 #   inverse of the matrix
 
 cacheSolve <- function(x, ...) {
-<<<<<<< HEAD
         ## Return a matrix that is the inverse of 'x'
-=======
     # check if Matrix inverse is already computed & cached
     inv <- x$getinverse()
     if(!is.null(inv)) {
@@ -62,5 +57,4 @@ cacheSolve <- function(x, ...) {
     inv <- solve(data, ...)
     x$setinverse(inv)
     inv
->>>>>>> origin/master
 }
