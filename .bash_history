@@ -14,3 +14,9 @@ git add
 getwd()
 git commit -m "First commit"
 git add
+git init
+git add
+git add . 
+git commit -m "First commit"
+getwd()
+git add C:\Users\SkylerF\Desktop\Coursera\ProgrammingAssignment2
