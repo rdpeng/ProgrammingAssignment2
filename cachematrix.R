@@ -1,16 +1,16 @@
 ##These functions were written for the Coursera R Programming Course Week 3 Assignment. 
 
-## This function creates a matrix object which could catche its inverse.
+## This function creates a list with methods which could set and get a matrix and its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-     m<-NULL
+     inv<-NULL
      set<-function(y){
              x<<-y
-             m<<-NULL
+             inv<<-NULL
      }
      get<-function()x
-     setinverse<-function(inverse) m<<-inverse
-     getinverse<-function()m
+     setinverse<-function(inverse){inv<<-inverse}
+     getinverse<-function()inv
      list(set=set, get=get, 
      setinverse=setinverse, 
      getinverse=getinverse)
@@ -21,14 +21,14 @@ makeCacheMatrix <- function(x = matrix()) {
 ##If the inverse has already been calculated, the cached value will be used.
 
 cacheSolve <- function(x, ...) {
-          m<-x$getinverse()
-          if(!is.null(m)){
+          inv<-x$getinverse()
+          if(!is.null(inv)){
              message("getting cached data")
-             return(m)
+             return(inv)
 }
           data<-x$get()
-          m<-solve(data,...)
-          x$setInverse(m)
-          m
+          inv<-solve(data,...)
+          x$setinverse(inv)
+          inv
 }
 
