@@ -90,7 +90,7 @@
 #     clipboard” button on the right hand side that should appear when you hover over the SHA-1 hash. Paste 
 #     this SHA-1 hash into the course web site when you submit your assignment. If you don't want to use the 
 #     most recent commit, then go down and find the commit you want and copy the SHA-1 hash.
-# A valid submission will look something like (this is just an example!) 
+# A valid submission will look something like (this is just an example!)
 #
 # https://github.com/rdpeng/ProgrammingAssignment2
 
