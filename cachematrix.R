@@ -1,15 +1,33 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These functions attempt to reduce computational
+## burden by caching the inverse of a squared matrix
 
-## Write a short comment describing this function
+## Sets the matrix to be inverted and cached
 
 makeCacheMatrix <- function(x = matrix()) {
-
+    m <- NULL
+    set <- function(y) {
+        x <<- y
+        m <<- NULL
+    }
+    get <- function() x
+    setinverted <- function(solve) m <<- solve
+    getinverted <- function() m
+    list(set = set, get = get,
+         setinverted = setinverted,
+         getinverted = getinverted)
 }
 
 
-## Write a short comment describing this function
+## Return a matrix that is the inverse of 'x'
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    m <- x$getinverted()
+    if(!it.NULL(m)) {
+        message("getting cached data")
+        return(m)
+    }
+    data <- x$get()
+    m <- solve(data, ...)
+    x$setinverted(m)
+    m
 }
