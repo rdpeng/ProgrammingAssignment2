@@ -1,24 +1,27 @@
-makeCacheMatrix <- function(x = mat()) {
-a<-NULL
-set<-function(y){
-x<<-y
-a<<-NULL
-}
-get<-function() x
-setmat<-function(solve) a<<- solve
-getmat<-function() a
-list(set=set, get=get,
-setmat=setmat,
-getmat=getmat)
-}
-cacheSolve <- function(x=mat(), ...) {
-a<-x$getmat()
-if(!is.null(a)){
-message("getting cached data")
-return(a)
-}
-mat<-x$get
-a<-solve(mat, ...)
-x$setmat(a)
-a
-}
++## Put comments here that give an overall description of what your
+ + -## functions do
+ + -## Write a short comment describing this function
+ + +# The following functions are intended to improve the performance in a computation
+ + +# By using a cache instead of recalculating everything again.
+ +  
+  makeCacheMatrix <- function(x = mat()) {
+  a<-NULL
+  set<-function(y){
+ @@ -11,12 +18,17 @@ list(set=set, get=get,
+  setmat=setmat,
+  getmat=getmat)
+  }
+ +## Write a short comment describing this function
+ + +# This function calculates the inverse matrix using the cache.
+ + +# if the inverse is already calculated the cache retrieves the inverse from there.
+ + 
+  cacheSolve <- function(x=mat(), ...) {
+  a<-x$getmat()
+  if(!is.null(a)){
+  message("getting cached data")
+  return(a)
+  }
+ +## Return a matrix that is the inverse of 'a'
+  mat<-x$get
+  a<-solve(mat, ...)
+  x$setmat(a)
