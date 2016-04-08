@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Function that chaches the inverse of a matrix
 ## 
 ## Create special matrix, of a list containing a function to:
@@ -53,4 +52,3 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 }
->>>>>>> origin/master
