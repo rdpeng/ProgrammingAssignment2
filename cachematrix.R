@@ -1,7 +1,6 @@
-## These functions were development as part of the assignment of R Programming Week 3
+## Code development as part of the assignment of R Programming Week 3
 
-## This function will cache the matrix and its inverse inverse
-
+## The following function will cache the matrix and its inverse inverse
 makeCacheMatrix <- function(x = matrix()) {
         ##matrix inverse
         inv<-NULL
@@ -17,8 +16,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function determines the inverse of a matrix, but before doing any calculation it first checks the cache
-
+## Determines the inverse of a matrix, but before doing any calculation it first checks the cache
 cacheSolve <- function(x, ...) {
         inv<-x$getInv()
         if(!is.null(inv)){
