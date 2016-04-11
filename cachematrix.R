@@ -26,7 +26,7 @@ makeCacheMatrix <- function(x = matrix()) {
     ## Return the inverse property
     m
   }
-  ## Return a list of the methods
+  ## Return a list of the method
   list(set = set, get = get,
        setInverse = setInverse,
        getInverse = getInverse)
