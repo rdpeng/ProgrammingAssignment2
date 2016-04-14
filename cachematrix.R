@@ -3,14 +3,14 @@
 
 makeCacheMatrix <- function(x = matrix()) {
     m<-NULL #create the NULL variable "m" for this environment
-    set<-function(y){ #change the matrix to y without re-calling makeCacheMatrix, or allows cacheSolve to set the matrix because x has a default case. Clears the cache
+    set<-function(y){ #allows cacheSolve to set the matrix because x has a default case.  Also clears the cache.
         x<<-y
         m<<-NULL
     }
     get<-function() x #return the matrix "x"
     setInverse<-function(inv) m<<-inv #cache inv as "m"
     getInverse<-function() m #return m from cache
-    list(set=set,get=get,setInverse=setInverse,getInverse=getInverse) #create the list
+    list(set=set,get=get,setInverse=setInverse,getInverse=getInverse) #create the list of functions
 }
 
 
