@@ -22,11 +22,11 @@ makeCacheMatrix <- function(x = matrix()) {
      getsolve <- function() theInverse
      
      ## create list with methods for get / set of both original matrix
-     ## and its inverse 
+     ## and its inverse, return the list to parent environment.  
      list(set = set, get = get,
           setsolve = setsolve,
           getsolve = getsolve)
-
+     
 }
 
 
@@ -34,8 +34,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
      ## Return a matrix that is the inverse of 'x'
-    
-      ## Attempt to retrieve matrix from cache
+     ##
+     ## Note: x must be an object of makeCacheMatrix, as I describe 
+     ## in my article called makeCacheMatrix() as an Object stored at
+     ## https://github.com/lgreski/datasciencectacontent
+     
+     ## Attempt to retrieve matrix from cache
      theMatrix <- x$getsolve()
      if (!is.null(theMatrix)) {
           message("getting cached inverse")
