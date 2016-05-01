@@ -1,0 +1,119 @@
+ makeVector <- function(x = numeric()) {
+         m <- NULL
+         set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setmean <- function(mean) m <<- mean
+        getmean <- function() m
+        list(set = set, get = get,
+             setmean = setmean,
+             getmean = getmean)
+ }
+
+The documentation says:
+=======================
+
+ The function, makeVector creates a special "vector", which is really a list containing a function to
+
+set the value of the vector
+get the value of the vector
+set the value of the mean
+get the value of the mean
+But i can not understand how the function works except for the point that it is assigning mean value to the variable m in that particular environment.
+=======================================
+
+2-## cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then cacheSolve should retrieve the inverse from the cache.
+
+===========================================================================================================================================
+
+
+Caching the Inverse of a Matrix
+===============================
+
+
+
+cachemean <- function(x, ...) {
+        m <- x$getmean()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- mean(data, ...)
+        x$setmean(m)
+        m
+}
+
+
+R solve Function
+=================
+
+
+## solve() function solves equation a %*% x = b for x, where b is a vector or matrix.
+
+solve(a, b, tol, LINPACK = FALSE, ...)
+
+• a: coefficients of the equation
+• b: vector or matrix of the equation right side
+• tol: the tolerance for detecting linear dependencies in the columns of a
+• LINPACK: logical. Defunct and ignored
+... 
+
+5x = 10, what's x?
+>solve(5,10)
+[1] 2
+
+Let's see two variables examples:
+3x + 2y = 8
+x + y =2
+What's x and y?
+
+In above equations, matrix a is:
+  3 2
+  1 1
+Matrix b is:
+  8
+  2
+> a <- matrix(c(3,1,2,1),nrow=2,ncol=2)
+> a
+     [,1] [,2]
+[1,]    3    2
+[2,]    1    1
+> b <- matrix(c(8,2),nrow=2,ncol=1)
+> b
+     [,1]
+[1,]    8
+[2,]    2
+> solve(a,b)
+     [,1]
+[1,]    4
+[2,]   -2
+
+So x = 4, y = -2. 
+
+If b is absent, the default is a unit matrix.
+> x <- stats::rnorm(16)
+> dim(x) <- c(4,4)
+> x
+           [,1]       [,2]        [,3]         [,4]
+[1,] -0.3017359 -0.4687800  0.66832626  0.003768864
+[2,] -0.8327101  0.7754996 -0.04494932  1.900833149
+[3,] -0.1948664 -0.9313664 -0.47685005 -0.123290962
+[4,]  1.2502012 -1.0014304  1.61952675  1.119330272
+
+> solve(x)
+           [,1]        [,2]        [,3]        [,4]
+[1,] -1.0175034 -0.23116550 -0.09488446  0.38553721
+[2,] -0.2013479  0.03601077 -0.78443594 -0.14687844
+[3,]  0.8975934 -0.08140970 -0.59455159  0.06973859
+[4,] -0.3423730  0.40820022  0.26440712  0.23046715
+
+Get the inverse matrix of matrix x:
+> solve(x) %*% x
+              [,1]          [,2]          [,3]          [,4]
+[1,]  1.000000e+00  0.000000e+00 -2.220446e-16  2.775558e-16
+[2,]  8.881784e-16  1.000000e+00 -8.881784e-16  2.220446e-16
+[3,] -8.881784e-16  0.000000e+00  1.000000e+00 -4.440892e-16
+[4,]  0.000000e+00 -2.775558e-17  2.775558e-17  1.000000e+00
