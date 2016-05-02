@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
              getInverse = getInverse)
 }
 
-## This function computes de inverse of the function above. Fi
+## This function computes de inverse of the function above.
 ## First it checks if the inverse has already been calculated. 
 ## If so, it gets the inverse from the cache and skips the computation.
 ## Otherwise, it calculates the inverse of the matrix and sets the value of the inverse
