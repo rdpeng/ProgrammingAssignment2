@@ -38,6 +38,6 @@ cacheSolve <- function(x, ...) {
   # sets the value of the inverse in the cache via the setinv function.
   x$setinv(inv)
   
-  return(inv)
+  return(inv) 
 }
 
