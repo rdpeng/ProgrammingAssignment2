@@ -1,0 +1,29 @@
+  makeCacheMatrix <- function(x = matrix()) {
+      mtrx <- NULL
+      set <- function(y) {
+        		x <<- y
+        		mtrx <<- NULL
+        	}
+      get <- function() x
+      inverseset <- function(solve) mtrx <<- solve
+      inverseget <- function() mtrx
+      list(set = set, get = get,
+             			inverseset = inverseset,
+             			inverseget = inverseget)
+  }
+
+
+## Write a short comment describing this function
+
+cacheSolve <- function(x, ...) {
+  ## Return a matrix that is the inverse of 'x'
+          		mtrx <- x$inverseget()
+  		if(!is.null(mtrx)) {
+    			message("CacheSolve Return")
+    			return(mtrx)
+    		}
+  	data <- x$get()
+  	mtrx <- solve(data, ...)
+  	x$inverseset(mat)
+  	mtrx
+}
