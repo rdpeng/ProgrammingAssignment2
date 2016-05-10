@@ -1,4 +1,4 @@
-## makeCacheMatrix function takes in an inversible square matrix and returns a list of functions
+### makeCacheMatrix function takes in an inversible square matrix and returns a list of functions
 ##for getting ht einput matrix, seting the input matrix, getting and setting the inverse matrix 
 #cacheSolve takes in the input matrix, gets the inverse if available in cache, computes inverse and returns the inverse matrix
 # test function is used to test the two functions in order.
