@@ -4,7 +4,7 @@
 # test function is used to test the two functions in order.
 
 ## Write a short comment describing this function
-#MakeCacheMatrix takes an input matrix and creates a cache and returns functions for input and reverse matrix setting and retrieval
+## MakeCacheMatrix takes an input matrix and creates a cache and returns functions for input and reverse matrix setting and retrieval
 
 makeCacheMatrix <- function(x = matrix()) {
   #x: a square matrix
