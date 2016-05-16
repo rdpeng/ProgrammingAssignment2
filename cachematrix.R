@@ -1,13 +1,21 @@
-## Put comments here that give an overall description of what your
-## functions do
-##complete function returns inverse of an invertable matrix.
-##stores it in cache memory for fast retreval for same matrix without unecessary computation.
-##
 
-## Write a short comment describing this function
+
+##################################################################
+#       Functions to find inverse of matrix with caching        ##
+##################################################################
+##complete function returns inverse of only invertable matrix.
+##stores it in cache memory for fast retreval for same matrix without unecessary computation.
+
+
+## makeCacheMatrix ##
 
 #set inverse matrix value in first iteration to parent env using '<<-' operator.
 ## fast retrieval of cached inv matrix value using getinverse function.
+# Function returns a list containing four functions:
+# 1. set()
+# 2. get()
+# 3. getinverse()
+# 4. setinverse()
 makeCacheMatrix <- function(x = matrix()) 
 {
   inv<-NULL
@@ -29,8 +37,8 @@ set<-function(y=matrix())  ## set value of matrix using set function
   list(set=set,get=get,getinverse=getinverse,setinverse=setinverse)
 }
 
-
-## Write a short comment describing this function
+#########################################################################################
+##  cacheSolve ##
 ##generates inv of matrix in first iteration.
 ##retrieve cached matrix value using function call
 cacheSolve <- function(x, ...) {
@@ -45,4 +53,9 @@ cacheSolve <- function(x, ...) {
   inv
   }
         ## Return a matrix that is the inverse of 'x'
+        
+#  Example   #   
+# z<-matrix(rnorm(9),3,3)
+# x<-makeCacheMatrix(z)
+# cacheSolve(x)
 
