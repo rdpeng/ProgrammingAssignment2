@@ -1,4 +1,3 @@
-# Matrix inversion is expensive
 # caching the inverse of a matrix rather than computing it repeatedly looks wise
 
 # makeCacheMatrix creates a list containing a function to
@@ -24,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 # computation. If not, it computes the inverse, sets the value in the cache via
 # setinverse function.
 
-# This function assumes that the matrix is always invertible however it might not be always true.
+# This function assumes that the matrix is always invertible.
 cacheSolve <- function(x, ...) {
         inv <- x$getinverse()
         if(!is.null(inv)) {
