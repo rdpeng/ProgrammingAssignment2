@@ -24,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
 # computation. If not, it computes the inverse, sets the value in the cache via
 # setinverse function.
 
-# This function assumes that the matrix is always invertible.
+# This function assumes that the matrix is always invertible however it might not be always true.
 cacheSolve <- function(x, ...) {
         inv <- x$getinverse()
         if(!is.null(inv)) {
@@ -37,24 +37,3 @@ cacheSolve <- function(x, ...) {
         inv
 }
 
-## Sample run:
-## > x = rbind(c(1, -1/4), c(-1/4, 1))
-## > m = makeCacheMatrix(x)
-## > m$get()
-##       [,1]  [,2]
-## [1,]  1.00 -0.25
-## [2,] -0.25  1.00
-
-## No cache in the first run
-## > cacheSolve(m)
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
-
-## Retrieving from the cache in the second run
-## > cacheSolve(m)
-## getting cached data.
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
-## > 
