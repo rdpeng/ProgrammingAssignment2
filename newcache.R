@@ -1,4 +1,3 @@
-#Converts data into numeric matrix. One must use the cbind/rbind function and assign this to a variable x. Variable x will then be converted into a matrix using makeCacheMatrix function
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(y) {
@@ -11,7 +10,6 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
 
-#To return the inverse of the matrix obtained from the makeCacheMatrix function. 
 cacheSolve <- function(x, ...) {
     inv <- x$getinverse()
     if(!is.null(inv)) {
