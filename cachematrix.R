@@ -1,24 +1,27 @@
-makeCacheMetrix <- function(x = matrix()) {
-i <- NULL
-         set <- function(y) {
-                 x <<- y
-                 i <<- NULL
-         }
-         get_mat <- function() x
-         setInv <- function(inv) i <<- inverse
-         getInv <- function() i
-         list(set = set, get = get,
-              setInv = setInv,
-              getInv = getInv)
+#Converts data into numeric matrix. One must use the cbind/rbind function and assign this to a variable x. Variable x will then be converted into a matrix using makeCacheMatrix function
+
+makeCacheMatrix <- function(x = matrix()) {
+    inv <- NULL
+    set <- function(y) {
+        x <<- y
+        inv <<- NULL
+    }
+    get <- function() x
+    setinverse <- function(solve) inv <<- solve
+    getinverse <- function() inv
+    list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
+
+#To return the inverse of the matrix obtained from the makeCacheMatrix function. 
+
 cacheSolve <- function(x, ...) {
-         i <- x$getInv()
-         if(!is.null(i)) {
-                message("getting cached data")
-                return(i)
-         }
-         matrix <- x$get_mat()
-         inv <- inv(matrix, ...)
-         x$setinv(i)
-         i
+    inv <- x$getinverse()
+    if(!is.null(inv)) {
+        message("getting cached data.")
+        return(inv)
+    }
+    data <- x$get()
+    inv <- solve(data)
+    x$setinverse(inv)
+    inv
 }
