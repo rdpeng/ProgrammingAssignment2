@@ -1,7 +1,8 @@
 ## Functions below cache inverse of the matrix
 
 ## This function below contains a list of functions that set a value of the matrix 
-## as well as the cache inverse of the matrix 
+## as well as the cache inverse of the matrix.
+## Also allows retrival of matrix and the cache inverse of the matrix. 
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -16,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
   }
 
 
-## The function caculates the cached incerse of the matrix
+## The function caculates the cached inverse of the matrix
 
 cacheSolve <- function(x, ...) {
          inv <- x$getinverse
