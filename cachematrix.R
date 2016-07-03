@@ -1,15 +1,35 @@
-## Put comments here that give an overall description of what your
-## functions do
+rm(list=ls())
 
-## Write a short comment describing this function
+#First function to:
+#Set Value of Vector
+#Get Value of Vecotr
+#Set Value of Mean
+#Get value of Mean
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  Inv = NULL
+  Set = function(y) {
+    x <<- y
+    inv <<- NULL
+  }
+  get = function() x
+  setinv = function(inverse) Inv <<- inverse 
+  getinv = function() Inv
+  list(Set=Set, get=get, setinv=setinv, getinv=getinv)
 }
 
-
-## Write a short comment describing this function
+#Compute the inverse of the matrix returned by makeCacheMatrix function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  inv = x$getinv()
+  if (!is.null(inv)){
+    message("get cached data")
+    return(inv)
+  }
+  mat.data = x$get()
+  inv = solve(mat.data, ...)
+  x$setinv(inv)
+  
+  return(inv)
 }
+
