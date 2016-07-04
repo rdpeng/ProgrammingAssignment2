@@ -14,7 +14,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Calculate and cache the inverse of the special matrix u
+## Calculate and cache the inverse of the special matrix
+## New Branch Rbranch
 cacheSolve <- function(x, ...) {
   i <- x$getInv()
   if(!is.null(i)){
