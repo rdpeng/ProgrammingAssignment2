@@ -14,7 +14,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Calculate and cache the inverse of the special matric
+## Calculate and cache the inverse of the special matrix
 cacheSolve <- function(x, ...) {
   i <- x$getInv()
   if(!is.null(i)){
