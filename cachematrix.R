@@ -41,3 +41,6 @@ cacheSolve <- function(x, ...) {
   x$setinverse(m)
   m
 }
+
+
+# end of the program , output coming as expected 
