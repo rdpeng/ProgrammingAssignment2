@@ -1,15 +1,53 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix makes a list that set and get a matrix and its inverse in an environment variable.  
+## The next function passes the resulting list, calculates and sets the inverse.  With a set inverse, the program uses the cached value.
 
-## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        cachedInv <- NULL 
+        
+        set <- function(userValue = matrix()) {
+                x <<- userValue 
+                cachedInv <<- NULL
+        }
+        
+        get <- function() x
+        
+        setInverse <- function(invVal) {
+                cachedInv <<- invVal 
+                return(cachedInv)
+        }
+        
+        getInverse  <- function() cachedInv
+        list(set=set, get=get, setInverse=setInverse, getInverse=getInverse)
 }
 
 
-## Write a short comment describing this function
+## check list variable to determine cached inverse and return
+## else, solve its inverse and return
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(x=makeCacheMatrix(1:4, nrow=2, ncol=2), ...) { 
+        
+        calculatedInverse <- x$getInverse() 
+        
+        
+        if(!is.null(calculatedInverse) && is.matrix(calculatedInverse)) { 
+                message("Cached data")
+                return(calculatedInverse)
+        }
+        
+        matrixToSolve <- x$get()  
+        
+        calculatedInverse <- tryCatch({ 
+                solve(matrixToSolve)
+        }, warning=function(w) {
+                message("Unresolved result")
+                message(w)
+        }, error=function(e) {
+                message("Error in resolving matrix")
+                message(e)
+                message("\n")
+        })
+        
+        message("Forcing value of inverse to:") 
+        x$setInverse(calculatedInverse)
 }
