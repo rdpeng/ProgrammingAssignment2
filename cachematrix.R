@@ -1,10 +1,11 @@
 ## Functions makeCacheMatrix and cacheSolve work together to 
-## enable the cacheing of inverted matrices, in order to
+## enable the cacheing of inverse matrices, in order to
 ## efficiently store these data objects for future reuse and 
 ## optimize usage of processing resources.
 
-## makeCacheMatrix returns the cacheable form of the matrix x, in the form of a
-## list.
+## makeCacheMatrix a form of the matrix x, that can be cached
+## Function setsolve() saves the inverse of the matrix in the parent environment
+## Function getsolve() returns the inverse of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
         inverseM <- NULL
@@ -23,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## cacheSolve takes the cacheable form of the matrix, checks if the inverse of 
-## the matrix has been cached, and returns the inverse;  if not, processes the
+## the matrix has been cached, and returns the inverse;  if not, generates the
 ## inverse of the matrix, caches it and returns it.
 
 cacheSolve <- function(x, ...) {
