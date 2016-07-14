@@ -43,3 +43,9 @@ cacheSolve <- function(x, ...) {
   x$setinv(inv) ## set the value of inverse in the cache via setinv function
   return(inv)
 }
+solve<- function(mat)
+{
+  temp <- makeCacheMatrix(mat) ## generate a new matrix
+  cacheSolve(temp) ## output the inverse matrix
+
+}
