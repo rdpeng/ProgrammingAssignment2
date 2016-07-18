@@ -2,8 +2,7 @@
 
 ## This function creates a special "matrix" object that can cache its inverse
 
-x <- matrix(data = 1:4 ,nrow = 2, ncol  = 2)
-y <- matrix(data = 4:7 ,nrow = 2, ncol  = 2)
+
 
 
 makeCacheMatrix <- function(x = matrix()) {
