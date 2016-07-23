@@ -5,7 +5,7 @@ CacheSolve <- function(x,...){
                     return (inv)
                     }
    data<-x$get()
-   m<-inverse(data,...)
-   x$get_inverse(inv)
+   m<-solve(data,...)
+   x$set_inverse(inv)
    inv
 }
