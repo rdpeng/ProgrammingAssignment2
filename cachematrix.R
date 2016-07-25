@@ -6,14 +6,6 @@
 
 
 makeCacheMatrix <- function(x = matrix()) {
-  
-}
-
-
-cacheSolve <- function(x, ...) {
-  
-}
-makeCacheMatrix <- function(x = matrix()) {
   inve <- NULL
   set <- function(y) {
     x <<- y
