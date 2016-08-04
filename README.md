@@ -100,6 +100,16 @@ In order to complete this assignment, you must do the following:
 5.  Submit to Coursera the URL to your GitHub repository that contains
     the completed R code for the assignment.
 
+
++## Caching  the inverse of a Matrix 
++## These functions are used to cache the inverse of a matrix when
++## it is computed, so that further usage of the inverse matrix is not need  
++## to recalculate it again. 
++## To normally  use these: 
++## 1. Call makeCacheMatrix passing your invertible matrix as measure 
++## and storing the solution  into another variable. 
+
+
 ### Grading
 
 This assignment will be graded via peer assessment.
