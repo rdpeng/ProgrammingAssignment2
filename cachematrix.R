@@ -1,7 +1,7 @@
 
 ## This program contains two functions: makeCacheMatrix and cacheSolve. The
 ## first returns a list of functions taking a matrix as input, and the 
-## second matrix returns the inverse of 'x'
+## second function returns the inverse of 'x'
 
 
 ## "makeCacheMatrix" creates a list containing a function to set and get the 
