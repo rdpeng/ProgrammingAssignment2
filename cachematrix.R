@@ -4,8 +4,7 @@
 ## 'set' sets the value of the matrix;
 ## 'get' gets the value of the matrix;
 ## 'setsolve' sets the value of the inverse;
-## and 'getsolve' gets the value of the inverse.
-## Store function 'makeCacheMatrix(x)' in z
+## and 'getsolve' gets the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
         s <- NULL
