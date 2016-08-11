@@ -1,0 +1,150 @@
+
+
+best <- function(state, outcome) {
+## Read outcome data
+## Check that state and outcome are valid
+## Return hospital name in that state with lowest 30-day death
+## rate
+
+source("sortHospitalsByOutcome.R")
+head(sortHospitalsByOutcome(state, outcome), 1)
+}
+outcomeCol.R
+outcomeCol <- function(outcome) {
+if (outcome == "heart attack") {
+outcome <- "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"
+} else if (outcome == "heart failure") {
+outcome <- "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"
+} else if (outcome == "pneumonia") {
+outcome <- "Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"
+}
+else {
+stop("invalid outcome")
+}
+}
+rankall.R
+rankall <- function(outcome, num="best") {
+## Read outcome data
+## Check that state and outcome are valid
+## For each state, find the hospital of the given rank
+## Return a data frame with the hospital names and the
+## (abbreviated) state name
+
+source("outcomeCol.R")
+
+outcome <- outcomeCol(outcome)
+
+data <- read.csv("data/outcome-of-care-measures.csv", colClasses="character")
+data[,outcome] <- suppressWarnings(as.numeric(data[,outcome]))
+data <- data[order(data$"State", data[outcome], data$"Hospital.Name", na.last=NA),]
+data <- data[!is.na(outcome)]
+
+l <- split(data[,c("Hospital.Name")], data$State)
+
+rankHospitals <- function(x, num) {
+if (num=="best") {
+head(x, 1)
+} else if (num=="worst") {
+tail(x, 1)
+} else {
+x[num]
+}
+}
+
+result <- lapply(l, rankHospitals, num)
+data.frame(hospital = unlist(result), state = names(result), row.names = names(result))
+}
+rankhospital.R
+rankhospital <- function(state, outcome, num = "best") {
+## Read outcome data
+## Check that state and outcome are valid
+## Return hospital name in that state with the given rank
+## 30-day death rate
+
+source("best.R")
+source("sortHospitalsByOutcome.R")
+
+if (num=="best") {
+best(state, outcome)
+} else if (num=="worst") {
+tail(sortHospitalsByOutcome(state, outcome), 1)
+} else {
+sortHospitalsByOutcome(state, outcome)[num]
+}
+}
+sortHospitalsByOutcome.R
+sortHospitalsByOutcome <- function(state, outcome) {
+source("outcomeCol.R")
+outcome <- outcomeCol(outcome)
+
+data <- read.csv("data/outcome-of-care-measures.csv", stringsAsFactors=FALSE)
+
+if (!state %in% data$State) {
+stop("invalid state")
+}
+
+data <- data[data$State==state,]
+
+data[,outcome] <- suppressWarnings(as.numeric(data[,outcome]))
+data <- data[order(data[outcome], data$"Hospital.Name"),]
+as.character(data$"Hospital.Name"[!is.na(data[outcome])])
+}
+@Cosmin11
+Cosmin11 commented on 21 Mar 2015
+
+best <- function(state, outcome ) {
+
+#Read outcome data----------------------------------------
+my_data= read.csv("outcome-of-care-measures.csv",colClasses = "character")
+
+#ERROR MSG for Outcomes-----------------------------------
+
+if (outcome == "heart attack"){
+
+            my_outcome = 11
+
+    } else if (outcome == "heart failure"){
+
+            my_outcome = 17  
+
+    }else if (outcome == "pneumonia"){
+
+            my_outcome = 23
+
+    } else {
+
+            stop ("invalid outcome")
+    }
+
+#ERROR MSG for State--------------------------------------
+my_state = as.character(state)
+my_states =as.vector(unique(my_data$State))
+
+    if (any(my_state == my_states,na.rm = TRUE)){
+
+    }else{
+
+           stop("invalid state")                       
+    }
+
+#Create Data Frame with Hosp., State, H. Attack, H. Failure & Pneumonia-----
+my_sample<-my_data[which(my_data[,7]==my_state),c(2,7,my_outcome)]
+
+#Replace 'Not Available with NA---------------------------------------------
+my_sample_without_NA<-my_sample[which(my_sample[,3]!="Not Available"),]
+
+#Find minimum value of the Outcome--------------------------------------------
+my_minimum<-min(as.numeric(my_sample_without_NA[,3]))
+
+#Display all hospitals with the minimum dead rate-----------------------------
+my_result<-my_sample_without_NA[which(as.numeric(my_sample_without_NA[,3])==my_minimum),]
+
+#Display result in Alphabetical ordered------------------------------------------
+my_ordered_result<-my_result[order(my_result[,1]),]
+
+#Display first value from the result vector-------------------------------------
+my_final_result<-as.vector(head(my_ordered_result[,1],1))
+
+    my_final_result
+
+}
