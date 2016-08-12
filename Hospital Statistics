@@ -1,5 +1,5 @@
 best <- function(state, outcome) {
-## To Read outcome data
+## Read outcome 
 ## validate that state and outcome are OK
 ## Return hospital name in state where 30-day death is lowest
 ## rate
@@ -19,13 +19,14 @@ else {
 stop("invalid outcome")
 }
 }
+
 rankall.R
-rankall <- function(outcome, num="best") {
-## Read outcome data
+rankall<- function(outcome, num="best") {
+## Read outcome 
 ## Validate that state and outcome are OK
-## For each state, find hospital of the given rank
+## For each state find hospital of the given rank
 ## Return a dataframe with hospital names and 
-## (abbreviated) state name
+##  state name
 
 source("outcomeCol.R")
 
@@ -47,8 +48,9 @@ tail(x, 1)
 x[num]
 }
 }
+
 result <- lapply(l, rankHospitals, num)
-data.frame(hospital = unlist(result), state = names(result), row.names = names(result))
+data.frame(hospital = unlist, state = names, row.names = names)
 }
 rankhospital.R
 rankhospital <- function(state, outcome, num = "best") {
