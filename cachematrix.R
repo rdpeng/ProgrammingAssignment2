@@ -1,6 +1,6 @@
 ## Caching the Inverse of a Matrix:
 ## Below are a pair of functions that are used to create a special object that 
-## stores a matrix and caches its inverse.
+## stores a matrix and caches its inverse:
 
 ## This function creates a special "matrix" object that can cache its inverse.
 
@@ -36,3 +36,4 @@ cacheSolve <- function(x, ...) {
   x$setInverse(inv)
   inv
 }
+
