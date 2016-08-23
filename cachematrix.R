@@ -1,9 +1,10 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## create base functions
-
+## Prepares a set of functions (set, get, setinv, getinv)
+## for the inverse caching operation
 makeCacheMatrix <- function(x = matrix()) {
+  
   inv <- NULL
   set <- function(y) {
     x <<- y
@@ -11,15 +12,15 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   get <- function() x
   setinv <- function(inverse) inv <<- inverse
-  getinv <- function() inv
+  getinv <- function() m
   list(set = set, get = get,
        setinv = setinv,
        getinv = getinv)
 }
 
 
-## function for returning the inverse of matrix "x"
 
+## function for returning the inverse of matrix "x"
 cacheSolve <- function(x, ...) {
   inv <- x$getinv()
   if(!is.null(inv)) {
