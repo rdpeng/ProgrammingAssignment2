@@ -1,3 +1,4 @@
+
 ##Matrix inversion is usually a costly computation and there may be some 
 ## benefit to caching the inverse of a matrix rather than compute it repeatedly.
 ## Below are a pair of functions that are used to create a special object that 
@@ -8,7 +9,7 @@
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
-    x <<- y
+    x <<- y #superassertion
     inv <<- NULL
   }
   get <- function() x
