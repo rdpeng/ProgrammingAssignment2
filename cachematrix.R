@@ -1,8 +1,8 @@
 # This program is to compute the inverse of input matrix and retrieve the result from the cache
-# There are two variables in this program
 # x is the matrix that needs to be processed
 # i stores the inverse of matrix
 
+#This function is to create cached matrix
 makeCacheMatrix <- function(x = matrix()){
     
     i <- NULL
@@ -23,6 +23,7 @@ makeCacheMatrix <- function(x = matrix()){
     getinv = getinv)
 }
 
+#This function is to compute the inverse of input matrix or retrieve it from the cache
 cacheSolve <- function(x, ...){
     #the input x must be a makeCaheMatrix
     
