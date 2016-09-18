@@ -19,13 +19,13 @@ list(set= set, get= get, setinverse= setinverse, getinverse= getinverse)
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-i<- x$getinverse()
-if(!is.null(i)){
+  i<- x$getinverse()
+  if(!is.null(i)){
   message("getting cached data") 
   return(i)
   }
-data <-x$get()
-inv<- solve(data)
-x$setinverse(i)
-i ## Return a matrix that is the inverse of 'x'
+  data <-x$get()
+  inv<- solve(data)
+  x$setinverse(i)
+  i ## Return a matrix that is the inverse of 'x'
 }
