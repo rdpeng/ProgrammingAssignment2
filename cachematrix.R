@@ -36,7 +36,6 @@ makeCacheMatrix <- function(x = matrix()) {
                 getsolve = getsolve)
 }
 
-
 ## cacheSolve takes the list object created by makeCacheMatrix, checks if the results are already cached
 ## and either returns the inverse of the matrix from the cache or calculates it with the solve() function
 ## and stores it in the cache for later use
