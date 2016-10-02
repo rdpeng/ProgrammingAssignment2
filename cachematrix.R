@@ -1,4 +1,4 @@
-## cacheMatrix.R contains following functions that
+## cachematrix.R contains following functions that
 ## enable us to calculate inverse of a matrix and cache it
 ## in the global environment so that it's value can be utilised.
 ## for further computations.
