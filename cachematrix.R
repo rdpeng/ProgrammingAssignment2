@@ -6,7 +6,7 @@
 # cacheInverse   Cache the value of the inverse of the matrix
 # getInverse     get the cached value of inverse of the matrix
 #
-makeCacheMatrix <- function(x = numeric()) {
+makeCacheMatrix <- function(x = matrix()) {
 #initially set cache to null
         cache <- NULL  
         
