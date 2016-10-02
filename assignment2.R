@@ -1,8 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
 ## Functions to cache the inverse of a matrix
 
 ## Creating matrix object that can cache its object
