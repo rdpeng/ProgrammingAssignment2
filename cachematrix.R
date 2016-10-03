@@ -1,15 +1,34 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Created by K.E.
+## This r code for Peer Assignment Week 3. Thanks for reviewing my code!  
 
-## Write a short comment describing this function
+## makeCacheMatrix builds a set of functions and returns the functions
+## within a list to the parent environment and stores x and m in the cache
 
 makeCacheMatrix <- function(x = matrix()) {
-
+    m <- NULL
+    set <- function(y) {
+        x <<- y
+        m <<- NULL
+    }
+    get <- function() x
+    setSolve <- function(solve) m <<- solve
+    getSolve <- function() m
+    list(set = set, get = get,
+         setSolve = setSolve,
+         getSolve = getSolve)
 }
 
 
-## Write a short comment describing this function
+## calculates and store the invere matrix from makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    m <- x$getSolve()
+    if(!is.null(m)) {
+        message("getting cached data")
+        return(m)
+    }
+    data <- x$get()
+    m <- solve(data, ...)
+    x$setSolve(m)
+    m
 }
