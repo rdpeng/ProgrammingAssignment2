@@ -31,7 +31,7 @@ makecacheMatrix <- function(x=matrix()) {
 ## The program will calculate the inverse of the 'Special' matrix via the function solve(data),
 ## previously having stored the matrix with the function get() in makecacheMatrix. And it return the value.
 ## If you run call cacheSolve twice you will see a message in the screen saying "getting cached data" which 
-## means that the inverse of the matrix is already cached
+## means that the inverse of the matrix is already cached.
 
 cacheSolve <- function(x , ...) {
   inv <- x$getinv()
