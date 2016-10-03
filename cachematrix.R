@@ -1,4 +1,4 @@
-## Created by K.E.
+## Created by K.E. makint a change
 ## This r code for Peer Assignment Week 3. Thanks for reviewing my code!  
 
 ## makeCacheMatrix builds a set of functions and returns the functions
