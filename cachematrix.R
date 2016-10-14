@@ -37,10 +37,9 @@ b = a$getInverse()
 a$get() %*% b
 
     
-    
-  ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
+ ## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
+## Return a matrix that is the inverse of 'x'
   m <- x$getInverse()
   if(!is.null(m)){
     message("getting cached data")
