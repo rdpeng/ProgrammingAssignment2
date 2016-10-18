@@ -4,8 +4,6 @@
 ## get the value of the Matrix
 ## set the value of the inverse of the Matrix
 ## get the value of the inverse of the Matrix
-##
-## 
 
 ### Test matrices:
 ## m1 <- matrix(c(1/4, -1/16, -1/2, 3/16), nrow = 2, ncol = 2)
