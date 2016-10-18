@@ -2,14 +2,33 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+##It will create a matrix that can be cached and those means already
+## calculated can be otained from the cached data
 makeCacheMatrix <- function(x = matrix()) {
-
+m<-NULL
+                   set<-function(y){
+                   	x<<-y
+                   	m<<-NULL
+                   }
+                   get<-function() x
+                   setinverse<-function(solve)m<<-solve
+                   getinverse<-function()m
+                   list(set=set,get=get,setinverse=setinverse,getinverse=getinverse)
 }
 
 
-## Write a short comment describing this function
+## Wr##using special matrix from above function we will create another function to store 
+##to store previous data in cache memory ite a short comment describing this function
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        m <- x$getinverse()
+               if(!is.null(m)){
+               	message("getting cached data")
+               	return(m)
+               }
+               data <- x$get()
+               m=solve(data, ...)
+               x$setinverse(m)
+               m
 }
