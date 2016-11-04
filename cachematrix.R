@@ -49,6 +49,7 @@ cacheSolve <- function (x, ...)
 	inv <- l$getinv ()
 	if (!is.null (inv)) {
 		print ("Inverse already cached")
+		##print the cached inverse
 		return (inv)
 		##exit the function
 	}
@@ -56,6 +57,9 @@ cacheSolve <- function (x, ...)
 	mat <- l$show ()
 	##store the matrix in mat
 	n <- solve (mat, ...)
+	##solve the inverse of the new matrix,
+	##store it,
+	##and now return it
 	l$setinv (n)
 	return (n)
 }
