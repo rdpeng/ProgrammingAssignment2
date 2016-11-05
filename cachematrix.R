@@ -1,7 +1,15 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+## Two functions will be used to create a special object that stores
+## a numeric matrix and caches its mean
 
 ## Write a short comment describing this function
+## The first function,makeCacheMatrix creates a special "matrix",
+## which is a list containing four functions including:
+## 1.set the value of the matrix
+## 2.get the value of the matrix
+## 3.set the value of the inverse
+## 4.get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
         ##initialize the inverse to NULL
@@ -30,6 +38,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+## This function will calculate the inverse of the special 
+## matri created with the above function. It will checks 
+## the stored inverse and decide to either calculate or skip.
 
 cacheSolve <- function(x, ...) {
         ##get the inverse of the matrix defined inside x
