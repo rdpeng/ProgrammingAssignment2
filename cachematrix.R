@@ -2,23 +2,30 @@
 ## functions do
 
 ## Write a short comment describing this function
+## Caching the Inverse of a Matrix:
+## Matrix inversion is usually a costly computation and there may be some 
+## benefit to caching the inverse of a matrix rather than compute it repeatedly.
+## Below are a pair of functions that are used to create a special object that 
+## stores a matrix and caches its inverse.
+
+## This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-  i <- NULL
+  m <- NULL
   
-  set <- function(y) {
+  set <- function(y) {                            ## set the value of the vector
     
     x <<- y
     
-    i <<- NULL
+    m <<- NULL
     
   }
   
-  get <- function() x
+  get <- function() x                             ## get the value of the vector
   
-  setinverse <- function(inverse) i <<- inverse
+  setinverse <- function(inverse) m <<- inverse   ## set the value of inverse
   
-  getinverse <- function() i
+  getinverse <- function() m                      ## get the value of inverse
   
   list(
     
@@ -36,23 +43,27 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
+## This function computes the inverse of the special "matrix" created by 
+## makeCacheMatrix above. If the inverse has already been calculated (and the 
+## matrix has not changed), then it should retrieve the inverse from the cache.
+
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-  i <- x$getinverse()
+  m <- x$getinverse()
   
-  if(!is.null(i)) {
+  if(!is.null(m)) {                        ## see if the inverse has already been calculated.
     
-    message("getting cached data")
+    message("getting cached data")         ## if the inverse has already been calculated,message
     
-    return(i)
+    return(m)                              ## and return the inverse from the cache.
     
   }
   
-  data <- x$get()
+  data <- x$get()         ## if the inverse not yet calculated, 
   
-  i <- solve(data, ...)
+  m <- solve(data, ...)   ## solve function returns the inverse.
   
-  x$setinverse(i)
+  x$setinverse(m)         ## sets the value of the inverse in the cache via the setinverse function
   
-  i
+  m
 }
