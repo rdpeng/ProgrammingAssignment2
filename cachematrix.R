@@ -3,7 +3,7 @@
 
 ## This function creates a special matrix which cache its inverse.
 
-cachematrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
     inv <<- NULL
@@ -21,7 +21,7 @@ cachematrix <- function(x = matrix()) {
 
 ## This function computes the inverse of the previous special matrix.
 
-cachesolve <- function(x, ...) {
+cacheSolve <- function(x, ...) {
   inv <- x$get_Inverse()
   if (!is.null(inv)) {
     message("getting cached data")
