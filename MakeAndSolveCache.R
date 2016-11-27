@@ -3,6 +3,8 @@
 ##  https://github.com/andreashaager/ProgrammingAssignment2/
 ##
 
+
+## create matrix and assign to cache 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
   set <- function(y) {
