@@ -1,54 +1,49 @@
+## Put comments here that give an overall description of what your
+## functions do
 
-## The first function, makeCacheMatrix, creates a special "vector", 
-## which is really a list containing a function to:
-## 1. set the value of the vector
-## 2. get the value of the vector
-## 3. set the value of the inverse
-## 4. get the value of the inverse
+## This function creates a cache to calculate the inverse of a matrix.
+## There's a place holder to store, calculate, retrieve,
+## and make available the function.
 
 makeCacheMatrix <- function(x = matrix()) {
-        
-        ## set the value of the vector
-        inv = NULL
-        set = function(y) {
-                x <<- y
-                inv <<- NULL
-                }
-        ## get the value of the vector
-        get = function() x
-        ## set the value of the inverse
-        setinv = function(inverse) inv <<- inverse
-        ## get the value of the inverse
-        getinv = function() inv
-        list(set = set, get = get, 
-             setinv = setinv, 
-             getinv = getinv)
 
+## Initialize with an empty vector to hold cache
+        inv = NULL
+## Store function
+        set = function (y) {
+              x <<- y
+              inv <<- NULL
+        }
+## Retrieve function
+        get = function() x
+## Store inverted matrix
+        setinv = function(inverse) inv <<- inverse
+## Retrieve inverted matrix
+        getinv = function() inv
+## Make functions available
+        list(set = set, get = get,
+        setinv = setinv, getinv = getinv)
 }
 
-## The following function, cacheSolove, calculates the inverse of the special "vector" 
-## created with the above function. 
-## However, it first checks to see if the inverse has already been calculated. 
-## If so, it gets the inverse from the cache and skips the computation. 
-## Otherwise, it calculates the inverse of the data and 
-## sets the value of the inverse in the cache via the setinv function.
+
+## This function takes the inverse matrix, first checks to see
+## if matrix is available in cache. Otherwise, it calculates
+## and returns the inverse.
 
 cacheSolve <- function(x, ...) {
-        
+
         ## Return a matrix that is the inverse of 'x'
         inv = x$getinv()
-        ## check to see if the inverse has already been calculated
+        ## Check if inverse exists
         if(!is.null(inv)) {
-                ## if so, get the inverse from the cache
-                message("getting cashed data")
-                return(inv)
-                }
-        ## otherwise, calculate the inverse of the data
+              message("getting cached data")
+              return(inv)
+        }
+
+        ## Otherwise, calculate and return inverse of matrix
         data = x$get()
         inv = solve(data, ...)
-        ## set the value of the inverse in the cache
         x$setinv(inv)
         return(inv)
-        
+
 }
-                
