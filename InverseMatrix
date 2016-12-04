@@ -1,0 +1,42 @@
+##At first, this function reads a matrix and save it's inverse into cache.
+makeCacheMatrix <- function(x=matrix()) {
+        inv <- NULL
+        set <- function(y) {
+                x <<- y
+                inv <<- NULL
+        }
+        get <- function() x
+        setInv <- function(inverse) inv <<- inverse  ##Here we are calculating the matrix inverse.
+        getInv <- function() inv
+        list(set = set, get = get,
+             setInv = seInv,
+             getInv = getInv)  ##Saving inversed matrix into cache.
+}
+
+##This function reads the makeCacheInverse() results and seach if it's inverse exists. 
+##If not, function calculates and return the inverse.
+cacheSolve <- function(x, ...) {
+        inv <- x$getInv()
+        ##Seaching if we have already calculated this matrix' inverse
+        if(!is.null(inv)) {
+                message("getting cached data")  ##If we have the inverse, call it back.
+                return(inv)
+        }
+        matrix <- x$get()  
+        inv <- solve(matrix, ...)  ##If we don't have already calculated the matrix' inverse, we do.
+        x$setInv(inv)              ##Saving the matrix' inverse
+        inv                        ##Returning the matrix' inverse
+}
+
+##Simple example about how this function works:
+#Case when we have already calculated the inversed matrix:
+
+mat<-matrix(1:9,3,3)
+a <- makeCacheMatrix(mat) 
+b<-cacheSolve(a)
+b
+
+#Now, if we execute again the cacheSolve function for the same argument,
+#we'll receive a message that inversed matrix already exists.
+b<-cacheSolve(a)
+"getting cached data"  ##Message received for running again cacheSolve(a).
