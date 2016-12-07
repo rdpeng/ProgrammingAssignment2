@@ -1,0 +1,49 @@
+## there are two variables below in the function: x & m.
+## x deals with creating a matrix, while m is for cashed matrix.
+
+makeCasheMatrix <- function(x = matrix()) {
+    ## defining makeCashMatrix function
+    m <- NULL
+    set <- function(y) {
+        x <<- y
+        m <<- NULL
+    }
+    ## the set function will pass y to the input of makeCashMatrix, x,
+    ## instead of creating a new variable 'x' in the scope of set function,
+    ## and pass NULL to m.
+    get <- function() x
+    ## get is a constant function and returns x.(the data that will be dealt with)
+    setsolve <- function(solve) m <<- solve
+    ## assign the input argument to the value of m in the parent environment.
+    getsolve <- function() m
+    ## constant function and returns m.
+    list(set = set, get = get,
+         setsolve = setsolve,
+         getsolve = getsolve)
+    ## finally, makeCasheMatrix returns a list containing 4 elements,
+    ## each element is a function that has been defined.
+}
+
+## input of the cachSolve, x, should be a makeCasheMatrix
+cacheSolve <- function(x, ...) {
+    m <- x$getsolve()
+    ## x$getsolve is the getsolve function in makeCasheMatrix
+    ## i.e. determining whether solve has been calculated or not
+    if(!is.null(m)) {
+        ## if m is not NULL, solve has been calculated,
+        ## so we return the previous output.
+        message("getting cached data")
+        return(m)
+    }
+    ## if m is NULL, which indicates solve has not been calculated
+    ## so we use get to use the data of x
+    data <- x$get()
+    ## calculate solve(x)
+    m <- solve(data, ...)
+    ## store the data in m
+    ## m will have value the next time using the cashSolve function
+    ## cacheSolve will find whether the solve has been calculated or not
+    x$setsolve(m)
+    ## return m
+    m
+}
