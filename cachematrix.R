@@ -1,4 +1,4 @@
-##  Submission - Assignment 3 - GitHub: DocUrlaub (Coursera: Matthew)
+##  Submission - Assignment 3 - GitHub ID: DocUrlaub (Coursera ID: Matthew)
 ##  Description: The .R script "cachematrix.R" contains two functions (makeCacheMatrix / cacheSolve) intended
 ##  to demonstrate the use of Lexical Scoping within R, in addition to performing the inversion of
 ##  a matrix passed into the function.  If the matrix passed into the functions has been pre-calculated,
