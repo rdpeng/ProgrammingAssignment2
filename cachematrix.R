@@ -1,15 +1,66 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Assignment: Week 3 of R Programming
+## Lesson learned:
+## (1) Using & exploring lexical scooping
+## (2) Using debugging functions & tools in RStudio
+## (3) Using consistent coding style (google, slightly modified)
 
-## Create a special "matrix" object that can cache its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
-
+MakeCacheMatrix <- function(x = matrix()) {
+    # Create a special "matrix" object that can cache its inverse
+    #
+    # Args:
+    #     x has to be an invertible square matrix 
+    # Returns:
+    #     a list of (dottet named) functions
+    #
+    m <- NULL
+    Set <- function(y) {
+        x <<- y
+        m <<- NULL
+    }
+    Get <- function() {
+        x
+    }
+    SetMatrix <- function(matrix_args) {
+        m <<- matrix_args
+    }
+    GetMatrix <- function() {
+        m
+    }
+    myList <- list(set.function = Set, get.function = Get,
+                        set.matrix.function = SetMatrix,
+                        get.matrix.function = GetMatrix)
+    return(myList) # return a list of (dotted) named functions
 }
 
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+CacheSolve <- function(x, ...) {
+    # Compute inverse of the special "matrix" returned by MakeCacheMatrix above
+    #
+    # Args:
+    #     x = list of special named functions created by MakeCacheMatrix
+    #
+    # Returns:
+    #     inverse matrix either computed or taken from cached data
+    #
+    m <- x$get.matrix.function()
+    if(!is.null(m)) {
+        message("Getting inverse matrix from cached data")
+        print(m)
+        return(m)
+    }
+    # calcualte inverse matrix
+    data <- x$get.function()
+    m <- solve(data, ...)
+    x$set.matrix.function(m)
+    message("Inverse matrix is calculated")
+    print(m)
+    return(m)
 }
+
+
+# ---------------------------------------------------------------------------
+# run file with testdata
+#
+# setwd("~/Documents/Peter_Data/Arbeiten-Werkzeuge/Programmieren/R/Coursera/cacheMatrix")
+# source("cachematrix_test.R")
