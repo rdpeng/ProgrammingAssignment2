@@ -24,11 +24,11 @@ cacheSolve <- function(x, ...) {
     inver <- x$getinver() # if it has  been calculated before this gets from getinver
     if(!is.null(inver)) {
       message("getting cached data")
-      return(inver) # if
+      return(inver) # return cached data
     }
     data <- x$get()
     inver <- solve(data, ...)
-    x$setinver(inv)
+    x$setinver(inv) # run the setinver on the inverse to cache 
     inver
   }	
 }
