@@ -1,16 +1,17 @@
+ 
 makeCacheMatrix <- function(x = matrix()) 
 {
   cachedInv <- NULL 
-  set <- function(userValue = matrix()) 
+  set <- function(input = matrix()) 
   {
-    x <<- userValue 
+    x <<- input
     cachedInv <<- NULL
   }
   
   get <- function() x
-  setInverse <- function(invVal)
+  setInverse <- function(invmat)
   {
-    cachedInv <<- invVal 
+    cachedInv <<- invmat 
     return(cachedInv)
   }
   getInverse  <- function() cachedInv
@@ -29,7 +30,7 @@ cacheSolve <- function(x=makeCacheMatrix(1:4, nrow=2, ncol=2), ...)
     message("Cached data found")
     return(calculatedInverse)
   }
-  
+  ##if data is not cached then it jumps to solve the matrix
   matrixToSolve <- x$get()  
   calculatedInverse <-  solve(matrixToSolve)
   x$setInverse(calculatedInverse)
