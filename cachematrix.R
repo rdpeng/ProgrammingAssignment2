@@ -1,5 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
+# Saugata Halder
+#+971-544177921
 
 ## The first function, makeCacheMatrix creates a special "Matrix", which is really a list containing a function to
 
