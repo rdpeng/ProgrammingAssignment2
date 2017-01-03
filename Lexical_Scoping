@@ -7,7 +7,7 @@ MakeCacheMatrix <- function(x = matrix()) {
     # Create a special "matrix" object that can cache its inverse
     # Args: x has to be an invertible square matrix 
     # Returns: a list of (dottet named) functions
-
+    
     m <- NULL
     Set <- function(y) {
         x <<- y
