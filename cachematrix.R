@@ -1,7 +1,7 @@
 ## We are writing a function to create the inverse of a matrix(assuming it can be calculated). If the inverse has already been calculated, it gets
 ## retrieved from the cache and returned as result. This saves calculation effort which, for matrix inversion, can be computationally expensive.
 
-## makeCacheMatrix function creates a list containing a function to
+## makeCacheMatrix function creates a list containing a function to 
 ## 1. Set the value of the matrix
 ## 2. Get the value of the matrix
 ## 3. Set the value of the matrix inverse
