@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## This function creates a "special matrix to be inverted
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
@@ -18,7 +18,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function takes the matrix from "makeCacheMatrix" and inverts it
+## then solves for the inverted mean
 
 cacheSolve <- function(x, ...) {
         m <- solve(x$getmean())
