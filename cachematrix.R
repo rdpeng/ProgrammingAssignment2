@@ -1,5 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Cachematrix.R takes a special matrix and then inverts it
 
 ## This function creates a "special matrix to be inverted
 
