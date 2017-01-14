@@ -1,0 +1,51 @@
+makeCacheMatrix <- function(x = matrix()) { #setting a default value for x
+                  n <- NULL                 #setting a default value for n    
+                  set <- function(y) {      #setting a value of the matrix                  
+                        x <<- y             #setting the value of x in its parent environment which is makeCacheMatrix' environment
+                        n <<- NULL          #setting the value of n in its parent environment
+                  }
+                  get <- function() x       #getting the value of the matrix  from parent environment 
+                  setinverse <- function(inverse) n <<- inverse   #setting the inverse value in its parent environment   
+                  getinverse <- function() n                      #getting the inverse value  from parent environment 
+                  list( set = set, get = get, setinverse = setinverse, getinverse = getinverse) # creating a list to call functions by their name
+}
+# hte following function returns the inverse of a matrix. 
+# It checks first to see if there is any cached data
+# If not It recalculate the inverse of a matrix
+cacheSolve <- function(x, ...) {
+                  n <- x$getinverse()
+                  if(!is.null(n)) {
+                        message("getting cached data")
+                        return(n)
+                  }
+                  data <- x$get()
+                        n <- solve(data)
+                        x$setinverse(n)
+                        n
+}                        
+#TEST
+# > mat <- makeCacheMAtrix(matrix(1:4, 2, 2))
+# > mat$get()
+#      [,1] [,2]
+#[1,]    1    3
+#[2,]    2    4
+# > mat$getinverse()
+# NULL
+# > cacheSolve(mat)  # there was'n any cached data so it calculates again
+#     [,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+# > cacheSolve(mat)  #this time function doesn't calculate it. It simply recalls it.
+#getting cached data
+#     [,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+
+# I also tested to see If this matrix is actually the inverse of the matrix 
+# by multiplying them to see the result idendity matrix.
+# > Inversematrix <- mat$getinverse()
+# > my_matrix     <- mat#get()
+# > Inversematrix %*% my_matrix 
+#      [,1] [,2]
+#[1,]    1    0
+#[2,]    0    1
