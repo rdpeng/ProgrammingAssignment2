@@ -1,7 +1,8 @@
 ## Caching - Inverse of a matrix
+##Programming Assignment - Inverse of a matrix
 
 ## Simply put, the following function creates a 'special vector', just like the
-## example above where the 'special vector' is really just a list of 4 containing
+## example provided in the beginnning of the assignment where the 'special vector' is really just a list of 4 containing
 ## a function to: 
 # 1) set the dimensions and values of the elements of matrix
 # 2) get the matrix
