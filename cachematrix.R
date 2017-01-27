@@ -4,26 +4,26 @@
 
 makeCacheMatrix <- function(x = matrix()) {
   r <- NULL
-  set <- function(y) {
+  set <- function(y) {                                    ##resetting the matrix and the inverse
     x <<- y
     r <<- NULL
   }
   get <- function() x
-  setReverse <- function(reverse) r <<- reverse
+  setReverse <- function(reverse) r <<- reverse                 
   getReverse <- function() r
   list(set = set, get = get,
        setReverse = setReverse,
        getReverse = getReverse)
 }
-          
+
 cacheSolve <- function(x, ...) {
-  r <- x$getReverse()
-  if(!is.null(r)) {
+  r <- x$getReverse()                                         ##getting stored value of reverse
+  if(!is.null(r)) {                                           ##checking if stored value is present in cache or not
     message("getting cached data")
     return(r)
   }
   data <- x$get()
-  r <- solve(data, ...)
+  r <- solve(data, ...)                                       ##calculating inverse of matrix
   x$setReverse(r)
   r
 }
