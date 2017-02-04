@@ -1,33 +1,56 @@
-# read the R script
-# replace the "path/to/file" with the directory you save the file into
-# or you can read the file directly from the web
-source("path/to/file/assessment3.R")
+## Put comments here that give an overall description of what your
+## functions do
 
-# call makeCacheMatrix without arguments
-a <- makeCacheMatrix();
-summary(a);
-#>              Length Class  Mode    
-#> setMatrix    1      -none- function
-#> getMatrix    1      -none- function
-#> cacheInverse 1      -none- function
-#> getInverse   1      -none- function
-
-# create a square matrix (reason `solve` only handles square matrices )
-a$setMatrix( matrix(c(1,2,12,13), nrow = 2, ncol = 2) );
-a$getMatrix();
-#>      [,1] [,2]
-#> [1,]    1   12
-#> [2,]    2   13
-
-cacheSolve(a)
-#> [,1]        [,2]
-#> [1,] -1.1818182  1.09090909
-#> [2,]  0.1818182 -0.09090909
-
-# the 2nd time we run the function, we get the cached value
-cacheSolve(a)
-#> getting cached data
-#> [,1]        [,2]
-#> [1,] -1.1818182  1.09090909
-#> [2,]  0.1818182 -0.09090909
-
+## Write a short comment describing this function
+# makeCacheMatrix creates a list containing a function to# set the value of the matrix 
+# get the value of the matrix 
+# set the value of inverse of the matrix 
+# get the value of inverse of the matrix 
+makeCacheMatrix <- function(x = matrix()) {
+  inv <- NULL 
+  set <- function(y)     
+  {             
+    x <<- y             
+    inv <<- NULL       
+  } 
+  get <- function() x 
+  setinverse <- function(inverse)
+    inv <<- inverse getinverse <- function() inv 
+  list(set=set, get=get, setinverse=setinverse, getinverse=getinverse) 
+}
+## Write a short comment describing this function
+# The following function returns the inverse of the matrix. It first checks if 
+# the inverse has already been computed. If so, it gets the result and skips the 
+# computation. If not, it computes the inverse, sets the value in the cache via 
+# setinverse function.    
+# This function assumes that the matrix is always invertible.
+cacheSolve <- function(x, ...) {
+  ## Return a matrix that is the inverse of 'x'
+  inv <- x$getinverse() 
+  if(!is.null(inv)) 
+  {  message("getting cached data.") 
+    return(inv) 
+  } 
+  data <- x$get()
+  inv <- solve(data) 
+  x$setinverse(inv) 
+  inv 
+  
+}
+##sample run: 
+## x <- matrix(data= c(4,5,6,7), nrow=2, ncol=2)
+## m <-makeCacheMatrix(x)
+## m$get()
+##      [,1] [,2]
+##[1,]    4    6
+##[2,]    5    7
+## cacheSolve(m)
+##      [,1] [,2]
+##[1,] -3.5    3
+##[2,]  2.5   -2 
+## Retrieving from the cache in the second run
+##cacheSolve(m)
+##getting cached data.
+##     [,1] [,2]
+##[1,] -3.5    3
+##[2,]  2.5   -2
