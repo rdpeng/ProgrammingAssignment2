@@ -10,12 +10,19 @@
 ## 3. set the value of the inverse of the matrix
 ## 4. get the value of the inverse of the matrix
 
-makeCacheMatrix <- function(x = matrix()) {
+akeCacheMatrix <- function(x = matrix()) {
        inv <- NULL
        set <- function(y) {
               x <<- y
               inv <<- NULL
        }
+       get <- function() x
+       setInverse <- function(inverse) inv <<- inverse
+       getInverse <- function() inv
+       list(set = set,
+            get = get,
+            setInverse = setInverse,
+            getInverse = getInverse)
 }
 
 ## cacheSolve is the second function. Its scope is to compute the 
