@@ -3,6 +3,8 @@
 
 ## Write a short comment describing this function
 
+## this is the function to to create a special matrix contain functions
+
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -19,6 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+## this is a function calculate the inverse of the matirx created with checking the cache
 
 cacheSolve <- function(x, ...) {
   m <- x$getinverse()
