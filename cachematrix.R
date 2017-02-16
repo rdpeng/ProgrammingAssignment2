@@ -1,4 +1,4 @@
-## The frist function, 'makeCacheMatrix', creates a special matrix object that 
+## The first function, 'makeCacheMatrix', creates a special matrix object that 
 ## can cache its inverse and, the second function 'cacheSolve' computes the
 ## inverse of the matrix returned by 'makeCacheMatrix'
 
@@ -6,58 +6,37 @@
 ## actually a list containing a function to: 
 ##
 ## 1. set the value of the matrix
-##
 ## 2. get the value of the matrix
-##
 ## 3. set the value of the matrix's inverse
-##
 ## 4. get the value of the matrix's inverse
 
 makeCacheMatrix <- function(x = matrix()) {
   
-  m<-NULL
-  
-  set<-function(y){
-    
-    x<<-y
-    
-    m<<-NULL
+ inverse<-NULL
+ set<-function(y){
+     x<<-y
+     inverse<<-NULL
   }
   
   get<-function()x
-  
-  setinverse<-function(solve)m<<-solve
-  
-  getinverse<-function()m
-  
+  setinverse<-function(solve)inverse<<-solve
+  getinverse<-function()inverse
   list(set=set,get=get,
-       
        setinverse=setinverse,
-       
        getinverse=getinverse)
-  
-}
-
+ }
 ## Computes the inverse of the matrix returned by 'makeCacheMatrix'
 
 cacheSolve <- function(x, ...) {
-  
-  m<-x$getinverse()
-  
-  if(!is.null(m)){
-    
+  inverse<-x$getinverse()
+  if(!is.null(inverse)){
     message("getting cached data")
-    
-    return(m)
+    return(inverse)
   }
-  
   data<-x$get()
-  
-  m<-solve(data,...)
-  
-  x$setinverse(m)
-  
-  m
+  inverse<-solve(data,...)
+  x$setinverse(inverse)
+  inverse
   
         ## Return a matrix that is the inverse of 'x'
 }
