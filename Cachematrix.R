@@ -4,17 +4,17 @@
 #The first function creates a list containing several functions which set the
 #value of the matrix, in other words, create a matrix object. 
 makeCacheMatrix <- function(x = matrix()) {         
-  o <- NULL
-  set <- function(y) {
-    x <<- y      
-    o <<- NULL   
-  }
-  get <- function() x  
-  setinverse <- function(solve)  o <<- solve
-  getinverse <- function() o
-  list(set = set, get = get,
-       setinverse = setinverse,
-       getinverse = getinverse)
+      o <- NULL
+    set <- function(y) {
+          x <<- y      
+          o <<- NULL   
+          }
+     get <- function() x  
+     setinverse <- function(solve)  o <<- solve
+     getinverse <- function() o
+     list(set = set, get = get,
+     setinverse = setinverse,
+     getinverse = getinverse)
 }
 
 
@@ -23,13 +23,13 @@ makeCacheMatrix <- function(x = matrix()) {
 #action within the function itself. 
 
 cacheSolve<- function(x, ...) {
-  o <- x$getinverse()
-  if(!is.null(o)) {
-    message("getting cached data")
-    return(o)
-  }
-  data <- x$get()
-  o <- solve(data, ...)
-  x$setinverse(o)
-  o
+     o <- x$getinverse()
+     if(!is.null(o)) {
+         message("getting cached data")
+         return(o)
+         }
+     data <- x$get()
+     o <- solve(data, ...)
+     x$setinverse(o)
+     o
 }
