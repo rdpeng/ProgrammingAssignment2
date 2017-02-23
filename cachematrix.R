@@ -34,6 +34,7 @@ cacheSolve <- function(x, ...) {
     #test if variable is empty or holds the matrix inverse
     if(is.null(m)){
         m<<-solve(x)
+        x$setInverse(m)
         return(m)
     }
     else{
