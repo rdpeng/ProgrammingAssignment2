@@ -4,7 +4,6 @@
 ## Write a short comment describing this function
 ##This function set the value of the vector, get the value of the vector, set the value of the function finversa and get the value of finversa
 
-
 makeCacheMatrix <- function(x = matrix()) 
 {
   inversa<-NULL
@@ -18,10 +17,6 @@ makeCacheMatrix <- function(x = matrix())
   getinversa <-function() inversa
   list(set = set, get = get, setinversa=setinversa, getinversa=getinversa)
 }
-
-
-
-
 
 ## Write a short comment describing this function
 ##This function through the function solve, calulate the inverse of x
