@@ -18,8 +18,8 @@ makeCacheMatrix <- function(x = matrix()) {
         get <- function() x
         
         ## Caches the argument
-        setinv <- function(solve) 
-        i <<- solve
+        setinv <- function(inverse) 
+        i <<- inverse
         
         ## Gets the cached argument
         getinv <- function() i
