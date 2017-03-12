@@ -56,5 +56,5 @@ cacheSolve <- function(x, ...) {
   ## Use setinverse function to cache inverse of matrix
   x$setinverse (inverse)
   ## Return a matrix that is the inverse of 'x'
-  inverse
+  
 }
