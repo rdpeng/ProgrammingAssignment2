@@ -49,7 +49,6 @@ cacheSolve <- function(x, ...) {
         return(inverse)
     }
     
-    message("Calculating inverse")
     xMatrix <- x$get()
     inverse <- solve(xMatrix)
     x$setInverse(inverse)
