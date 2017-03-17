@@ -1,6 +1,6 @@
 ## function makeCacheMatrix is function that build a container of 
 ##	Two values: matrix and its solved result
-##	functions that get/set the matrix and its solve result
+##	Four helper functions that get/set the matrix and its solve result
 ## Return value: a list that contain the values and fuctions
 
 ## Write a short comment describing this function
@@ -32,10 +32,10 @@ cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 	result <- x$getSolve()
 	if (!is.null(result)) {
-		message ("Cache hitted")
+		message ("Cache hitted!")
 		return (result)
 	}
-	result <- solve(x$get,...)
+	result <- solve(x$get, ...)
 	x$setSolve(result)
 	result
 
