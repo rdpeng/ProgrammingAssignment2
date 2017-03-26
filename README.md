@@ -1,4 +1,5 @@
 Assignment Instructions
+_________________________________________________
 ### Introduction
 
 This second programming assignment will require you to write an R
@@ -29,7 +30,7 @@ really a list containing a function to
 4.  get the value of the mean
 
 __________________________________________________________________________________________________
-# Creating makeCacheMatrix function to set and get the value of vector
+# Creating makeCacheMatrix function to set and get the value of vector.
 #Also, to set and get the mean of vector
 
 makeCacheMatrix <- function(x = matrix()) {
