@@ -3,7 +3,8 @@
 
 ## Write a short comment describing this function
 #testHELLO
-#salut
+#Salutcestcool
+#supergroupeelectro
 makeCacheMatrix <- function(x = matrix()) {
 
 }
