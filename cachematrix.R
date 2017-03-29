@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-
+#<<- operator is used to assign a value to an object in an environment that is different from the current environment
 
 #makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = matrix()) {
