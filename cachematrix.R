@@ -1,7 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
+## 
+## This function creates a special "matrix" object that can cache its inverse.
 
-## Write a short comment describing this function
+
+##  Set and get the value of the Matrix
+        
 
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
@@ -19,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
-## Write a short comment describing this function
+## The following function calculates the mean of the special "vector" created with the above function. 
 
 cacheSolve <- function(x) {
         m <- x$getmean()
