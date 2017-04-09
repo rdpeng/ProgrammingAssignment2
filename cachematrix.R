@@ -68,7 +68,7 @@ makeMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 ## >> cacheSolve needs and object created by makeMatrix function
-## >> if 'm' object is not NULL, so it has been already calculated
+## >> if 'm' object is not NULL, so it has been already calculated 
 ## >> than it returns the cached results instead of calculating again
 
 cacheSolve <- function(x, ...) {
