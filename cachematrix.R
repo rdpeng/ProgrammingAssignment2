@@ -1,6 +1,5 @@
 ## (1)  Create a function that contains a matrix and its calcuated inverse
 ## (2) Create a function that calculates the function matrix's inverse
-
 ## A "Class" function that contains a matrix and its calculated inverse
 
 makeCacheMatrix <- function(x = matrix()) {
