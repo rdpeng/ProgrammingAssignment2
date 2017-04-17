@@ -1,4 +1,8 @@
-## to create the make cache matrix function
+## assignment is to write a pair of functions that cache
+## the inverse of a matrix
+
+## creates a special matrix object that can cache
+## its own matrix
 ## set the value for the vector
 ## get the value for the vector
 ## set the value for the inverse
@@ -17,7 +21,10 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-## to create the cachesolve function
+## computes the inverse of the matrix above
+## if the inverse has already been calculated and 
+## the matrix has not changed, the cachesolve should 
+## retrieve the inverse from the cache
 cacheSolve <- function(x, ...) {
   m <- x$getinverse()
   if(!is.null(m)) {
