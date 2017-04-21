@@ -1,4 +1,5 @@
 ### Assignment: Caching the Inverse of a Matrix
+### git módosítás
 
 ## >> makeMatrix and cacheSolve will efficiently calculate the inverse of a matrix
 ## >> from the second call of 'cacheSolve' it won't calculate the inverse but use the cached result
