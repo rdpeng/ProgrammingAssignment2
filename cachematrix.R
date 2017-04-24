@@ -1,3 +1,6 @@
+TEST
+
+
 ## Assignment: Caching the Inverse of a Matrix
 
 ## 1. makeCacheMatrix: This function creates a special "matrix" object 
