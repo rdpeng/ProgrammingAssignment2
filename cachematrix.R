@@ -36,3 +36,19 @@ cacheSolve <- function(cacheMatrix, ...) {
     message("returning newly calculated inverse")
     inverse
 }
+
+## Unit test for the functions in this file.
+unitTestCacheMatrix <- function() {
+    m <- makeCacheMatrix(matrix(c(1, 0, 0, 1), 2, 2))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    m$set(matrix(c(2, 0, 0, 4), 2, 2))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    m$set(matrix(c(1, 2, 3, 3, 2, 1, 1, 2, 1), 3, 3))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+}
