@@ -3,13 +3,13 @@
 ## repeatedly. This pair of functions caches the inverse of a matrix.
 
 ## Creates a special "matrix" object that can cache its inverse.
-makeCacheMatrix <- function(matrix = matrix()) {
+makeCacheMatrix <- function(cachedMatrix = matrix()) {
     cachedInverse <- NULL
     set <- function(newMatrix) {
-        matrix <<- newMatrix
+        cachedMatrix <<- newMatrix
         cachedInverse <<- NULL
     }
-    get <- function() matrix
+    get <- function() cachedMatrix
     setinverse <- function(inverse) cachedInverse <<- inverse
     getinverse <- function() cachedInverse
     list(
@@ -39,6 +39,7 @@ cacheSolve <- function(cacheMatrix, ...) {
 
 ## Unit test for the functions in this file.
 unitTestCacheMatrix <- function() {
+    ## These should succeed and print the inverses.
     m <- makeCacheMatrix(matrix(c(1, 0, 0, 1), 2, 2))
     print(cacheSolve(m))
     print(cacheSolve(m))
@@ -50,5 +51,12 @@ unitTestCacheMatrix <- function() {
     m$set(matrix(c(1, 2, 3, 3, 2, 1, 1, 2, 1), 3, 3))
     print(cacheSolve(m))
     print(cacheSolve(m))
+    print(cacheSolve(m))
+    ## These should fail and print error messages.
+    m <- makeCacheMatrix()
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    print(cacheSolve(m))
+    m <- makeCacheMatrix(matrix(c(1, 0, 0, 1, 0, 1), 3, 2))
     print(cacheSolve(m))
 }
