@@ -1,4 +1,5 @@
 
+
 ## The function makeCacheMatrix requires a input of a matrix, and it returns a list of command used in the function cachesolve/
 ## The fucntion cachesolv requries a input of the output of function makeCacheMatrix
 ## cacheSolve returns the inverse matrix of hte matrix input to the makecacheMatrix and stroe it in the ourput of makecacheMatrix
@@ -14,7 +15,8 @@ makeCacheMatrix <- function(x = matrix()) {
         get<-function()x
         getinv<-function()inv
         setinv<-function(i)inv<<-i
-        list(get=get,
+        list(set=set
+             get=get,
              getinv=getinv,
              setinv=setinv)
 
