@@ -1,15 +1,34 @@
-## Put comments here that give an overall description of what your
-## functions do
+## After understanding the logic behind Len's makeVector/cachemean,
+## I recycled it to make it work on a matrix.
 
-## Write a short comment describing this function
+## Creates a list vector containing 4 functions, the matrix stored in x
+## and an empty vector m.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setinv <- function(inverse) m <<- inverse
+        getinv <- function() m
+        list(set = set, get = get,
+             setinv = setinv,
+             getinv = getinv)
 }
 
 
-## Write a short comment describing this function
+## Calculates and stores the inverse matrix, or returns it if already stored. 
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        m <- x$getinv()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- solve(data, ...)
+        x$setinv(m)
+        m
 }
