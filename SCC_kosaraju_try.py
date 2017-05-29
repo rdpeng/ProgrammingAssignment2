@@ -14,23 +14,9 @@ path='C://Users//Yu Yu//Documents//learning//Algorithms Design and Analysis//V. 
 import pandas as pd
 import numpy as np
 os.chdir(path)
-#import sys
-#import threading
-#sys.setrecursionlimit(10000)
-#def main():
-# #   MiB = 2 ** 20
-# #   threading.stack_size(256 * MiB -1)
-# #   sys.setrecursionlimit(10 ** 7)
-# #   t = threading.Thread(target = main)
-#    maxvertexes=67108864
-#    threading.stack_size(maxvertexes)
-#    sys.setrecursionlimit(maxvertexes)
-#    thread = threading.Thread(target=main)
-#    thread.start()
-#
-#if __name__ == "__main__":
-#    main()
-#    
+
+target = open(path+'log first leg.txt', 'w')    
+
 lst=[]
 with open('SCC.txt') as f:
     for l in f.readlines():
@@ -118,7 +104,7 @@ def dfs_loop(df,record,order):
 #            record.ix[i,'leader']=i
 
 def DFS(df,record,i):
-    global t,s
+    global t,s,new
     S=[]
     pred=[]
     skp=[]
@@ -129,7 +115,7 @@ def DFS(df,record,i):
         u=S.pop()
         pred.append(u)
         #p=pred.pop()
-      #  print 'pop',u,'from S'
+    #    print 'pop',u,'from S'
         if record.ix[u,'visited']==False:
             record.ix[u,'visited']=True
             
@@ -138,23 +124,25 @@ def DFS(df,record,i):
             end=record.ix[u,'to']
         #record.ix[i,'visited']=True
             if start==-1:
-                t=t+1              
-             #   print 'the edge has no outgoing vertex, set finish time for ',u,'as',t
+                t=t+1 
+                target.write('the edge has no outgoing vertex, set finish time for '+str(u)+' as '+str(t)+'\n')
+
+              #  print 'the edge has no outgoing vertex, set finish time for ',u,'as',t
                 record.ix[u,'finish_time']=t 
-                record.ix[u,'leader']=s
-             #   print 'set leader for ',u,'as',s
+                record.ix[u,'leader']=u
+      #          print 'set leader for ',u,'as',u
             else:
                 #record.ix[u,'leader']=s
                 for j in range(start,end+1):
                   #  print 'j is',j
                     nn=df.ix[j,'start']
                     if record.ix[nn,'visited']==False and nn not in S:
-                   #     print 'put neighbour',nn,'into stack and its predecesor',u,'into another stack'
+       #                 print 'put neighbour',nn,'into stack and its predecesor',u,'into another stack'
                         S.append(nn)
                         #pred.append(u)
-                     #   print 'S is',S,'pred is ',pred
+        #                print 'S is',S,'pred is ',pred
                     else:
-                       # print 'neighbor',nn,'has been visited'
+                  #      print 'neighbor',nn,'has been visited'
                         skp.append(nn)
                 while len(skp)>0:
                         nn=skp.pop()   
@@ -166,23 +154,25 @@ def DFS(df,record,i):
                             ee=record.ix[new,'to']
                             if ss !=-1 and ee !=-1:
                                 for check in range(ss,ee+1):
-                                   # print 'check whether ',new,'has remaining edges to visit'
+                   #                 print 'check whether ',new,'has remaining edges to visit'
                                     cn=df.ix[check,'start']
                                     
                                     if cn in S:
-                                     #   print new,'has remaining edge in S to visit, put it back in the qeue'
+                       #                 print new,'has remaining edge in S to visit, put it back in the qeue'
                                         pred.append(new)
                                         brk=1
                                         
                                         break
-                                else:
-                                #    print 'no, ',new,'is done, we should claim it finished and assign finishing time'
-                                    t=t+1
-                                    
-                               #     print 'set finish time for ',new,'as',t
-                                    record.ix[new,'finish_time']=t 
-                                    record.ix[new,'leader']=s
-                                #    print 'set leader for ',new,'as',s
+                                    #else:
+                                    #    print 'no, ',new,'is done, we should claim it finished and assign finishing time'
+                            if pd.isnull(record.ix[new,'leader']):
+                                t=t+1
+                                target.write('set finish time for '+str(new)+' as '+str(t)+'\n')
+
+                          #      print 'set finish time for ',new,'as',t
+                                record.ix[new,'finish_time']=t 
+                                record.ix[new,'leader']=s
+                        #        print 'set leader for ',new,'as',s
       #  else:  
          #   print u,'is visited'              
             #t=t+1
@@ -191,6 +181,7 @@ def DFS(df,record,i):
        
        
 dfs_loop(df,record,sorted(vertex_list,reverse=True))
+target.close()
 print 'finish the first loop'
 
 df_original=df.rename(columns={'start':'end','end':'start'})
@@ -200,10 +191,11 @@ df_original.reset_index(inplace=True,drop=True)
 record=record.drop(['to','from'],axis=1)
 record=set_record(df_original,record)
 
+target = open(path+'log second leg.txt', 'w')   
 finish_order=record['finish_time']
 new_list=finish_order.sort_values(ascending=False).index.tolist()
 dfs_loop(df_original,record,new_list)
-
+target.close()
 if record[record.leader.isnull()].shape[0]>0:
     record.ix[record.leader.isnull(),'leader']=record[record.leader.isnull()].index.values[0]
 final_list=record['leader'].value_counts()
