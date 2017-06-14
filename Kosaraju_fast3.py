@@ -69,9 +69,9 @@ def DFS(array0,record,i):
     s=i
     #s=i
     while len(S)>0:
-        u=S.pop(0)
+        u=S.pop()
         pred.append(u)
-        print 'pop',u,' from S and add ',u,'to the traveled path'
+        print 'pop',u,' from S and add ',u,'to the traveled path, S is',S,'pred is',pred
         if record[u-1,1]==0:
             print u,'has not been visited yet, set it as visited'
             record[u-1,1]=1
@@ -83,8 +83,11 @@ def DFS(array0,record,i):
                 t=t+1 
                 #target.write('the edge has no outgoing vertex, set finish time for '+str(u)+' as '+str(t)+'\n')
                 print 'the edge has no outgoing vertex, set finish time for ',u,'as',t,'leader for ',u,'as',u
+                pred.remove(u)
+                print 'now the pred list is',pred
                 record[u-1,3]=t 
                 record[u-1,2]=u
+                continue
             else:
                 #record.ix[u,'leader']=s
                 print 'search through all its outgoing vertex'
@@ -98,13 +101,40 @@ def DFS(array0,record,i):
                         print 'S is',S,'pred is ',pred
                     else:
                         print 'neighbor',nn,'has been visited'
+                        brk=0
+                        if len(pred)>0 and brk!=1:
+                            last=pred.pop()
+                            print 'retrieve to last step ',last,' and check its neighbours'
+                            last_start=record[last-1,4]
+                            last_end=record[last-1,5]
+                            for k in range(last_start,last_end+1):
+                                nk=array0[k,1]
+                                if record[nk-1,1]==0 :
+                                    print 'neighbor',nk,'has not been visited'
+                                    if nk not in S:
+                                        S.append(nk)
+                                    pred.append(last)
+                                    brk=1
+                                    break
+                            if brk==1:
+                                print 'some vertex has not been visited, continue'
+                                break
+                            else:
+                                if record[new-1,3]==0:
+                                    t=t+1
+                                    print 'all neighbors have been visited, set end time to',last,'as',t
+                                    
+                                    record[new-1,3]=t
+                                    record[new-1,2]=s
     #after all queue items are visited, we started going back 
     while len(pred)>0:
-        t=t+1
+        
         new=pred.pop()
-        print 'set end time to',new,'as ',t,'leader as',s
-        record[new-1,3]=t
-        record[new-1,2]=s
+        if record[new-1,3]==0:
+            t=t+1
+            print 'set end time to',new,'as ',t,'leader as',s
+            record[new-1,3]=t
+            record[new-1,2]=s
 
 def main():
     start_time = time.time()
@@ -146,6 +176,9 @@ def main():
     #target.close()
     print 'finish the first loop'
     finish_order=record1[record1[:,3].argsort()[::-1],0]
+    print 'finish order is'
+    for i in finish_order:
+        print i
     record2=set_record(may,record)
     dfs_loop(may,record2,finish_order)
     
