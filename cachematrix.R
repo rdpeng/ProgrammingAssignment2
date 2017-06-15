@@ -32,4 +32,4 @@ inv <- solve(data, ...)
 x$setinv(inv)
 inv        
 }
-git push <origin> <master> 
+
