@@ -1,27 +1,35 @@
-# Lori first time R assignment
+# Lori 3rd try R assignment
 
-makeCacheMatrix <- function(x = numeric()) {
+## calculate teh inverse matrix
+makeCacheMatrix <- function(x = matrix()) 
+{
         m <- NULL
-        set <- function(y) {
-                x <<- y
+        set <- function(inverse) 
+        {
+                x <<- inverse
                 m <<- NULL
         }
-        get <- function() x
-        setmean <- function(mean) m <<- mean
-        getmean <- function() m
+        get <- function() 
+        {
+        x
+        }
+        setinverse <- function(inverse) m <<- inverse
+        getinverse <- function() m
         list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
+             setinverse = setinverse,
+             getinverse = getinverse)
 }
-
-cacheSolve <- function(x, ...) {
-        m <- x$getmean()
-        if(!is.null(m)) {
-                message("getting cached data")
+## return a matrix that is teh inverse of 'x' if inverse alreay exist
+cacheSolve <- function(x) 
+{
+        m <- x$getinverse()
+        if(!is.null(m)) 
+        {
+                print("getting cached inverse matrix")
                 return(m)
         }
         data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
+        m <- solve(data)
+        x$setinverse(m)
         m
 }
