@@ -1,0 +1,35 @@
+# Lori 3rd try R assignment
+
+## calculate teh inverse matrix
+makeCacheMatrix <- function(x = matrix()) 
+{
+        m <- NULL
+        set <- function(inverse) 
+        {
+                x <<- inverse
+                m <<- NULL
+        }
+        get <- function() 
+        {
+        x
+        }
+        setinverse <- function(inverse) m <<- inverse
+        getinverse <- function() m
+        list(set = set, get = get,
+             setinverse = setinverse,
+             getinverse = getinverse)
+}
+## return a matrix that is teh inverse of 'x' if inverse alreay exist
+cacheSolve <- function(x) 
+{
+        m <- x$getinverse()
+        if(!is.null(m)) 
+        {
+                print("getting cached inverse matrix")
+                return(m)
+        }
+        data <- x$get()
+        m <- solve(data)
+        x$setinverse(m)
+        m
+}
