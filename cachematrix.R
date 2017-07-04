@@ -18,6 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
         list(set = set, get = get,
              setinverse = setinverse,
              getinverse = getinverse)
+        
 }
 
 
@@ -33,8 +34,7 @@ cacheSolve <- function(x, ...) {
                 return(inv)
         }
         data <- x$get()
-        ndim <- nrows(data)
-        inv <- solve(data, diag(ndim), ...)
+        inv <- solve(data, diag(dim(data)[1]), ...)
         x$setinverse(inv)
         inv
 }
