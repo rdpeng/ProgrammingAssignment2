@@ -50,4 +50,8 @@ mul <- function(a,b){
     return(a*b)
 }
 
+NA_fix <- function(a){
+    a %>% {ifelse(is.na(.),0,a)}
+}
+
 # end of the program , output coming as expected 
