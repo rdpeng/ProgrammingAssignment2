@@ -29,7 +29,6 @@ makeCacheMatrix <- function(x = matrix()) {
 # computation. If not, it computes the inverse, sets the value in the cache via
 # setinverse function.
 
-
 cacheSolve <- function(x, ...) {
   m <- x$getinverse()
   if(!is.null(m)) {
@@ -42,5 +41,13 @@ cacheSolve <- function(x, ...) {
   m
 }
 
+
+sum <- function(a,b) { 
+    return(a+b)
+}
+
+mul <- function(a,b){
+    return(a*b)
+}
 
 # end of the program , output coming as expected 
