@@ -57,4 +57,11 @@ NA_fix <- function(a){
 divide <- function(a,b){ 
     return(a/b)
 }
+
+something <- function(){
+    a = a/b
+}
+
+
+
 # end of the program , output coming as expected 
