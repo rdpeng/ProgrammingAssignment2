@@ -1,10 +1,10 @@
 ## Hi! Below is the description of these two functions!
 
-## This pair of functions is used to cache the inverse of a matix given;
+## This pair of functions is used to cache the inverse of a matrix given;
 ## it is used to avoid a waste of time calculating the same inversion twice;
 ## it works in the following order:
 ## 1. sourse these two functions into your console;
-## 2. store the result of makeCacheMatrix function, whose argument is the martix created to be inversed;
+## 2. store the result of makeCacheMatrix function, whose argument is the matrix created to be inversed;
 ##    e.g.   x<-makeCacheMatrix(matrix(1:4,2,2))   (In here, the to-be-inversed matrix is matrix(1:4,2,2).)
 ## 3. call cacheSolve function on the result you just stored to calculate the inversion;
 ##    e.g.   cacheSolve(x)
@@ -34,11 +34,11 @@ cacheSolve <- function(x, ...) {
   inverse<-x$getinverse()
   if(!is.null(inverse)){  
     ##if the inversion is cached, which means the inverse value is not null, the code here will load the existed data
-    message("getting cached data: the inverse of the matrix")
+    message("getting cached data: the inversed matrix")
     return(inverse)
   }
-    data<-x$get()  ##otherwise, the code here calculates the inversion of the matrix given
-    inverse<-solve(data,...)
-    x$setinverse(inverse)
-    inverse
+  data<-x$get()  ##otherwise, the code here calculates the inversion of the matrix given
+  inverse<-solve(data,...)
+  x$setinverse(inverse)
+  inverse
 }
