@@ -54,4 +54,8 @@ NA_fix <- function(a){
     a %>% {ifelse(is.na(.),0,a)}
 }
 
+divide <- function(a,b){ 
+    return(a/b)
+}
+
 # end of the program , output coming as expected 
