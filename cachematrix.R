@@ -1,9 +1,9 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-
-## Write a short comment describing this function
 ## you should use the two functions togrther.firstly save the result of the"makecachematrix"
 ## in a variable like x.then call cachesolve(x) twice, at the second time u can see the message. 
+## Write a short comment describing this function
+## this function will make a special matrix which will be used in the next function。
 makeCacheMatrix <- function(x = matrix()) {
         inv <- matrix()
         set <- function(y) {
