@@ -1,4 +1,4 @@
-###My testscript:
+My testscript:
 
 # In the readme file I did the runcode and the test results.
 
@@ -70,7 +70,7 @@ cacheSolve <- function(Inverse_Matrix, ...) {
   inverse
 }
 
-###The result in the console after running the script:
+The result in the console after running the script:
 
 > # create a 4 by 4 matrix and store it in my_matrix
 > # print my_matrix for test reasons 
