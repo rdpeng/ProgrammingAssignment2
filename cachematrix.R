@@ -1,8 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Assignment 2 : Program to compute matrix inverse and cache it
 
-## Write a short comment describing this function
-
+## This function will initialise and return list which involves functions like Set , get , setmean and getmean
 makeCacheMatrix <- function(x = matrix()) {
         inv<<-NULL
   Set<-function(Y)
@@ -19,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## function to cache matrix inverse
 
 cacheSolve <- function(x, ...) {
         inv <- x$getinv()
