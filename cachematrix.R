@@ -1,5 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The below pair of functions caches inverse of matrix 
 
 ## This function creates a matrix object that can cache its inverse.
 ## it supports 4 functions i.e. 1. setting matrix, 2. getting matrix, 
