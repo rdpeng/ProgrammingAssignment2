@@ -55,3 +55,33 @@ cacheSolve <- function(y, ...) {
         # return the inverse
         inverse
 }
+
+#Soluion
+# Create Matrix that must be squared to obtain the inverse
+# > x = matrix(sample(1:9),3,3)
+# 
+# Apply the cache function to the object 
+# > m = makeCacheMatrix(x)
+
+# View the object before inversion
+# > m$get()
+# [,1] [,2] [,3]
+# [1,]    4    5    3
+# [2,]    1    2    8
+# [3,]    7    9    6
+
+# Cache the Inverse of the Object
+# > cacheSolve(m)
+# [,1] [,2] [,3]
+# [1,]   12  0.6 -6.8
+# [2,]  -10 -0.6  5.8
+# [3,]    1  0.2 -0.6
+
+# If already cached, message will appear and provide the cached answer instead 
+# > cacheSolve(m)
+# getting cached data
+# [,1] [,2] [,3]
+# [1,]   12  0.6 -6.8
+# [2,]  -10 -0.6  5.8
+# [3,]    1  0.2 -0.6
+# > 
