@@ -7,13 +7,14 @@
 
 ## "makeCacheMatrix" function creates a special "matrix" object to cache its inverse
 
-makeCacheMatrix <- function(m = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
+
 inverse <- NULL
-        s <- function(x) {
-                m <<- x;
+        s <- function(y) {
+                x <<- y;
                 inverse <<- NULL;
         }
-        g <- function() return(m);
+        g <- function() return(x);
         
         sinv <- function(inv) inverse <<- inv;
         
@@ -30,21 +31,21 @@ inverse <- NULL
 ## already been calculated and the matrix has not changed, then
 ## `cacheSolve` function should get the inverse from the cache.
 
-cacheSolve <- function(m, ...) {
+cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 
-        inverse <- m$ginv()
+        inverse <- x$ginv()
         if(!is.null(inverse)) {
                 
                 message("Getting cached data...")
                 
                 return(inverse)
         }
-        data <- m$g()
+        data <- x$g()
         
         invserse <- solve(data, ...)
         
-        m$sinv(inverse)
+        x$sinv(inverse)
         
         return(inverse)
 }
