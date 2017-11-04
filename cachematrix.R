@@ -1,4 +1,5 @@
 # Week 3 Assignment
+# Second repo copy
 # The objective is to write two functions that work in conjunction to calculate the inverse of matrix
 # The first function, called makeCacheMatrix creates the place to cache the inverse of the matrix that is created
 # The second function computes the inverse of the matrix
@@ -35,4 +36,3 @@ cacheSolve <- function(x, ...) {
   x$setinverse(invmat)
   invmat
 }
-
