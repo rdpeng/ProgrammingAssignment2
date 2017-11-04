@@ -1,0 +1,25 @@
+I  would appreciate some feedback.  I am confident that I have modified the code properly.
+However, it does not seem to be executing properly.
+
+I have named the matrix variable "invmat"
+When I execute using:  cacheSolve(makeCacheMatrix(testdata1))
+	it returns an error that "object 'invmat' not found"
+	I will explicitly run the initialization line and it appears in as defined variable
+		in my environment
+		When I run the initial function again, it returns another error:
+			"Error in solve.default(data, ...) : 'a' (8 x 1) must be square"
+			
+Additionally, I have tried to walk through the step by step commands, but with 
+similar results:
+
+
+	> aMatrix <- makeCacheMatrix(1:4)
+> 	aMatrix$getinverse()
+		NULL> 
+	aMatrix <- makeCacheMatrix(1:4)
+	>aMatrix$getinverse()
+		NULL
+	> aMatrix$set(5:20)
+	> cacheSolve(aMatrix)
+		Error in solve.default(data, ...) : 'a' (16 x 1) must be square
+		Called from: solve.default(data, ...)
