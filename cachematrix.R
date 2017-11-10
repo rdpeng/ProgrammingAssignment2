@@ -3,6 +3,10 @@
 
 ## Write a short comment describing this function
 
+# Prepares an object which can be used by cacheSolve() to
+# efficiently retrieve the inverse of a matrix once the
+# cache is initialized.
+
 makeCacheMatrix <- function(x = matrix()) {
   inv_x <- NULL
   set <- function(y) {
@@ -19,6 +23,11 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+
+# CacheSolve will return the inverse of matrix x assumed 
+# to be a square invertable matrix.  The method is efficient
+# in that the inverse is cached and subsequent calls will 
+# return the cached inverse of the matrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
