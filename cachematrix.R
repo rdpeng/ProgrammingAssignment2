@@ -8,7 +8,7 @@
 
 ## When instantiating makeCacheMatrix, a matrix can be passed directly as
 ## argument. Otherwise a default one-element (NA) matrix is passed on, until
-## concrete matrix values are set via the function get() from the output
+## concrete matrix values are set via the function set() from the output
 ## list.
 
 ## It is assumed that the supplied matrices are always square and invertible.
