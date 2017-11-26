@@ -4,6 +4,8 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
+    matrix_inverse<-NULL
+    
 
 }
 
@@ -12,4 +14,16 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+    
+    matrix_inverse <- x$getInverse()
+    if(!is.null(matrix_inverse)){
+  
+        message("getting matrix inverse cached data")
+        return(matrix_inverse)
+    }
+    
+    data<-x$getMI()
+    matrix_inverse<-solve(data)
+    x$setMI(matrix_inverse)
+    matrix_inverse
 }
