@@ -25,7 +25,6 @@ cacheSolve <- function(x, ...) {
                 return(m)
         }
         matrix_data <- x$get()
-        library(matlib)
         m <- Inverse(matrix_data, ...)
         x$setmatrix(m)
         m
