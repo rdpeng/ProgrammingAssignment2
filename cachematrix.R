@@ -20,7 +20,7 @@ makeCacheMatrix <- function(x = numeric()) {
     m <<- NULL
   }
   get <- function() x
-  setInvMat <- function(m_inv) m <<- m_inv
+  setInvMat <- function(solve) m <<- solve
   getInvMat <- function() m
   list(set = set, get = get,
        setInvMat = setInvMat,
@@ -32,7 +32,6 @@ makeCacheMatrix <- function(x = numeric()) {
 # cacheSolve checks to see if the matrix has already been stored in cache. If it is,
 # cacheSolve retrieves the inverse from the cache and informs the user. Otherwise,
 # it calculates the inverse normally.
-
 
 cacheSolve <- function(x, ...) {
   m <- x$getInvMat()
