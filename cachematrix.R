@@ -1,4 +1,6 @@
 ## cachematrix.R by Lalit Ojha
+# This is an R function is able to cache potentially time-consuming computations
+# like taking mean of a vector. This program consists two functions viz 1)makeCacheMatrix and 2) cacheSolve
 
 ## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse..
 
