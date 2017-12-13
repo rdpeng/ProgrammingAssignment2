@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec  4 15:12:57 2017
+
+@author: chrisgaughan
+
+largest = None
+smallest = None
+while True:
+    num = input("Enter a number: ")
+    if num == "done":
+        break
+    try:
+        num = int(num)
+        if largest is None or largest < num: largest = num
+        if smallest is None or smallest > num: smallest = num
+        
+    except:
+        print("Invalid input")
+        continue
+    
+    
+
+print("Maximum is", largest)
+print("Minimum is", smallest)
+
+    
