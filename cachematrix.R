@@ -1,5 +1,9 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+## This funtion intizalizes  a matrix and sets the cash value of its
+## inverse to null.
+## This funtion defines sub functions that sets the inverse once computed
+## and returns it or a null value
 
 ## Write a short comment describing this function
 
