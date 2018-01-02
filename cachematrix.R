@@ -28,7 +28,7 @@ cacheSolve <- function(X,...) {
   }
   data <- X$get()
   data
-  if (is.singular.matrix(data) == FALSE) {
+  if (matrixcalc::is.singular.matrix(data) == FALSE) {
     invX <- solve(data, ...)
     X$setInv(invX)
     invX
