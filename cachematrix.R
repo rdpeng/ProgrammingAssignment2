@@ -51,5 +51,5 @@ a$getinv()              ##checking if mean has been stored
 [2,]    1 -0.5
 a$set(matrix(3:6,2,2))     ##finished with other matrix; create a new matrix
 
-
+##Hope this is shareable
 
