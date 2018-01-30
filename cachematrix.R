@@ -1,4 +1,3 @@
-## Put comments here that give an overall description of what your functions do
 
 ## makeCacheMatrix creates a special 'matrix' which can cache (i.e. store in memory) its inverse
 ## Created by Liz Betts
