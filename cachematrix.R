@@ -1,40 +1,35 @@
-## Put comments here that give an overall description of what your
-## functions do
-## This function returns a list with all 4 functions and stores the inverse in parent environment
-##i <- NULL begins by setting the inverse to NULL as a placeholder for a future value
-##set <- function(y) {x <<- y; m <<- NULL} defines a function to set the matrix, x, to a new matrix, y, and resets the inverse, i, to NULL
-##get <- function() x returns the matrix, x
-##setinverse <- function(inverse) i <<- inverse sets the inverse, i, to inverse
-##getinverse <- function() i returns the inverse, i
-##ist(set = set, get = get,setinverse = setinverse,getinverse = getinverse) returns the 'special vector' containing all of the functions just defined
+## This function creates a special "matrix" object that can cache its inverse.
+## it supports setting matrix, getting matrix, setting inverse and getting
+## inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-  i <- NULL
+  inv <- NULL
   set <- function(y) {
     x <<- y
-    i <<- NULL
+    inv <<- NULL
   }
   get <- function() x
-  setinverse <- function(inverse) i <<- inverse
-  getinverse <- function() i
-  list(set = set,
-       get = get,
-       setinverse = setinverse,
-       getinverse = getinverse)
+  setinv <- function(inverse) inv <<- inverse
+  getinv <- function() inv
+  list(set = set, get = get, setinv = setinv, getinv = getinv)
+  
 }
 
 
-## To summarize, the lexical scoping assignment in R Programming takes advantage of lexical scoping and the fact that functions that return objects of type list() also allow access to any other objects defined in the environment of the original function. In the specific instance of makecachematrix() this means that subsequent code can access the values of x or i through the use of getters and setters. This is how cacheSolve() is able to calculate and store the inverse for the input argument if it is of type makecachematrixr(). Because list elements in makecachematrix() are defined with names, we can access these functions with the $ form of the extract operator.
-
+## This function computes the inverse of the special "matrix" 
+## returned by makeCacheMatrix above. If the inverse has already
+## been calculated (and the matrix has not changed), then the
+## cachesolve will retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-  i <- x$getinverse()
-  if (!is.null(i)) {
-    message("getting cached data")
-    return(i)
+  ## Return a matrix that is the inverse of 'x'
+  inv <- x$getinv()
+  if(!is.null(inv)) {
+    message("Getting cached data")
+    return(inv)
   }
   data <- x$get()
-  i <- solve(data, ...)
-  x$setinverse(i)
-  i
+  inv <- solve(data)
+  x$setinv(inv)
+  inv
 }
