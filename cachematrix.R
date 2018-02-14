@@ -1,10 +1,10 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## makeCacheMatrix() and cacheSolve() are the 2 functions used
+## makeCacheMatrix() and cacheSolve() are the 2 functions used to return Cached Matrix
+
 ## makeCachematrix() Function takes matrix as input and returns Functions List.
-## cacheSolve()Function takes a matrix and calculates its inverse, if it matches with cached value
-## then return the Cached Value as Result
+
 
 makeCacheMatrix <- function(x = matrix()) {
 y = x[1]
@@ -41,6 +41,9 @@ y = x[1]
 
 
 ## Write a short comment describing this function
+
+## cacheSolve()Function takes a matrix and calculates its inverse, if it matches with cached value
+## then return the Cached Value as Result
 
 cacheSolve <- function(x, ...) {
 
