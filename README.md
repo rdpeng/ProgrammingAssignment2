@@ -1,6 +1,5 @@
 ### Introduction
-    MatrixInverse
-   ```
+       ```
 MatrixInverse
 
 makeCacheMatrix <- function(x = matrix()) {
