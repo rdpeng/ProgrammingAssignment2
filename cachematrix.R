@@ -7,8 +7,8 @@
 ##which is really a list containing a function to
 #set the value of the matrix       is    set() function
 #get the value of the matrix       is    get() function  
-#set the value of the inverse      is    setmean() function
-#get the value of the inverse      is    getmean() function
+#set the value of the inverse      is    setinverse() function
+#get the value of the inverse      is    getinverse() function
 
 
 makeCacheMatrix <- function(x = matrix()) {
