@@ -3,7 +3,7 @@
 
 
 
-##The first function, makeCacheMAtrix() creates a special "vector", 
+##The first function, makeCacheMAtrix() creates a special "MAtrix", 
 ##which is really a list containing a function to
 #set the value of the matrix       is    set() function
 #get the value of the matrix       is    get() function  
