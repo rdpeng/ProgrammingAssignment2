@@ -21,20 +21,21 @@
 ## Assign operator '<<-' will assign a value to an object that is in different environmnet.
 
 makeCacheMatrix <- function(x = matrix()) {
-  MatInverse <- NULL
+  MatInverse <- NULL                  ## Initialize the inverse matrix
   
-  setMat <- function(y){
+  setMat <- function(y){              ## set the matrix
     x <<- y
     MatInverse <<- NULL
     
   }
-  getMat <- function() 
+  getMat <- function()                ## get the matrix
     x
-  setInv <- function(inverse)
-    MatInverse <<-inverse
-  getInv <- function()
+  setInv <- function(inverse)         ## set the inverse of matrix
+    MatInverse <<- inverse
+  getInv <- function()                ## get the inverse of matrix
     MatInverse
-  list(setMat = setMat,getMat = getMat,setInv = setInv,getInv = getInv)
+  list(setMat = setMat,getMat = getMat,
+       setInv = setInv,getInv = getInv)
 }
 
 
@@ -46,12 +47,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
   MatInverse <- x$getInv()
-  if(!is.null(MatInverse)){
-    return (MatInverse)
+  if(!is.null(MatInverse)){                       ## If the inverse of matrix is not null
+    message("Getting the cached Matrix Inverse")  #  get the cached Inversematrix
+    return (MatInverse)                           #  return the inverted matrix
   }
-  orgMat <-x$getMat()
-  MatInverse <- solve(orgMat,...)
-  x$setInv(MatInverse)
-  return(MatInverse)
+  orgMat <-x$getMat()                             ## Retreive the original matrix
+  MatInverse <- solve(orgMat,...)                 ## Take the inverse of original matrix
+  x$setInv(MatInverse)                            ## set the matrix inverse
+  return(MatInverse)                              ## Return the inverted matrix
         
 }
