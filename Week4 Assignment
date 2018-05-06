@@ -1,0 +1,22 @@
+
+"+" = function(x,y) {
+  if(is.character(x) || is.character(y)) {
+    return(paste(x , y, sep=""))
+  } else {
+    .Primitive("+")(x,y)
+  }
+}
+
+Courserapath<- getwd() 
+
+Courserapath1<-Courserapath + "/Desktop/Nik/Coursera R/Week4/hospital-data.csv"
+Courserapath2<-Courserapath + "/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
+
+Nikframe_HD<- read.csv(Courserapath1,header = TRUE)
+head(Nikframe_HD)
+
+Nikframe_OOCM<- read.csv(Courserapath2,header = TRUE)
+head(Nikframe_OOCM)
+
+ncol(Nikframe_OOCM)
+names(Nikframe_HD)
