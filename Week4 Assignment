@@ -1,4 +1,4 @@
-
+## custom function to concatenate strings.
 "+" = function(x,y) {
   if(is.character(x) || is.character(y)) {
     return(paste(x , y, sep=""))
@@ -6,17 +6,20 @@
     .Primitive("+")(x,y)
   }
 }
-
+## high level path
 Courserapath<- getwd() 
 
+## settting individual paths to the 2 coursework files
 Courserapath1<-Courserapath + "/Desktop/Nik/Coursera R/Week4/hospital-data.csv"
 Courserapath2<-Courserapath + "/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
 
+## assignining each file to R dataframe
 Nikframe_HD<- read.csv(Courserapath1,header = TRUE)
 head(Nikframe_HD)
 
 Nikframe_OOCM<- read.csv(Courserapath2,header = TRUE)
 head(Nikframe_OOCM)
 
+## optional commands -used during development-
 ncol(Nikframe_OOCM)
 names(Nikframe_HD)
