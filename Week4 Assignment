@@ -1,3 +1,4 @@
+## Day 1 code. Following Coursera instructions steps 
 ## custom function to concatenate strings.
 "+" = function(x,y) {
   if(is.character(x) || is.character(y)) {
@@ -23,3 +24,33 @@ head(Nikframe_OOCM)
 ## optional commands -used during development-
 ncol(Nikframe_OOCM)
 names(Nikframe_HD)
+
+## Day 2 code  compatible with Day 1
+
+###Create Best Custom function
+###lets assume the path and state is given
+datafile<-"/Users/nik/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
+state<- "AL"
+
+best <- function(state, datafile) {
+  
+  ##checkpoint to ensure correct path is used. 
+  if (datafile != "/Users/nik/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv")
+    (message("incorrect path. Please adjust path reference")) else (message("You may proceed"))
+  
+  ## Read outcome data. Esp columns Hospital Name(2) , State(7) and Heart Failure rates(17).
+  BestDataFrame<- read.csv(file=datafile)[ ,c(2,7,17)]
+  
+  FieldChecks<-colnames(BestDataFrame)
+  
+  if (FieldChecks[1] !="Hospital Name" |   FieldChecks[2]!="State" |  FieldChecks[3]!="Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure") 
+    (message("All good")) else (message("Incorrect headers.Revisit File"))
+  
+  ##if  FieldChecks[1] !="Hospital Name" or 
+  ## Check that state and outcome are valid   '' Not sure what u mean here 
+  ## Return hospital name in that state with lowest 30-day death
+  ## rate
+  
+}
+
+best(state,datafile)
