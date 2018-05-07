@@ -1,15 +1,30 @@
-## Put comments here that give an overall description of what your
-## functions do
 
-## Write a short comment describing this function
+##test data
+x <- 1:9
+mat = matrix(x, nrow=3)
 
-makeCacheMatrix <- function(x = matrix()) {
+require(MASS)
 
+matinv <- NULL
+
+## this function takes a matrix, inverses it, stores it allowing for global use, and returns it
+
+makeCacheMatrix <- function(x) {
+        matinv <<- ginv(x)
+        matinv
 }
 
 
-## Write a short comment describing this function
+## this function will return the cached inversed matrix if it exists, otherwise it will inverse the matrix
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(y) {
+        if(!is.null(matinv)) {
+                message("getting cached data")
+                return(matinv)
+        }
+        matinv <<- ginv(y)
+        matinv
 }
+
+makeCacheMatrix(mat)
+cacheSolve(mat)
