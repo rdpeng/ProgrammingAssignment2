@@ -44,3 +44,15 @@ cacheSolve <- function(x, ...) {
   x$setinverse(n)
   n
 }
+
+#Testing the code
+
+> source("makeCacheMatrix.R")
+> source("cacheSolve.R")
+> m <- matrix(rnorm(12),3,3)
+> m1 <- makeCacheMatrix(m)
+> cacheSolve(m1)
+           [,1]     [,2]      [,3]
+[1,]  -3.029083 1.982829 -1.562629
+[2,]  -7.543878 5.240929 -6.005511
+[3,] -11.040582 6.634498 -7.878222
