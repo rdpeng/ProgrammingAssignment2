@@ -28,7 +28,7 @@ names(Nikframe_HD)
 ## Day 2 code  compatible with Day 1
 
 ###Create Best Custom function
-###lets assume the path and state is given
+###lets assume the path and state is given. Convenience wheb running the code in the R Script command.
 datafile<-"/Users/nik/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
 state<- "AL"
 
@@ -38,16 +38,29 @@ best <- function(state, datafile) {
   if (datafile != "/Users/nik/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv")
     (message("incorrect path. Please adjust path reference")) else (message("You may proceed"))
   
-  ## Read outcome data. Esp columns Hospital Name(2) , State(7) and Heart Failure rates(17).
+  ##########################################################################################################
+  ## Coursera: Read outcome data.## 
+  ##Nik chose>> columns Hospital Name(2) , State(7) and Heart Failure rates(17).    ## 
+  ##########################################################################################################
   BestDataFrame<- read.csv(file=datafile)[ ,c(2,7,17)]
   
-  FieldChecks<-colnames(BestDataFrame)
+  ## Sort BestDataFrame
+  BestDataFrame<-BestDataFrame[ order(-xtfrm(BestDataFrame[,1]), BestDataFrame[,2],BestDataFrame[,3]), ]
   
-  if (FieldChecks[1] !="Hospital Name" |   FieldChecks[2]!="State" |  FieldChecks[3]!="Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure") 
-    (message("All good")) else (message("Incorrect headers.Revisit File"))
   
-  ##if  FieldChecks[1] !="Hospital Name" or 
-  ## Check that state and outcome are valid   '' Not sure what u mean here 
+  FieldChecks<-names(BestDataFrame)
+  
+  ##########################################################################################
+  ##Coursera: Check that state and outcome are valid   '' Not 100% sure what u mean here ##
+  ##########################################################################################
+  
+  ##  Removes NA's from the records so to keep 'Valid' Records.
+  BestDataFrame<-complete.cases(BestDataFrame)    
+  
+  ## Checks if valid fields are sourced.
+  if (FieldChecks[1] !="Hospital.Name" |   FieldChecks[2]!="State" |  FieldChecks[3]!="Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure") 
+    (stop("Incorrect headers.Revisit File")) else (message("All good"))
+  
   ## Return hospital name in that state with lowest 30-day death
   ## rate
   
