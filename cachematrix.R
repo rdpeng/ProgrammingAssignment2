@@ -1,5 +1,5 @@
-## Put comments here that give an overall description of what your
-## functions do
+## I am completely stumped at what to do to complete this project!!!   
+## I have tried for a week to understand what function(s) to write - but to no avail.
 
 ## Write a short comment describing this function
 
