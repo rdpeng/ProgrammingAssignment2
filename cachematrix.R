@@ -1,30 +1,25 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-makeCacheMatrix <- function(x = matrix()) {
-	m <- NULL				##initiazing m as NULL, it will contain the inverse of the matrix
-	set <- function(y) {			##set function is defined here
-		x <<- y				##setting value of matrix in parent environment
-            m <<- NULL				##setting m to NULL
+makeCacheMatrix <- function(x = matrix()) {			##This is the makeCacheMatrix function
+	inversematrix <- NULL					##initiazing inversematrix as NULL, it will contain the inverse of the matrix
+	setmatrix <- function(y) {				##setmatrix function is defined here, used to set values of matrix
+		x <<- y						##setting value of matrix in parent environment
+            inversematrix <<- NULL				##setting inversematrix to NULL
       }
-      get <- function() x			##get function is defined here
-      setinv <- function(inv) m <<- inv		##value of m is assigned in parent environment
-      getinv <- function() m			##gets the value of m in the environment called
-      list(set = set, get = get,
-           setinv = setinv,
-           getinv = getinv)			##to allow $ operations we need list
+      getmatrix <- function() x					##getmatrix function is defined here, used to get values from the matrix
+      setinverse <- function(inv) minversematrix <<- inv		##value of inversematrix is assigned in parent environment
+      getinverse <- function() inversematrix			##gets the value of inversematrix in the environment called
+      list(setmatrix = setmatrix, getmatrix = getmatrix,
+           setinverse = setinverse,
+           getinverse = getinverse)					##to use/allow $ operations we need list
 }
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        m <- x$getinv()
-        if(!is.null(m)) {
-                message("getting cached data")
-                return(m)
+cacheSolve <- function(x, ...) {				##This is the cacheSolve functino
+        inversematrix <- x$getinverse()				##inversematrix is assingned the value from getinv()
+        if(!is.null(inversematrix)) {				##Checks whether the matrix is inverted(Not NULL) or is not inverted(NULL)
+                message("getting cached data")			
+                return(inversematrix)				##Inverted matrix is returned
         }
-        data <- x$get()
-        m <- solve(data, ...)
-        x$setinv(m)
-        m
+        data <- x$getmatrix()					##Initial given matrix is taken and is assigned to data 
+        inversematrix <- solve(data, ...)			##Inverse of the matrix is found
+        x$setinverse(inversematrix)					##Inverse is set
+        inversematrix						##Inverted matrix is returned
 }
