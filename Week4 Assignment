@@ -1,3 +1,4 @@
+## Part I.
 ## Day 1 code. Following Coursera instructions steps 
 "+" = function(x,y) {
   if(is.character(x) || is.character(y)) {
