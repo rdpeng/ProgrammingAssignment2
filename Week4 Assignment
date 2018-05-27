@@ -1,5 +1,4 @@
 ## Day 1 code. Following Coursera instructions steps 
-## custom function to concatenate strings.
 "+" = function(x,y) {
   if(is.character(x) || is.character(y)) {
     return(paste(x , y, sep=""))
@@ -10,60 +9,35 @@
 ## high level path
 Courserapath<- getwd() 
 
-## settting individual paths to the 2 coursework files
-Courserapath1<-Courserapath + "/Desktop/Nik/Coursera R/Week4/hospital-data.csv"
+## settting individual paths to the coursework files
 Courserapath2<-Courserapath + "/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
 
-## assignining each file to R dataframe
-Nikframe_HD<- read.csv(Courserapath1,header = TRUE)
-head(Nikframe_HD)
 
-Nikframe_OOCM<- read.csv(Courserapath2,header = TRUE)
-head(Nikframe_OOCM)
 
-## optional commands -used during development-
-ncol(Nikframe_OOCM)
-names(Nikframe_HD)
-
-## Day 2 code  compatible with Day 1
-
-###Create Best Custom function
-###lets assume the path and state is given. Convenience wheb running the code in the R Script command.
-datafile<-"/Users/nik/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
-state<- "AL"
-
-best <- function(state, datafile) {
+best <- function(state, outcome) {
+  ## Read outcome data
+  datafile<-Courserapath2
   
-  ##checkpoint to ensure correct path is used. 
-  if (datafile != "/Users/nik/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv")
-    (message("incorrect path. Please adjust path reference")) else (message("You may proceed"))
+  BestDataFrame<- read.csv(file=datafile,na.strings = "Not Available",stringsAsFactors = FALSE)[ ,c(2,7,11,17,23)]
+  ## need to set ur NA string.. cause not all data sets are coming with "NA" (they may come us 'NAN', 'NotA' etc etc)
+  ## without the na.string parameter set then functions which removes na(na.rm=TRUE) wont work
   
-  ##########################################################################################################
-  ## Coursera: Read outcome data.## 
-  ##Nik chose>> columns Hospital Name(2) , State(7) and Heart Failure rates(17).    ## 
-  ##########################################################################################################
-  BestDataFrame<- read.csv(file=datafile)[ ,c(2,7,17)]
+  colnames(BestDataFrame) <- c("hospital", "state", "heart attack", "heart failure", "pneumonia")
+  ## in order of the column field numbers 2,7,11,17,23
   
-  ## Sort BestDataFrame
-  BestDataFrame<-BestDataFrame[ order(-xtfrm(BestDataFrame[,1]), BestDataFrame[,2],BestDataFrame[,3]), ]
+  ## Check that state and outcome are valid
+  if(!state %in% BestDataFrame[, "state"]){
+    stop('Incorrect state')
+  } else if(!outcome %in% c("heart attack", "pneumonia", "heart failure")){
+    stop('Incorrect headers.Revisit File"')
+  } else {(message("All good"))}
   
+    TofilterState <- which(BestDataFrame[, "state"] == state)
+    FilteredDataFrameonState <- BestDataFrame[TofilterState, ]    # extracting data for the called state
+    deathRate <- as.numeric(FilteredDataFrameonState[, eval(outcome)])
+    min_Rate <- min(deathRate, na.rm = TRUE)
+    result  <- FilteredDataFrameonState[, "hospital"][which(deathRate == min_Rate)]
+    Coursera_answer  <- result[order(result)]
   
-  FieldChecks<-names(BestDataFrame)
-  
-  ##########################################################################################
-  ##Coursera: Check that state and outcome are valid   '' Not 100% sure what u mean here ##
-  ##########################################################################################
-  
-  ##  Removes NA's from the records so to keep 'Valid' Records.
-  BestDataFrame<-complete.cases(BestDataFrame)    
-  
-  ## Checks if valid fields are sourced.
-  if (FieldChecks[1] !="Hospital.Name" |   FieldChecks[2]!="State" |  FieldChecks[3]!="Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure") 
-    (stop("Incorrect headers.Revisit File")) else (message("All good"))
-  
-  ## Return hospital name in that state with lowest 30-day death
-  ## rate
-  
+  return(Coursera_answer)
 }
-
-best(state,datafile)
