@@ -1,0 +1,13 @@
+## Intro task - Most likely not graded.
+
+## high level path
+Courserapath<- getwd() 
+
+## settting individual paths to the coursework files
+Courserapath2<-Courserapath + "/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
+
+outcome <- read.csv(file = Courserapath2, na.strings = "Not Available",colClasses = "character")
+head(outcome)
+
+outcome[, 11] <- as.numeric(outcome[, 11])
+hist(outcome[, 11])
