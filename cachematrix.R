@@ -32,9 +32,6 @@ cacheSolve <- function(M, ...){
 #cacheSolve(aMatrix)
 #solve(mat)
 #aMatrix$getinverse()
-#aMatrix$set(30:50)
-#aMatrix$getinverse()
-#cacheSolve(aMatrix)
-#aMatrix$getinverse()
+
 
 
