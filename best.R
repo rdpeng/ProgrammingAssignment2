@@ -1,0 +1,44 @@
+## Part I.
+## Day 1 code. Following Coursera instructions steps 
+"+" = function(x,y) {
+  if(is.character(x) || is.character(y)) {
+    return(paste(x , y, sep=""))
+  } else {
+    .Primitive("+")(x,y)
+  }
+}
+## high level path
+Courserapath<- getwd() 
+
+## settting individual paths to the coursework files
+Courserapath2<-Courserapath + "/Desktop/Nik/Coursera R/Week4/outcome-of-care-measures.csv"
+
+
+
+best <- function(state, outcome) {
+  ## Read outcome data
+  datafile<-Courserapath2
+  
+  BestDataFrame<- read.csv(file=datafile,na.strings = "Not Available",stringsAsFactors = FALSE)[ ,c(2,7,11,17,23)]
+  ## need to set ur NA string.. cause not all data sets are coming with "NA" (they may come us 'NAN', 'NotA' etc etc)
+  ## without the na.string parameter set then functions which removes na(na.rm=TRUE) wont work
+  
+  colnames(BestDataFrame) <- c("hospital", "state", "heart attack", "heart failure", "pneumonia")
+  ## in order of the column field numbers 2,7,11,17,23
+  
+  ## Check that state and outcome are valid
+  if(!state %in% BestDataFrame[, "state"]){
+    stop('Incorrect state')
+  } else if(!outcome %in% c("heart attack", "pneumonia", "heart failure")){
+    stop('Incorrect headers.Revisit File"')
+  } else {(message("All good"))}
+  
+  TofilterState <- which(BestDataFrame[, "state"] == state)
+  FilteredDataFrameonState <- BestDataFrame[TofilterState, ]    # extracting data for the called state
+  deathRate <- as.numeric(FilteredDataFrameonState[, eval(outcome)])
+  min_Rate <- min(deathRate, na.rm = TRUE)
+  result  <- FilteredDataFrameonState[, "hospital"][which(deathRate == min_Rate)]
+  Coursera_answer  <- result[order(result)]
+  
+  return(Coursera_answer)
+}
