@@ -2,7 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+##This function accepts a matrix and defines a list of functions which is then called to solve for the inverse and to cache. 
 makeCacheMatrix <- function(x = matrix()) {
  n <- NULL
   set <- function(y) {
