@@ -1,15 +1,33 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The functions will seek to find the inverse of a given matrix. If it exists from
+## a prior entry, it will use a cache instead of finding it again.
 
-## Write a short comment describing this function
-
+## Function will ask for matrix info and will give inverse of matrix.
 makeCacheMatrix <- function(x = matrix()) {
-
+  invMatrix <- NULL
+  setMatrix <- function(y) {
+    x <<- y
+    invMatrix <<- NULL
+  }
+  getMatrix <- function() x
+  setInverse <- function(inverse) invMatrix <<- inverse
+  getInverse <- function() invMatrix
+  list(setMatrix = setMatrix, getMatrix = getMatrix,
+       setInverse = setInverse, getInverse = getInverse)
 }
 
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
+## Here the function will set to find the inverse of the matrix. If it has not
+## been find prior, it will solve it. If it has already been solved, it will pull
+## from the cache instead of solving. 
+  
+  cacheSolve <- function(x, ...){
+    invMatrix <- x$getInverse()
+    if(!is.null(invMatrix)){
+      message("getting cached data")
+      return(invMatrix)
+    }
+    data <- x$getMatrix()
+    invMatrix <- solve(data, ...)
+    x$setInverse(invMatrix)
+    return(invMatrix)
+  }
