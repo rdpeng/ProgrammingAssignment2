@@ -1,5 +1,6 @@
 
-
+#This method creates 2 assignment and 2 access functions for the matrix, one of each for the matrix itself and its inverse.
+#This method turns a list of the functions related to that matrix 
 makeCacheMatrix <- function(x = matrix()) 
   {
   inverse <- NULL
@@ -22,7 +23,8 @@ makeCacheMatrix <- function(x = matrix())
        get.inverse = get.inverse)
 }
 
-## Write a short comment describing this function
+#This method first checks to see if there is an inverse for the matrix.
+#If there si not, it creates it inverse and then prints it, else it just prints it.
 
 cacheSolve <- function(x, ...) {
   inverse <- x$get.inverse()
