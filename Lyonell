@@ -1,3 +1,10 @@
+## The 'makeCacheMatrix' takes a matrix arguement and stores the  
+## the environment of 4 functions in determining the inverse matrix  
+## 'cacheSolve' will determine the inverse if it has not been cached  
+## previously, or will retrieve the cache value if has been determined  
+## before  
+
+
 ## I want to experiment writting a pair of functions
 ## namely, "makeCacheMatrix" and "cachesolve" 
 ## taht cache the inverse of a matrix
