@@ -1,0 +1,42 @@
+## The 'makeCacheMatrix' takes a matrix arguement and stores the  
+## the environment of 4 functions in determining the inverse matrix  
+## 'cacheSolve' will determine the inverse if it has not been cached  
+## previously, or will retrieve the cache value if has been determined  
+## before  
+
+
+## I want to experiment writting a pair of functions
+## namely, "makeCacheMatrix" and "cachesolve" 
+## taht cache the inverse of a matrix
+
+makeCacheMatrix <- function(x = matrix()) {
+
+  inv <- NULL
+  set <- function(y){
+    x <<- y
+    inv <<- NUL
+  }
+  get <- function() x
+  setinv <- function(inverse) inv <<- inverse
+  getinv <- function() inv 
+  list(Set = set, get= get, setinv = setinv, getinv = getinv)
+}
+
+
+## cacheSolve is a function which computes the inverse of the special "matrix" 
+## returned by makeCacheMatrix above. If the inverse has already been calculated 
+## (and the matrix has not changed), then the cachesolve should retrieve the 
+## inverse from the cachen
+
+cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
+  inv <- x$getinv()
+  if(!is.null(inv)) {
+    message("getting cached result")
+    return(inv)       
+  }
+  data <- x$get()
+  inv <- solve(data, ...)
+  x$setinv(inv)
+  inv
+}
