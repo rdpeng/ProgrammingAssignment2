@@ -38,9 +38,3 @@ cacheSolve <- function(x, ...) {
   print(inverse)
 }
 
-#test
-
-
-q<-matrix(c(2,0,0,1),2,2)
-qz<-makeCacheMatrix(q)
-cacheSolve(qz)
