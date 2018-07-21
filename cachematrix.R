@@ -4,13 +4,14 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-              MatrixInverse <- NULL
-              MatrixSetting <- function(y) {
+  ## This function is used to generate a matrix that can has its inverse
+              MatrixInverse <- NULL. ##initialise MatrixInverse as NULL
+              MatrixSetting <- function(y) {  ## define the MatrixSetting function to assign the new values of the matirx
                 x <<- y
-                MatrixInverse <<- NULL
+                MatrixInverse <<- NULL    ## if there is a new matrix, reset MatrixInverse to NULL
         }
         MatrixGetting <- function(x) 
-        InverseSetting <- function(inverse) 
+        InverseSetting <- function(inverse) ## assgin value of MatrixInverse in parent environemnt
         MatrixInverse <<- inverse
         InverseGetting <- function(MatrixInverse)
         list(MatrixSetting = MatrixSetting, MatrixGetting = MatrixGetting, InverseSetting = InverseSetting,
@@ -20,7 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-
+## This function cumputes the inverse of the matrix returned by makeCacheMatrix above.
+## If the inverse has alreadt been calculated or the matrix has not changed, then cacheSolve will retrieve the   
+## inverse from the cache
 cacheSolve <- function(x, ...) {
         MatrixInverse <- x$InverseGetting()
         if(!is.null(MatrixInverse)) {
