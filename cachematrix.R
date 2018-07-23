@@ -1,9 +1,6 @@
 makeCacheMatrix <- function(x = matrix()) {
   ## return: a list containing functions to
-  ##1. set the matrix
-  ##2. get the matrix
-  ##3. set the inverse
-  ##4. get the inverse
+  ##1. set the matrix 2. get the matrix 3. set the inverse 4.get the inverse
   ##this list is used as the input to cacheSolve()
   m=NULL
   set=function(y)
