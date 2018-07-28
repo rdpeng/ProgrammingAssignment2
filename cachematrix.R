@@ -7,10 +7,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-# I like food
-
-# ALOT
-
+# another test git
 
 ## Write a short comment describing this function
 
