@@ -1,9 +1,9 @@
-## The makeCacheMean function is built by the following steps: 
+##  In order to built the makeCacheMean function, we need to follow the next steps: 
 ## (1) set the value of the matrix by initializing two objetcs called "n" and "w" (empty numeric vector) that will be used later.
-## (2) set data values of the matrix within an object
-## (3) get the those values using the get() option
+##     set() taken a "y" as a argument. 
+## (3) get the those values using the get() option within the object created
 ## (4) set the value of the inverse matrix
-## (5) get the value of the inverse matrix 
+## (5) get the value of the inverse matrix.
 ## (6) assign each of these functions an element within a list. 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## The cacheSolve function computes and retrieves the inverse of the matrix defined before.
 ## This function is needed as it will populate or retrieve the inverse of the matrix defined on part one. 
 ## Like we did on makeCacheMatrix, we need to start a single argument "x".
-## Then, using getsolution() option, the function will get the value of the matrix if it is different from null. 
+## Then, using getsolution(), the function will get the value of the matrix if it is different from null. 
 ## Finally, we need to set the inverse of the matrix.
 
 ## Return a matrix that is the inverse of 'x'
@@ -53,3 +53,5 @@ getting cached data
 ## [1,]  -24   18    5
 ## [2,]   20  -15   -4
 ## [3,]   -5    4    1
+## As we can see, after running cacheSolve function, I get the inverse or matrix called x
+
