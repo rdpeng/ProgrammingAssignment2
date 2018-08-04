@@ -3,8 +3,8 @@
 ##     set() takes  "y" as a argument.  
 ## (3) get the those values using the get() option within the object created
 ## (4) set the value of the inverse matrix
-## (5) get the value of the inverse matrix.
-## (6) assign each of these functions an element within a list. 
+## (5) get the value of the inverse matrix
+## (6) assign each of these functions an element within a list
 
 makeCacheMatrix <- function(x = matrix()) {
               n <- NULL
