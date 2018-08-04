@@ -19,7 +19,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The cacheSolve function computes and retrieves the inverse of the matrix define before.
+## The cacheSolve function computes and retrieves the inverse of the matrix defined before.
 ## This function is needed as it will populate or retrieve the inverse of the matrix defined on part one. 
 ## Like we did on makeCacheMatrix, we need to start a single argument "x".
 ## Then, using getsolution() option, the function will get the value of the matrix if it is different from null. 
@@ -41,14 +41,12 @@ cacheSolve <- function(x, ...) {
 ##Althought it is not a requirement of the assigment, I provide an example of how this functions works.
 ##First, we need to define a matrix. In this case, I use a 3x3 matrix.
 x <- matrix(c(1,0,5,2,1,6,3,4,0),nrow=3, ncol=3)
-##            [,1] [,2] [,3]
-##      [1,]  -24   18    5
-##      [2,]   20  -15   -4
-##      [3,]   -5    4    1
+##       [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    0    1    4
+## [3,]    5    6    0
 ## Then, I execute the two functions created above and see the inverse of the matrix.
 a <- makeCacheMatrix(x)
-cacheSolve(a)
-
 cacheSolve(a)
 getting cached data
 ## [,1] [,2] [,3]
