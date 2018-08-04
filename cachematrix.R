@@ -49,7 +49,7 @@ x <- matrix(c(1,0,5,2,1,6,3,4,0),nrow=3, ncol=3)
 a <- makeCacheMatrix(x)
 cacheSolve(a)
 getting cached data
-## [,1] [,2] [,3]
+##       [,1] [,2] [,3]
 ## [1,]  -24   18    5
 ## [2,]   20  -15   -4
 ## [3,]   -5    4    1
