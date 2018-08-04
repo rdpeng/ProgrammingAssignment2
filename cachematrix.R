@@ -1,6 +1,6 @@
 ##  In order to built the makeCacheMean function, we need to follow the next steps: 
 ## (1) set the value of the matrix by initializing two objetcs called "n" and "w" (empty numeric vector) that will be used later.
-##     set() taken a "y" as a argument. 
+##     set() takes  "y" as a argument. 
 ## (3) get the those values using the get() option within the object created
 ## (4) set the value of the inverse matrix
 ## (5) get the value of the inverse matrix.
