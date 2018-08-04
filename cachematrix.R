@@ -1,5 +1,5 @@
 ## The makeCacheMean function is built by the following steps: 
-## (1) set the value of the matrix by initializing two objetcs called "n" and "w" (empty numeric vector) that will be used later
+## (1) set the value of the matrix by initializing two objetcs called "n" and "w" (empty numeric vector) that will be used later.
 ## (2) set data values of the matrix within an object
 ## (3) get the those values using the get() option
 ## (4) set the value of the inverse matrix
