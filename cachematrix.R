@@ -19,7 +19,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The cacheSolve function computes and retrieves the inverse of the matrix define before.This function is needed as it will populate or retrieve the inverse of the matrix defined on part one. Like we did on makeCacheMatrix, we need to start a single argument "x". Then, using getsolution() option, the function will get the value of the matrix if it is different from null. Finally, we need to set the inverse of the matrix.
+## The cacheSolve function computes and retrieves the inverse of the matrix define before.
+## This function is needed as it will populate or retrieve the inverse of the matrix defined on part one. 
+## Like we did on makeCacheMatrix, we need to start a single argument "x".
+## Then, using getsolution() option, the function will get the value of the matrix if it is different from null. 
+## Finally, we need to set the inverse of the matrix.
 
 ## Return a matrix that is the inverse of 'x'
 cacheSolve <- function(x, ...) {
