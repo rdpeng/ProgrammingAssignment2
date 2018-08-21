@@ -1,0 +1,33 @@
+#Using list function that includes get/set to get or set the value of matrix and the inversion.
+
+makeCacheMatrix <- function(x = matrix()) { 
+  invm <- NULL 
+  set <- function(mn) { 
+    x <<- mn 
+    invm <<- NULL 
+  } 
+  
+  get <- function() x 
+  setInvm <- function(i) invm <<- m 
+  getInvm <- function() invm 
+  
+  list(set = set, get = get,setInvm=setInvm, getInvm=getInvm) 
+} 
+
+#This function computes the inverse of the special “matrix” returned by makeCacheMatrix above
+#If the inverse has already been calculated, then the cachesolve should retrieve the inverse from the cache. 
+
+cacheSolve<- function(x, ...){
+  invm<-x$getInvr()
+  if (!is.null(invm))
+  {
+    message("get the results")
+    return(invm)}
+  matrix<-x$get()
+  invm<-solve(matrix,...)
+  x$setInvr(invm)
+}
+
+mat <- matrix(1:4,2,2)
+matt <- makeCacheMatrix(mat)
+invMat <- cacheSolve(matt)
