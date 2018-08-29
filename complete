@@ -1,0 +1,19 @@
+complete<-function(directory, id){
+  
+  readdir<-list.files()
+  data<-data.frame()
+  chosenfiles<-readdir[id]
+  nobs<-data.frame()
+  x<-1
+  for (i in id)
+  {
+    scan<-0
+    scan<-read.csv(readdir[i])
+    nobs[x,1]<-sum(complete.cases(scan[,2])& complete.cases(scan[,3]))
+    x<-x+1
+    
+  }
+ ##print(cbind(id,nobs))
+ return(nobs)
+ 
+}
