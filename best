@@ -1,0 +1,63 @@
+##Function that finds best hospita in a certain category
+best <- function(state, outcome1) {
+  ## Read outcome data
+  outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+  
+  ## Check that state and outcome are valid
+  states<-outcome[,7]
+  availableoutcomes<- c ("heart attack","heart failure", "pneumonia" )
+  if(is.element(state,states)==TRUE && is.element(outcome1, availableoutcomes)== TRUE ){
+    
+    ## Return hospital name in that state with lowest 30-day death
+    if (outcome1 == "heart attack") {
+      
+      outcome[, 11] <- as.numeric(outcome[, 11])
+      #reqvec<- as.data.frame(split(outcome[,11],state))
+      reqvec<-subset(outcome[,11],outcome[,7]== state)
+      reqhosps<-subset(outcome[,2],outcome[,7]== state)
+       reqvec<-na.omit(reqvec)
+      bestone<-which(reqvec %in% min(reqvec))
+      print(reqhosps[bestone])
+      #print(reqvec)
+      print(bestone)
+      #print(reqhosps)
+      
+      
+    }
+    if (outcome1 == "heart failure") {
+      
+      outcome[, 17] <- as.numeric(outcome[, 17])
+      #reqvec<- as.data.frame(split(outcome[,11],state))
+      reqvec<-subset(outcome[,17],outcome[,7]== state)
+      reqhosps<-subset(outcome[,2],outcome[,7]== state)
+      reqvec<-na.omit(reqvec)
+      bestone<-which(reqvec %in% min(reqvec))
+      print(reqhosps[bestone])
+      #print(reqvec)
+      print(bestone)
+      #print(reqhosps)
+    
+    
+    }
+    if (outcome1 == "pneumonia") {
+      
+      outcome[, 23] <- as.numeric(outcome[, 23])
+      #reqvec<- as.data.frame(split(outcome[,11],state))
+      reqvec<-subset(outcome[,23],outcome[,7]== state)
+      reqhosps<-subset(outcome[,2],outcome[,7]== state)
+      reqvec<-na.omit(reqvec)
+      bestone<-which(reqvec %in% min(reqvec))
+      print(reqhosps[bestone])
+      #print(reqvec)
+      print(bestone)
+      #print(reqhosps)
+  
+    }
+  }
+  else if (is.element(outcome1, availableoutcomes)== FALSE){
+    print("invalid outcome")
+  }
+  else if (is.element(state,states)==FALSE){
+    print("invalid state")
+  }
+}
