@@ -1,0 +1,25 @@
+
+pollutantmean<-function(directory,pollutant,id ){
+  data1<-list.files()
+  mydf<-data.frame()
+ 
+  chosendata<-data1[id]
+  if (pollutant =="sulfate"){
+    for (i in id){
+      scan<-read.csv(data1[i],skipNul = TRUE)
+      mydf<-rbind.data.frame(mydf,scan)
+      mn<-mean(mydf[,"sulfate"], na.rm = TRUE)}
+    
+  }
+  if (pollutant == "nitrate"){
+    for (i in id){
+      scan<-read.csv(data1[i],skipNul = TRUE)
+      mydf<-rbind.data.frame(mydf,scan)
+      mn<-mean(mydf[,"nitrate"], na.rm = TRUE)}
+    
+   
+    
+  }
+  print(mn)
+}
+   
