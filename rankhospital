@@ -1,0 +1,79 @@
+rankhospital <- function(state, outcome1, num) {
+  ## Read outcome data
+  outcome <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
+  ## Check that state and outcome are valid
+  states<-outcome[,7]
+  availableoutcomes<- c ("heart attack","heart failure", "pneumonia" )
+  if(is.element(state,states)==TRUE && is.element(outcome1, availableoutcomes)== TRUE ){
+  ## Return hospital name in that state with the given rank
+    if (outcome1 == "heart attack") {
+      
+      outcome[, 11] <- as.numeric(outcome[, 11])
+      outcome[,7]<-as.factor(outcome[,7])
+      #reqvec<- as.data.frame(split(outcome[,11],state))
+      reqvec<-subset(outcome[,11], outcome[,7]== state)
+      reqvec<-na.omit(reqvec)
+      #reqhosps<- as.data.frame(split(outcome[,2],state))
+      reqhosps<-subset(outcome[,2], outcome[,7]== state)
+      reqhosps<-na.omit(reqhosps)
+      reqvec2<- rank(reqvec,ties.method= "last")
+      if (num== "worst")
+      {num = which(reqvec2 %in% max(reqvec2))
+      location<- num}
+      else if (num== "best")
+      {num = which(reqvec2 %in% min(reqvec2))
+      location<-num}
+      else{location<- which(reqvec2 %in% num)}
+      #print(reqvec)
+      #print(num)
+     
+      print(reqhosps[location])
+  
+    }
+    else if (outcome1 == "heart failure") {
+      
+      outcome[, 17] <- as.numeric(outcome[, 17])
+      outcome[,7]<-as.factor(outcome[,7])
+      #reqvec<- as.data.frame(split(outcome[,11],state))
+      reqvec<-subset(outcome[,17], outcome[,7]== state)
+      reqvec<-na.omit(reqvec)
+      #reqhosps<- as.data.frame(split(outcome[,2],state))
+      reqhosps<-subset(outcome[,2], outcome[,7]== state)
+      reqhosps<-na.omit(reqhosps)
+      reqvec2<- rank(reqvec,ties.method= "last")
+      if (num== "worst")
+      {num = which(reqvec2 %in% max(reqvec2))
+      location<- num}
+      else if (num== "best")
+      {num = which(reqvec2 %in% min(reqvec2))
+      location<-num}
+      else{location<- which(reqvec2 %in% num)}
+      #print(reqvec)
+     # print(num)
+      
+      print(reqhosps[location])
+    }
+    else if (outcome1 == "pneumonia") {
+      
+      outcome[, 23] <- as.numeric(outcome[, 23])
+      outcome[,7]<-as.factor(outcome[,7])
+      #reqvec<- as.data.frame(split(outcome[,11],state))
+      reqvec<-subset(outcome[,23], outcome[,7]== state)
+      reqvec<-na.omit(reqvec)
+      #reqhosps<- as.data.frame(split(outcome[,2],state))
+      reqhosps<-subset(outcome[,2], outcome[,7]== state)
+      reqhosps<-na.omit(reqhosps)
+      reqvec2<- rank(reqvec,ties.method= "last")
+      if (num== "worst")
+      {num = which(reqvec2 %in% max(reqvec2))
+      location<- num}
+      else if (num== "best")
+      {num = which(reqvec2 %in% min(reqvec2))
+      location<-num}
+      else{location<- which(reqvec2 %in% num)}
+      
+      
+      print(reqhosps[location])
+  }
+  }
+}
