@@ -1,7 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## Function to create a special matirx
+## returns a list of functions as follows:
+## 1. Set the matrix using $set()
+## 2. Get the matrix using $get()
+## 3. Set the inverse of the matrix using the $setinverse
+## 4. Get the inverse of the matrix using $getinverse()
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -19,7 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve returns the inverse of the special matrix
+## It only evaluates the inverse if it has not been evaluated earlier, i.e., it firts check the cache for inverse
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
