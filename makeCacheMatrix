@@ -1,0 +1,16 @@
+## We use the template given to us on coursera and swap out some
+## values to change it from Caching a mean to caching a matrix
+## The code is essenitally the same
+
+mike_frontero_make_Cache_Matrix <- function(x = matrix()) {
+  matrixinverse <- NULL
+  set <- function(y) {
+          x <<- y
+          m <<- NULL 
+  }
+  get <- function() x
+  setInverse <- function(inverse) matrixinverse <<- inverse
+  getInverse <- function() matrixinverse
+  list(set = set, get = get,
+       setInverse = setInverse, getInverse = getInverse)
+  }
