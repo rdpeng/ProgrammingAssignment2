@@ -1,6 +1,15 @@
 # Assignment: Caching the Inverse of a Matrix
 
-## Write a short comment describing this function
+# My goal: Write a pair of functions that cache the inverse of a matrix.
+
+# I. The first function "makeCacheMatrix" creates a special "matrix" which is really 
+# a list of functions.
+
+# Description of functions:
+# 1. set - set the value of the matrix
+# 2. get - get the value of the matrix
+# 3. setmatrix - set the value of the matrix
+# 4. getmatrix - get the value of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -16,8 +25,9 @@ makeCacheMatrix <- function(x = matrix()) {
        getmatrix = getmatrix)
 }
 
-
-## Write a short comment describing this function
+# II.  This function computes the inverse of the special "matrix" returned by 
+# makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), 
+# then the cachesolve should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
