@@ -2,7 +2,8 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+   ## Calculate the reverse of a square matrix and save the results
+   ## Cache the results
 makeCacheMatrix <- function(x = matrix()) {
         inv<-NULL
         set<-function(y){
@@ -16,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Write a short comment describing this function
-
+   ## Return a matrix that is the inverse of 'x'
 cacheSolve <- function(x, ...) {
         inv<-x$getinverse()
         if(!is.null(inv)){
@@ -24,7 +25,7 @@ cacheSolve <- function(x, ...) {
                 return(inv)
         }
         data<-x$get()
-        inv<-inverse(data,...)
+        inv<-solve(data,...)
         x$setinverse(inv)
         inv
 }
