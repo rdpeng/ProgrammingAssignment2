@@ -1,9 +1,11 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+   ## There are two functions, the first one must save a Matrix in the cache, while the second must calculate its reverse.
 
 ## Write a short comment describing this function
    ## Calculate the reverse of a square matrix and save the results
    ## Cache the results
+
 makeCacheMatrix <- function(x = matrix()) {
         inv<-NULL
         set<-function(y){
@@ -18,6 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
    ## Return a matrix that is the inverse of 'x'
+
 cacheSolve <- function(x, ...) {
         inv<-x$getinverse()
         if(!is.null(inv)){
