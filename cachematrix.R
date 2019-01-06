@@ -1,4 +1,5 @@
-## Week 3 Programming Assignment, Caching the Inverse of a Matrix.
+## Week 3 Programming Assignment, Caching the Inverse of a Matrix.######
+
 ##write an R function is able to cache potentially time-consuming computations
 ## I used/adapted the makevector/cachemean example in assignment (replaced 
 #mean with inverse)
