@@ -33,4 +33,4 @@ cacheSolve <- function(x, ...) {
   x$setinv(inv)
   inv
 }
-finally we get the program which gives the inverse of a matrix
+##finally we get the function which gives the inverse of a matrix
