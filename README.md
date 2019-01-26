@@ -50,16 +50,16 @@ cache and skips the computation. Otherwise, it calculates the mean of
 the data and sets the value of the mean in the cache via the `setmean`
 function.
 
-    cachemean <- function(x, ...) {
-            m <- x$getmean()
-            if(!is.null(m)) {
+    cachesolve <- function(x, ...) {
+            m <- x$getInverse()
+            if(!is.null(inv)) {
                     message("getting cached data")
-                    return(m)
+                    return(inv)
             }
             data <- x$get()
-            m <- mean(data, ...)
-            x$setmean(m)
-            m
+            inv<- solve(data, ...)
+            x$setInverse(inv)
+            inv
     }
 
 ### Assignment: Caching the Inverse of a Matrix
