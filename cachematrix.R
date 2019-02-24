@@ -18,7 +18,6 @@ makeCacheMatrix <- function(x = matrix()) {
          getInvM = getInvM)
 }
 
-
 ## 'cacheSolve' is a function that calculates the inverse of the matrix
 ## created with 'makeCacheMatrix'. However it first checks to see if the inverse
 ## has already been calculated. If so, it gets the inverse from the cache and
