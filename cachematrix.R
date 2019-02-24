@@ -2,15 +2,15 @@
 
 makeCacheMatrix <- function(x = matrix())
  {
-    rev <- NULL
-    ct <- function(y)
+    rev <- NULL		## to hold the matrix inverse value I assigned NULL value to rev
+    ct <- function(y)    ## Creating new function
     {
-        x <<- y
-        rev <<- NULL
+        x <<- y		
+        rev <<- NULL	## Any other new matrix is there then this will reset the rev to NULL
     }
     gt <- function() x
     ctinv <- function(reverse) rev <<- reverse
-    gtinv <- function() rev
+    gtinv <- function() rev	## Wherever the rev value is called it will get the value of it
     list(ct = ct,
 	 gt = gt,
 	 ctinv = ctinv,
@@ -23,13 +23,13 @@ makeCacheMatrix <- function(x = matrix())
 
 cacheSolve <- function(x, ...) 
 {
-    rev <- x$gtinv()
-    if(!is.null(rev)) 
+    rev <- x$gtinv()		## will get the rev value from the makecachematrix function
+    if(!is.null(rev)) 		##  Checking if the rev is not NULL
     {
-        return(rev)
+        return(rev)		## returns the rev value
     }
-    store <- x$gt()
-    rev <- solve(store, ...)
+    store <- x$gt()		
+    rev <- solve(store, ...)	## this will set the inverse
     x$ctinv(rev)
     rev
 }
