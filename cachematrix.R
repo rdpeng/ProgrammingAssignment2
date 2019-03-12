@@ -3,24 +3,23 @@
 
 ## Write a short comment describing this function
 ## This function creates a special "matrix" object that can cache its inverse.
-## it supports setting matrix, getting matrix, setting inverse and getting
-## inverse
+
 
 makeCacheMatrix <- function(x = matrix()) {
-         mtrx <- NULL 
+         mtrx <- NULL #initialize mtrx as NULL, it will hold the value of matrix inverse
     
    
     
-    set <- function(y) {
-        x <<- y
-        mtrx <<- NULL
+    set <- function(y) {  #set function is defined to assign new value of matrix in parent environment
+        x <<- y              
+        mtrx <<- NULL  #if there is a new matrix , re assign mtrx to NULL
     }
  
-    get <- function() x
+    get <- function() x   #returns the value of matrix argument
     
-    setinverse <- function(inverse) mtrx <<- inverse
+    setinverse <- function(inverse) mtrx <<- inverse  #assigns value of inverse in parent environment
     
-    getinverse <- function() mtrx
+    getinverse <- function() mtrx  #gets value of inverse
     
    
     list(setmatrix=set, getmatrix=get, setinverse=setinverse, getinverse=getinverse)
@@ -29,14 +28,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-## This function computes the inverse of the special "matrix" 
-## returned by makeCacheMatrix above. If the inverse has already
-## been calculated (and the matrix has not changed), then the
-## cachesolve will retrieve the inverse from the cache.
+# This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
+# If the inverse has already been calculated (and the matrix is unchanged), then cachesolve will retrieve the inverse from the cache.
 
 
 cacheSolve <- function(x, ...) {
-         mtrx <- x$getinverse()
+         mtrx <- x$getinverse()  #return the matrix that is inverse of 'x'
    
     if(!is.null(mtrx)) {
         
