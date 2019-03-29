@@ -1,0 +1,16 @@
+rm(list = ls())
+
+makeCacheMatrix <- function(ma = matrix()) {
+  im <- NULL
+  setMatrix <- function(y) {
+    ma <<- y
+    im <<- NULL
+  }
+  getMatrix <- function() ma
+  setinverse <- function(inv) im <<- inv
+  getinverse <- function() im
+  list(setMatrix = setMatrix,
+       getMatrix = getMatrix,
+       setinverse = setinverse,
+       getinverse = getinverse)
+}
