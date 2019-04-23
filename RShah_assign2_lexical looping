@@ -1,0 +1,32 @@
+#First program is to for setting a matrix and getting its inverse
+
+makeCacheMatrix <- function(x = matrix()) {  #define function as matrix
+		inv <- NULL					# assigne NULL value to inv, which is inverse of the matrix
+		set <- function(y) {
+			x <<- y
+ 			inv <<- NULL	# In set function, I assigned the value to objects created earlier in function
+} 
+
+get <-function()x
+setmatrix <- function(solve)inv <<- solve		# solve function is used here to compute inverse of the matrix
+getmatrix <- function()inv
+list(set=set, get=get, setmatrix=setmatrix, getmatrix=getmatrix)
+}
+
+# in second function, I cache the inverse of a matrix, by first checking if it already computed 
+# and if not compute the inverse of the matrix
+
+cacheSolve <- function(x, ...){
+	inv <-x$getmatrix()
+	if(!is.null(inv)) {
+		message("getting cached data")
+		return(inv)
+
+}
+
+
+data <- x$get()
+inv <- solve(data, ...)
+x$setmatrix(inv)
+inv
+}
