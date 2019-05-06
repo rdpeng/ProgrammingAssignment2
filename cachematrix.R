@@ -11,12 +11,8 @@ makeMatrix <- function(x = matrix()) {
     inv <<- NULL
   }
   get <- function() x
-<<<<<<< HEAD
-  setinverse <- function(inverse) inv <<- inverse
-=======
-  setinverse <- function(mean) m <<- inverse
->>>>>>> 65405755a7c6549fea500b05c97bd9a0dc81cedd
-  getinverse <- function() inv
+   setinverse <- function(inverse) inv <<- inverse
+   getinverse <- function() inv
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
