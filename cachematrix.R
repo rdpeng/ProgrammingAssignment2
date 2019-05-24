@@ -43,7 +43,7 @@ cacheSolve <- function(x, ...) {
         inverse_mat <- x$getInverse()
         
         # Checks if inverse has already been placed in cache
-        if (!is.null(inverse_mat) & ){
+        if (!is.null(inverse_mat)){
                 message('Retrieving inverted matrix')
                 return(inverse_mat)
         }
