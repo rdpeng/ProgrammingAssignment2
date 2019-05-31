@@ -103,6 +103,7 @@ TestMatrix
 
 CacheMatrix <- makeCacheMatrix(TestMatrix)
 CacheMatrix$getMatrix()
+
 CacheMatrix$getInverse()
 
 cacheSolve(CacheMatrix)
