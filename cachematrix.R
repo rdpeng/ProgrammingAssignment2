@@ -26,7 +26,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- x$get()
-  m <- solve(data, ...) #Inverse computation here, rest co code does not need to be changed, tested with many randomly generated matrix to level 100x100
+  m <- mean(data, ...)
   x$setmean(m)
   m
 }
