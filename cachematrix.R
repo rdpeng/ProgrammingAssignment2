@@ -1,7 +1,9 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## In fact functions nead only to change computation function from mean to solve, rest works at the same way, with setters and getters. 
+## Small difference is also an function argument, that is not a vector, but matrix, as per assignement, there is not need to check whenever
+## matris is invertable, as we assume it is. 
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -17,7 +19,7 @@ makeCacheMatrix <- function(x = matrix()) {
        getmean = getmean)
 }
 
-## Write a short comment describing this function
+## This is function, that calculates inverse (solve) if not yet inverted erlier. 
 
 cacheSolve <- function(x, ...) {
   m <- x$getmean()
@@ -26,7 +28,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- x$get()
-  m <- mean(data, ...)
+  m <- solve(data, ...)
   x$setmean(m)
   m
 }
