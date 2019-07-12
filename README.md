@@ -103,3 +103,78 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+
+
+
+
+
+
+### solution to the 'makeCacheMatrix' function
+
+##This function creates a special "matrix" object "makeCacheMatrix"
+##    that can cache its inverse.
+
+makeCacheMatrix <- function(x = matrix()) {
+        inv <- NULL
+        set <- function(y) {
+                x <<- y
+                inv <<- NULL
+        }
+        get <- function() x
+        setInverse <- function(inverse) inv <<- inverse
+        getInverse <- function() inv
+        list(set = set,
+             get = get,
+             setInverse = setInverse,
+             getInverse = getInverse)
+
+### solution to the `cacheSolve` function 
+
+##This function computes the inverse of the special
+##    "matrix" returned by `makeCacheMatrix` above.
+
+cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
+        inv <- x$getInverse()
+        if (!is.null(inv)) {
+                message("getting cached data")
+                return(inv)
+        }
+        mat <- x$get()
+        inv <- solve(mat, ...)
+        x$setInverse(inv)
+        inv
+}
+
+## Running a test on the 'makeCacheMatrix' function
+
+>source('~/coursera/inverse_matrix/cache_matrix.R')
+>cache.matrix <-makeCacheMatrix(matrix(1:16, 4, 4))
+>cache.matrix$get()
+ [,1] [,2] [,3] [,4]
+[1,]    1    5    9   13
+[2,]    2    6   10   14
+[3,]    3    7   11   15
+[4,]    4    8   12   16
+
+
+>cache.matrix$getInverse()
+NULL
+
+
+>source('~/coursera/inverse_matrix/cache_matrix.R')
+>cache.matrix <-makeCacheMatrix(matrix(1:4, 2, 2))
+> cache.matrix$get()
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+### Running a test on the `cacheSolve` function
+
+
+> source('~/coursera/inverse_matrix/cache_solve.R')
+> cacheSolve(cache.matrix)
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
