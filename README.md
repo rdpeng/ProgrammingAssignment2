@@ -107,9 +107,6 @@ This assignment will be graded via peer assessment.
 
 
 
-
-
-
 ### solution to the 'makeCacheMatrix' function
 
 ##This function creates a special "matrix" object "makeCacheMatrix"
