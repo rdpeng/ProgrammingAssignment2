@@ -44,4 +44,4 @@ cacheSolve <- function(x, ...) {
   MatrixData <- x$getMatrix()                     #get the original Matrix Data 
   invMatrix <- solve(MatrixData, ...)             #use solve function to inverse the matrix
   x$setInverse(invMatrix)                         #set the invertible matrix 
-  return(invMatrix)
+  return(invMatrix)                               #return the invertible matrix
