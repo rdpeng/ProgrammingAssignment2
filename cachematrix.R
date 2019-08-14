@@ -2,7 +2,7 @@
 #get the value of the matrix, set the inverse Matrix and get the inverse Matrix. The matrix object
 #can cache its own object. 
 
-#<<- operator is used to assign a value to an object in an environment that is different 
+#<<- operator is used to matrixs a value to an object in an environment that is different 
 #from the current environment 
 
 #take the matrix as an input
@@ -45,3 +45,4 @@ cacheSolve <- function(x, ...) {
   invMatrix <- solve(MatrixData, ...)             #use solve function to inverse the matrix
   x$setInverse(invMatrix)                         #set the invertible matrix 
   return(invMatrix)                               #return the invertible matrix
+}
