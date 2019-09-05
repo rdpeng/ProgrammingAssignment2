@@ -1,4 +1,3 @@
-## Aim in this experiment is to write a pair of functions,
 ## "makeCacheMatrix" and "cacheSolve" that cache the inverse of a matrix
 ## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 ## cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
