@@ -37,7 +37,7 @@
                 data <- x$get()
                 xi <- solve(data, ...)
                 x$setinv(xi)
-                return(xi)
+                xi
         }
         
         
