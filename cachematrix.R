@@ -23,7 +23,7 @@
         
 # cacheSolve is a function that checks if a previously 
 # computed inverse of the "special" matrix is available, if so returns it.
-# If not computes the inverse, sets that computed as the inverse and
+# If not computes the inverse, sets the computed result as the inverse and
 # returns it.
         
         cacheSolve <- function(x, ...) {
@@ -33,7 +33,6 @@
                         message("getting cached data")
                         return(xi)
                 }
-                x$set(matrix1)
                 data <- x$get()
                 xi <- solve(data, ...)
                 x$setinv(xi)
