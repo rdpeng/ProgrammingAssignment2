@@ -1,3 +1,5 @@
+##This program is responsible for caching the inverse of the matrix, which can then be retrieved for further uses, when required. Caching is required since inverse calculation is a costly operation.
+
 ##Creates a special "matrix" object which can cache it's inverse which can then be inverted by cacheSolve function.
 makeCacheMatrix <- function(x = matrix()) {
   j <- NULL
