@@ -1,0 +1,363 @@
+USE [master]
+GO
+/****** Object:  Database [Airline_Reservation]    Script Date: 10/28/2019 8:01:34 PM ******/
+CREATE DATABASE [Airline_Reservation]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Airline_Reservation', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\Airline_Reservation.mdf' , SIZE = 73728KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Airline_Reservation_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\Airline_Reservation_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+ALTER DATABASE [Airline_Reservation] SET COMPATIBILITY_LEVEL = 140
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Airline_Reservation].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Airline_Reservation] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Airline_Reservation] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Airline_Reservation] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Airline_Reservation] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Airline_Reservation] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Airline_Reservation] SET  MULTI_USER 
+GO
+ALTER DATABASE [Airline_Reservation] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Airline_Reservation] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Airline_Reservation] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Airline_Reservation] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Airline_Reservation] SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Airline_Reservation', N'ON'
+GO
+ALTER DATABASE [Airline_Reservation] SET QUERY_STORE = OFF
+GO
+USE [Airline_Reservation]
+GO
+/****** Object:  Table [dbo].[Aircraft]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Aircraft](
+	[AircraftID] [int] IDENTITY(1,1) NOT NULL,
+	[Model] [numeric](18, 0) NULL,
+	[Capacity] [int] NULL,
+ CONSTRAINT [PK_Aircraft] PRIMARY KEY CLUSTERED 
+(
+	[AircraftID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Airport]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Airport](
+	[AirportID] [int] IDENTITY(1,1) NOT NULL,
+	[Airport_Name] [nvarchar](50) NOT NULL,
+	[TimeZone] [nchar](10) NULL,
+ CONSTRAINT [PK_Airport] PRIMARY KEY CLUSTERED 
+(
+	[Airport_Name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cancelled_Flights]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cancelled_Flights](
+	[Cancelled_ReservationID] [int] NOT NULL,
+	[CancellationID] [int] IDENTITY(1,1) NOT NULL,
+	[Cancellation_Time_Date] [datetime] NULL,
+	[Reason] [text] NULL,
+ CONSTRAINT [PK_Cancelled_Flights_1] PRIMARY KEY CLUSTERED 
+(
+	[Cancelled_ReservationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[City]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[City](
+	[CityID] [int] IDENTITY(1,1) NOT NULL,
+	[City] [nchar](50) NOT NULL,
+	[CountryID] [int] NOT NULL,
+ CONSTRAINT [PK_City] PRIMARY KEY CLUSTERED 
+(
+	[CityID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Country]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Country](
+	[CountryID] [int] IDENTITY(1,1) NOT NULL,
+	[Country] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_Country] PRIMARY KEY CLUSTERED 
+(
+	[CountryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Customer]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
+	[FirstName] [nchar](10) NOT NULL,
+	[LastName] [nchar](10) NOT NULL,
+	[DOB] [date] NOT NULL,
+	[Nationality] [nchar](10) NOT NULL,
+	[CityID_address] [int] NOT NULL,
+	[CountryID_address] [int] NOT NULL,
+	[Phone] [int] NOT NULL,
+ CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Flights]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Flights](
+	[FlightID] [int] IDENTITY(1,1) NOT NULL,
+	[FLT#] [nvarchar](255) NOT NULL,
+	[DEP_CITY] [nvarchar](50) NOT NULL,
+	[ARR_CITY] [nvarchar](50) NOT NULL,
+	[TimeZone] [nvarchar](255) NULL,
+	[DEP] [time](7) NOT NULL,
+	[ARR] [time](7) NOT NULL,
+	[Duration] [numeric](18, 0) NULL,
+	[Distance] [numeric](18, 0) NULL,
+	[stops] [nvarchar](255) NULL,
+	[DAYS] [nvarchar](255) NULL,
+	[AircraftID] [int] NOT NULL,
+	[ticketPrice] [numeric](18, 0) NOT NULL,
+ CONSTRAINT [PK_F] PRIMARY KEY CLUSTERED 
+(
+	[FlightID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Payment]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Payment](
+	[PaymentID] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerID] [int] NULL,
+	[CreditCardNumber] [int] NOT NULL,
+	[CreditCardDate] [date] NOT NULL,
+ CONSTRAINT [PK_Payment] PRIMARY KEY CLUSTERED 
+(
+	[PaymentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reservation]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reservation](
+	[ReservationID] [int] IDENTITY(1,1) NOT NULL,
+	[Date_of_Trip] [date] NOT NULL,
+	[CustomerID] [int] NOT NULL,
+	[FlightID] [int] NOT NULL,
+	[SeatID] [int] NOT NULL,
+	[Date_Time_ofreservation] [timestamp] NOT NULL,
+	[PaymentID] [int] NOT NULL,
+	[ToolID] [int] NOT NULL,
+	[IsCancelled] [int] NOT NULL,
+	[Available_Days] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_Reservation_1] PRIMARY KEY CLUSTERED 
+(
+	[ReservationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reservation_tools]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reservation_tools](
+	[ToolID] [int] IDENTITY(1,1) NOT NULL,
+	[ToolName] [nchar](30) NOT NULL,
+ CONSTRAINT [PK_Reservation_tools] PRIMARY KEY CLUSTERED 
+(
+	[ToolID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Seat]    Script Date: 10/28/2019 8:01:34 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Seat](
+	[SeatID] [int] IDENTITY(1,1) NOT NULL,
+	[SeatType] [nchar](10) NULL,
+	[Seat_Number] [nchar](10) NULL,
+	[Aircraft_ID] [int] NULL,
+ CONSTRAINT [PK_Seat_1] PRIMARY KEY CLUSTERED 
+(
+	[SeatID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Index [NonClusteredIndex-the_same_customer_cannot_take_two_seats_on_the_same-flight]    Script Date: 10/28/2019 8:01:34 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [NonClusteredIndex-the_same_customer_cannot_take_two_seats_on_the_same-flight] ON [dbo].[Reservation]
+(
+	[Date_of_Trip] ASC,
+	[CustomerID] ASC,
+	[FlightID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [Two_customers_cannot_take_the_same_seat_on_thesameFlight_and_day]    Script Date: 10/28/2019 8:01:34 PM ******/
+CREATE UNIQUE NONCLUSTERED INDEX [Two_customers_cannot_take_the_same_seat_on_thesameFlight_and_day] ON [dbo].[Reservation]
+(
+	[Date_of_Trip] ASC,
+	[FlightID] ASC,
+	[SeatID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Cancelled_Flights]  WITH CHECK ADD  CONSTRAINT [FK_Cancelled_Flights_Reservation] FOREIGN KEY([Cancelled_ReservationID])
+REFERENCES [dbo].[Reservation] ([ReservationID])
+GO
+ALTER TABLE [dbo].[Cancelled_Flights] CHECK CONSTRAINT [FK_Cancelled_Flights_Reservation]
+GO
+ALTER TABLE [dbo].[City]  WITH CHECK ADD  CONSTRAINT [FK_City_Country] FOREIGN KEY([CountryID])
+REFERENCES [dbo].[Country] ([CountryID])
+GO
+ALTER TABLE [dbo].[City] CHECK CONSTRAINT [FK_City_Country]
+GO
+ALTER TABLE [dbo].[Customer]  WITH CHECK ADD  CONSTRAINT [FK_Customer_City1] FOREIGN KEY([CityID_address])
+REFERENCES [dbo].[City] ([CityID])
+GO
+ALTER TABLE [dbo].[Customer] CHECK CONSTRAINT [FK_Customer_City1]
+GO
+ALTER TABLE [dbo].[Customer]  WITH CHECK ADD  CONSTRAINT [FK_Customer_Country] FOREIGN KEY([CountryID_address])
+REFERENCES [dbo].[Country] ([CountryID])
+GO
+ALTER TABLE [dbo].[Customer] CHECK CONSTRAINT [FK_Customer_Country]
+GO
+ALTER TABLE [dbo].[Flights]  WITH CHECK ADD  CONSTRAINT [FK_F_Airport] FOREIGN KEY([ARR_CITY])
+REFERENCES [dbo].[Airport] ([Airport_Name])
+GO
+ALTER TABLE [dbo].[Flights] CHECK CONSTRAINT [FK_F_Airport]
+GO
+ALTER TABLE [dbo].[Flights]  WITH CHECK ADD  CONSTRAINT [FK_Flights_Aircraft] FOREIGN KEY([AircraftID])
+REFERENCES [dbo].[Aircraft] ([AircraftID])
+GO
+ALTER TABLE [dbo].[Flights] CHECK CONSTRAINT [FK_Flights_Aircraft]
+GO
+ALTER TABLE [dbo].[Flights]  WITH CHECK ADD  CONSTRAINT [FK_Flights_Airport] FOREIGN KEY([DEP_CITY])
+REFERENCES [dbo].[Airport] ([Airport_Name])
+GO
+ALTER TABLE [dbo].[Flights] CHECK CONSTRAINT [FK_Flights_Airport]
+GO
+ALTER TABLE [dbo].[Payment]  WITH CHECK ADD  CONSTRAINT [FK_Payment_Customer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Payment] CHECK CONSTRAINT [FK_Payment_Customer]
+GO
+ALTER TABLE [dbo].[Reservation]  WITH CHECK ADD  CONSTRAINT [FK_Reservation_Customer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Reservation] CHECK CONSTRAINT [FK_Reservation_Customer]
+GO
+ALTER TABLE [dbo].[Reservation]  WITH CHECK ADD  CONSTRAINT [FK_Reservation_Flights] FOREIGN KEY([FlightID])
+REFERENCES [dbo].[Flights] ([FlightID])
+GO
+ALTER TABLE [dbo].[Reservation] CHECK CONSTRAINT [FK_Reservation_Flights]
+GO
+ALTER TABLE [dbo].[Reservation]  WITH CHECK ADD  CONSTRAINT [FK_Reservation_Payment] FOREIGN KEY([PaymentID])
+REFERENCES [dbo].[Payment] ([PaymentID])
+GO
+ALTER TABLE [dbo].[Reservation] CHECK CONSTRAINT [FK_Reservation_Payment]
+GO
+ALTER TABLE [dbo].[Reservation]  WITH CHECK ADD  CONSTRAINT [FK_Reservation_Reservation_tools] FOREIGN KEY([ToolID])
+REFERENCES [dbo].[Reservation_tools] ([ToolID])
+GO
+ALTER TABLE [dbo].[Reservation] CHECK CONSTRAINT [FK_Reservation_Reservation_tools]
+GO
+ALTER TABLE [dbo].[Reservation]  WITH CHECK ADD  CONSTRAINT [FK_Reservation_Seat] FOREIGN KEY([SeatID])
+REFERENCES [dbo].[Seat] ([SeatID])
+GO
+ALTER TABLE [dbo].[Reservation] CHECK CONSTRAINT [FK_Reservation_Seat]
+GO
+ALTER TABLE [dbo].[Seat]  WITH CHECK ADD  CONSTRAINT [FK_Seat_Aircraft] FOREIGN KEY([Aircraft_ID])
+REFERENCES [dbo].[Aircraft] ([AircraftID])
+GO
+ALTER TABLE [dbo].[Seat] CHECK CONSTRAINT [FK_Seat_Aircraft]
+GO
+ALTER TABLE [dbo].[Reservation]  WITH NOCHECK ADD  CONSTRAINT [CK_Reservation] CHECK NOT FOR REPLICATION ((charindex(CONVERT([nvarchar],datepart(weekday,[Date_of_Trip])),[Available_Days])>(0)))
+GO
+ALTER TABLE [dbo].[Reservation] NOCHECK CONSTRAINT [CK_Reservation]
+GO
+USE [master]
+GO
+ALTER DATABASE [Airline_Reservation] SET  READ_WRITE 
+GO
