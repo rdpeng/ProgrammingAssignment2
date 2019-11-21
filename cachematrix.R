@@ -1,5 +1,4 @@
-Create Matrix
-
+##Create Matrix
 makeCacheMatrix <- function(x = matrix()) {
 m <- Null
 set <- function(y){
@@ -18,8 +17,7 @@ m <<- Null
           getinverse = getinverse)
 
 
-Caching the Inverse of a Matrix
-
+##Caching the Inverse of a Matrix
 cacheSolve <- function(x, ...) {
 ## Return a matrix that is the inverse of 'x'
 m <- x$getinverse()
