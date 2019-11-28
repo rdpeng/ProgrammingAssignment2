@@ -361,3 +361,45 @@ USE [master]
 GO
 ALTER DATABASE [Airline_Reservation] SET  READ_WRITE 
 GO
+
+--ANALYSIS ( USING QUERIES AND JOINS):
+
+USE orders
+select  Country,FirstName,LastName as customers from Customer
+where Country = 'USA' group by Country,FirstName,LastName ;
+
+select FirstName,LastName from Customer group by FirstName,LastName  order by FirstName DESC;
+
+
+select Country, City,count(DISTINCT FirstName) as totalcustomers FROM Customer group by Country, City;
+
+select   Distinct SupplierId, ProductName as product FROM Product group by SupplierId, ProductName;
+
+select  ProductId,count(ProductId) as numberoftimes from OrderItem group by ProductId order by numberoftimes DESC;
+
+SELECT Product.ProductName, Customer.Country Customer.LastName,
+Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+
+select  ProductId as maxitem from OrderItem group by ProductId having count(ProductId)>10 ;
+Country
+SELECT ProductId from Order1 where UnitPrice>20 group by ProductId;
+
+SELECT Product.ProductId, Customer.Country Customer.LastName,
+Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+In
+select TotalAmount from Order1 INNER JOIN Customer ON Id.Customer=Order1.CustomerID group by Country,MONTH(OrderDate) order by TotalAmount DESC ;
+
+
+SELECT ProductId.Product, Country.Customer LastName.Customer,
+Orders.OrderDate
+FROM Order1
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+In
+select TotalAmount from Order1 INNER JOIN Customer ON Customer.Id=Order1.CustomerID group by Country,MONTH(OrderDate) order by TotalAmount DESC ;
+
+select ProductId from OrderItem JOIN `
