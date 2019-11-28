@@ -1,0 +1,23 @@
+##OLX Car Price Prediction Model
+cars=read.csv("train.csv")
+attach(cars)
+cars2_train=subset(cars2_train,price>500)
+cars3_train=subset(cars2_train,price<1000000)
+attach(cars3_train)
+model3=lm(price~kilometers+brand+year, data=cars3_train)
+prediction3=predict (model3, newdata=test)
+write.csv(prediction3,"train_model3.csv")
+
+
+##Will this client get a Personal Loan?
+
+univ=read.csv("UniversalBank.csv",skip=1)
+attach(univ)
+split=sample(1:2,nrow(univ),replace=TRUE,prob=c(0.7,0.3))
+multicol=lm(Personal.Loan~. - ID -ZIP.Code,data=univ)
+vif(multicol)
+attach(uni)
+Family=as.factor(Family)
+mod2=lm(Personal.Loan~Family+Online+Age)
+summary(mod2)
+vif(mod2)
