@@ -1,6 +1,16 @@
-## Put comments here that give an overall description of what your
+## Autore: sagyg
+##Put comments here that give an overall description of what your
 ## functions do
 
+##desc:
+## makeCacheMatrix- set of getters and Setters to store the invert matrix to the environment using <<- 
+#<<- operator is used to assign a value to an object in an environment that is different from the current environment 
+## cacheSolve - get the invert matrix form the cache and return it, if not exist, get the original matrix and invert it
+  
+
+ 
+
+#take the matrix as an input
 ## Write a short comment describing this function
 
 # the matrix x is the funcation input
@@ -32,7 +42,8 @@ cacheSolve <- function(x, ...) {
   }
   ##if invarse matrix does nnot exsist in cache
   MyMatrixToInverse <- x$getMatrix()
-  setInverse <- solve(MyMatrixToInverse, ...) # invert the metrix using solve()
+  MyInverseMatrix <- solve(MyMatrixToInverse, ...) # invert the metrix using solve()
+  
   x$setInverse(MyInverseMatrix) ### set the invert  metrix
   return (MyInverseMatrix)
 }
