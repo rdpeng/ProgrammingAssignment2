@@ -3,7 +3,8 @@
 # but if that already has been done for a matrix then,
 # i simply retrieves the solution from the cache... Duh
 
-# first I create the special "vector"
+# first I create the special "vector" to store the matrix (i.e. create a list containing a function to:
+# set value of the matrix, get value of the matrix, set value of the inverse, get value of the inverse
 
 makeCacheMatrix <- function(x = matrix()){
   m <-NULL
