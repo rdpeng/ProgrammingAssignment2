@@ -1,4 +1,4 @@
-## This program computes the inversion of a square matrix and caches it. If the inverted matrix has already been cached, 
+## this program computes the inversion of a square matrix and caches it. If the inverted matrix has already been cached, 
 ## it will return the cached inversion
 
 ## This function returns a special matrix which can cache the inversion of a square matrix
