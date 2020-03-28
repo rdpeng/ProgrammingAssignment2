@@ -103,3 +103,33 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+makeCacheMatrix<-function(x=matrix())
+{
+flip<-NULL
+set <- function(y)
+{
+x<<-y
+flip<<-NULL
+}
+get<-function() x
+setinverse<-function(inverse)
+flip<<-inverse
+getinverse<-function() flip
+list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
+}
+
+
+cacheSolve<-function(x, ...)
+{
+flip<-x$getinverse()
+if(!is.null(flip))
+{
+message("Getting Cached Data")
+return(flip)
+}
+data<-x$get()
+flip<-inverse(data, ...)
+x$setinverse(flip)
+flip
+}
