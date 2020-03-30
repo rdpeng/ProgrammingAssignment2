@@ -135,3 +135,4 @@ flip<-inverse(data, ...)
 x$setinverse(flip)
 flip
 }
+## can check result with any 2X2 matrix
