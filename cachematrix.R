@@ -1,6 +1,6 @@
 ## Zachary Morlan
 ## Rstudio  R version 3.6.3 (2020-02-29)
-## MacOS
+## MacOS Operating System
 ## Assignment: Caching the Inverse of a Matrixless 
 ## the assignment is to write a pair of functions that cache the inverse of a matrix.
 
@@ -28,7 +28,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ##`cacheSolve` should retrieve the inverse from the cache.
 
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
+  
   inv <- x$getInv()
   if (!is.null(inv)) {
     message("getting cached data")
