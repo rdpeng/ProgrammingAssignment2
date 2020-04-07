@@ -1,7 +1,8 @@
-##
-##
-## Put comments here that give an overall description of what your
-## functions do
+## Zachary Morlan
+## Rstudio  R version 3.6.3 (2020-02-29)
+## MacOS
+## Assignment: Caching the Inverse of a Matrixless 
+## the assignment is to write a pair of functions that cache the inverse of a matrix.
 
 ## `makeCacheMatrix`: This function creates a special "matrix" object
 ## that can cache its inverse.
