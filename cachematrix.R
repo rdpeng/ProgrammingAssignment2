@@ -34,5 +34,4 @@
     x$setinverse(inv)
     return(inv)
   }
-
   
