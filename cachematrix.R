@@ -19,7 +19,7 @@ makeCacheMatrix <- function(x1 = mat()) {
 
 
 ## Write a short comment describing this function
-##it returns inverse of matrix returned in above makeCacheMatrix
+##it returns inverse of matrix returned in makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
         inv <- x$getInverse()
