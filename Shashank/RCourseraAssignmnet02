@@ -1,4 +1,7 @@
 #Matrix inverse...
+#to enter dimension of matrix and diag is used for idendtity matrix
+
+
 n= readline(prompt = "Enter the dimension of square matrix   " )
 im=diag(n)
 print("Matrix elemnts in form of q = matrix(c(,,,,,,,),nrow,ncol)")
@@ -7,8 +10,9 @@ q=matrix(c(1,2,3,4),2,2)
 xmat=function(y){
   k=solve(y,im)
  print(k) 
+ #inverse of matrix
 
-  #check
+  #check the solution 
   l=k%*%y
   print(l)
 }
