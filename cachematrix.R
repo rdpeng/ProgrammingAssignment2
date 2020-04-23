@@ -13,6 +13,6 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
   solve(x = makeCacheMatrix())
-  
+  return(cacheSolve)
         ## Return a matrix that is the inverse of 'x'
 }
