@@ -1,0 +1,32 @@
+makeCacheMatrix <- function(x = matrix()) {
+  m <- NULL
+  set <- function(y) {             
+    x <<- y           
+    m <<- NULL                
+  }
+  get <- function() x
+  setInvmatrix <- function(InvMatrix) m <<- InvMatrix
+  getInvmatrix <- function() m
+  list(set = set, get = get,
+       setInvmatrix = setInvmatrix,
+       getInvmatrix = getInvmatrix)
+  
+}
+
+
+cacheSolve <- function(x, ...) {
+  
+  m <- x$getInvmatrix()              
+  if(!is.null(m)) {           
+    return(m)              
+  }
+  data <- x$get()             
+  m <- solve(data, ...)       
+  x$setInvmatrix(m)           
+  m                           
+}
+B <- matrix(c(10,35,50,20),2,2) #verification of the program
+B1 <- makeCacheMatrix(B)
+cacheSolve(B1) 
+cacheSolve(B1)
+
