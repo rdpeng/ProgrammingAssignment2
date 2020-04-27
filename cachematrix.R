@@ -21,13 +21,13 @@ m <- NULL
 ## to solve the cache matrix this is used
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-        m <- x$getmean()
-       if(!is.null(m)) {
-              message("getting cached data")
-              return(m)
-       }
-       data <- x$get()
-       m <- mean(data, ...)
-       x$setmean(m)
-       
+        inverse <- x$getinverse()
+        if(!is.null(inverse)) {
+        	message("getting cached inverse")
+        	return(inverse)
+        }
+        data <- x$get()
+        inverse <- solve(data, ...)
+        x$setinverse(inverse)
+        inverse
 }
