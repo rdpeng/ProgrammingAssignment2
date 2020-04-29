@@ -1,7 +1,6 @@
 ## This code provides two functions, 'makeCacheMatrix' and 'cacheSolve'
 ## to calculate and store the inverse of a given matrix x.
 
-
 ## This function provides methods to 
 ## 1) set the value of a given matrix x
 ## 2) get the value of a given matrix x
