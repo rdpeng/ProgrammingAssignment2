@@ -1,6 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
-# R-program code that stores the values of matrix and caches its inverse
+## R-program code that stores the values of matrix and caches its inverse
 
 ## The following function creates a special Matrix 
 ## that can cache its inverse
@@ -41,4 +39,3 @@ cacheSolve <- function(x, ...)
   x$setinverse(flip)
   flip
 }
-
