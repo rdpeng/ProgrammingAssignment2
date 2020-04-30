@@ -16,3 +16,17 @@ makeCacheMatrix <- function(x = matrix()) { ## define the argument with default 
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)  ## you need this in order to refer 
   ## to the functions with the $ operator
 }
+
+
+cacheSolve <- function(x, ...) {
+  ## Return a matrix that is the inverse of 'x'
+  inv <- x$getinverse()
+  if(!is.null(inv)) {
+    message("getting cached data")
+    return(inv)
+  }
+  data <- x$get()
+  inv <- solve(data, ...)
+  x$setinverse(inv)
+  inv
+}
