@@ -10,11 +10,11 @@ set <- function(y) {
   m <<- NULL
 }
 get <- function() x
-setmean <- function(solve) i <<- solve
-getmean <- function() i
+setinv <- function(solve) i <<- solve
+getinv <- function() i
 list(set = set, get = get,
-     setmean = setmean,
-     getmean = getmean)
+     setinv = setinv,
+     getinv = getinv)
 
 }
 
@@ -23,13 +23,13 @@ list(set = set, get = get,
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-  i <- x$getmean()
+  i <- x$getinv()
   if(!is.null(i)) {
     message("getting cached data")
     return(i)
   }
   data <- x$get()
   i <- solve(data, ...)
-  x$setmean(i)
+  x$setinv(i)
   i
 }
