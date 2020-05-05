@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+## makeCacheMatrix will be requiring a matrix as an input, and the matrix's inverse will be saved in the vector.
 
 makeCacheMatrix <- function(x = matrix()) {
   inv = NULL
@@ -16,6 +17,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Write a short comment describing this function
+## cacheSolve will first check, whether the matrix is already saved in the Cache or not. If yes, then it will take the output from there
+## only, otherwise, it will solve the new matrix which isn't saved in the cache.
 
 cacheSolve <- function(x, ...) {
   inv = x$getinverse()
