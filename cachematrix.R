@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) { ## define the argument with default 
 
     setinverse <- function(inverse) inv <<- inverse  ## assigns value of inv in parent environment
     getinverse <- function() inv                     ## gets the value of inv where called
-    list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)  ## you need this in order to refer 
+    list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)  ## you need this in order to refe
                                                                                   ## to the functions with the $ operator
 }
 
