@@ -103,3 +103,49 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+Assignment: Case 1: Caching the Inverse of a Matrix
+1.  `makeCacheMatrix`: This function creates a special "matrix" object
+    that can cache its inverse.
+    makeCacheMatrix <- function(x = matrix()) {
+  inv <- NULL
+  set <- function(y){
+    x <<- y
+    inv <<- NULL
+  }
+  get <- function() x
+  setInverse <- function(solveMatrix) inv <<- solveMatrix
+  getInverse <- function() inv
+  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+}
+Assignment: Case 2:Retrieve the inverse from the cache.
+2. 'cacheSolve': This function computes the inverse of the special "matrix" returned by makeCacheMatrix 
+cacheSolve <- function(x, ...) {
+  ## Return a matrix that is the inverse of 'x'
+  inv <- x$getInverse()
+  if(!is.null(inv)){
+    message("getting cached data")
+    return(inv)
+  }
+  data <- x$get()
+  inv <- solve(data)
+  x$setInverse(inv)
+  inv      
+}
+
+Testing of my code:
+> my_matrix <- makeCacheMatrix(matrix(5:8, 2, 2))
+> my_matrix$get()
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+> my_matrix$getInverse()
+NULL
+> cacheSolve(my_matrix)
+     [,1] [,2]
+[1,]   -4  3.5
+[2,]    3 -2.5
+> my_matrix$getInverse()
+     [,1] [,2]
+[1,]   -4  3.5
+[2,]    3 -2.5
+> 
