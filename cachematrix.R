@@ -16,9 +16,7 @@ makeCacheMatrix <- function(x = matrix()) {
   getinverse <- function() inv      ## gets the value of inv where called
   
   list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
-  ##in order to refer to the functions with the $ operator
-  
-  
+  ##in order to refer to the functions with the $ operator  
 }
 
 
