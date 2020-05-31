@@ -1,3 +1,63 @@
+
+### Testing functions
+-----
+
+```R
+source('C:/RProjects/Matrix inversion/ProgrammingAssignment2/cachematrix.R')
+> A <- matrix(nrow = 3, ncol = 3, data = c(1:8, 6))
+> A1<-makeCacheMatrix(A)
+> cacheSolve(A1)
+```
+#### Output
+```
+           [,1]       [,2]       [,3]
+[1,] -2.0000000  2.0000000 -0.3333333
+[2,]  1.3333333 -1.6666667  0.6666667
+[3,] -0.3333333  0.6666667 -0.3333333
+
+```
+-----
+#### calling cacheSolve(A1) function again (inverse has already been calculated and the matrix has not changed)
+```R
+cacheSolve(A1)
+```
+#### Output
+```
+getting cached data
+           [,1]       [,2]       [,3]
+[1,] -2.0000000  2.0000000 -0.3333333
+[2,]  1.3333333 -1.6666667  0.6666667
+[3,] -0.3333333  0.6666667 -0.3333333
+```
+-----
+#### testing getInverse/setInverse methods
+```R
+A1$getInverse()
+```
+#### Output
+```
+           [,1]       [,2]       [,3]
+[1,] -2.0000000  2.0000000 -0.3333333
+[2,]  1.3333333 -1.6666667  0.6666667
+[3,] -0.3333333  0.6666667 -0.3333333
+```
+
+```R
+> x <- matrix(1:9,3,3)
+> A1$setInverse(x)
+> A1$getInverse()
+```
+#### Output
+```
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+```
+
+
+
+
 ### Introduction
 
 This second programming assignment will require you to write an R
