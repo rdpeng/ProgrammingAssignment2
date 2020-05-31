@@ -1,10 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
-#-------------------------------------------------------------
 
+#-----------------------------------------------------------------------------------------------------------------
 
-## The makeCacheMatrix function creates a 'matrix' object  that
-## can cache its inverse. 
+## The makeCacheMatrix function creates a 'matrix' object  that can cache its inverse. 
+## This function expects matrix as an input parameter and then creates and returns a list containing a function to
+# 1. set the value of the matrix 
+# 2. get the value of the matrix
+# 3. set the value of inverse of the matrix
+# 4. get the value of inverse of the matrix
+
+#------------------------------------------------------------------------------------------------------------------
 
 makeCacheMatrix <- function(x = matrix()) {
 
@@ -14,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
     inverse <<- NULL
   }
   get <- function(){x}
-  setInverse <- function(inv) inverse <<- inv
+  setInverse <- function(inv){ inverse <<- inv}
   getInverse <- function() {inverse}
   list(set = set, get = get,
        setInverse = setInverse,
@@ -22,10 +26,14 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function computes the inverse of the special "matrix" created by 
-## makeCacheMatrix function. If the inverse has already been calculated 
-##(and the matrix has not changed), then it retrieves the inverse from the cache
-## and prints a message : "getting cached data".
+#-----------------------------------------------------------------------------------------------------
+
+## This function returns the inverse of the matrix created by
+## makeCacheMatrix function. It first checks if the inverse has already been calculated.
+## If it is, the function skips the computation and retrieves the inverse from the cache. 
+## If not, it computes the inverse, sets the value in the cache via setInverse function.
+
+#--------------------------------------------------------------------------------------------------------
 
 cacheSolve <- function(x, ...) {
   inverse <- x$getInverse()
@@ -35,7 +43,7 @@ cacheSolve <- function(x, ...) {
   }
   data <- x$get()
   inverse <- solve(data, ...)
-  x$setInverse(s)
+  x$setInverse(inverse)
   inverse
 }
 
