@@ -103,3 +103,21 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+### Testing functions
+-----
+
+```R
+source('C:/Users/Boss/Desktop/Matrix inversion/ProgrammingAssignment2/cachematrix.R')
+> A <- matrix(nrow = 3, ncol = 3, data = c(1:8, 6))
+> A1<-makeCacheMatrix(A)
+> cacheSolve(A1)
+```
+#### Output
+```
+           [,1]       [,2]       [,3]
+[1,] -2.0000000  2.0000000 -0.3333333
+[2,]  1.3333333 -1.6666667  0.6666667
+[3,] -0.3333333  0.6666667 -0.3333333
+
+```
