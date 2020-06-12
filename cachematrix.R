@@ -2,12 +2,15 @@
 ## functions do
 
 ## Write a short comment describing this function
-makeCacheMatrix <- function(x = matrix()) {
+## i is the inverse function here
+makeCacheMatrix <- function(x = matrix()) 
+{
     i <- NULL
-  set <- function(y) {makeCacheMatrix <- function(x = matrix()) {
+  set <- function(y) {
+      makeCacheMatrix <- function(x = matrix()) {
        setinverse = setinverse,
        getinverse = getinverse)
-}
+}}
 cacheSolve <- function(x, ...) {
 ## Write a short comment describing this function
 cacheSolve <- function(x, ...) 
@@ -19,5 +22,5 @@ cacheSolve <- function(x, ...)
           cacheSolve <- function(x, ...) {
   x$setinverse(i)
   i
-}
+}}
 ## end of project
