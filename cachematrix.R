@@ -29,7 +29,7 @@ list(set = set, get = get,
 
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        ## Return a matrix that is the inverse of 'x'  
   i <- x$getinverse()
   if(!is.null(i) && !is.na(i)) {
     message("getting cached data")
