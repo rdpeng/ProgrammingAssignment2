@@ -10,10 +10,10 @@ makeCacheMatrix<- function(x=matrix()){
   list(set = set, get= get, setInverse= setInverse, getInverse= getInverse)
 }
 
-cacheSolve<- function(x, ...)  {
-  inv<-x$getInverse()
-  if(!is.null(inv)){
+cacheSolve<- function(x, ...){
+    inv<-x$getInverse()
+    if(!is.null(inv)){
     message("getting cahced data")
     return(inv)
-    }
+}
   
