@@ -14,6 +14,7 @@ makeCacheMatrix<- function(x=matrix()){
   list(set = set, get= get, setInverse= setInverse, getInverse= getInverse)
 }
 ##This function computes the inverse of the special "matrix" returned by makeCacheMatrix above
+##The cachesolve should retrieve the inverse from the cache after the inverse has been calculated 
 cacheSolve<- function(x, ...){
   ## Return a matrix that is the inverse of 'x'
     inv<-x$getInverse()
