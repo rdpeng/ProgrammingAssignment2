@@ -1,4 +1,4 @@
-
+## In order to save time when calculating the mean of a vector, we define two functions:
 
 ## It's a function that gets a vector and sets its mean value
 
