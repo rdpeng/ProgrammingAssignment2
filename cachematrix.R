@@ -44,3 +44,31 @@ cacheSolve <- function(x, ...) {
   invert
   
 }
+
+> source("makeCacheMatrix.R")
+> matrix_hey <- makeCacheMatrix(matrix(1:4, nrow = 2, ncol = 2))
+> matrix_hey
+
+> matrix_hey$get()
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> matrix_hey$get_Inverse()
+NULL
+> cacheSolve(matrix_hey)
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> cacheSolve(matrix_hey)
+getting cached data
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> matrix_hey$get_Inverse()
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+
+
+
+
