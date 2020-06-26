@@ -3,7 +3,7 @@
 ##functions producing inverse of matrix
 
 ## Write a short comment describing this function
-## special object named "matrix" is craeted that gives inverse of input.
+## special object named "matrix" is craeted that gives inverse of input given.
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
