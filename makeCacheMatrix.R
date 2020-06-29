@@ -1,6 +1,3 @@
-
-
-#this function introduce the matrix in system.
 makeCacheMatrix <- function(x = matrix()){
         inv <- NULL
         set <- function(y){
@@ -12,7 +9,7 @@ makeCacheMatrix <- function(x = matrix()){
         getInverse <- function() {inv}
         list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 }
-#this funsion solves the matrix retunig the inverse matrix if there is one
+
 cacheSolve <- function(x, ...){
         inv <- x$getInverse()
         if(!is.null(inv)){
