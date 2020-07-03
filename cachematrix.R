@@ -39,3 +39,5 @@ cacheSolve <- function(x) {
         inverse_matrix
     }
     normal_matrix <- x$get()
+    solve(normal_matrix)
+}
