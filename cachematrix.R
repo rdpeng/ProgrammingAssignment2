@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## This firs function creates a cache matrix. A list with function as elementes that will allow later to obtain the invers of the matrix
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -15,8 +15,7 @@ makeCacheMatrix <- function(x = matrix()) {
         list(set=set,get=get,setmean=setmean,getmean=getmean)
 }
 
-## Write a short comment describing this function
-
+## This second function get de inverse matrix
 cacheSolve <- function(x, ...) {
         inv<-x$getmean()
         if(!is.null(inv)){
