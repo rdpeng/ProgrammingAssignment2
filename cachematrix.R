@@ -1,5 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
+## the fuctions take in a matrix as input and cache it. the 2nd function later calculates the inverse of the matrix by using the solve() 
+## function and then returns it
 
 ## the function is meant to cache the values of matrix and the inverse 
 
