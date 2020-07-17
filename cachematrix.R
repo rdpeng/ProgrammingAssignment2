@@ -1,4 +1,4 @@
-##MakeCacheMatrix creates a special “matrix” object that can cache its inverse.
+##this function creates a special “matrix” object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
      n <- NULL
@@ -13,15 +13,15 @@ makeCacheMatrix <- function(x = matrix()) {
         get = get,
         setmean = setmean,
         getmean = getmean)
-     
 }
 
-##cachesolve computes the inverse of the special “matrix” returned by makeCacheMatrix above.
+##This function computes the inverse of the special “matrix” returned by makeCacheMatrix above.
 ##If the inverse has already been calculated (and the matrix has not changed), 
 ##then it should retrieve the inverse from the cache
 
- cacheSolve <- function(x, ...) {
-   ## Return a matrix that is the inverse of 'x'
+## Return a matrix that is the inverse of 'x'
+ cacheSolve <- function(x, ...) { ## Return a matrix that is the inverse of 'x'
+    
     n <- x$getmean ()
      if(!is.null(n)){
              message("gettig cached data")
@@ -35,18 +35,35 @@ makeCacheMatrix <- function(x = matrix()) {
  }
  
  ##Testing my Functions
- sample <-makeCacheMatrix(matrix(1:4, 2, 2))
- sample$get()
- sample$getmean ()
- cacheSolve(sample)
- 
- sample$getmean()
- sample$set(matrix(c(2, 2, 1, 4), 2, 2))
- sample$get()
- sample$getmean()
- cacheSolve(sample)
- sample$getmean()
- 
- 
- 
- 
+ > sample <-makeCacheMatrix(matrix(1:4, 2, 2))
+>  sample$get()
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+>  sample$getmean ()
+NULL
+>  cacheSolve(sample)
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+>  
+>  sample$getmean()
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+>  sample$set(matrix(c(2, 2, 1, 4), 2, 2))
+>  sample$get()
+     [,1] [,2]
+[1,]    2    1
+[2,]    2    4
+>  sample$getmean()
+NULL
+>  cacheSolve(sample)
+           [,1]       [,2]
+[1,]  0.6666667 -0.1666667
+[2,] -0.3333333  0.3333333
+>  sample$getmean()
+           [,1]       [,2]
+[1,]  0.6666667 -0.1666667
+[2,] -0.3333333  0.3333333
+> 
