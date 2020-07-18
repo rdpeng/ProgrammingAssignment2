@@ -62,4 +62,19 @@ cacheSolve <- function(x, ...) {
    
    
 }
+##Test matrix for checking
+'m1 <- matrix(c(1/2, -1/4, -1, 3/4), nrow = 2, ncol = 2)
+m1
+I2 <- matrix(c(1,0,0,1), nrow = 2, ncol = 2)
+I2
+n1 <- matrix(c(6,2,8,4), nrow = 2, ncol = 2)
+n1
+m1 %*% n1
+n1 %*% m1
+solve(m1)
+solve(n1)
+myMatrix_object <- makeCacheMatrix(m1)
+cacheSolve(myMatrix_object)
+cacheSolve(myMatrix_object)'
+
 
