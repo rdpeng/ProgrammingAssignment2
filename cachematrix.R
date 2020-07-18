@@ -8,8 +8,8 @@ makeCacheMatrix <- function(x = matrix()) {
 m = NULL
    
    ## function to set matrix
-   set = function( matrix ) {
-      x <<- matrix
+   set = function( x) {
+      x <<- y
       m <<- NULL
    }
    
