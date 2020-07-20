@@ -11,7 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
     ## Method to set the matrix
     set <- function( matrix ) {
             x <<- matrix
-            i <<- NULL
+            m <<- NULL
     }
 
     ## Method the get the matrix
@@ -22,13 +22,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
     ## Method to set the inverse of the matrix
     setInverse <- function(inverse) {
-        i <<- inverse
+        m <<- inverse
     }
 
     ## Method to get the inverse of the matrix
     getInverse <- function() {
         ## Return the inverse property
-        i
+        m
     }
 
     ## Return a list of the methods
