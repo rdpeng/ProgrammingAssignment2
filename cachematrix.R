@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+## This function builds an object with 2 attributes, a matrix and it's inverse, and 4 methods for accesing and modifying those attributes.
 
 makeCacheMatrix <- function(x = matrix()){
   inv <- NULL
@@ -14,7 +15,7 @@ makeCacheMatrix <- function(x = matrix()){
   getInverse <- function() {inv}
   list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 }
-
+## This function receives an special object (makeCacheMatrix) and modifies its inverse and returns it.
 cacheSolve <- function(x, ...){
   inv <- x$getInverse()
   if(!is.null(inv)){
