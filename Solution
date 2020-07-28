@@ -1,0 +1,31 @@
+## the goal is to create functions that will successfully compute "makeCacheMatrix" and "cacheSolve" 
+## with these we can correctly cache the inverse of a matrix 
+
+makeCacheMatrix <- function(x=matrix()) {
+d <- NULL 
+set <- function(y) {
+x <<- y
+d <- NULL
+}
+get<- function()x
+setInverse <- function(inverse)j <<- inverse
+getInverse <- funvtion()d
+list(set=set, get=get,
+setInverse=setInverse,
+getInverse=getInverse)
+}
+
+## now that we've defined "makeCacheMatrix" we can define "cacheSolve" 
+
+cacheSolve <- function(x...) {
+## get the inverse matrix of "x" 
+d <- x$getInverse()
+if(!is.null(d)) {
+message("getting cache data")
+return(d)
+}
+mat <- x$get()
+d <- solve(mat...)
+x$setInverse(d)
+d
+}
