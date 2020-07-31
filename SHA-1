@@ -1,0 +1,10 @@
+cachemean <- function(x,...) {
+	m<-x$getman()
+	if(!is.null(m)){
+		message("getting cached data")
+		return(m)
+	}
+	data<- x$get()  ## define data
+	m<-mean(data,...)
+	x$setmean(m)
+}
