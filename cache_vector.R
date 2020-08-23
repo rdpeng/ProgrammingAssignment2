@@ -1,4 +1,6 @@
 
+
+###Date: 23-08-2020
 #The first function, makeVector creates a special "vector", which is really a list containing a function to
 
 #set the value of the vector
