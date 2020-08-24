@@ -1,0 +1,25 @@
+#Package "matlib" was installed previously in roder to use the "inv()" function to get the inverse of the matrix
+library(matlib)
+
+#Assuming that we already have a matrix as data in our enviroment and it can be inverted
+
+makeCacheMatrix <- function(x){
+  y <- inv(x)
+  cache <<- y
+  get <- function() x{
+    if(exists(x)){
+      cache <<- y
+    } else {
+      cache <<- NULL
+    }
+  }
+  cache
+}
+
+cacheSolve <- function(x){
+  z <- cache
+  solve(z) 
+  s <- solve(z)
+  s
+}
+
