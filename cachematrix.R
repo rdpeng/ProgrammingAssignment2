@@ -3,7 +3,6 @@
 ## makeCacheMatrix creates a special "matrix" object that can cache its inverse.
 ## inv_matrix is storing the inverse matrix. 
 
-
 makeCacheMatrix <- function(x = matrix()) {
   inv_matrix <- NULL
   set <- function(y) {
