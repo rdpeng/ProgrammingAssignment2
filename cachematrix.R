@@ -1,15 +1,24 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
+Here get and set the values of the matrix which are containing in a list
 makeCacheMatrix <- function(x = matrix()) {
+    i<-NULL
+    s<-function(y){
+        i<<-NULL
+        x<<-y}
+    g<-function(){x}
+    sinverse<-function(inverse){i<<-inverse}
+    ginverse<-function(){i}
+    list(s=s,g=g,sinverse=sinverse,ginverse=ginverse)}
 
-}
 
-
-## Write a short comment describing this function
+If the matrix isn´t null the function calculate the inverse
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    i<-x$ginverse()
+    if(!is.null(i)){
+        message("Obteniendo datos")
+        return(i)}
+    resolve<-x$g()
+    i<-solve(resolve, ...)
+    x$sinverse(i)
+    i
 }
