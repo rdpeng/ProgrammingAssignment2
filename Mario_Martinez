@@ -1,1 +1,31 @@
 https://github.com/rdpeng/ProgrammingAssignment2.git
+
+# makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
+
+makeCacheMatrix <- function (x = matriz ()) {
+  m <- NULL
+  set <- function (y) {
+    x << - y
+    m << - NULL
+  }
+  get <- function () x
+  setemean <- function (mean) m < - mean
+  getemean <- function () m
+  lista (set= set, get=get,
+         setmean = setemean,
+         getmean = geremean)
+}
+
+#cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), 
+#then the cachesolve should retrieve the inverse from the cache.
+cacheSolve <- function (x, ...) {
+  m <- x$getmean ()
+  if (! is.null (m)) {
+    message("getting cached data")
+    return (m)
+  }
+  data <- x $get ()
+  m <- mean (data, ...)
+  x $setmean (m)
+  m
+}
