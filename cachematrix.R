@@ -1,6 +1,10 @@
 ## An R function that is able to cache potentially time-consuming computations
 
-## create a makeCacheMatrix object
+#' Util function that set the matrix and the inverse in an environment
+#' @param x an invertible matrix
+#' examples
+#' x = makeCacheMatrix(matrix(rnorm(9), 3, 3))
+#' x$set(matrix(rnorm(16), 4, 4))
 makeCacheMatrix <- function(x = matrix()) {
   inverse <- NULL
   set <-function(y){
@@ -14,9 +18,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-#calculates the Inverse of a matrix created with the above function. 
-# it first checks to see if the inverse has already been calculated. 
-#If so, it gets the inverse from the cache and skips the computation.
+#' calculates the Inverse of a matrix created with the above function. 
+#' it first checks to see if the inverse has already been calculated. 
+#' If so, it gets the inverse from the cache and skips the computation.
+#' @param x the result of a previous makeCacheMatrix call
+#' @param ... additional arguments to pass to solve function
+#' examples
+#' x = makeCacheMatrix(matrix(rnorm(9), 3, 3))
+#' cacheSolve(x)
 cacheSolve <- function(x, ...) {
         
     inverse <- x$getInverse()
