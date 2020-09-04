@@ -1,9 +1,15 @@
 ## Calculates the inverse of a matrix and stores it into cache. If it was already calculated takes it from memory.
 
+<<<<<<< HEAD
 
 ## Creates an object, with setters and getters, in the form of a list. Because of closure (and the use of the <<-),
 ## it gives access to the variables from the parent environment.
 ##It is meant to store a matrix, with or without its inverse,in memory; to be used by cachesolve(). 
+=======
+## Creates an object, with setters and getters, in the form of a list. Because of closure (and the use of the <<-),
+## it gives access to the variables from the parent environment.
+##It is meant to store a matrix and/or its inverse in memory; to be used by cachesolve(). 
+>>>>>>> a7e981e70262e0770d2d0e10c3053efbe03a2831
 
 makeCacheMatrix <- function(A = matrix()) {
                    Ainv <- NULL
@@ -19,7 +25,11 @@ makeCacheMatrix <- function(A = matrix()) {
 
 
 ## Takes an object of the form given by makeCacheMatrix(), takes the inverse from memory if it exists, 
+<<<<<<< HEAD
 ## otherwise, it calculates it with solve(), e.i. it assumes the matrix is invertible.
+=======
+## otherwise, it calculates it with inverse(), e.i. it assumes the matrix is invertible.
+>>>>>>> a7e981e70262e0770d2d0e10c3053efbe03a2831
 
 cacheSolve <- function(A, ...) {
         Ainv <- A$GetInverse()
