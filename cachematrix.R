@@ -38,10 +38,4 @@ cacheSolve <- function(x, ...) {
 }
         ## Return a matrix that is the inverse of 'x'
 
-##TEST 
-getwd()
-source("C:/Users/Sebastian/Documents/GitHub/ProgrammingAssignment2/cachematrix.R")
-mattrizz <- makeCacheMatrix(matrix(1:4, 2, 2))
-mattrizz$getinv() 
-cacheSolve((mattrizz))
-cacheSolve(mattrizz)
+
