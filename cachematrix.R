@@ -1,7 +1,7 @@
 ## This function creates a special "matrix" object that can 
 ## cache its inverse.
 
-## which is really a list containing a function to
+## Which is really a list containing a function to
 ## 1) set the values of the matrix
 ## 2) get the values of the matrix
 ## 3) set the values of the inverse matrix
