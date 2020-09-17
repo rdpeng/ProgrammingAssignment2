@@ -1,0 +1,18 @@
+makeCacheMatrix <-function(x= matrix()){
+  inv <- NULL #represents the null objects, assign to variable inv
+  set <- function(y){ #use another funcution to set a variable
+    x <<-y
+    inv <<- NULL # two level of parameters
+  }
+  get <- function(){x} 
+  setInverse <- function(inverse){inv <<- inverse} #seting the inverse
+  getInverse <- function() {inv} #get the vaule of the inverse
+  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse )
+}
+
+catchSolve <- function(x, ...) { #computes the vaules
+  inv <- x$getInverse() #returns the inverse to x
+  if(!is.null(inv)){
+    message('getting cached data')
+    return(inv)
+  }
