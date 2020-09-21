@@ -1,4 +1,5 @@
 ## Put comments here that give an overall description of what your
+        The functions make a mtrix and return the inverse matrix of the newly made matrix 
 ## functions do
 
 ## Write a short comment describing this function
