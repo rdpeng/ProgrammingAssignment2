@@ -11,18 +11,18 @@
 ##					-> set the value of the inverse matrix (cache);
 ##					-> get the value of the inverse matrix.
 ##Parameters:
-##	-> x: a matrix to store/calculate its inverse.
+##	-> origmat: a matrix to store/calculate its inverse.
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(origmat = matrix()) {
 	invmat <- NULL
 	
-	set <- function(y){
-		x <<- y
+	setmat <- function(mat){
+		origmat <<- mat
 		invmat <<- NULL
 	}
 	
-	get <- function(){
-		x
+	getmat <- function(){
+		origmat
 	}
 	
 	setinv <- function(inv){
@@ -33,7 +33,7 @@ makeCacheMatrix <- function(x = matrix()) {
 		invmat
 	}
 	
-	list (set = set, get = get, setinv = setinv, getinv = getinv)
+	list (setmat = setmat, getmat = getmat, setinv = setinv, getinv = getinv)
 }
 
 
@@ -49,7 +49,7 @@ cacheSolve <- function(x, ...) {
                 message("getting cached inverse matrix")
                 return(invmat)
         }
-        origmat <- x$get()
+        origmat <- x$getmat()
         invmat <- solve(origmat, ...)
         x$setinv(invmat)
         invmat
