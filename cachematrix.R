@@ -1,31 +1,32 @@
-##Please include your own comment to explain your code (Required in Rubric)
+## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-  j <- NULL
-  set <- function(y){
-  x <<- y
-  j <<- NULL
-  }
-  get <- function()x
-  setInverse <- function(inverse) j <<- inverse
-  getInverse <- function() j 
-  list(set = set, get = get, 
-  setInverse = setInverse, 
-  getInverse = getInverse)
+
+	inverse <- NULL
+	set <- function(y) {
+		x <<- y
+		m <<- NULL
+	}
+	get <- function() x
+	setinverse <- function(i) inverse <- i
+	getinverse <- function() inverse
+	list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
 
-##Please include your own comment to explain your code (Required in Rubric)
+## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-## Return a matrix that is the inverse of 'x'
-  j <- x$getInverse()
-  if(!is.null(j)){
-  message("getting cached data")
-  return(j)
-  }
-  mat <- x$get()
-  j <- solve(mat,...)
-  x$setInverse(j)
-  j
+        ## Return a matrix that is the inverse of 'x'
+        inverse <- x$getinverse()
+        if(!is.null(inverse)) {
+        	message("getting cached inverse")
+        	return(inverse)
+        }
+        data <- x$get()
+        inverse <- solve(data, ...)
+        x$setinverse(inverse)
+        inverse
 }
+
+# data <- matrix(c(1, 1, 4, 0, 3, 1, 4, 4, 0), nrow=3, ncol=3)
