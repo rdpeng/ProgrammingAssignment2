@@ -12,6 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
 inverse_mat <- NULL
 set <- function(y){
         x <<- y
+
       inverse_mat <<- NULL
         
 }
@@ -21,6 +22,8 @@ getsolve <- function() inverse_mat
 
 list(set = set, get = get, setsolve = setsolve, 
      getsolve = getsolve)
+
+        inverse_mat
 
 
 }
@@ -33,12 +36,14 @@ list(set = set, get = get, setsolve = setsolve,
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+
         inverse_mat <- x$getsolve()
 
         if(!is.null(inverse_mat)){
                 message("Getting data from cache")
                 return(inverse_mat)
         }
+
 
         else if(nrow(x) != ncol(x)){
                 data <- x$get()
@@ -47,5 +52,12 @@ cacheSolve <- function(x, ...) {
                 inverse_mat       
         }
                 message("x is not a invertible matrix !")
+
+
+        data <- x$get()
+        inverse_mat <- solve(x)
+        x$setsolve(inverse_mat)
+        inverse_mat
+
 
         }
