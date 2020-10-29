@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## This code has 2 main functions, "makeCacheMatrix" and "cacheSolve"  
 
 
@@ -39,7 +38,6 @@ cacheSolve <- function(x, ...)
   inver
 }
 
-=======
 ## This code has 2 main functions, "makeCacheMatrix" and "cacheSolve"  
 
 
@@ -81,4 +79,3 @@ cacheSolve <- function(x, ...)
   inver
 }
 
->>>>>>> c925db67fcb2305870a804bb0c512b01550e44d1
