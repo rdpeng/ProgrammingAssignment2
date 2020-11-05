@@ -13,7 +13,7 @@
 ## and get/set the inverse of that matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-    invMatrix <- NULL
+    invMatrix <<- NULL
     setMat <- function(y) {
         x <<- y
         invMatrix <<- NULL
@@ -21,9 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
     getMat <- function() x
     setInv <- function(inverse) invMatrix <<- inverse
     getInv <- function() invMatrix
-    list(set = set, get = get,
-         setmean = setmean,
-         getmean = getmean)
+    list(setMat = setMat, getMat = getMat,
+         setInv = setInv,
+         getInv = getInv)
 }
 
 
@@ -41,7 +41,7 @@ cacheSolve <- function(x, ...) {
     {
         return(inverse)
     }
-    m <- x$get()
+    m <- x$getMat()
     inverse <- solve(m)
     x$setInv(inverse)
     inverse
