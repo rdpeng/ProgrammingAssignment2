@@ -4,7 +4,8 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-  # test commit
+  # test commit 2
+  # stage test
 
 }
 
