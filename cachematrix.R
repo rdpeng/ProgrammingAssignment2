@@ -1,4 +1,4 @@
-
+## The function creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function( m = matrix() ) {
 
         a <- NULL
@@ -13,7 +13,7 @@ makeCacheMatrix <- function( m = matrix() ) {
              setInverse = setInverse,
              getInverse = getInverse)
 }
-
+##The function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 cachemean <- function(x, ...) {
         m <- x$getInverse()
         if(!is.null(m)) {
