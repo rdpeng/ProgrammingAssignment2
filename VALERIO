@@ -1,0 +1,19 @@
+open.account <- function(total) {
+  list(
+    deposit = function(amount) {
+      if(amount <= 0)
+        stop("Invalid Amount deposited!\n")
+      total <<- total + amount
+      cat(amount, "pesos is deposited.  Your balance is PHP", total, "\n\n")
+    },
+    withdraw = function(amount) {
+      if(amount > total)
+        stop("Money is not enough! Try again later!\n")
+      total <<- total - amount
+      cat(amount, "pesos is withdrawn.  Your balance is PHP", total, "\n\n")
+    },
+    balance = function() {
+      cat("Your balance is PHP", total, "\n\n")
+    }
+  )
+}
