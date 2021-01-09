@@ -103,3 +103,9 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+'''
+matrix <- matrix(rnorm(16),4,4)
+matrix_aux = makeCacheMatrix(matrix)
+## recover matrix already cached
+cacheSolve(matrix_aux)
+'''
