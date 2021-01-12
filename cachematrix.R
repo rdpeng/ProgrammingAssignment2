@@ -15,3 +15,4 @@ cacheSolve <- function(x, ...) {
 }
 
 print("Laura is great")
+print("Laura is hot")
