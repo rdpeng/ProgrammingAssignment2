@@ -36,9 +36,3 @@ cacheSolve <- function(x, ...) {
         x$set.inv(inv)                          # Set inverse matrix
         return(inv)                             # and return it.
 }
-
-set.seed(4)
-mat <- matrix(rnorm(25), 5, 5)
-mat.cache <- makeCacheMatrix(mat)
-cacheSolve(mat.cache)
-mat
