@@ -1,15 +1,37 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
+##The first function defines an array assuming it is always invertible.
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
+ makeCacheMatrix <- function(x = matrix()) {
+     i <- NULL
+     set <- function(y) {
+         x <<- y
+         i <<- NULL
+     }
 
+         get <- function() x     
+         setinverse <- function(inverse) i <<- inverse
+    getinverse <- function() i
+     list(set = set,
+        get = get,
+         setinverse = setinverse,
+         getinverse = getinverse)}
 }
 
 
 ## Write a short comment describing this function
-
+##The second function returns the inverted matrix, and when we call the function again,
+##it returns the value contained in the cache, it no longer performs the calculations again.
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
+        i <- x$getinverse()
+     if (!is.null(i)) {
+         message("getting cached data")
+        return(i)
+    }
+     data <- x$get()
+     i <- solve(data, ...)
+     x$setinverse(i)
+     i}       ## Return a matrix that is the inverse of 'x'
