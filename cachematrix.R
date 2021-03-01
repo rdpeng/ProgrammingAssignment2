@@ -1,7 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-##This function receive a square matrix "x" and gives an special objetc
+##This function receive a square matrix "x" and gives an special object
 ##like a structure includind matrix "x"
 
 makeCacheMatrix <- function(x = matrix()) {
