@@ -1,5 +1,4 @@
-## Put comments here that give an overall description of what your
-## functions do
+## should invert a matrix i hope
 
 ## makeCacheMatrix creates a  
 ## “matrix”, a list containing a function
