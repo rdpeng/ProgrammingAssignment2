@@ -6,7 +6,7 @@
 ## to: 1. set the value of the matrix
 ## 2. get the value of the matrix
 ## 3. set the value of the inverse
-#3 4. get the value of the inverse
+## 4. get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
@@ -24,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function computes the inverse of the special 
+## This function determines the inverse of the special 
 ## “matrix” returned by makeCacheMatrix above
 
 cacheSolve <- function(x, ...) {
