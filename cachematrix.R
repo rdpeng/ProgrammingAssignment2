@@ -2,6 +2,11 @@
 ## compute the inverse if it does not exist
 
 ## This function creates a special matrix object that can cache its inverse
+## Examples:
+## param "x" is a matrix
+# ' matrix_obj <- makeCacheMatrix(matrix(rnorm(3*3), nrow = 3, ncol = 3))
+## To change the matrix stored in cache:
+# ' matrix_obj$set(matrix(rnorm(2*2), nrow = 2, ncol = 2))
 
 makeCacheMatrix <- function(x = matrix()) {
         ## Return a list of functions (i.e. "special matrix object") that can 
@@ -26,6 +31,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function computes the inverse of a matrix. If the inverse of the matrix
 ## has already been calculated (and the matrix has not changed), then cacheSolve
 ## will retrieve the inverse from the cache
+## Examples:
+# ' param 'x' is output from makeCacheMatrix function
+# ' matrix_obj <- makeCacheMatrix(matrix(rnorm(3*3), nrow = 3, ncol = 3))
+# ' cacheSolve(matrix_obj)
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
