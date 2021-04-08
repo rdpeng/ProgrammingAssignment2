@@ -40,6 +40,6 @@ cacheSolve <- function(x, ...) {
         }
         data <- x$get() #call function in 'x' to retrieve matrix
         v <- solve(data, ...)#solve for matrix inverse
-        x$setinv(v) #use function in 'x' to cache matrix inverse
+        x$setinv(v) #call function in 'x' to cache matrix inverse
         v 
 }
