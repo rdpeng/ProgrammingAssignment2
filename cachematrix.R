@@ -1,4 +1,5 @@
 ## Initially,I simply set the input x as a matrix in the function
+##inv is used to store the inverse of the matrix.
 ##and then set the solved value "inv" as a null
 ##then I found the inverse of matrix by using setInverse and getInverse vectors
 
