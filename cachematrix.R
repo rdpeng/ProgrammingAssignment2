@@ -1,7 +1,9 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+
+## Simplemente configuro la entrada x como una matriz, luego establezco el valor resuelto "s" como nulo y luego cambié todas las referencias 
+## de "mean a "solve" 
 
 makeCacheMatrix <- function(x = matrix()) {
         i<-NULL
@@ -24,8 +26,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-
-## Write a short comment describing this function
+## Lo mismo aquí, cambiando "mean" por "solve" y "m" por "s"
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
