@@ -29,7 +29,7 @@ really a list containing a function to
 
 <!-- -->
 
-    makeVector <- function(x = numeric()) {
+    makeVector <- baffunction(x = numeric()) {
             m <- NULL
             set <- function(y) {
                     x <<- y
