@@ -11,7 +11,7 @@ makeCacheMatrix <- function(x = matrix(sample(1:100,9),3,3)){
   gettheinverse <- function() invr
   list(crea = crea, obt = obt, settheinverse = settheinverse, gettheinverse = gettheinverse)
 }
-##As i said earlier all "mean" are changed to "inverse" which is "m" to "invr"
+##As i said earlier all "mean" functions are changed to "inverse" which is "m" to "invr"
 cacheSolve <- function(x, ...) {
   invr <- x$gettheinverse()
   if(!is.null(invr)) {
