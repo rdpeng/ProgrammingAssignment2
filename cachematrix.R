@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The "cacheSolve" argument uses to calculate tsourche given "makeCacheMatrix" statement and inversed the numerics.
+## The "cacheSolve" function uses to calculate the given "makeCacheMatrix" statement and inverse the numeric.
 ## Now that the argument is processing, it will take the calculated inverse, example 1 is to -1 and so on..
 
 cacheSolve <- function(x, ...) {
