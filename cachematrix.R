@@ -8,11 +8,11 @@ createCacheMatrix <- function(x = matrix(sample(1:100,9),3,3)){
     transpre <<- NULL ## If the function is empty if the calculations has not cast
   }
   obtai <- function() x
-  setthetransposed <- function(transposed) {transpre <<- transposed} ##As you can see the "mean" is changed to "inverse"
+  setthetransposed <- function(transposed) {transpre <<- transposed} ##As you can see the "mean" is changed to "transposed"
   gettheretroverted <- function() transpre
   list(crea = crea, obtai = obtai, setthetransposed = setthetransposed, gettheretroverted = gettheretroverted)
 }
-##As i said earlier all "mean" function are changed to "inverse" which is "m" to "transpre"
+##As i said earlier all "mean" function are changed to "transposed" which is "m" to "transpre"
 cacheTransposed <- function(x, ...) {
   transpre <- x$gettheretroverted()
   if(!is.null(transpre)) {
@@ -24,4 +24,4 @@ cacheTransposed <- function(x, ...) {
   x$setthetransposed(transpre)
   transpre
 }
-##End of statement
+##End of statement and repeats to the top
