@@ -1,28 +1,33 @@
-##Creating the matrix
-##Setting up own variables for personal reference
-##creating a function "transpre" to solved value as null
-createapattern <- function(x = matrix(sample(1:100,9),3,3)){
-  transpre <- NULL
-  crea <- function(y) {
+## In this hands-on assignment, will tackle how to create such certain variable
+## The variable or its function will be named in for its references further on making the script process
+## The function "makeCacheMatrix" is created to start the function of the script. It creates the values of the numeric and solve the inverse
+
+makeCacheMatrix <- function(x = matrix()) {
+  inv <- NULL
+  set <- function(y) {
     x <<- y
-    transpre <<- NULL ## If the function is empty if the calculations has not cast
+    inv <<- NULL
+    
+    
   }
-  obtai <- function() x ## I used "obtai" variable to get the following calculations
-  setthetransposed <- function(transposed) {transpre <<- transposed} ##As you can see the "mean" is changed to "transposed"
-  gettheretroverted <- function() transpre
-  list(crea = crea, obtai = obtai, setthetransposed = setthetransposed, gettheretroverted = gettheretroverted) ##List of my own variables created
+  
+  get <- function() x
+  setInverse <- function(inverse) inv <<- inverse
+  getInverse <- function() inv
+  list(set = set,get = get,setInverse = setInverse,getInverse = getInverse)
 }
-##As i said earlier all "mean" function are changed to "transposed" which is "m" to "transpre"
-cacheTransposed <- function(x, ...) { ##Now to calculate the reversed retroverted numeric patterns
-  transpre <- x$gettheretroverted()
-  if(!is.null(transpre)) {
-    message("calculating the inversed numeric") ##This message will appear when it tries to load the retroverted number and returns to the statement
-    return(transpre)
-  }
-  data <- x$obtai()
-  transpre <- solve(data, ...)
-  x$setthetransposed(transpre)
-  transpre
-}
-##End of statement and repeats to the top
-##That's all
+
+
+## The "cacheSolve" argument uses to calculate tsourche given "makeCacheMatrix" statement and inversed the numerics.
+## Now that the argument is processing, it will take the calculated inverse, example 1 is to -1 and so on..
+
+cacheSolve <- function(x, ...) {
+  ## The pattern is the X inverse
+  inv <- x$getInverse()
+  if (!is.null(inv)) {
+    message("getting cached data")
+    return(inv)}
+  mat <- x$get()
+  inv <- solve(mat, ...)
+  x$setInverse(inv)
+  inv}
