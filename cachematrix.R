@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Now that the argument is processing, it will take the calculated inverse, example 1 is to -1 and so on..
 
 cacheSolve <- function(x, ...) {
-  ## The pattern is the X inverse
+  ## Return a matrix that is the inverse of 'x'"
   inv <- x$getInverse()
   if (!is.null(inv)) {
     message("getting cached data")
