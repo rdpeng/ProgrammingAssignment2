@@ -10,10 +10,10 @@ makeCachematrix <- function(x = matrix())-{
     list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
     }
     
-cacheSOLVE <- FUNCTION(x, ...) (
+cacheSOLVE <- function(x, ...) (
      inv ,- x$getInverse()
      if(!is.null(inv)){
-          message("getting cached data")
+          message("fetching the cached data")
           return(inv)
     }
     mat <- x$get()
