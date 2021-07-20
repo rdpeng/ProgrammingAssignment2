@@ -1,0 +1,70 @@
+## This is the example code where a vector is created 
+# set the value of the vector
+# get the value of the vector
+# set the mean and get the mean (part 1)
+
+makeVector <- function(x = numeric()) {
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
+  }
+  get <- function() x
+  setmean <- function(mean) m <<- mean
+  getmean <- function() m
+  list(set = set, get = get,
+       setmean = setmean,
+       getmean = getmean)
+}
+
+## This is the example code 
+# this calculates the mean of the vector (if it has not already been calculated) (part 2)
+cachemean <- function(x, ...) {
+  m <- x$getmean()
+  if(!is.null(m)) {
+    message("getting cached data")
+    return(m)
+  }
+  data <- x$get()
+  m <- mean(data, ...)
+  x$setmean(m)
+  m
+}
+
+## Creating a special matrix object - which is empty
+# creates and sets the value of the matrix, then set/gets the inverse of the matrix
+makeCacheMatrix <- function(x = matrix()){
+  c <- NULL
+  set <- function(y) {
+    x <-- y
+    c <-- NULL
+  }
+  get <- function() x
+  SET_INVERSE <- function(inverse) c <<- inverse
+  GET_INVERSE <- function() c
+  list(set = set, get = get,
+  SET_INVERSE = SET_INVERSE,
+  GET_INVERSE = GET_INVERSE)
+  
+}
+  
+## CacheSolve computes the inverse of the special matrix object above
+# if the inverse has already been calculated, this is skipped
+cacheSolve <- function(x,...){
+  c <- x$getinverse()
+  if(!is.null(c)) {
+    message("getting inverse cache")
+    return(c)
+  }
+  data <- x$get()
+  c <- inverse(data,...)
+  x$setinverse(c)
+  c
+}
+
+
+
+
+git push origin main 
+
+
