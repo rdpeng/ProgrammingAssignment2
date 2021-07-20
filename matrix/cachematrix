@@ -61,3 +61,11 @@ cacheSolve <- function(x,...){
   x$setinverse(c)
   c
 }
+
+
+
+
+git push origin main
+
+
+
