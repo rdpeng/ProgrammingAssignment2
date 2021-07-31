@@ -9,13 +9,13 @@ makeCacheMatrix <- function(x = matrix()) {
   
   ## Setting the matrix
   set <- function(matrix) {
-    m <<- matrix
+    x <<- matrix
     i <<- NULL
   }
   
   ## Getting the matrix
   get <- function() {
-    m
+    x
   }
   
   ## Setting the inverse of the matrix
@@ -54,10 +54,11 @@ cacheSolve <- function(x, ...) {
     data <- x$get()
     
     ## Calculating the inverse
-    m <- solve(data) %*% data
+    m <- solve(data)
     
     ## Set the inverse to the object
     x$setInverse(m)
     
     m
 }
+
