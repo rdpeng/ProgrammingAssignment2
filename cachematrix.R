@@ -10,7 +10,7 @@ makeCacheMatrix<- function(x= matrix()){
   get<- function() x
   set_inv<- function (inverse) inv_mat<<- inverse
   get_inv <- function() inv_mat
-  list (set= set_mat, get=get, setInv=set_mat, getInv=get)
+  list (set= set_mat, get=get, setInv=set_inv, getInv=get_inv)
 }
 
 #cacheSolve is the function of the output list from makeCacheMatrix which return the inverse matrix as an output
@@ -18,7 +18,7 @@ makeCacheMatrix<- function(x= matrix()){
 cacheSolve<- function(x,...){
   inv= x$get()
   if (! is.null(inv)){
-    message ("getting from cache")}else{
+    message ("getting from cache")
       return(inv)
     }
   
