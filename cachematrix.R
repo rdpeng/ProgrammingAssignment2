@@ -21,15 +21,16 @@ I <- NULL
 
 ## calculates & returns the inverse of a matrxix 
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-        I <- x$getInverse()
-+   if(!is.null(I)){
+cacheSolve <- function(x, ...)
+{
+        x <- x$getInverse() ## Return a matrix that is the inverse of 'x'
++   if(!Is.null(x))
+    {
 +     message("getting cached data")
-+     return(I)
-+   }
++     return(x)
+    }
 +   mat <- x$get()
-+   I <- solve(mat,...)
-+   x$setInverse(I)
-+   I
++   x <- solve(mat)
++   x$setInverse(x)
++   x
 }
