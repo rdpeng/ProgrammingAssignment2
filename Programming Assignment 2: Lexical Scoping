@@ -1,0 +1,8 @@
+var scope = "I'm global";
+function whataremyscopes(){
+   var scope = "I am only a local";
+   function func() {scope return;}
+   return func;
+}
+
+whataremyscopes()()
