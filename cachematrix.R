@@ -1,15 +1,50 @@
-## Put comments here that give an overall description of what your
-## functions do
+<<-  In this example we introduce the <<- operator which can be used to assign a value to an object in an environment that is different from the current environment. Below are two functions that are used to create a special object that stores and calculate derivatives of x and y with the given functions and cache's its mean.
 
-## Write a short comment describing this function
+The first function, makeVector creates a special “vector”, which is really a list containing a function to:
+1. set the derivative of x
+2. get the derivative of x
+3. set the derivative of y
+4. get the derivative of y
 
-makeCacheMatrix <- function(x = matrix()) {
+Answer: 
 
-}
+makeCacheFunction < - function [Curvature_T] = given(V_x.V_y,2) {
+%Input the value of x and y
+%Input the value of time for t
+%Define the radius of Curvature T    }
 
 
-## Write a short comment describing this function
+Curvature_T=[(V_x1^2+V_y1^2)^(1/2)/([V_x1*V_y2]-(V_y1*V_x2))];
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+{    
+get <- Derivative2x = diff(V_x,2);
+           V_x2 = subs(Derivative2x_1);
+setDerivative <- Derivative2x = diff(V_x,2) <<- solveDerivative
+
+get <- Derivative2y= diff(V_x,2);
+           V_y2= subs(Derivative2y,1);
+setDerivative <- Derivative2x = diff(V_x,2) <<- solveDerivative
+
+list(set = set, get = get, 
+ 
+             setDerivative = setDerivative, getDerivative = getDerivative)   }
+
+
+<<- The following function calculates the mean of the special "vector" created with the above function. However, it first checks to see if the mean has already been calculated. If so, it gets the mean from the cache and skips the computation. Otherwise, it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.
+
+
+The following  calculates the derivative of "x and y” created with the above function. 
+
+Answer:
+
+cachemean <- function(x,y, ...) {
+        d <- x$getDerivative()
+        if(!is.null(d)) {
+                message("getting cached data")
+                return(d)
+        }
+        data <- x$get()
+        d <- Derivative(data, ...)
+        x$setDerivative(V_x,V_y)
+        m
 }
