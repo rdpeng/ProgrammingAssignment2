@@ -16,13 +16,16 @@ The first function, makeVector creates a special “vector”, which is really a
 4. get the value of the mean
 
 
-makeVector <- function(x = numeric()) {
+makeVector <- function(x = numeric())  {
+        
         m <- NULL
-        set <- function(y) {
+       
+       set <- function(y) {
                 x <<- y
                 m <<- NULL
         }
-        get <- function() x
+       
+       get <- function() x
         setmean <- function(mean) m <<- mean
         getmean <- function() m
         list(set = set, get = get,
@@ -33,15 +36,15 @@ makeVector <- function(x = numeric()) {
 
 <<- The following function calculates the mean of the special "vector" created with the above function. However, it first checks to see if the mean has already been calculated. If so, it gets the mean from the cache and skips the computation. Otherwise, it calculates the mean of the data and sets the value of the mean in the cache via the setmean function.
 
-cachemean <- function(x,y, ...) {
-        d <- x$getDerivative()
-        if(!is.null(d)) {
+cachemean <- function(x, ...) {
+        m <- x$getmean()
+        if(!is.null(m)) {
                 message("getting cached data")
-                return(d)
+                return(m)
         }
         data <- x$get()
-        d <- Derivative(data, ...)
-        x$setDerivative(V_x,V_y)
+        m <- mean(data, ...)
+        x$setmean(m)
         m
 }
 
