@@ -91,10 +91,11 @@ Answer:
     message("getting cached data")
     return(inv)
   }
-   data <- x$getinverse()
-  inv <- solve(data)
-  x$setInversematrix(inv)
-  inv      
+    
+    data <- x$getinverse()
+    inv <- solve(data)
+   x$setInversematrix(inv)
+   inv      
 }
 
 
