@@ -59,11 +59,40 @@ Write the following functions:
 
 Write the following functions:
 
-makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
+<<- makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
-cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
+Answer:
+      makeCacheMatrix <- function(x = matrix()) {
+  inv <- NULL
+  set <- function(y){
+    x <<- y
+    inv <<- NULL
+  }
+  
+  get <- function() x
+  setInversematrix <- function(solveMatrix) inv <<- solveMatrix
+  getInversematrix <- function() inv
+  list(set = set, get = get, 
+         setInversematrix = setInversematrix, getInversematrix = getInversematrix) 
+         }
 
-Computing the inverse of a square matrix can be done with the solve function in R. For example, if X is a square invertible matrix, then solve(X) returns its inverse.
+
+<<- cacheSolve: This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
+
+Answer: 
+     cacheSolve <- function(x, ...) {
+     ## Return a matrix that is the inverse of 'x'
+     inv <- x$getInversematrix()
+     if(!is.null(inv)){
+    message("getting cached data")
+    return(inv)
+  }
+   data <- x$getinverse()
+  inv <- solve(data)
+  x$setInversematrix(inv)
+  inv      
+}
+
 
 For this assignment, assume that the matrix supplied is always invertible.
 
