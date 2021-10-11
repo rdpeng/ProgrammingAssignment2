@@ -44,10 +44,10 @@ The first function, makeVector creates a special “vector”, which is really a
                 message("getting cached data")
                 return(m)
         }
-        data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
-        m
+                data <- x$get()
+           m <- mean(data, ...)
+           x$setmean(m)
+           m
 }
 
 
@@ -70,10 +70,10 @@ Answer:
       x <<- y
      inv <<- NULL
   }
-     get <- function() x
-    setInversematrix <- function(solveMatrix) inv <<- solveMatrix
-    getInversematrix <- function() inv
-    list(set = set, get = get, 
+        get <- function() x
+        setInversematrix <- function(solveMatrix) inv <<- solveMatrix
+        getInversematrix <- function() inv
+        list(set = set, get = get, 
          setInversematrix = setInversematrix, getInversematrix = getInversematrix) 
          }
 
@@ -90,10 +90,10 @@ Answer:
     message("getting cached data")
     return(inv)
   }
-    data <- x$getinverse()
-    inv <- solve(data)
-   x$setInversematrix(inv)
-   inv      
+            data <- x$getinverse()
+           inv <- solve(data)
+           x$setInversematrix(inv)
+           inv      
 }
 
 
