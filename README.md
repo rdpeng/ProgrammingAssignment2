@@ -70,8 +70,7 @@ Answer:
       x <<- y
      inv <<- NULL
   }
-  
-    get <- function() x
+     get <- function() x
     setInversematrix <- function(solveMatrix) inv <<- solveMatrix
     getInversematrix <- function() inv
     list(set = set, get = get, 
@@ -91,7 +90,6 @@ Answer:
     message("getting cached data")
     return(inv)
   }
-    
     data <- x$getinverse()
     inv <- solve(data)
    x$setInversematrix(inv)
