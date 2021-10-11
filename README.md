@@ -6,7 +6,7 @@ Review Criteria
 This assignment will be graded via peer assessment. During the evaluation phase, you must evaluate and grade the submissions of at least 4 of your classmates. If you do not complete at least 4 evaluations, your own assignment grade will be reduced by 20%.
 
 
-<<-  In this example we introduce the <<- operator which can be used to assign a value to an object in an environment that is different from the current environment. Below are two functions that are used to create a special object that stores and calculate derivatives of x and y with the given functions and cache's its mean.
+<<-  In this example we introduce the <<- operator which can be used to assign a value to an object in an environment that is different from the current environment. Below are two functions that are used to create a special object that stores and calculate matrix of the given functions and cache's its mean.
 
 The first function, makeVector creates a special “vector”, which is really a list containing a function to:
 
@@ -58,7 +58,10 @@ Matrix inversion is usually a costly computation and there may be some benefit t
 Write the following functions:
 
 <<- makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
-
+1. set the value of the vector
+2. get the value of the vector
+3. set the value of the mean
+4. get the value of the mean
 Answer:
      
      makeCacheMatrix <- function(x = matrix()) {
