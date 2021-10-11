@@ -58,11 +58,14 @@ Matrix inversion is usually a costly computation and there may be some benefit t
 Write the following functions:
 
 <<- makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
+
 1. set the value of the vector
 2. get the value of the vector
 3. set the value of the mean
 4. get the value of the mean
+
 Answer:
+     
      
      makeCacheMatrix <- function(x = matrix()) {
      
