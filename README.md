@@ -54,7 +54,6 @@ Assignment: Caching the Inverse of a Matrix
 less 
 Matrix inversion is usually a costly computation and there may be some benefit to caching the inverse of a matrix rather than compute it repeatedly (there are also alternatives to matrix inversion that we will not discuss here). Your assignment is to write a pair of functions that cache the inverse of a matrix.
 
-Write the following functions:
 
 Write the following functions:
 
@@ -92,8 +91,8 @@ Answer:
      x$setInversematrix(inv)
     inv      }
 
-
-For this assignment, assume that the matrix supplied is always invertible.
+* Computing the inverse of a square matrix can be done with the solve function in R. For example, if X is a square invertible matrix, then solve(X) returns its inverse.
+* For this assignment, assume that the matrix supplied is always invertible.
 
 In order to complete this assignment, you must do the following:
 
