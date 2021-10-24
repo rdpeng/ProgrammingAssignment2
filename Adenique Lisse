@@ -1,0 +1,50 @@
+title: "Week 3 AL"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+makeVector <- function(x=numeric()) {
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m<<- NULL
+  }
+  get <- function() x
+  setmean <- function(mean) m<- mean
+  getmean <- function() m
+  list(set = set, get = get,
+       setmean = setmean,
+       getmean = getmean)
+}
+```
+```{r}
+MakeCacheMatrix <- function(x = matrix()) {
+  inv <- NULL
+  set <- function(y){
+    x <<- y
+    inverse <<- NULL
+  }
+  get <- function() x
+  setInverse <- function(solveMatrix) inv <<- solveMatrix
+  getInverse <- function() inv
+  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+}
+```
+```{r}
+cacheSolve <- function(x, ...) {
+  inv <- x$getInverse()
+  if (!is.null(inverse)) {
+    message("getting cached data")
+    return(inverse)
+  }
+  data <- x$get()
+  inv <- solve(data)
+  x$setInverse(inverse)
+  inv
+}
+```
+```
+
