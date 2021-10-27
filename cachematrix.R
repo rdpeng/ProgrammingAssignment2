@@ -7,14 +7,14 @@ Matrix inversion is usually a costly computation and there may be some benefit t
 ## The list containing: set the value of the vector, get the value of the vector, set the value of the mean, get the value of the mean
 
 Answer:
-     makeCacheMatrix <- function(x = matrix()) {               ## Using "matrix" to define the prblem
-      inv <- NULL                                              ## inv as null, this hold the value of inverse matrix
+     makeCacheMatrix <- function(x = matrix()) {               ## Using "matrix" to define the given problem
+      inv <- NULL                                              ## inv as null, this will hold the value of inverse matrix 
      set <- function(y){                                       ## defining the set function
     x <<- y                                                    ## matrix in parent environment
-    inv <<- NULL                                               ## inv as null for the new matrix
+    inv <<- NULL                                               ## inv as null for the new assigned matrix
   }
      get <- function() x                                       ## defining the get function of the matrix
-      setInversematrix <- function(solveMatrix) inv <<- solveMatrix            ## assigning the value of inv
+      setInversematrix <- function(solveMatrix) inv <<- solveMatrix            ## assigning the value of inv or inverse
       getInversematrix <- function() inv                                       ## gets the value of inv
      list(set = set, get = get, 
          setInversematrix = setInversematrix, getInversematrix = getInversematrix) 
