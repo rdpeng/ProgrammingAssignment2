@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
                 x <<- y
                 inv <<- NULL
                 ## Use '<<' to assign a value to an object in an environment 
-                ## different from the current environment.
+                ## different from the current environment. 
 }
         get <- function()x
         setInverse <- function(Inverse) inv <<- Inverse
