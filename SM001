@@ -1,0 +1,14 @@
+#Cachesolve matrix inverse
+Shradha_matrix <-matrix(c(12,5,10,8), ncol = 2)
+> Shradha_matrix
+     [,1] [,2]
+[1,]   12   10
+[2,]    5    8
+> solve(Shradha_matrix)
+           [,1]       [,2]
+[1,]  0.1739130 -0.2173913
+[2,] -0.1086957  0.2608696
+> solve(Shradha_matrix) %*% Shradha_matrix
+     [,1]         [,2]
+[1,]    1 2.220446e-16
+[2,]    0 1.000000e+00
