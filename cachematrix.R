@@ -1,6 +1,6 @@
 
 
-makeCacheMatrix <- function(x = matrix()) {
+
 
 ##there are two functions makeCacheMatrix,makeCacheMatrix
 ##makeCacheMatrix consists of set,get,setinv,getinv
