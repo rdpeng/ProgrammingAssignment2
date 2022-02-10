@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## this function catch the matrixx inverse 
+## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
         inv<-NULL
@@ -16,7 +16,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-##the function solve the inverse the special matrix if the data is already inversed then it would return the catched data
+## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
