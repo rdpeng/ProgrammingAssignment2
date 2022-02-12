@@ -27,7 +27,7 @@ list(set = set,
 ## The inversion computation of matrix returned by makeCacheMatrix function.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'xx'
+        ## Return a matrix that is the inverse of 'x'
 
   m <-x$getInverse()
   if (!is.null(m)){
