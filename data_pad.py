@@ -441,7 +441,7 @@ df_pred['LMR_pred']=[ round(x) for x in lmr.predict(X_test)]
 
 df_pred.insert(0,'PAD registration number',list(df_app_numbers[-len(y_test):]))
 
-df_pred
+df_pred.to_excel('result_pad.xlsx')
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
