@@ -7,13 +7,13 @@ Original file is located at
     https://colab.research.google.com/drive/12j-getQCMUB_fBaP9d4BCrADXcNIXeP0
 """
 
-!pip install shap
+# !pip install shap
 
-!pip install --upgrade openpyxl=='3.0.0'
+# !pip install --upgrade openpyxl=='3.0.0'
 
-!pip install pyxll
+# !pip install pyxll
 
-!pip install --upgrade plotly
+# !pip install --upgrade plotly
 
 import numpy as np
 np.busday_count('2021-02-15', '2021-02-21')
