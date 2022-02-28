@@ -2,3 +2,4 @@ sklearn
 shap
 matplotlib
 streamlit
+seaborn
