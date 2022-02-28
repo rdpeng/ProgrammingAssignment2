@@ -39,8 +39,8 @@ random.seed(10)
 #df3=pd.read_excel('ml_test4.xlsx')
 uploaded_file=st.file_uploader("Choose a file")
 if uploaded_file is not None:
-  df3 = pd.read_csv(uploaded_file)
-  st.write(dataframe)
+  df3 = pd.read_excel(uploaded_file)
+  # st.write(dataframe)
 df3.columns
 
 df3=df3[['PAD registration number','Request date','Final disclosure / closure date ','Profile of requester', 'Subject',
