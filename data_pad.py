@@ -177,10 +177,12 @@ import matplotlib.pyplot as plt
 plt.ylim(0, 500)
 ax = sns.boxplot(x="Assignment to a legal officer ", y="Duration", data=df)
 
+
 dt=df.groupby(['Unit ','Typology of documents '])['Glyphosate '].count().reset_index()
 dt=dt[dt['Glyphosate ']>2]
 fig = px.sunburst(dt, path=['Unit ','Typology of documents '], values='Glyphosate ')
 fig.show()
+st.pyplot(fig)
 
 df[['Profile of requester',	'Typology of documents '	,	'Unit '	,'CASES']]
 
