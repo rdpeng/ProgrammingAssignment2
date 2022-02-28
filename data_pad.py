@@ -592,9 +592,10 @@ def convert_date(year, month):
 
 # st.download_button('Download Excel with Predictions', df_o, file_name='file_with_predictions.xlsx')
 @st.cache
- def convert_df(df):
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
      # IMPORTANT: Cache the conversion to prevent computation on every rerun
-     return df.to_csv().encode('utf-8')
+        
 
 csv = convert_df(df_pred)
 
