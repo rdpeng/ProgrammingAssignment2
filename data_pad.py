@@ -14,7 +14,7 @@ Original file is located at
 # !pip install pyxll
 
 # !pip install --upgrade plotly
-@st.cache
+# @st.cache
 import numpy as np
 np.busday_count('2021-02-15', '2021-02-21')
 
