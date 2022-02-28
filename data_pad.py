@@ -31,13 +31,13 @@ from sklearn.model_selection import ShuffleSplit
 import operator
 from dateutil.relativedelta import relativedelta
 import calendar
-
+import streamlit as st
 import random
 
 random.seed(10)
 
-df3=pd.read_excel('ml_test4.xlsx')
-
+#df3=pd.read_excel('ml_test4.xlsx')
+df3=st.file_uploader("Choose a file")
 df3.columns
 
 df3=df3[['PAD registration number','Request date','Final disclosure / closure date ','Profile of requester', 'Subject',
@@ -585,4 +585,4 @@ def convert_date(year, month):
 
 # window_training_performance(train_window_size=24)
 
-to_excel()
+st.download_button('Download Excel with Predictions', df_o, file_name='file_withpredictions.xlsx')
