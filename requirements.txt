@@ -5,3 +5,4 @@ streamlit
 seaborn
 plotly
 openpyxl
+xgboost
