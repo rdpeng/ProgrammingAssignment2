@@ -182,7 +182,7 @@ dt=df.groupby(['Unit ','Typology of documents '])['Glyphosate '].count().reset_i
 dt=dt[dt['Glyphosate ']>2]
 fig = px.sunburst(dt, path=['Unit ','Typology of documents '], values='Glyphosate ')
 fig.show()
-st.pyplot(fig)
+st.plotly_chart(fig)
 
 df[['Profile of requester',	'Typology of documents '	,	'Unit '	,'CASES']]
 
