@@ -3,3 +3,4 @@ shap
 matplotlib
 streamlit
 seaborn
+plotly
