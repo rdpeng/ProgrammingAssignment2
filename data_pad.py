@@ -244,7 +244,7 @@ df_o=df_o[df_o['Duration']>5]
 
 # df_o=df_o[df_o['number of pages ']<10000]
 # df_o=df_o[df_o['number of pages ']>0]
-df_o=df_o[df_o['Duration']<100]
+df_o=df_o[df_o['Duration']<90]
 # df_o=df_o[df_o['number of documents ']<5000]
 
 
