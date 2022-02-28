@@ -600,7 +600,7 @@ def convert_df(df):
 csv = convert_df(df_pred)
 
 st.download_button(
-     label="Download data as CSV",
+     label="Download Model Output as CSV",
      data=csv,
      file_name='file_with_predictions.csv',
      mime='text/csv',
