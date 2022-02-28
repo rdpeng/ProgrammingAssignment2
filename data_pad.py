@@ -8,7 +8,7 @@ Original file is located at
 """
 
 # !pip install shap
-
+pip install sklearn
 # !pip install --upgrade openpyxl=='3.0.0'
 
 # !pip install pyxll
