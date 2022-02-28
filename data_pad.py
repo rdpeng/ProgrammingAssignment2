@@ -14,7 +14,7 @@ Original file is located at
 # !pip install pyxll
 
 # !pip install --upgrade plotly
-
+@st.cache
 import numpy as np
 np.busday_count('2021-02-15', '2021-02-21')
 
@@ -590,4 +590,17 @@ def convert_date(year, month):
 
 # window_training_performance(train_window_size=24)
 
-st.download_button('Download Excel with Predictions', df_o, file_name='file_withpredictions.xlsx')
+# st.download_button('Download Excel with Predictions', df_o, file_name='file_with_predictions.xlsx')
+@st.cache
+ def convert_df(df):
+     # IMPORTANT: Cache the conversion to prevent computation on every rerun
+     return df.to_csv().encode('utf-8')
+
+csv = convert_df(df_pred)
+
+st.download_button(
+     label="Download data as CSV",
+     data=csv,
+     file_name='file_with_predictions.csv',
+     mime='text/csv',
+ )
