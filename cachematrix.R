@@ -2,7 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+## this function create the variable for save data  in cache, for after call this data
 makeCacheMatrix <- function(x = matrix()) {
   inversa <- NULL
   set <- function(y){
@@ -20,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-
+## the calcule the inverse, whe no data in cache
 cacheinversa <- function(x, ...) {
   inversa <- x$getinversa()
   if(!is.null(inversa)){
