@@ -75,9 +75,6 @@ Write the following functions:
 1.  `makeCacheMatrix`: This function creates a special "matrix" object
     that can cache its inverse.
   ## This function caches the inverse of a matrix
- ## It inserts the inverse of the matrix in a special cache.
- ## If the matrix inserted to the function already had its inverse in the cache,
- ## the function just gets the inverse from the cache, instead of calculating it each time.
  makeCacheMatrix <- function(x = matrix ()) {
       m <- NULL
       set <- function (y) { #setting the value of the input matrix
