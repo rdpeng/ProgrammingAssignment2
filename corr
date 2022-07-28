@@ -1,0 +1,26 @@
+corr<-function(directory,threshold){
+  corrv<-data.frame()
+  corrv0<-data.frame()
+  x<-1
+  y<-1
+  chosenfile<-data.frame()
+  allfiles<-list.files()
+  nobs1<-complete("specdata",1:332)
+  #print(nobs1[3,1])
+  #print(allfiles)
+  for (i in 1:332) {
+    if(nobs1[i,1]>threshold){
+      chosenfile<-read.csv(allfiles[i])
+      corrv[x,1]<-cor(chosenfile[,2],chosenfile[,3],use = "complete.obs")
+      x<-x+1}
+      else 
+       { chosenfile<-read.csv(allfiles[i])
+      corrv0[y,1]<-0
+      y<-y+1}
+  
+  }
+  
+  print(corrv)
+  #print(corrv0)
+
+}
