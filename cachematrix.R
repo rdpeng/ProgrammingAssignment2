@@ -44,3 +44,7 @@ my_matrix1$get()
 my_matrix1$getsolve()
 cacheSolve(my_matrix1)
 my_matrix1$getsolve()
+
+
+dir()
+getwd()
