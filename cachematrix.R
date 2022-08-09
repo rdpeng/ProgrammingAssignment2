@@ -34,3 +34,7 @@ cacheSolve <- function(x, ...) {
   x$setinv(m)
   m
 }
+
+## to check the function
+
+makeMatrix(cachsolve(x=matrix(runif(100,0,1),nrow = 10,ncol = 10)))
