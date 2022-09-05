@@ -17,7 +17,6 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-
 cacheinverse <- function(x, ...) {
   inv <- x$getinverse()
   if(!is.null(inv)) {
@@ -29,3 +28,8 @@ cacheinverse <- function(x, ...) {
   x$setinverse(inv)
   inv
 }
+
+
+my_Matrix <- makeCacheMatrix(matrix(x))
+
+
