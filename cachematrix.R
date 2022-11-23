@@ -1,4 +1,4 @@
-## Functions to create matraix and compute its inverse matrix
+## Functions to create matrix and compute its inverse matrix
 ## clean the working space
 ls()
 rm(list=ls())
