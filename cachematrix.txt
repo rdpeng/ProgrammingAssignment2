@@ -1,0 +1,20 @@
+## Put comments here that give an overall description of what your
+## functions do
+
+## Write a short comment describing this function
+
+makeCacheMatrix <- function(x = matrix()) {
+
+}
+
+The function "makeCacheMatrix" is a user-defined function that takes an argument "x" which is a matrix. The function is designed to create a cache matrix, but it does not have any specific operations defined within it. It is likely that additional code would need to be added to the function to give it a specific purpose. The default value for the argument "x" is set to an empty matrix, so if no matrix is provided when the function is called, an empty matrix will be used.
+
+
+
+## Write a short comment describing this function
+
+cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
+}
+
+The function "cacheSolve" takes two arguments, "x" and "...". It is designed to return a matrix that is the inverse of the matrix passed as "x". The "..." argument is used to allow for additional parameters to be passed to the function, but it is not clear what specific use it serves in this context.
