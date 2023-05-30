@@ -26,7 +26,7 @@ cacheSolve <- function(x, ...) {
   s <- x$getsolve()
   if(!is.null(s)) {
     message("getting inversed matrix")
-    return(s)s
+    return(s)
   }
   data <- x$get()
   s <- solve(data, ...)
