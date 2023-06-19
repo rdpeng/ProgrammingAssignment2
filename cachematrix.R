@@ -2,7 +2,7 @@
 # cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-	i <- NULL
+	i <- NULL # create a new variable called i
 
 	set <- function(y) {
 		x <<- y
@@ -10,11 +10,11 @@ makeCacheMatrix <- function(x = matrix()) {
 	}
 	
 	get <- function() x
-	setinverse <- function(inverse) i <<- inverse
-	getinverse <- function() i
+	setinverse <- function(inverse) i <<- inverse # set the inverse of data
+	getinverse <- function() i # get the inverse
 	
 	list(set = set, get = get, setinverse = setinverse, 
-		getinverse = getinverse)
+		getinverse = getinverse) # list out the result
 }
 
 
