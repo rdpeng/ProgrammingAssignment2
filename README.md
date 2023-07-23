@@ -1,3 +1,4 @@
+[![GitHub repo size](https://img.shields.io/github/repo-size/TheNewThinkTank/Computation-Optimizations?style=flat&logo=github&logoColor=whitesmoke&label=Repo%20Size)](https://github.com/TheNewThinkTank/Computation-Optimizations/archive/refs/heads/main.zip)
 ### Introduction
 
 This second programming assignment will require you to write an R
