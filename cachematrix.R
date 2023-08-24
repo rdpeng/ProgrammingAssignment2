@@ -34,5 +34,3 @@ cacheSolve <- function(cacheMatrix) {
   
   cacheMatrix$cacheInverse()
 }
-
-
