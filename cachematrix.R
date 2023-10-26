@@ -1,59 +1,48 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
-
+## There are two functions here; MakeCacheMatrix and cacheSolve
 makeCacheMatrix <- function(x = matrix()) {
-          # variable pour stocker l'inverse de la matrice en cache
-  inv <- NULL
-  
-  # getter pour la matrice
-  get <- function() {
-    x
-  }
-  
-  # setter pour la matrice
+  inv <- NULL           #Initializing the inverse as NULL
+  # Setting the matrix
   set <- function(y) {
-    x <<- y
-    inv <<- NULL
+          x <<- y
+          inv <<- NULL
   }
-  
-  # getter pour l'inverse
-  getInverse <- function() {
-    inv
+   # Getting the matrix
+  get <- function() x
+  #Setting the inverse
+  setInverse <- function(inverse){ 
+          inv<<-inverse
+          }
+  #Getting the inverse
+  getInverse <- function(){
+          inv <- ginv(x)
+          inv%*%x      #function to obtain inverse
   }
-  
-  # setter pour l'inverse
-  setInverse <- function(inverse) {
-    inv <<- inverse
-  }
-  
-  # retourne une liste des fonctions définies
+  #returns a list of defined functions
   list(get = get,
        set = set,
        getInverse = getInverse,
        setInverse = setInverse)
-
 }
 
 
 ## Write a short comment describing this function
-
+## This is used to get the CacheSolve
 cacheSolve <- function(x, ...) {
-         # récupère la matrice de l'objet "matrice" passé en argument
+         # retrieves the matrix of the "matrix" object passed as an argument
   mat <- x$get()
-  
-  # vérifie si l'inverse est déjà en cache
-  inv <- x$getInverse()
+  inv <- x$getInverse()    # checks if the reverse is already cached
   if (!is.null(inv)) {
-    message("Récupération de l'inverse depuis le cache")
+    message("Retrieve the inverse from the cache")
     return(inv)
   }
   
-  # sinon, calcule l'inverse de la matrice
+  # otherwise, calculate the inverse of the matrix
   inv <- solve(mat, ...)
   
-  # met l'inverse en cache
+  # caches the reverse
   x$setInverse(inv)
         ## Return a matrix that is the inverse of 'x'
         inv
