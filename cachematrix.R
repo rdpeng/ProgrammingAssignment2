@@ -30,7 +30,7 @@ cacheSolve <- function(mat, ...) {
                 return(i)
         }
 ## Otherwise, calculate inverse matrix
-        data <- mat$getinverse()
+        data <- mat$getmat()
         i <- solve(data, ...)
         mat$setinverse(i)
 ## Return a matrix that is the inverse of mat
