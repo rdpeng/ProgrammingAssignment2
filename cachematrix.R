@@ -4,12 +4,12 @@
 ## Create a function to make cache matrix. Function written with the assumption that the matrix supplied is always invertible!
 makeCacheMatrix <- function(mat = matrix()) {
         i <- NULL
-## Setting up the set function for x matrix and assigning default value of NULL for variable i (inverse matrix)
+## Setting up the set function for matrix and assigning default value of NULL for variable i (inverse matrix)
         setmat <- function(newmat) {
                 mat <<- newmat
                 i <<- NULL
         }
-## Setting up the get function for x matrix
+## Setting up the get function for matrix
         getmat <- function() mat
 ## Setting up the setter for the inverse matrix
         setinverse <- function(inverse) i <<- inverse
@@ -33,6 +33,6 @@ cacheSolve <- function(mat, ...) {
         data <- mat$getinverse()
         i <- solve(data, ...)
         mat$setinverse(i)
-## Return a matrix that is the inverse of 'x'
+## Return a matrix that is the inverse of mat
         i
 }
