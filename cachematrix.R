@@ -1,4 +1,4 @@
-setwd('C:/Users/rubind1/Documents/Coursera-R')
+setwd('C:/Users/sgrac/Documents/Coursera-R')
 ##
 ## I simply set the input x as a matrix
 ## and then set the solved value "s" as a null
