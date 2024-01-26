@@ -1,0 +1,33 @@
+# Function to create a special "matrix" object that can cache its inverse
+createSpecialMatrix <- function(inputMatrix = matrix()) {
+  cachedInverse <- NULL
+  
+  setMatrix <- function(matrix) {
+    inputMatrix <<- matrix
+    cachedInverse <<- NULL
+  }
+  
+  getMatrix <- function() inputMatrix
+  
+  setCachedInverse <- function(inverse) cachedInverse <<- inverse
+  
+  getCachedInverse <- function() cachedInverse
+  
+  list(setMatrix = setMatrix, getMatrix = getMatrix, 
+       setCachedInverse = setCachedInverse, getCachedInverse = getCachedInverse)
+}
+
+# Function to compute the inverse of the special "matrix" and retrieve it from the cache if available
+calculateInverse <- function(specialMatrix, ...) {
+  cachedInv <- specialMatrix$getCachedInverse()
+  
+  if (!is.null(cachedInv)) {
+    message("Retrieving cached data")
+    return(cachedInv)
+  }
+  
+  data <- specialMatrix$getMatrix()
+  inv <- solve(data, ...)
+  specialMatrix$setCachedInverse(inv)
+  inv
+}
