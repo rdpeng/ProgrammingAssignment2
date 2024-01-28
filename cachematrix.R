@@ -45,6 +45,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- x$get()
+  # a%*%x=b  <--->  x=A^-1 * b
   m <- solve(data)%*% data
   x$setinv(m)
   m
