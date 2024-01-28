@@ -11,6 +11,7 @@
 # 
 # For this assignment, assume that the matrix supplied is always invertible.
 
+#makeCacheMatrix: cache l'inverse d'une matrice
 
 makeCacheMatrix <- function(m = matrix()) {
   i <- NULL
@@ -35,12 +36,12 @@ makeCacheMatrix <- function(m = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve: calcul l'inverse d'une matrice
 
 cacheSolve <- function(x, ...) {
   m <- x$getinv()
   if(!is.null(m)) {
-    message('getting cached data')
+    message('donnees cachees')
     return(m)
   }
   data <- x$get()
