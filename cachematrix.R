@@ -1,6 +1,3 @@
-# Clear environment objects before running the code
-#rm(list = ls())
-
 ## Function to create a cacheable matrix along with its inverse
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -51,6 +48,7 @@ cacheSolve <- function(x, ...) {
 }
 
 # Tests
+# Setting inverse on cache before running cache solve
 m <- matrix(c(2, 1, 3, 4), 2, 2)
 inverse1 <- makeCacheMatrix()
 inverse1$set(m)
@@ -59,6 +57,7 @@ inverse1$setinv(original1)
 inverse1$getinv()
 cacheSolve(inverse1)
 
+# Solving for inverse only on cache solve
 inverse2 <- makeCacheMatrix()
 inverse2$set(m)
 original2 <- inverse2$get()
