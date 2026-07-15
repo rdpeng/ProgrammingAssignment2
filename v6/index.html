@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alice Tran Psychiatric Care — thoughtful medication management and supportive therapy for anxiety, depression, ADHD, burnout, and other mental health conditions. English & Tiếng Việt." />
+  <title>Alice Tran Psychiatric Care — Feel like yourself again</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Thin top accent bar -->
+  <div class="topbar" aria-hidden="true"></div>
+
+  <!-- Navigation — mirrors the existing site -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand" aria-label="Alice Tran Psychiatric Care — home">
+        <span class="nav__mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M18 27 C 14 22 12 18 15 13 C 17 10 21 9 24 10 C 24 15 23 20 18 27 Z" fill="currentColor" opacity=".85"/>
+            <path d="M18 27 C 19.5 21 21 16 24 10" stroke="#F4F0E7" stroke-width=".9"/>
+          </svg>
+        </span>
+        <span class="nav__name">Alice Tran Psychiatric<br/>Care</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#rates">Rates</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#blog">Blog</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="#" class="pill pill--outline">Join Visit</a>
+        <a href="#" class="pill pill--solid">Book Now</a>
+      </div>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero — same layout as the current site, new background -->
+  <section class="hero">
+    <!-- New background: soft watercolor-wash sky with drifting botanical fronds.
+         Replaces the interior/waiting-room photograph. -->
+    <div class="hero__bg" aria-hidden="true">
+      <svg class="hero__scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wash" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%"  stop-color="#F6F1E6"/>
+            <stop offset="55%" stop-color="#F0EADC"/>
+            <stop offset="100%" stop-color="#E6E3D2"/>
+          </linearGradient>
+          <radialGradient id="glow-l" cx="0.12" cy="0.25" r="0.5">
+            <stop offset="0%" stop-color="#EDE3CB" stop-opacity=".9"/>
+            <stop offset="100%" stop-color="#EDE3CB" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="glow-r" cx="0.88" cy="0.7" r="0.55">
+            <stop offset="0%" stop-color="#DCE2D2" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#DCE2D2" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <rect width="1600" height="900" fill="url(#wash)"/>
+        <rect width="1600" height="900" fill="url(#glow-l)"/>
+        <rect width="1600" height="900" fill="url(#glow-r)"/>
+
+        <!-- faint hills on the horizon -->
+        <path d="M0 700 Q 400 640 800 690 T 1600 680 L 1600 900 L 0 900 Z" fill="#D8DCC8" opacity=".5"/>
+        <path d="M0 760 Q 500 700 1000 750 T 1600 745 L 1600 900 L 0 900 Z" fill="#C9D0B8" opacity=".45"/>
+
+        <!-- botanical fronds, left -->
+        <g class="frond frond--left" stroke="#8FA083" fill="none" stroke-width="2" opacity=".5">
+          <path d="M120 900 C 150 740 160 620 140 480"/>
+          <path d="M140 620 C 100 590 80 550 82 500"/>
+          <path d="M143 560 C 185 535 205 495 202 450"/>
+          <path d="M137 700 C 95 675 70 635 68 585"/>
+          <path d="M145 660 C 190 640 215 600 215 550"/>
+        </g>
+        <g class="frond frond--left2" stroke="#A7B29A" fill="none" stroke-width="1.6" opacity=".42">
+          <path d="M260 900 C 280 780 285 680 270 570"/>
+          <path d="M272 690 C 240 668 222 635 224 595"/>
+          <path d="M274 640 C 308 620 324 588 322 550"/>
+        </g>
+
+        <!-- botanical fronds, right -->
+        <g class="frond frond--right" stroke="#8FA083" fill="none" stroke-width="2" opacity=".5">
+          <path d="M1480 900 C 1450 740 1440 620 1460 480"/>
+          <path d="M1460 620 C 1500 590 1520 550 1518 500"/>
+          <path d="M1457 560 C 1415 535 1395 495 1398 450"/>
+          <path d="M1463 700 C 1505 675 1530 635 1532 585"/>
+          <path d="M1455 660 C 1410 640 1385 600 1385 550"/>
+        </g>
+        <g class="frond frond--right2" stroke="#A7B29A" fill="none" stroke-width="1.6" opacity=".42">
+          <path d="M1340 900 C 1320 780 1315 680 1330 570"/>
+          <path d="M1328 690 C 1360 668 1378 635 1376 595"/>
+          <path d="M1326 640 C 1292 620 1276 588 1278 550"/>
+        </g>
+
+        <!-- gentle leaves scattered like drifting seeds -->
+        <g fill="#93A386" opacity=".35">
+          <ellipse cx="420" cy="240" rx="14" ry="5" transform="rotate(-24 420 240)"/>
+          <ellipse cx="1190" cy="200" rx="12" ry="4.5" transform="rotate(18 1190 200)"/>
+          <ellipse cx="1330" cy="330" rx="10" ry="4" transform="rotate(-12 1330 330)"/>
+          <ellipse cx="300" cy="380" rx="11" ry="4" transform="rotate(30 300 380)"/>
+        </g>
+      </svg>
+      <div class="hero__vignette"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__kicker">Adult Psychiatry &nbsp;·&nbsp; Virginia &nbsp;·&nbsp; Ages 18–65</p>
+
+      <h1 class="hero__title">Feel like <em>yourself</em> again.</h1>
+
+      <p class="hero__sub">
+        Thoughtful medication management and supportive therapy for anxiety,
+        depression, ADHD, burnout, and other mental health conditions
+      </p>
+
+      <ul class="hero__features">
+        <li>
+          <span class="hero__feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8.2" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6.5 10.2 L 9 12.7 L 13.7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="hero__feature-label">Accepting New<br/>Patients</span>
+        </li>
+        <li>
+          <span class="hero__feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 18 C 6 13.5 4 10.5 4 8 a 6 6 0 1 1 12 0 c 0 2.5 -2 5.5 -6 10 z" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </span>
+          <span class="hero__feature-label">In Person &amp; Virtual</span>
+        </li>
+        <li>
+          <span class="hero__feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8.2" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M2 10 h 16 M 10 1.8 c 2.6 2.3 4 5 4 8.2 s -1.4 5.9 -4 8.2 c -2.6 -2.3 -4 -5 -4 -8.2 s 1.4 -5.9 4 -8.2 z" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </span>
+          <span class="hero__feature-label">English &amp;<br/>Tiếng Việt</span>
+        </li>
+      </ul>
+
+      <div class="hero__cta">
+        <a href="#" class="pill pill--solid pill--lg">Book an Appointment</a>
+        <a href="tel:+17037919099" class="pill pill--outline pill--lg">Call (703) 791-9099</a>
+      </div>
+
+      <p class="hero__note">
+        New patients typically seen within 1–2 weeks &nbsp;·&nbsp; Online booking takes about 5 minutes
+      </p>
+    </div>
+
+    <!-- chat bubble -->
+    <button class="chat-pill" type="button">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 4.5 h 12 v 8.5 h -7.5 L 5 16 v -3 H 4 Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+      Have a question?
+    </button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alice Tran, PMHNP-BC, FNP-BC — compassionate, whole-person psychiatric care in Northern Virginia. Vietnamese-speaking telehealth for anxiety, depression, trauma, and more." />
+  <title>Alice Tran, PMHNP-BC, FNP-BC — Psychiatric Care with Heart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand" aria-label="Alice Tran home">
+        <span class="nav__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4C12 12 6 18 6 26c0 5 4 10 14 10s14-5 14-10c0-8-6-14-14-22z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M20 12v24" stroke="currentColor" stroke-width="1" opacity=".5"/>
+          </svg>
+        </span>
+        <span class="nav__name">
+          <span class="nav__first">Alice Tran</span>
+          <span class="nav__cred">PMHNP-BC · FNP-BC</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="nav__cta">Book a Consult</a>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__blob hero__blob--1"></div>
+      <div class="hero__blob hero__blob--2"></div>
+      <div class="hero__grain"></div>
+    </div>
+
+    <div class="hero__inner">
+      <p class="eyebrow" data-reveal>A place to be heard</p>
+      <h1 class="hero__title" data-reveal>
+        Psychiatric care, <em>with heart.</em>
+      </h1>
+      <p class="hero__lede" data-reveal>
+        Thoughtful, whole-person mental health care for the quiet struggles and the loud ones —
+        delivered in English and Vietnamese, by telehealth across Northern Virginia.
+      </p>
+
+      <div class="hero__actions" data-reveal>
+        <a href="#contact" class="btn btn--primary">Schedule a Consultation</a>
+        <a href="#approach" class="btn btn--ghost">How I practice <span aria-hidden="true">→</span></a>
+      </div>
+
+      <dl class="hero__meta" data-reveal>
+        <div><dt>Based in</dt><dd>Fairfax, VA</dd></div>
+        <div><dt>Speaking</dt><dd>English · Tiếng Việt</dd></div>
+        <div><dt>Care model</dt><dd>Telehealth</dd></div>
+      </dl>
+    </div>
+
+    <a href="#about" class="hero__scroll" aria-label="Scroll to about">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- Marquee of reassurances -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Compassion first</span><span>·</span>
+      <span>Evidence-based</span><span>·</span>
+      <span>Culturally attuned</span><span>·</span>
+      <span>Whole-person care</span><span>·</span>
+      <span>Tiếng Việt welcome</span><span>·</span>
+      <span>Telehealth access</span><span>·</span>
+      <span>Compassion first</span><span>·</span>
+      <span>Evidence-based</span><span>·</span>
+      <span>Culturally attuned</span><span>·</span>
+      <span>Whole-person care</span><span>·</span>
+      <span>Tiếng Việt welcome</span><span>·</span>
+      <span>Telehealth access</span><span>·</span>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about__grid">
+      <div class="about__portrait" data-reveal>
+        <div class="portrait">
+          <div class="portrait__frame">
+            <svg class="portrait__art" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#E7DFD2"/>
+                  <stop offset="100%" stop-color="#C9D3C0"/>
+                </linearGradient>
+                <linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#6C8168"/>
+                  <stop offset="100%" stop-color="#2E4A3C"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="500" fill="url(#sky)"/>
+              <circle cx="280" cy="140" r="70" fill="#EFE4D2" opacity=".9"/>
+              <path d="M40 420 Q 120 320 200 380 T 380 360 L 380 500 L 40 500 Z" fill="url(#leaf)" opacity=".85"/>
+              <path d="M80 440 Q 180 380 260 430 T 400 420 L 400 500 L 40 500 Z" fill="#2A3E34"/>
+              <g opacity=".55">
+                <path d="M60 380 c 20 -40 50 -60 80 -50" stroke="#2E4A3C" stroke-width="1.5" fill="none"/>
+                <path d="M300 370 c 10 -30 40 -45 60 -35" stroke="#2E4A3C" stroke-width="1.5" fill="none"/>
+              </g>
+            </svg>
+          </div>
+          <div class="portrait__caption">
+            <span>A quiet morning, Fairfax</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__copy">
+        <p class="eyebrow" data-reveal>About Alice</p>
+        <h2 class="h2" data-reveal>
+          Care that listens <br/><span class="serif-i">before it prescribes.</span>
+        </h2>
+        <p class="lede" data-reveal>
+          I'm Alice — a dual board-certified Psychiatric Mental Health and Family Nurse
+          Practitioner. My work is guided by a simple belief: healing begins when someone
+          feels truly heard.
+        </p>
+        <p data-reveal>
+          I trained at Wilkes University and Frontier Nursing University, and I practice
+          with the Northern Virginia Psychiatric Group. I've spent my career walking
+          alongside international students, immigrants, and families navigating the quiet
+          weight of two cultures — and the courage it takes to ask for help.
+        </p>
+        <p data-reveal>
+          Whether your concerns are new or longstanding, you deserve a clinician who slows
+          down, asks the right questions, and remembers the whole of who you are.
+        </p>
+
+        <ul class="credentials" data-reveal>
+          <li><span>PMHNP-BC</span>Psychiatric Mental Health NP</li>
+          <li><span>FNP-BC</span>Family Nurse Practitioner</li>
+          <li><span>MSN</span>Wilkes University</li>
+          <li><span>MSN</span>Frontier Nursing University</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach / philosophy -->
+  <section class="approach" id="approach">
+    <div class="section__head">
+      <p class="eyebrow" data-reveal>The approach</p>
+      <h2 class="h2" data-reveal>Three quiet promises <span class="serif-i">I make to every person I see.</span></h2>
+    </div>
+
+    <div class="approach__grid">
+      <article class="promise" data-reveal>
+        <div class="promise__num">01</div>
+        <h3>I will listen, fully.</h3>
+        <p>
+          No rushed intakes. No one-size-fits-all checklists. Your first visit is an hour
+          because your story deserves the time.
+        </p>
+      </article>
+
+      <article class="promise" data-reveal>
+        <div class="promise__num">02</div>
+        <h3>I will treat the whole of you.</h3>
+        <p>
+          Sleep, family, faith, food, work, loneliness, purpose. Mental health lives inside
+          a life — and we'll talk about all of it.
+        </p>
+      </article>
+
+      <article class="promise" data-reveal>
+        <div class="promise__num">03</div>
+        <h3>I will honor where you come from.</h3>
+        <p>
+          Culture, language, and belonging shape how we heal. Tiếng Việt is welcome here,
+          and so is everything you carry.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="section__head">
+      <p class="eyebrow" data-reveal>Services</p>
+      <h2 class="h2" data-reveal>A small, intentional practice. <br/><span class="serif-i">Built for depth, not volume.</span></h2>
+    </div>
+
+    <div class="services__grid">
+      <article class="service service--lg" data-reveal>
+        <div class="service__tag">Initial Visit</div>
+        <h3>Comprehensive Psychiatric Evaluation</h3>
+        <p class="service__meta">60 minutes · Telehealth</p>
+        <p>
+          A spacious first appointment to understand your history, symptoms, relationships,
+          and goals. We'll map out what's been happening and co-create a plan that respects
+          your pace and values.
+        </p>
+        <ul class="service__list">
+          <li>Diagnostic assessment</li>
+          <li>Personalized treatment plan</li>
+          <li>Psychoeducation &amp; collaborative goal-setting</li>
+        </ul>
+      </article>
+
+      <article class="service" data-reveal>
+        <div class="service__tag">Follow-Up</div>
+        <h3>Medication Management</h3>
+        <p class="service__meta">Up to 30 minutes</p>
+        <p>
+          Ongoing, thoughtful prescribing with close attention to how you're actually
+          feeling — not just what the chart says.
+        </p>
+      </article>
+
+      <article class="service" data-reveal>
+        <div class="service__tag">Integrated</div>
+        <h3>Supportive Psychotherapy</h3>
+        <p class="service__meta">Woven into care</p>
+        <p>
+          Brief, focused conversations that sit beside medication — because a script without
+          context rarely heals.
+        </p>
+      </article>
+
+      <article class="service service--accent" data-reveal>
+        <div class="service__tag">Culturally attuned</div>
+        <h3>Care in Tiếng Việt</h3>
+        <p class="service__meta">For you &amp; your family</p>
+        <p>
+          Mental health support in Vietnamese — so parents, elders, and loved ones can
+          be part of the conversation, too.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Conditions treated -->
+  <section class="conditions" id="conditions">
+    <div class="conditions__inner">
+      <div class="section__head section__head--left">
+        <p class="eyebrow" data-reveal>What I help with</p>
+        <h2 class="h2" data-reveal>You don't have to <span class="serif-i">name it perfectly</span> <br/>to be welcome here.</h2>
+        <p class="lede" data-reveal>
+          These are some of the experiences people bring to our first visit. You're welcome
+          if you see yourself in one — or in none.
+        </p>
+      </div>
+
+      <ul class="chips" data-reveal>
+        <li>Anxiety</li>
+        <li>Depression</li>
+        <li>Trauma &amp; PTSD</li>
+        <li>Burnout</li>
+        <li>Grief &amp; loss</li>
+        <li>Insomnia</li>
+        <li>ADHD</li>
+        <li>OCD</li>
+        <li>Panic</li>
+        <li>Life transitions</li>
+        <li>Identity &amp; belonging</li>
+        <li>Relationship stress</li>
+        <li>Perinatal mood</li>
+        <li>Cultural &amp; intergenerational pressure</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="quote">
+    <figure data-reveal>
+      <blockquote>
+        <span class="quote__mark" aria-hidden="true">“</span>
+        You are not a diagnosis on a page. You are a person with a story, a family,
+        a future — and the bravest thing you've done this week is consider asking
+        for help.
+      </blockquote>
+      <figcaption>— Alice</figcaption>
+    </figure>
+  </section>
+
+  <!-- Resources -->
+  <section class="resources" id="resources">
+    <div class="section__head">
+      <p class="eyebrow" data-reveal>Resources</p>
+      <h2 class="h2" data-reveal>A small, curated library <br/><span class="serif-i">for the in-between days.</span></h2>
+    </div>
+
+    <div class="resources__grid">
+      <a class="resource" href="#" data-reveal>
+        <div class="resource__kicker">Read</div>
+        <h3>Understanding Anxiety</h3>
+        <p>What anxiety is actually doing in the body — and five gentle things that help tonight.</p>
+        <span class="resource__link">Open article →</span>
+      </a>
+      <a class="resource" href="#" data-reveal>
+        <div class="resource__kicker">Read</div>
+        <h3>Depression, in plain language</h3>
+        <p>Separating the clinical from the cultural, and why neither deserves silence.</p>
+        <span class="resource__link">Open article →</span>
+      </a>
+      <a class="resource" href="#" data-reveal>
+        <div class="resource__kicker">Read</div>
+        <h3>Living with Trauma</h3>
+        <p>A compassionate primer on why your body remembers, and what healing can look like.</p>
+        <span class="resource__link">Open article →</span>
+      </a>
+      <a class="resource resource--crisis" href="tel:988" data-reveal>
+        <div class="resource__kicker">In crisis?</div>
+        <h3>Call or text 988</h3>
+        <p>The 988 Suicide &amp; Crisis Lifeline is free, confidential, and available 24/7.</p>
+        <span class="resource__link">Get help now →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact / CTA -->
+  <section class="contact" id="contact">
+    <div class="contact__card" data-reveal>
+      <div class="contact__left">
+        <p class="eyebrow">Begin here</p>
+        <h2 class="h2">
+          The first step is usually<br/>
+          <span class="serif-i">the hardest.</span>
+        </h2>
+        <p class="lede">
+          If you're ready — or almost ready — I'd be honored to hear from you.
+          Reach out below and we'll find a time that feels right.
+        </p>
+
+        <ul class="contact__details">
+          <li>
+            <span class="contact__label">Practice</span>
+            <span>Northern Virginia Psychiatric Group</span>
+          </li>
+          <li>
+            <span class="contact__label">Location</span>
+            <span>Fairfax, Virginia · Telehealth</span>
+          </li>
+          <li>
+            <span class="contact__label">Email</span>
+            <a href="mailto:hello@alicetrannp.com">hello@alicetrannp.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="contact__form" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="lang">Preferred language</label>
+          <select id="lang" name="lang">
+            <option>English</option>
+            <option>Tiếng Việt</option>
+            <option>Either is fine</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">What's on your mind?</label>
+          <textarea id="msg" name="msg" rows="4" placeholder="No need to polish it. A few sentences is plenty."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Send message</button>
+        <p class="field__note">
+          This form is for general inquiries — not emergencies. If you're in crisis,
+          please call or text <a href="tel:988">988</a>.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4C12 12 6 18 6 26c0 5 4 10 14 10s14-5 14-10c0-8-6-14-14-22z" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M20 12v24" stroke="currentColor" stroke-width="1" opacity=".5"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Alice Tran, PMHNP-BC, FNP-BC</strong>
+          <span>Psychiatric Mental Health &amp; Family Nurse Practitioner</span>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <p class="footer__fine">
+        © <span id="year"></span> Alice Tran. Care is individualized; this site is informational and not a substitute for clinical advice.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

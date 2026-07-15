@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alice Tran Psychiatric Care — thoughtful medication management and supportive therapy for anxiety, depression, ADHD, burnout, and other mental health conditions. English & Tiếng Việt." />
+  <title>Alice Tran Psychiatric Care — Feel like yourself again</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Thin top accent bar -->
+  <div class="topbar" aria-hidden="true"></div>
+
+  <!-- Navigation — mirrors the existing site -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand" aria-label="Alice Tran Psychiatric Care — home">
+        <span class="nav__mark" aria-hidden="true">
+          <!-- lotus mark -->
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M18 10 C 20.5 13.5 20.5 18.5 18 22 C 15.5 18.5 15.5 13.5 18 10 Z" fill="currentColor" opacity=".9"/>
+            <path d="M11 14 C 14.5 15 16.5 18 17 22 C 13 21.5 11 18 11 14 Z" fill="currentColor" opacity=".65"/>
+            <path d="M25 14 C 21.5 15 19.5 18 19 22 C 23 21.5 25 18 25 14 Z" fill="currentColor" opacity=".65"/>
+            <path d="M10 23 q 8 3.5 16 0" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="nav__name">Alice Tran Psychiatric<br/>Care</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#rates">Rates</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#blog">Blog</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a href="#" class="pill pill--outline">Join Visit</a>
+        <a href="#" class="pill pill--solid">Book Now</a>
+      </div>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero — same layout, lotus-pond water background -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+
+      <!-- flowing water: layered animated wave bands -->
+      <div class="water">
+        <svg class="wave wave--1" viewBox="0 0 2400 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 110 C 200 70 400 150 600 110 S 1000 70 1200 110 S 1600 150 1800 110 S 2200 70 2400 110 L 2400 220 L 0 220 Z" fill="#9DB4A0" opacity=".33"/>
+        </svg>
+        <svg class="wave wave--2" viewBox="0 0 2400 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 120 C 240 80 480 160 720 120 S 1200 80 1440 120 S 1920 160 2160 120 L 2400 100 L 2400 220 L 0 220 Z" fill="#7C9A85" opacity=".38"/>
+        </svg>
+        <svg class="wave wave--3" viewBox="0 0 2400 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 130 C 300 95 600 165 900 130 S 1500 95 1800 130 S 2300 165 2400 140 L 2400 220 L 0 220 Z" fill="#5F8370" opacity=".4"/>
+        </svg>
+
+        <!-- fine current lines etched over the water -->
+        <svg class="currents" viewBox="0 0 1600 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#F6F0E2" stroke-width="1.1" fill="none" opacity=".4">
+            <path class="current current--a" d="M-100 70 q 120 -18 240 0 t 240 0 t 240 0 t 240 0 t 240 0 t 240 0 t 240 0"/>
+            <path class="current current--b" d="M-100 150 q 150 -20 300 0 t 300 0 t 300 0 t 300 0 t 300 0 t 300 0"/>
+            <path class="current current--c" d="M-100 225 q 100 -14 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0 t 200 0"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- expanding rain-drop ripples -->
+      <div class="ripple ripple--1"><i></i><i></i><i></i></div>
+      <div class="ripple ripple--2"><i></i><i></i><i></i></div>
+      <div class="ripple ripple--3"><i></i><i></i><i></i></div>
+
+      <!-- lotus blossoms drifting on the surface -->
+      <svg class="lotus lotus--left" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- lily pad -->
+        <ellipse cx="80" cy="102" rx="62" ry="14" fill="#3F5D4C" opacity=".55"/>
+        <path d="M80 102 L 128 96" stroke="#F6F0E2" stroke-width="1" opacity=".3"/>
+        <!-- petals -->
+        <g>
+          <path d="M80 18 C 90 38 90 60 80 74 C 70 60 70 38 80 18 Z" fill="#E8B4B8"/>
+          <path d="M52 34 C 68 44 76 58 78 74 C 62 70 52 52 52 34 Z" fill="#DFA0A6"/>
+          <path d="M108 34 C 92 44 84 58 82 74 C 98 70 108 52 108 34 Z" fill="#DFA0A6"/>
+          <path d="M34 58 C 52 60 68 68 76 78 C 58 82 40 72 34 58 Z" fill="#D48D95"/>
+          <path d="M126 58 C 108 60 92 68 84 78 C 102 82 120 72 126 58 Z" fill="#D48D95"/>
+          <ellipse cx="80" cy="78" rx="10" ry="6" fill="#E9C46A"/>
+        </g>
+      </svg>
+
+      <svg class="lotus lotus--right" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="80" cy="102" rx="58" ry="13" fill="#3F5D4C" opacity=".5"/>
+        <g>
+          <path d="M80 22 C 89 40 89 60 80 73 C 71 60 71 40 80 22 Z" fill="#E8B4B8"/>
+          <path d="M55 37 C 69 46 76 58 78 73 C 63 69 55 53 55 37 Z" fill="#DFA0A6"/>
+          <path d="M105 37 C 91 46 84 58 82 73 C 97 69 105 53 105 37 Z" fill="#DFA0A6"/>
+          <path d="M38 60 C 55 61 69 68 76 77 C 60 81 44 72 38 60 Z" fill="#D48D95"/>
+          <path d="M122 60 C 105 61 91 68 84 77 C 100 81 116 72 122 60 Z" fill="#D48D95"/>
+          <ellipse cx="80" cy="77" rx="9" ry="5.5" fill="#E9C46A"/>
+        </g>
+      </svg>
+
+      <!-- a single lily pad, floating free -->
+      <svg class="pad" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="20" rx="52" ry="15" fill="#41604E" opacity=".5"/>
+        <path d="M60 20 L 104 12" stroke="#F6F0E2" stroke-width="1" opacity=".35"/>
+      </svg>
+
+      <!-- readability vignette -->
+      <div class="hero__vignette"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__kicker">Adult Psychiatry &nbsp;·&nbsp; Virginia &nbsp;·&nbsp; Ages 18–65</p>
+
+      <h1 class="hero__title">Feel like <em>yourself</em> again.</h1>
+
+      <p class="hero__sub">
+        Thoughtful medication management and supportive therapy for anxiety,
+        depression, ADHD, burnout, and other mental health conditions
+      </p>
+
+      <ul class="hero__features">
+        <li>
+          <span class="hero__feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8.2" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6.5 10.2 L 9 12.7 L 13.7 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="hero__feature-label">Accepting New<br/>Patients</span>
+        </li>
+        <li>
+          <span class="hero__feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 18 C 6 13.5 4 10.5 4 8 a 6 6 0 1 1 12 0 c 0 2.5 -2 5.5 -6 10 z" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </span>
+          <span class="hero__feature-label">In Person &amp; Virtual</span>
+        </li>
+        <li>
+          <span class="hero__feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8.2" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M2 10 h 16 M 10 1.8 c 2.6 2.3 4 5 4 8.2 s -1.4 5.9 -4 8.2 c -2.6 -2.3 -4 -5 -4 -8.2 s 1.4 -5.9 4 -8.2 z" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </span>
+          <span class="hero__feature-label">English &amp;<br/>Tiếng Việt</span>
+        </li>
+      </ul>
+
+      <div class="hero__cta">
+        <a href="#" class="pill pill--solid pill--lg">Book an Appointment</a>
+        <a href="tel:+17037919099" class="pill pill--outline pill--lg">Call (703) 791-9099</a>
+      </div>
+
+      <p class="hero__note">
+        New patients typically seen within 1–2 weeks &nbsp;·&nbsp; Online booking takes about 5 minutes
+      </p>
+    </div>
+
+    <!-- chat bubble -->
+    <button class="chat-pill" type="button">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 4.5 h 12 v 8.5 h -7.5 L 5 16 v -3 H 4 Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+      Have a question?
+    </button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
