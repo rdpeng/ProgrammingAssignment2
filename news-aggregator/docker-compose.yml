@@ -1,0 +1,20 @@
+services:
+  news-aggregator:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # SQLite DB persists across restarts/rebuilds
+      - news_data:/app/data
+      # Edit feeds/categories/macro-tags on the host without rebuilding the image
+      - ./backend/config:/app/config
+    env_file:
+      # Optional: copy backend/.env.example to backend/.env to set any of
+      # the optional env vars (translation provider, LLM summarizer,
+      # optional news API keys, etc). The app runs fine without one.
+      - path: ./backend/.env
+        required: false
+    restart: unless-stopped
+
+volumes:
+  news_data:

@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Local data / secrets
+backend/data/
+backend/.env
+*.db
+*.db-journal
+
+# Editors / OS
+.DS_Store
+.vscode/
+.idea/

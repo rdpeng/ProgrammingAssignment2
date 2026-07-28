@@ -1,0 +1,120 @@
+# Macro-impact keyword rules (tag_type = "macro"). This is the differentiator:
+# for ANY item (India or global), tag the assets/themes it plausibly moves so
+# the user can filter for "what actually affects markets." Edit freely.
+
+macro_tags:
+  crude:
+    label: "Crude Oil"
+    keywords:
+      - "crude oil"
+      - "brent"
+      - "wti"
+      - "opec"
+      - "petroleum"
+      - "diesel price"
+      - "petrol price"
+
+  metals:
+    label: "Metals"
+    keywords:
+      - "gold"
+      - "silver"
+      - "copper"
+      - "aluminium"
+      - "aluminum"
+      - "zinc"
+      - "steel"
+      - "iron ore"
+      - "bullion"
+
+  rates:
+    label: "Interest Rates"
+    keywords:
+      - "repo rate"
+      - "interest rate"
+      - "federal reserve"
+      - "fed rate"
+      - "rbi mpc"
+      - "monetary policy committee"
+      - "rate hike"
+      - "rate cut"
+      - "bond yield"
+      - "treasury yield"
+
+  inr:
+    label: "INR / Rupee"
+    keywords:
+      - "rupee"
+      - "inr"
+      - "forex reserves"
+
+  fx:
+    label: "FX / Currencies"
+    keywords:
+      - "dollar index"
+      - "forex"
+      - "currency market"
+      - "yen"
+      - "euro exchange"
+      - "yuan"
+
+  trade:
+    label: "Trade & Tariffs"
+    keywords:
+      - "tariff"
+      - "trade deficit"
+      - "trade war"
+      - "export ban"
+      - "import duty"
+      - "wto"
+      - "free trade agreement"
+      - "trade agreement"
+
+  supply-chain:
+    label: "Supply Chain"
+    keywords:
+      - "supply chain"
+      - "shipping delay"
+      - "semiconductor shortage"
+      - "chip shortage"
+      - "container shortage"
+      - "logistics"
+      - "red sea"
+      - "suez canal"
+      - "port congestion"
+
+  geopolitics:
+    label: "Geopolitics"
+    keywords:
+      - "war"
+      - "sanctions"
+      - "conflict"
+      - "ceasefire"
+      - "military strike"
+      - "border tension"
+      - "geopolitical"
+      - "invasion"
+
+  agriculture:
+    label: "Agriculture / Food"
+    keywords:
+      - "msp"
+      - "minimum support price"
+      - "monsoon"
+      - "crop yield"
+      - "wheat export"
+      - "rice export"
+      - "sugar export"
+      - "agri commodity"
+      - "food inflation"
+
+  energy:
+    label: "Energy"
+    keywords:
+      - "natural gas"
+      - "lng"
+      - "coal"
+      - "renewable energy"
+      - "solar power"
+      - "power tariff"
+      - "energy security"

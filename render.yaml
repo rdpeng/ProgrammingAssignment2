@@ -1,0 +1,17 @@
+# Render Blueprint — lets Render auto-configure the "Signal" news aggregator
+# from this repo in one step. See news-aggregator/README.md for what this
+# app does; see https://render.com/docs/blueprint-spec for this file's format.
+services:
+  - type: web
+    name: signal-news
+    runtime: docker
+    plan: free
+    rootDir: news-aggregator/backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: TRANSLATION_PROVIDER
+        value: google_free
+      - key: POLL_INTERVAL_MINUTES
+        value: "15"

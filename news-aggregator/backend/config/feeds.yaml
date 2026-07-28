@@ -1,0 +1,176 @@
+# Editable feed list. No code changes needed to add/remove/disable a source.
+#
+# Fields:
+#   name       - display name of the source
+#   feed_url   - RSS/Atom URL
+#   language   - "en" or "hi"
+#   category   - default/primary category (see categories.yaml for the taxonomy);
+#                items are still auto re-tagged by keyword rules on ingest
+#   enabled    - set to false to temporarily disable a feed without deleting it
+#
+# If a feed URL goes stale (outlets change RSS paths often), the ingestion
+# pipeline logs the failure and skips it — it will not crash the whole run.
+# Fix or replace the URL here; no other code needs to change.
+
+sources:
+  # --- India news / politics / policy ---------------------------------
+  - name: PIB (Press Information Bureau) - All Releases
+    feed_url: "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3"
+    language: en
+    category: india_politics_policy
+    enabled: true
+
+  - name: The Hindu - National
+    feed_url: "https://www.thehindu.com/news/national/feeder/default.rss"
+    language: en
+    category: india_politics_policy
+    enabled: true
+
+  - name: Indian Express - India
+    feed_url: "https://indianexpress.com/section/india/feed/"
+    language: en
+    category: india_politics_policy
+    enabled: true
+
+  - name: LiveMint - News
+    feed_url: "https://www.livemint.com/rss/news"
+    language: en
+    category: india_politics_policy
+    enabled: true
+
+  - name: Business Standard - Latest
+    feed_url: "https://www.business-standard.com/rss/latest.rss"
+    language: en
+    category: india_economy_markets
+    enabled: true
+
+  - name: PRS Legislative Research
+    feed_url: "https://prsindia.org/rss.xml"
+    language: en
+    category: india_politics_policy
+    enabled: true
+
+  # --- Hindi ------------------------------------------------------------
+  - name: Dainik Bhaskar - राष्ट्रीय
+    feed_url: "https://www.bhaskar.com/rss-v1--category-1061.xml"
+    language: hi
+    category: india_politics_policy
+    enabled: true
+
+  - name: Amar Ujala - राष्ट्रीय
+    feed_url: "https://www.amarujala.com/rss/india-news.xml"
+    language: hi
+    category: india_politics_policy
+    enabled: true
+
+  - name: BBC Hindi - भारत
+    feed_url: "https://feeds.bbci.co.uk/hindi/india/rss.xml"
+    language: hi
+    category: india_politics_policy
+    enabled: true
+
+  - name: BBC Hindi - व्यापार
+    feed_url: "https://feeds.bbci.co.uk/hindi/business/rss.xml"
+    language: hi
+    category: india_economy_markets
+    enabled: true
+
+  - name: Aaj Tak
+    feed_url: "https://www.aajtak.in/rssfeeds/rss1.xml"
+    language: hi
+    category: india_politics_policy
+    enabled: true
+
+  # --- Markets / finance --------------------------------------------
+  - name: LiveMint - Markets
+    feed_url: "https://www.livemint.com/rss/markets"
+    language: en
+    category: india_economy_markets
+    enabled: true
+
+  - name: Moneycontrol - Latest News
+    feed_url: "https://www.moneycontrol.com/rss/latestnews.xml"
+    language: en
+    category: india_economy_markets
+    enabled: true
+
+  - name: Economic Times - Markets
+    feed_url: "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"
+    language: en
+    category: india_economy_markets
+    enabled: true
+
+  - name: RBI - Press Releases
+    feed_url: "https://www.rbi.org.in/pressreleases_rss.xml"
+    language: en
+    category: india_economy_markets
+    enabled: true
+
+  # --- Global macro -----------------------------------------------------
+  - name: US Federal Reserve - Press Releases
+    feed_url: "https://www.federalreserve.gov/feeds/press_all.xml"
+    language: en
+    category: global_macro
+    enabled: true
+
+  - name: European Central Bank - Press
+    feed_url: "https://www.ecb.europa.eu/rss/press.xml"
+    language: en
+    category: global_macro
+    enabled: true
+
+  - name: IMF Blog
+    feed_url: "https://www.imf.org/en/Blogs/rss"
+    language: en
+    category: global_macro
+    enabled: true
+
+  - name: World Bank Blogs
+    feed_url: "https://blogs.worldbank.org/en/rss.xml"
+    language: en
+    category: global_macro
+    enabled: true
+
+  - name: Al Jazeera - All News
+    feed_url: "https://www.aljazeera.com/xml/rss/all.xml"
+    language: en
+    category: global_macro
+    enabled: true
+
+  - name: CNBC - World Markets
+    feed_url: "https://www.cnbc.com/id/100727362/device/rss/rss.html"
+    language: en
+    category: global_macro
+    enabled: true
+
+  # --- Tech / science -----------------------------------------------
+  - name: Ars Technica
+    feed_url: "http://feeds.arstechnica.com/arstechnica/index"
+    language: en
+    category: science_tech
+    enabled: true
+
+  - name: MIT Technology Review
+    feed_url: "https://www.technologyreview.com/feed/"
+    language: en
+    category: science_tech
+    enabled: true
+
+  - name: Nature News
+    feed_url: "http://feeds.nature.com/news/rss/most_recent"
+    language: en
+    category: science_tech
+    enabled: true
+
+  - name: arXiv - Quantitative Finance (new listings)
+    feed_url: "http://export.arxiv.org/rss/q-fin"
+    language: en
+    category: science_tech
+    enabled: true
+
+  # --- Learning opportunities -----------------------------------------
+  - name: Employment News (Govt. of India)
+    feed_url: "https://www.employmentnews.gov.in/rss.aspx"
+    language: en
+    category: learning_opportunities
+    enabled: false # verify/replace: govt sites change RSS paths often

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Signal — Bilingual News Aggregator</title>
+
+<!-- iPhone "Add to Home Screen": makes this open full-screen like a real app,
+     with its own icon, no Safari address bar. -->
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Signal" />
+<meta name="theme-color" content="#4f46e5" />
+<link rel="manifest" href="manifest.json" />
+
+<link rel="icon" type="image/png" href="icons/favicon-32.png" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="brand-group">
+        <span class="brand">Signal</span>
+        <span class="tagline">bilingual news, filtered for macro impact</span>
+      </div>
+      <div class="header-actions">
+        <button id="refreshBtn" title="Fetch latest from all feeds" class="icon-btn">
+          <svg id="refreshIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+          <span>Refresh</span>
+        </button>
+        <button id="darkToggle" title="Toggle dark mode" class="icon-btn">
+          <svg id="darkIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search + time window -->
+    <div class="search-row">
+      <input id="searchInput" type="search" placeholder="Search headlines & summaries…" class="search-input" />
+      <select id="windowSelect" class="window-select">
+        <option value="6">Last 6h</option>
+        <option value="24" selected>Last 24h</option>
+        <option value="72">Last 3 days</option>
+        <option value="168">Last 7 days</option>
+        <option value="">All time</option>
+      </select>
+    </div>
+
+    <!-- Filter row -->
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Lang</span>
+        <button class="chip lang-chip" data-lang="">All</button>
+        <button class="chip lang-chip" data-lang="en">EN</button>
+        <button class="chip lang-chip" data-lang="hi">HI</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Category</span>
+        <div id="categoryChips" class="filter-group"></div>
+      </div>
+      <label class="bookmarked-toggle">
+        <input type="checkbox" id="bookmarkedOnly" />
+        <span>Bookmarked only</span>
+      </label>
+    </div>
+
+    <!-- Macro tag row — the differentiator, visually distinct -->
+    <div class="macro-row">
+      <span class="macro-row-label">⚡ Macro impact</span>
+      <div id="macroChips" class="filter-group"></div>
+      <button id="priorityHelpBtn" class="priority-help-btn">pin priority topics ▸</button>
+    </div>
+    <div id="priorityPanel" class="priority-panel hidden">
+      <p>Click tags to pin them — pinned stories float to the top of your feed (saved locally).</p>
+      <div id="priorityChips" class="filter-group"></div>
+    </div>
+  </header>
+
+  <div id="statusBar" class="status-bar"></div>
+
+  <main id="feed" class="feed"></main>
+
+  <div id="emptyState" class="empty-state hidden">
+    <p>No stories match these filters yet.</p>
+    <p>Try widening the time window, or hit Refresh to poll feeds now.</p>
+  </div>
+
+  <div class="load-more-wrap">
+    <button id="loadMoreBtn" class="load-more-btn hidden">Load more</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
